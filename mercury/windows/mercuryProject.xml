@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<Config xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <ProjectConfig>
+     <Config ProjectName="Меркурий-230" ProjectPath="F:\scadapy\29042018\mercury\windows\" PathToPythonWindows="c:\Python35\python.exe" PathToBrowserWindows="c:\Program Files\Internet Explorer\iexplore" PathToTerminalLinux="xfce4-terminal --geometry=100x20 -e" PathToBrowserLinux="firefox" PathToPythonLinux="python35"></Config>
+ </ProjectConfig>
+ <ModbusConfig>
+ </ModbusConfig>
+ <MercuryConfig>
+     <PortMercury ParentIndex="1" ItemIndex="0" Level="2" Protocol="1" Mtype="1" tcp_com="com9" port_speed="9600" name="Меркурий-230">1
+          <VariableMercury id="1" VarName="merc_230_43" Serial_Number="43" Empty1="0" Empty2="0" Net_Address="000043" TimeOut="1"></VariableMercury>
+          <VariableMercury id="2" VarName="merc_230_81" Serial_Number="81" Empty1="0" Empty2="0" Net_Address="000081" TimeOut="1"></VariableMercury>
+     </PortMercury>
+ </MercuryConfig>
+ <Variables>
+    <VarPoint Id="1" VarName="merc_230_81" Alias="SerialNumber_81" Address="0" ByteCount="1" ByteRoute="1" VarType="string" Manage="1"  VarAlias="Серийный номер 81" >merc_230_81</VarPoint>
+    <VarPoint Id="2" VarName="merc_230_81" Alias="Freq_81" Address="1" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.01"  VarAlias="Частота 81" >merc_230_81</VarPoint>
+    <VarPoint Id="3" VarName="merc_230_81" Alias="Aplus_81" Address="2" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная A+ 81" >merc_230_81</VarPoint>
+    <VarPoint Id="4" VarName="merc_230_81" Alias="Aminus_81" Address="3" ByteCount="1" ByteRoute="1" VarType="integer" Manage="1"  VarAlias="Энергия суммарная A- 81" >merc_230_81</VarPoint>
+    <VarPoint Id="5" VarName="merc_230_81" Alias="Rplus_81" Address="4" ByteCount="1" ByteRoute="1" VarType="integer" Manage="1"  VarAlias="Энергия суммарная R+ 81" >merc_230_81</VarPoint>
+    <VarPoint Id="6" VarName="merc_230_81" Alias="Rminus_81" Address="5" ByteCount="1" ByteRoute="1" VarType="integer" Manage="1"  VarAlias="Энергия суммарная R- 81" >merc_230_81</VarPoint>
+    <VarPoint Id="7" VarName="merc_230_81" Alias="U1_81" Address="22" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.01"  VarAlias="Напряжение фаза А 81" >merc_230_81</VarPoint>
+    <VarPoint Id="8" VarName="merc_230_43" Alias="SerialNumber_43" Address="0" ByteCount="1" ByteRoute="1" VarType="string" Manage="1"  VarAlias="Серийный номер 43" >merc_230_43</VarPoint>
+    <VarPoint Id="9" VarName="merc_230_43" Alias="Aplus_43" Address="2" ByteCount="1" ByteRoute="1" VarType="integer" Manage="1"  VarAlias="Энергия суммарная A+ 43" >merc_230_43</VarPoint>
+    <VarPoint Id="10" VarName="merc_230_43" Alias="Aminus_43" Address="3" ByteCount="1" ByteRoute="1" VarType="integer" Manage="1"  VarAlias="Энергия суммарная A- 43" >merc_230_43</VarPoint>
+ </Variables>
+</Config>

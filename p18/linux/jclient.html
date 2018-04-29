@@ -1,0 +1,156 @@
+<!--###########################################################################
+## Html code generated with ScadaPy Creator v.3.2.9  29-4-18 
+## Html Client by Jack Maclov
+## http://scadapy.ln-group.ru/
+##
+## PLEASE DO ALL YOU NEED THIS FILE!
+########################################################################### -->
+<!DOCTYPE html>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<title>ScadaPy Html client</title>
+<script type="text/javascript">
+var Host="http://127.0.0.1:8080/data";
+var Login='root';
+var Password='root';
+var resp="0";
+var T_7002;
+var Alias_T_7002='Температура на улице';
+var RH_7004;
+var Alias_RH_7004='Относительная влажность';
+var Td_7006;
+var Alias_Td_7006='Точка Росы';
+var A_7008;
+var Alias_A_7008='Абсолютная влажность';
+var MinT_7010;
+var Alias_MinT_7010='Минимальная температура';
+var MaxT_7012;
+var Alias_MaxT_7012='Махимальная температура';
+var MinRH_7014;
+var Alias_MinRH_7014='Минимальная отн.влажность';
+var MaxRH_7016;
+var Alias_MaxRH_7016='Максимальная отн.влажность';
+var MinTd_7018;
+var Alias_MinTd_7018='Минимальная точка росы';
+var MaxTd_7020;
+var Alias_MaxTd_7020='Максимальная точка росы';
+var MinA_7022;
+var Alias_MinA_7022='Минимальная абс.влажность';
+var MaxA_7024;
+var Alias_MaxA_7024='Максимальная абс.влажность';
+function init()  {   setInterval(function(){ getData();}, 1000); }
+function getData() {
+if (window.XMLHttpRequest) {  xmlhttp=new XMLHttpRequest();                        }
+else                       {  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");      }
+xmlhttp.open("GET",Host,true);
+xmlhttp.setRequestHeader("Authorization", "Basic " + btoa(Login+":"+Password));
+xmlhttp.withCredentials = true;
+xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xmlhttp.send(null);
+xmlhttp.onreadystatechange=function()   {
+if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+resp= xmlhttp.responseText;
+parseResp=JSON.parse(resp);
+document.getElementById("recv").innerHTML=resp;
+try      { document.getElementById("T_7002").innerHTML=Alias_T_7002+': '+ parseResp[0].T_7002; }
+catch(e) { document.getElementById("T_7002").innerHTML=Alias_T_7002+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_T_7002").textContent=parseResp[0].T_7002.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_T_7002").textContent=parseResp[0].T_7002; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_T_7002").textContent=0; }
+         }
+try      { document.getElementById("RH_7004").innerHTML=Alias_RH_7004+': '+ parseResp[1].RH_7004; }
+catch(e) { document.getElementById("RH_7004").innerHTML=Alias_RH_7004+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_RH_7004").textContent=parseResp[1].RH_7004.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_RH_7004").textContent=parseResp[1].RH_7004; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_RH_7004").textContent=0; }
+         }
+try      { document.getElementById("Td_7006").innerHTML=Alias_Td_7006+': '+ parseResp[2].Td_7006; }
+catch(e) { document.getElementById("Td_7006").innerHTML=Alias_Td_7006+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Td_7006").textContent=parseResp[2].Td_7006.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Td_7006").textContent=parseResp[2].Td_7006; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Td_7006").textContent=0; }
+         }
+try      { document.getElementById("A_7008").innerHTML=Alias_A_7008+': '+ parseResp[3].A_7008; }
+catch(e) { document.getElementById("A_7008").innerHTML=Alias_A_7008+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_A_7008").textContent=parseResp[3].A_7008.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_A_7008").textContent=parseResp[3].A_7008; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_A_7008").textContent=0; }
+         }
+try      { document.getElementById("MinT_7010").innerHTML=Alias_MinT_7010+': '+ parseResp[4].MinT_7010; }
+catch(e) { document.getElementById("MinT_7010").innerHTML=Alias_MinT_7010+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_MinT_7010").textContent=parseResp[4].MinT_7010.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_MinT_7010").textContent=parseResp[4].MinT_7010; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_MinT_7010").textContent=0; }
+         }
+try      { document.getElementById("MaxT_7012").innerHTML=Alias_MaxT_7012+': '+ parseResp[5].MaxT_7012; }
+catch(e) { document.getElementById("MaxT_7012").innerHTML=Alias_MaxT_7012+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_MaxT_7012").textContent=parseResp[5].MaxT_7012.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_MaxT_7012").textContent=parseResp[5].MaxT_7012; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_MaxT_7012").textContent=0; }
+         }
+try      { document.getElementById("MinRH_7014").innerHTML=Alias_MinRH_7014+': '+ parseResp[6].MinRH_7014; }
+catch(e) { document.getElementById("MinRH_7014").innerHTML=Alias_MinRH_7014+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_MinRH_7014").textContent=parseResp[6].MinRH_7014.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_MinRH_7014").textContent=parseResp[6].MinRH_7014; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_MinRH_7014").textContent=0; }
+         }
+try      { document.getElementById("MaxRH_7016").innerHTML=Alias_MaxRH_7016+': '+ parseResp[7].MaxRH_7016; }
+catch(e) { document.getElementById("MaxRH_7016").innerHTML=Alias_MaxRH_7016+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_MaxRH_7016").textContent=parseResp[7].MaxRH_7016.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_MaxRH_7016").textContent=parseResp[7].MaxRH_7016; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_MaxRH_7016").textContent=0; }
+         }
+try      { document.getElementById("MinTd_7018").innerHTML=Alias_MinTd_7018+': '+ parseResp[8].MinTd_7018; }
+catch(e) { document.getElementById("MinTd_7018").innerHTML=Alias_MinTd_7018+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_MinTd_7018").textContent=parseResp[8].MinTd_7018.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_MinTd_7018").textContent=parseResp[8].MinTd_7018; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_MinTd_7018").textContent=0; }
+         }
+try      { document.getElementById("MaxTd_7020").innerHTML=Alias_MaxTd_7020+': '+ parseResp[9].MaxTd_7020; }
+catch(e) { document.getElementById("MaxTd_7020").innerHTML=Alias_MaxTd_7020+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_MaxTd_7020").textContent=parseResp[9].MaxTd_7020.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_MaxTd_7020").textContent=parseResp[9].MaxTd_7020; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_MaxTd_7020").textContent=0; }
+         }
+try      { document.getElementById("MinA_7022").innerHTML=Alias_MinA_7022+': '+ parseResp[10].MinA_7022; }
+catch(e) { document.getElementById("MinA_7022").innerHTML=Alias_MinA_7022+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_MinA_7022").textContent=parseResp[10].MinA_7022.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_MinA_7022").textContent=parseResp[10].MinA_7022; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_MinA_7022").textContent=0; }
+         }
+try      { document.getElementById("MaxA_7024").innerHTML=Alias_MaxA_7024+': '+ parseResp[11].MaxA_7024; }
+catch(e) { document.getElementById("MaxA_7024").innerHTML=Alias_MaxA_7024+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_MaxA_7024").textContent=parseResp[11].MaxA_7024.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_MaxA_7024").textContent=parseResp[11].MaxA_7024; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_MaxA_7024").textContent=0; }
+         }
+}  }  }
+</script>
+<body onload="init()" style="background-color:white" >
+<span id="recv"></span><br>
+<span id="T_7002"></span><br>
+<span id="RH_7004"></span><br>
+<span id="Td_7006"></span><br>
+<span id="A_7008"></span><br>
+<span id="MinT_7010"></span><br>
+<span id="MaxT_7012"></span><br>
+<span id="MinRH_7014"></span><br>
+<span id="MaxRH_7016"></span><br>
+<span id="MinTd_7018"></span><br>
+<span id="MaxTd_7020"></span><br>
+<span id="MinA_7022"></span><br>
+<span id="MaxA_7024"></span><br>
+<br><br><iframe id="i1" width="800" height="455"  src="./image.svg" ></iframe>
+</body></html>

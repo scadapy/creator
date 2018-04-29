@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><text x="0"  y="15">SVG image</text>
+<text x="40"  y="35">float</text>
+<text x="130"  y="35">Температура трансформатора</text>
+<text id="SVG_T_7002" x="400"  y="35">value</text>
+<rect id="REC_T_7002" x="10" y="20" width="20" height="20" fill="red"/>
+<text x="40"  y="70">float</text>
+<text x="130"  y="70">Относительная влажность</text>
+<text id="SVG_RH_7004" x="400"  y="70">value</text>
+<rect id="REC_RH_7004" x="10" y="55" width="20" height="20" fill="red"/>
+<text x="40"  y="105">float</text>
+<text x="130"  y="105">Точка Росы</text>
+<text id="SVG_Td_7006" x="400"  y="105">value</text>
+<rect id="REC_Td_7006" x="10" y="90" width="20" height="20" fill="red"/>
+<text x="40"  y="140">float</text>
+<text x="130"  y="140">Абсолютная влажность</text>
+<text id="SVG_A_7008" x="400"  y="140">value</text>
+<rect id="REC_A_7008" x="10" y="125" width="20" height="20" fill="red"/>
+<text x="40"  y="175">float</text>
+<text x="130"  y="175">Минимальная температура</text>
+<text id="SVG_MinT_7010" x="400"  y="175">value</text>
+<rect id="REC_MinT_7010" x="10" y="160" width="20" height="20" fill="red"/>
+<text x="40"  y="210">float</text>
+<text x="130"  y="210">Махимальная температура</text>
+<text id="SVG_MaxT_7012" x="400"  y="210">value</text>
+<rect id="REC_MaxT_7012" x="10" y="195" width="20" height="20" fill="red"/>
+<text x="40"  y="245">float</text>
+<text x="130"  y="245">Минимальная отн.влажность</text>
+<text id="SVG_MinRH_7014" x="400"  y="245">value</text>
+<rect id="REC_MinRH_7014" x="10" y="230" width="20" height="20" fill="red"/>
+<text x="40"  y="280">float</text>
+<text x="130"  y="280">Максимальная отн.влажность</text>
+<text id="SVG_MaxRH_7016" x="400"  y="280">value</text>
+<rect id="REC_MaxRH_7016" x="10" y="265" width="20" height="20" fill="red"/>
+<text x="40"  y="315">float</text>
+<text x="130"  y="315">Минимальная точка росы</text>
+<text id="SVG_MinTd_7018" x="400"  y="315">value</text>
+<rect id="REC_MinTd_7018" x="10" y="300" width="20" height="20" fill="red"/>
+<text x="40"  y="350">float</text>
+<text x="130"  y="350">Максимальная точка росы</text>
+<text id="SVG_MaxTd_7020" x="400"  y="350">value</text>
+<rect id="REC_MaxTd_7020" x="10" y="335" width="20" height="20" fill="red"/>
+<text x="40"  y="385">float</text>
+<text x="130"  y="385">Минимальная абс.влажность</text>
+<text id="SVG_MinA_7022" x="400"  y="385">value</text>
+<rect id="REC_MinA_7022" x="10" y="370" width="20" height="20" fill="red"/>
+<text x="40"  y="420">float</text>
+<text x="130"  y="420">Максимальная абс.влажность</text>
+<text id="SVG_MaxA_7024" x="400"  y="420">value</text>
+<rect id="REC_MaxA_7024" x="10" y="405" width="20" height="20" fill="red"/>
+<text x="40"  y="455">string</text>
+<text x="130"  y="455">Серийный номер 81</text>
+<text id="SVG_SerialNumber_81" x="400"  y="455">value</text>
+<rect id="REC_SerialNumber_81" x="10" y="440" width="20" height="20" fill="red"/>
+<text x="40"  y="490">integer</text>
+<text x="130"  y="490">Частота 81</text>
+<text id="SVG_Freq_81" x="400"  y="490">value</text>
+<rect id="REC_Freq_81" x="10" y="475" width="20" height="20" fill="red"/>
+<text x="40"  y="525">integer</text>
+<text x="130"  y="525">Энергия суммарная A+ 81</text>
+<text id="SVG_Aplus_81" x="400"  y="525">value</text>
+<rect id="REC_Aplus_81" x="10" y="510" width="20" height="20" fill="red"/>
+<text x="40"  y="560">integer</text>
+<text x="130"  y="560">Энергия суммарная A- 81</text>
+<text id="SVG_Aminus_81" x="400"  y="560">value</text>
+<rect id="REC_Aminus_81" x="10" y="545" width="20" height="20" fill="red"/>
+<text x="40"  y="595">integer</text>
+<text x="130"  y="595">Энергия суммарная R+ 81</text>
+<text id="SVG_Rplus_81" x="400"  y="595">value</text>
+<rect id="REC_Rplus_81" x="10" y="580" width="20" height="20" fill="red"/>
+<text x="40"  y="630">integer</text>
+<text x="130"  y="630">Энергия суммарная R- 81</text>
+<text id="SVG_Rminus_81" x="400"  y="630">value</text>
+<rect id="REC_Rminus_81" x="10" y="615" width="20" height="20" fill="red"/>
+<text x="40"  y="665">integer</text>
+<text x="130"  y="665">Напряжение фаза А 81</text>
+<text id="SVG_U1_81" x="400"  y="665">value</text>
+<rect id="REC_U1_81" x="10" y="650" width="20" height="20" fill="red"/>
+<text x="40"  y="700">string</text>
+<text x="130"  y="700">Серийный номер 43</text>
+<text id="SVG_SerialNumber_43" x="400"  y="700">value</text>
+<rect id="REC_SerialNumber_43" x="10" y="685" width="20" height="20" fill="red"/>
+<text x="40"  y="735">integer</text>
+<text x="130"  y="735">Энергия суммарная A+ 43</text>
+<text id="SVG_Aplus_43" x="400"  y="735">value</text>
+<rect id="REC_Aplus_43" x="10" y="720" width="20" height="20" fill="red"/>
+<text x="40"  y="770">integer</text>
+<text x="130"  y="770">Энергия суммарная A- 43</text>
+<text id="SVG_Aminus_43" x="400"  y="770">value</text>
+<rect id="REC_Aminus_43" x="10" y="755" width="20" height="20" fill="red"/>
+<text x="40"  y="805">bool</text>
+<text x="130"  y="805">Генератор включен</text>
+<text id="SVG_Gen_ON_OFF" x="400"  y="805">value</text>
+<rect id="REC_Gen_ON_OFF" x="10" y="790" width="20" height="20" fill="red"/>
+<text x="40"  y="840">bool</text>
+<text x="130"  y="840">Генератор перегрузка</text>
+<text id="SVG_Gen_Overload" x="400"  y="840">value</text>
+<rect id="REC_Gen_Overload" x="10" y="825" width="20" height="20" fill="red"/>
+<text x="40"  y="875">bool</text>
+<text x="130"  y="875">Генератор защита по току</text>
+<text id="SVG_Gen_Def" x="400"  y="875">value</text>
+<rect id="REC_Gen_Def" x="10" y="860" width="20" height="20" fill="red"/>
+<text x="40"  y="910">bool</text>
+<text x="130"  y="910">Генератор уровень топлива min</text>
+<text id="SVG_Gen_Fuel" x="400"  y="910">value</text>
+<rect id="REC_Gen_Fuel" x="10" y="895" width="20" height="20" fill="red"/>
+<text x="40"  y="945">bool</text>
+<text x="130"  y="945">Генератор перегрев охл.жидкости</text>
+<text id="SVG_Gen_Temp" x="400"  y="945">value</text>
+<rect id="REC_Gen_Temp" x="10" y="930" width="20" height="20" fill="red"/>
+<text x="40"  y="980">bool</text>
+<text x="130"  y="980">Генератор давление масла</text>
+<text id="SVG_Gen_Pression" x="400"  y="980">value</text>
+<rect id="REC_Gen_Pression" x="10" y="965" width="20" height="20" fill="red"/>
+</svg>
