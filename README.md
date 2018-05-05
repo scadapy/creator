@@ -1,6 +1,8 @@
 # creator
 ScadaPy Creator for modbus client
+```
 В настоящий момент актуальная версия 3.3.6
+```
 Программа генерирует файлы:
 
 - modbus.py -- драйвер опроса modbus устройств;
