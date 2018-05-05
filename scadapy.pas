@@ -19,6 +19,7 @@ type
     BitBtn10: TBitBtn;
     BitBtn11: TBitBtn;
     BitBtn12: TBitBtn;
+    BitBtn13: TBitBtn;
     BitBtn2: TBitBtn;
     BitBtn3: TBitBtn;
     BitBtn4: TBitBtn;
@@ -31,6 +32,10 @@ type
     ComboBox2: TComboBox;
     Edit1: TEdit;
     Edit10: TEdit;
+    Edit11: TEdit;
+    Edit12: TEdit;
+    Edit13: TEdit;
+    Edit14: TEdit;
     Edit2: TEdit;
     Edit3: TEdit;
     Edit4: TEdit;
@@ -43,6 +48,10 @@ type
     Label10: TLabel;
     Label11: TLabel;
     Label12: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
@@ -64,6 +73,8 @@ type
     MenuItem15: TMenuItem;
     MenuItem16: TMenuItem;
     MenuItem17: TMenuItem;
+    MenuItem18: TMenuItem;
+    MenuItem19: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
@@ -102,6 +113,7 @@ type
     procedure BitBtn10Click(Sender: TObject);
     procedure BitBtn11Click(Sender: TObject);
     procedure BitBtn12Click(Sender: TObject);
+    procedure BitBtn13Click(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
     procedure BitBtn3Click(Sender: TObject);
@@ -128,6 +140,8 @@ type
     procedure MenuItem15Click(Sender: TObject);
     procedure MenuItem16Click(Sender: TObject);
     procedure MenuItem17Click(Sender: TObject);
+    procedure MenuItem18Click(Sender: TObject);
+    procedure MenuItem19Click(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem4Click(Sender: TObject);
@@ -161,6 +175,7 @@ type
    procedure RunCmdCommand(comEx: string);
    procedure SaveXML2();
    procedure OpenProjectXML(fileName: string);
+   procedure OpenDBXML(fileName: string);
    procedure LoadVarTree();
    procedure SaveTreeData();
    procedure LoadFromFileXML(filename: String);
@@ -170,6 +185,7 @@ type
    procedure SaveToFileHtml();
    procedure MercuryLib();
    procedure MercuryClient();
+   procedure DbArch();
   public
 
   end;
@@ -195,6 +211,11 @@ var
   PathToBrowserWindows: String;
   PathToBrowserLinux: String;
   PathToTerminalLinux: String;
+  DbHost:String;
+  DbPort:String;
+  DbLogin:String;
+  DbPassword:String;
+
   FileToSave: String;
   Version: String;
   ArRow: integer;
@@ -208,7 +229,7 @@ implementation
 
 procedure TMainFrame.FormCreate(Sender: TObject);
 begin
-       Version:='ScadaPy Creator v.3.3.1 ';
+       Version:='ScadaPy Creator v.3.3.6 ';
        MainFrame.Caption:=Version;
 
 
@@ -243,7 +264,7 @@ begin
 
 //////////////////////////////////////////////////////
        StringGrid2.Clear;
-       StringGrid2.ColCount:=9;
+       StringGrid2.ColCount:=10;
        StringGrid2.RowCount:=2;
        StringGrid2.Cells[0,0] := '№';
        StringGrid2.Cells[1,0] := 'Источник';
@@ -254,6 +275,7 @@ begin
        StringGrid2.Cells[6,0] := 'Тип данных';
        StringGrid2.Cells[7,0] := 'Множитель';
        StringGrid2.Cells[8,0] := 'Псевдоним';
+       StringGrid2.Cells[9,0] := 'Период архивации';
 
        StringGrid2.ColWidths[0]:=30;
        StringGrid2.ColWidths[1]:=200;
@@ -264,8 +286,7 @@ begin
        StringGrid2.ColWidths[6]:=100;
        StringGrid2.ColWidths[7]:=70;
        StringGrid2.ColWidths[8]:=200;
-
-
+       StringGrid2.ColWidths[9]:=120;
 
 end;
 
@@ -292,11 +313,11 @@ begin
       PathToBrowserLinux:=Edit9.Text;
       PathToPythonLinux:=Edit10.Text;
       MainFrame.Caption:=Version + ProjectName +' file '+  ProjectFile;
-      try
-        SaveTreeData();
-      except
+      //try
+     //   SaveTreeData();
+   //   except
 
-      end;
+     // end;
       SaveXML2();
       try
         begin
@@ -305,6 +326,7 @@ begin
          SaveToFileHtml();
          MercuryLib();
          MercuryClient();
+         DbArch();
        end;
       except
 
@@ -330,6 +352,7 @@ begin
  SaveToFileHtml();
  MercuryLib();
  MercuryClient();
+ DbArch();
 end;
 
 procedure TMainFrame.BitBtn7Click(Sender: TObject);
@@ -353,6 +376,8 @@ begin
 end;
 
 procedure TMainFrame.Button1Click(Sender: TObject);
+
+
 begin
 
 end;
@@ -404,6 +429,16 @@ begin
   {$ENDIF Windows}
   {$IFDEF Unix}
      RunCmdCommand(PathToTerminalLinux + ' "'+PathToPythonLinux+' '+ProjectPath+'mclient.py'+'"');
+  {$ENDIF Unix}
+end;
+
+procedure TMainFrame.BitBtn13Click(Sender: TObject);
+begin
+  {$IFDEF Windows}
+     RunCmdCommand(PathToPythonWindows+' '+ProjectPath+'dbserver.py"');
+  {$ENDIF Windows}
+  {$IFDEF Unix}
+  RunCmdCommand(PathToTerminalLinux + ' "'+PathToPythonLinux+' '+ProjectPath+'dbserver.py'+'"');
   {$ENDIF Unix}
 end;
 
@@ -587,6 +622,21 @@ begin
 
        end;
 
+end;
+
+procedure TMainFrame.MenuItem18Click(Sender: TObject);
+begin
+  {$IFDEF Windows}
+   RunCmdCommand(PathToPythonWindows+' '+ProjectPath+'dbserver.py"');
+  {$ENDIF Windows}
+  {$IFDEF Unix}
+  RunCmdCommand(PathToTerminalLinux + ' "'+PathToPythonLinux+' '+ProjectPath+'dbserver.py'+'"');
+  {$ENDIF Unix}
+end;
+
+procedure TMainFrame.MenuItem19Click(Sender: TObject);
+begin
+   DbArch();
 end;
 
 procedure TMainFrame.MenuItem2Click(Sender: TObject);
@@ -780,6 +830,13 @@ begin
            Editor := StringGrid2.EditorByStyle(cbsPickList);
            TCustomComboBox(Editor).Items.CommaText := 'integer,float,string,bool';
       end;
+   if aCol=9 then
+      begin
+           Editor := StringGrid2.EditorByStyle(cbsPickList);
+           TCustomComboBox(Editor).Items.CommaText := '0,1,5,15,30,60';
+      end;
+
+
 end;
 
 procedure TMainFrame.StringGrid4SelectEditor(Sender: TObject; aCol,
@@ -819,11 +876,12 @@ procedure TMainFrame.SaveToFileModbusPy();
 var
   rowCount,i,j,z: integer;
   //DataRec:MStructure;
-  insText,mThread:String;
+  insText,mThread,mThreadJoin:String;
 
 
 begin
         mThread:='';
+        mThreadJoin:='';
         rowCount:=MainTree.Items.Count;
         Memo1.Clear;
         Memo1.Lines.Add('# -*- coding: utf-8 -*-');
@@ -853,6 +911,8 @@ begin
                  mThread:=mThread+'         modb_'+i.ToString+' = threading.Thread(target=Proc_'+i.ToString+',args=(1,))'+#13#10;
                  mThread:=mThread+'         modb_'+i.ToString+'.daemon = True'+#13#10;
                  mThread:=mThread+'         modb_'+i.ToString+'.start()'+#13#10;
+                 mThreadJoin:=mThreadJoin+'         modb_'+i.ToString+'.join()'+#13#10;
+
                  Memo1.Lines.Add('     startAdr=[]');
                  Memo1.Lines.Add('     rangeAdr=[]');
                  Memo1.Lines.Add('     rtuAddress=[]');
@@ -919,9 +979,12 @@ begin
 
                  Memo1.Lines.Add('                 varNameData= master.execute(int(rtuAddress[i]), c, int(startAdr[i]), int(rangeAdr[i]) )');
                  Memo1.Lines.Add('                 sock_udp.sendto((varname[i]+":"+str(varNameData)).encode(''utf-8''), server_address_udp)');
+                 Memo1.Lines.Add('                 sock_udp_arch.sendto((varname[i]+":"+str(varNameData)).encode(''utf-8''), server_address_udp_arch)');
+
                  Memo1.Lines.Add('             except Exception as e:');
                  Memo1.Lines.Add('                 varNameData=None');
                  Memo1.Lines.Add('                 sock_udp.sendto((varname[i]+":Error").encode(''utf-8''), server_address_udp)');
+                 Memo1.Lines.Add('                 sock_udp_arch.sendto((varname[i]+":Error").encode(''utf-8''), server_address_udp_arch)');
                  Memo1.Lines.Add(insText);
                  Memo1.Lines.Add('             time.sleep(float(timeOut[i]))');
                  Memo1.Lines.Add('             gc.collect()');
@@ -937,6 +1000,8 @@ begin
  Memo1.Lines.Add('             print( ''UDP sender start'')');
  Memo1.Lines.Add('             sock_udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)');
  Memo1.Lines.Add('             server_address_udp = (''localhost'', 64000)');
+ Memo1.Lines.Add('             sock_udp_arch = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)');
+ Memo1.Lines.Add('             server_address_udp_arch = (''localhost'', 64001)');
  Memo1.Lines.Add('         except Exception as e:');
  Memo1.Lines.Add('             print(''UDP fail '',e)');
  Memo1.Lines.Add('         print( ''Starting modbus client'')');
@@ -944,8 +1009,7 @@ begin
 
  Memo1.Lines.Add('  ########################### treads block');
  Memo1.Lines.Add(mThread);
- Memo1.Lines.Add('         while True:');
- Memo1.Lines.Add('             pass');
+ Memo1.Lines.Add(mThreadJoin);
  Memo1.Lines.Add('     except Exception as e:');
  Memo1.Lines.Add('         print(e)');
 
@@ -971,11 +1035,13 @@ begin
              filename := OpenDialog1.Filename;
              ProjectFile := filename;
              FullProjectFilePath:=OpenDialog1.FileName;
+             ProjectPath:=OpenDialog1.InitialDir;
        end;
        MainTree.Items.Clear;
        MainTree.Items.AddFirst(nil,'Конфигурация проекта');
        MainTree.Items.Add(nil,'Протоколы');
        OpenProjectXML(filename);
+       OpenDBXML(filename);
        LoadFromFileXML(filename);
        MainFrame.Caption:=Version + ProjectName +' file '+  ProjectFile;
      end;
@@ -1127,7 +1193,8 @@ begin
                                end;
                            if (Item[j].Attributes.Item[i].NodeName = 'ProjectPath') then
                                begin
-                                  ProjectPath:=String(Item[j].Attributes.Item[i].NodeValue);
+                                 // ProjectPath:=String(Item[j].Attributes.Item[i].NodeValue);
+                                 // ProjectPath:=FullProjectFilePath;
                                   Edit6.Text:=ProjectPath;
                                end;
 
@@ -1171,6 +1238,70 @@ begin
     Doc.Free;
   end;
 end;
+
+
+
+
+
+
+procedure TMainFrame.OpenDBXML(fileName: string);
+var
+       Child: TDOMNode;
+       Doc : TXMLDocument;
+       j,i: Integer;
+begin
+ try
+    ReadXMLFile(Doc,fileName );
+    Child := Doc.DocumentElement.FindNode('DbConfig');
+    while Assigned(Child) do
+    begin
+       with Child.ChildNodes do
+           try
+              for j := 0 to (Count - 1) do
+                 begin
+                        for i := 0 to 3 do
+                        begin
+
+                             if (Item[j].Attributes.Item[i].NodeName = 'DbHost') then
+                               begin
+                                   DbHost:=String(Item[j].Attributes.Item[i].NodeValue);
+                                   Edit11.Text:=DbHost;
+                               end;
+                            if (Item[j].Attributes.Item[i].NodeName = 'DbPort') then
+                               begin
+                                   DbPort:=String(Item[j].Attributes.Item[i].NodeValue);
+                                   Edit12.Text:=DbPort;
+                               end;
+                             if (Item[j].Attributes.Item[i].NodeName = 'DbLogin') then
+                               begin
+                                   DbLogin:=String(Item[j].Attributes.Item[i].NodeValue);
+                                   Edit13.Text:=DbLogin;
+                               end;
+                             if (Item[j].Attributes.Item[i].NodeName = 'DbPassword') then
+                               begin
+                                   DbPassword:=String(Item[j].Attributes.Item[i].NodeValue);
+                                   Edit14.Text:=DbPassword;
+                               end;
+
+
+                        end;
+                  end;
+              // except
+              //     On E :Exception do begin
+              //     ShowMessage(E.Message);
+              //
+              //end;
+           finally
+                 Free;
+             end;
+             Child := Child.NextSibling;
+    end;
+  finally
+    Doc.Free;
+  end;
+end;
+
+
 procedure TMainFrame.LoadVarTree();
 var
   Node,ParentNode: TTreeNode;
@@ -1223,10 +1354,20 @@ rowCount:=MainTree.Items.Count;
 Memo1.Clear;
 Memo1.Lines.Add('<?xml version="1.0"?>');
 Memo1.Lines.Add('<Config xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">');
+
+
+Memo1.Lines.Add(' <DbConfig>');
+Memo1.Lines.Add('     <Cnf DbHost="'+Edit11.Text+'" DbPort="'+Edit12.Text+'" DbLogin="'+Edit13.Text+'" DbPassword="'+Edit14.Text+'"></Cnf>');
+Memo1.Lines.Add(' </DbConfig>');
+
+
 Memo1.Lines.Add(' <ProjectConfig>');
 Memo1.Lines.Add('     <Config ProjectName="'+Edit4.Text+'" ProjectPath="'+Edit6.Text+'" PathToPythonWindows="'+Edit5.Text+'" PathToBrowserWindows="'+Edit7.Text+
 '" PathToTerminalLinux="'+Edit8.Text+'" PathToBrowserLinux="'+Edit9.Text+'" PathToPythonLinux="'+Edit10.Text+'"></Config>');
 Memo1.Lines.Add(' </ProjectConfig>');
+
+
+
 Memo1.Lines.Add(' <ModbusConfig>');
        try
        for i:=1 to RowCount do
@@ -1294,7 +1435,7 @@ rowCount:= StringGrid2.RowCount-1;
                     Memo1.Lines.Add('    <VarPoint Id="'+i.ToString+'" VarName="'+StringGrid2.Cells[1, i]+'" '+
                                         'Alias="'+StringGrid2.Cells[2, i]+'" Address="'+StringGrid2.Cells[3, i]+
                     '" ByteCount="'+StringGrid2.Cells[4, i]+'" ByteRoute="'+StringGrid2.Cells[5, i]+'" VarType="'+StringGrid2.Cells[6, i]+
-                    '" Manage="'+StringGrid2.Cells[7, i]+'" '+' VarAlias="'+StringGrid2.Cells[8, i]+'" >'+StringGrid2.Cells[1, i]+'</VarPoint>');
+                    '" Manage="'+StringGrid2.Cells[7, i]+'" '+' VarAlias="'+StringGrid2.Cells[8, i]+'"  DbArch="'+StringGrid2.Cells[9, i]+'" >'+StringGrid2.Cells[1, i]+'</VarPoint>');
                 end;
        end;
 Memo1.Lines.Add(' </Variables>');
@@ -1447,7 +1588,7 @@ begin
               for j := 0 to (Count - 1) do
                  begin
                      StringGrid2.RowCount:=Count+2;
-                        for i := 0 to 8 do
+                        for i := 0 to 9 do
                         begin
                            StringGrid2.Cells[0, j+1]:= (j+1).ToString;
                            if (Item[j].Attributes.Item[i].NodeName = 'VarName') then       StringGrid2.Cells[1, j+1]:= String(Item[j].Attributes.Item[i].NodeValue);
@@ -1458,6 +1599,8 @@ begin
                            if (Item[j].Attributes.Item[i].NodeName = 'VarType') then       StringGrid2.Cells[6, j+1]:= String(Item[j].Attributes.Item[i].NodeValue);
                            if (Item[j].Attributes.Item[i].NodeName = 'Manage') then        StringGrid2.Cells[7, j+1]:= String(Item[j].Attributes.Item[i].NodeValue);
                            if (Item[j].Attributes.Item[i].NodeName = 'VarAlias') then      StringGrid2.Cells[8, j+1]:= String(Item[j].Attributes.Item[i].NodeValue);
+                           if (Item[j].Attributes.Item[i].NodeName = 'DbArch') then        StringGrid2.Cells[9, j+1]:= String(Item[j].Attributes.Item[i].NodeValue);
+
                            Memo1.Lines.Add(String(Item[j].Attributes.Item[i].NodeValue));
                         end;
                   end;
@@ -1614,12 +1757,29 @@ begin
         Memo1.Lines.Add('             self.do_AUTHHEAD()');
         Memo1.Lines.Add('             response = { ''success'': False, ''error'': ''Invalid credentials''}');
         Memo1.Lines.Add('             self.wfile.write(bytes(json.dumps(response), ''utf-8''))');
-
         Memo1.Lines.Add('def set_auth( username, password):');
         Memo1.Lines.Add('         global key');
         Memo1.Lines.Add('         key = base64.b64encode(bytes(''%s:%s'' % (username, password), ''utf-8'')).decode(''ascii'')');
-
+        Memo1.Lines.Add('def setVariables(mVar,getData,var1,var2,var3,var4,var5,var6,var7):');
+        Memo1.Lines.Add('     try:');
+        Memo1.Lines.Add('         x=getVariables(getData,var1,var2,var3,var4,var5,var6,var7)');
+        Memo1.Lines.Add('         if(x!=None):');
+        Memo1.Lines.Add('             mVar=x ');
+        Memo1.Lines.Add('         else:');
+        Memo1.Lines.Add('             mVar=mVar');
+        Memo1.Lines.Add('     except Exception as e:');
+        Memo1.Lines.Add('         pass');
+        Memo1.Lines.Add('     return(mVar)');
         Memo1.Lines.Add('def SelectData(getData):');
+        rowCount:=StringGrid2.RowCount;
+        for j:=1 to rowCount-1 do
+           begin
+             if(Length(StringGrid2.Cells[2, j])>0) then
+                   Memo1.Lines.Add('     global '+StringGrid2.Cells[2, j]);
+           end;
+        Memo1.Lines.Add('     global AllData');
+
+
         rowCount:=StringGrid2.RowCount;
         for j:=1 to rowCount-1 do
            begin
@@ -1630,22 +1790,13 @@ begin
 
         for j:=1 to rowCount-1 do
           begin
-              if(Length(StringGrid2.Cells[2, j])>0) and (Length(StringGrid2.Cells[1, j])>0) then
+              if(Length(StringGrid2.Cells[2, j])>0) and (Length(StringGrid2.Cells[1, j])>0)  then
                 begin
-                Memo1.Lines.Add('#-----------------------------------------------------------------------------------');
-                Memo1.Lines.Add('     try:');
-                Memo1.Lines.Add('         x=getVariables(getData,'''+StringGrid2.Cells[1, j]+''','''+StringGrid2.Cells[2, j]+''','''+StringGrid2.Cells[3, j]+''','''+StringGrid2.Cells[4, j]+''','''+StringGrid2.Cells[5, j]+''','''+StringGrid2.Cells[6, j]+''','''+StringGrid2.Cells[7,j]+''')');
-                Memo1.Lines.Add('         if(x!=None):');
-                Memo1.Lines.Add('             '+StringGrid2.Cells[2, j]+'=x');
-                Memo1.Lines.Add('         else:');
-                Memo1.Lines.Add('             '+StringGrid2.Cells[2, j]+'='+StringGrid2.Cells[2, j]+'');
-                Memo1.Lines.Add('     except Exception as e:');
-                Memo1.Lines.Add('         pass');
-
-
+                   Memo1.Lines.Add('     '+StringGrid2.Cells[2, j]+'=setVariables('+StringGrid2.Cells[2, j]+',getData,'''+StringGrid2.Cells[1, j]+''','''+StringGrid2.Cells[2, j]+''','''+StringGrid2.Cells[3, j]+''','''+StringGrid2.Cells[4, j]+''','''+StringGrid2.Cells[5, j]+''','''+StringGrid2.Cells[6, j]+''','''+StringGrid2.Cells[7,j]+''')');
                 AllData:=AllData+StringGrid2.Cells[2, j]+','
                 end;
           end;
+
         Memo1.Lines.Add('#-----------------------------------------------------------------------------------');
         Memo1.Lines.Add('     AllData=['+AllData+']');
         Memo1.Lines.Add('def getVariables(getData,source,varName,address,count,sequence,dataType,multiply):');
@@ -1888,7 +2039,7 @@ end;
 procedure TMainFrame.MercuryClient();
 var
   rowCount,i,j,z: integer;
-  mThread:string;
+  mThread,mThreadJoin:string;
 begin
   Memo1.Clear;
   Memo1.Lines.Add('# -*- coding: utf-8 -*-');
@@ -1907,6 +2058,7 @@ begin
   Memo1.Lines.Add('import mercury as m');
 
   mThread:='';
+  mThreadJoin:='';
   rowCount:=MainTree.Items.Count;
   try
      begin
@@ -1918,6 +2070,7 @@ begin
                  mThread:=mThread+'         modb_'+i.ToString+' = threading.Thread(target=Proc_'+i.ToString+',args=(1,))'+#13#10;
                  mThread:=mThread+'         modb_'+i.ToString+'.daemon = True'+#13#10;
                  mThread:=mThread+'         modb_'+i.ToString+'.start()'+#13#10;
+                 mThreadJoin:=mThreadJoin+'         modb_'+i.ToString+'.join()'+#13#10;
                  Memo1.Lines.Add('     startAdr=[]');
                  Memo1.Lines.Add('     rangeAdr=[]');
                  Memo1.Lines.Add('     rtuAddress=[]');
@@ -1977,26 +2130,33 @@ begin
   Memo1.Lines.Add('             try:');
   Memo1.Lines.Add('                 varNameData=m.getDataFromCounter(rtuAddress[i],com,0)');
   Memo1.Lines.Add('                 sock_udp.sendto((varname[i]+":").encode(''utf-8'')+str(varNameData).encode(''utf-8''), server_address_udp)');
+  Memo1.Lines.Add('                 sock_udp_arch.sendto((varname[i]+":").encode(''utf-8'')+str(varNameData).encode(''utf-8''), server_address_udp_arch)');
+
   Memo1.Lines.Add('             except Exception as e:');
   Memo1.Lines.Add('                 varNameData=None');
   Memo1.Lines.Add('                 sock_udp.sendto((varname[i]+":Error").encode(''utf-8''), server_address_udp)');
+  Memo1.Lines.Add('                 sock_udp_arch.sendto((varname[i]+":Error").encode(''utf-8''), server_address_udp_arch)');
+
   Memo1.Lines.Add('             time.sleep(float(timeOut[x]))');
   Memo1.Lines.Add('if __name__ == "__main__":');
   Memo1.Lines.Add('     try:');
   Memo1.Lines.Add('         try:');
   Memo1.Lines.Add('             print( ''UDP sender start'')');
+
   Memo1.Lines.Add('             sock_udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)');
   Memo1.Lines.Add('             server_address_udp = (''localhost'', 64000)');
+
+  Memo1.Lines.Add('             sock_udp_arch = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)');
+  Memo1.Lines.Add('             server_address_udp_arch = (''localhost'', 64001)');
+
   Memo1.Lines.Add('         except Exception as e:');
   Memo1.Lines.Add('             print(''UDP fail '',e)');
   Memo1.Lines.Add('         print( ''Starting mercury client'')');
   Memo1.Lines.Add('         time.sleep(1.0)');
 
-   Memo1.Lines.Add('  ########################### treads block');
-   Memo1.Lines.Add(mThread);
-
-  Memo1.Lines.Add('         while True:');
-  Memo1.Lines.Add('             pass');
+  Memo1.Lines.Add('  ########################### treads block');
+  Memo1.Lines.Add(mThread);
+  Memo1.Lines.Add(mThreadJoin);
   Memo1.Lines.Add('     except Exception as e:');
   Memo1.Lines.Add('         print(e)');
   end;
@@ -2413,6 +2573,280 @@ begin
   end;
 
 end;
+
+
+
+
+
+
+
+procedure TMainFrame.DbArch();
+var
+  rowCount,j: integer;
+  AllData:String;
+begin
+        AllData:='';
+        rowCount:=MainTree.Items.Count;
+        Memo1.Clear;
+        Memo1.Lines.Add('# -*- coding: utf-8 -*-');
+        Memo1.Lines.Add('###########################################################################');
+        Memo1.Lines.Add('## Python code generated with '+Version+' '+ DateToStr(Date())+' ');
+        Memo1.Lines.Add('## DB Postgresql arch by Jack Maclov');
+        Memo1.Lines.Add('## http://scadapy.ln-group.ru/');
+        Memo1.Lines.Add('##');
+        Memo1.Lines.Add('## PLEASE DO ALL YOU NEED THIS FILE!');
+        Memo1.Lines.Add('########################################################################### ');
+        Memo1.Lines.Add('import postgresql');
+        Memo1.Lines.Add('import schedule');
+        Memo1.Lines.Add('import sys');
+        Memo1.Lines.Add('import time');
+        Memo1.Lines.Add('import gc');
+        Memo1.Lines.Add('import os');
+        Memo1.Lines.Add('import threading');
+        Memo1.Lines.Add('from datetime import datetime');
+        Memo1.Lines.Add('import socket');
+        Memo1.Lines.Add('import struct');
+       Memo1.Lines.Add('def createDB(login,password,host,dbname):');
+       Memo1.Lines.Add('     db=''''');
+       Memo1.Lines.Add('     try: ');
+       Memo1.Lines.Add('         db = postgresql.open("pq://"+login+":"+password+"@"+host+"/"+dbname+"") ');
+       Memo1.Lines.Add('         print(''Connection OK'')');
+       Memo1.Lines.Add('     except Exception as e:');
+       Memo1.Lines.Add('         print(''Not exist'')');
+       Memo1.Lines.Add('         try:');
+       Memo1.Lines.Add('             db = postgresql.open("pq://"+login+":"+password+"@"+host) ');
+       Memo1.Lines.Add('             db.execute(''CREATE DATABASE ''+dbname)');
+       Memo1.Lines.Add('             print(''Create database OK'')');
+       Memo1.Lines.Add('             db = postgresql.open("pq://"+login+":"+password+"@"+host+"/"+dbname+"")');
+       Memo1.Lines.Add('             try:');
+       Memo1.Lines.Add('                 db.execute("CREATE TABLE  IF NOT EXISTS archiveData (varname varchar(80),date date,time time, varDataFI real, varDataStr varchar(200), varDataBool boolean)")');
+       Memo1.Lines.Add('                 print(''Create table OK'')');
+       Memo1.Lines.Add('             except Exception as e:');
+       Memo1.Lines.Add('                 print(e)');
+       Memo1.Lines.Add('         except Exception as e:');
+       Memo1.Lines.Add('             print(''Error to connect'',e)');
+       Memo1.Lines.Add('     return db');
+       Memo1.Lines.Add('def setVariables(mVar,getData,var1,var2,var3,var4,var5,var6,var7):');
+       Memo1.Lines.Add('     try:');
+       Memo1.Lines.Add('         x=getVariables(getData,var1,var2,var3,var4,var5,var6,var7)');
+       Memo1.Lines.Add('         if(x!=None and x[1]!=''Error''):');
+       Memo1.Lines.Add('             mVar=x ');
+       Memo1.Lines.Add('         else:');
+       Memo1.Lines.Add('             mVar=mVar');
+       Memo1.Lines.Add('     except Exception as e:');
+       Memo1.Lines.Add('         #');
+       Memo1.Lines.Add('         pass');
+       Memo1.Lines.Add('     return(mVar)');
+
+        Memo1.Lines.Add('def SelectData(getData):');
+        rowCount:=StringGrid2.RowCount;
+        for j:=1 to rowCount-1 do
+           begin
+             if(Length(StringGrid2.Cells[2, j])>0) and (Length(StringGrid2.Cells[9, j])>0) then
+                   Memo1.Lines.Add('     global '+StringGrid2.Cells[2, j]);
+           end;
+        Memo1.Lines.Add('     global AllData');
+
+        for j:=1 to rowCount-1 do
+          begin
+              if(Length(StringGrid2.Cells[2, j])>0) and (Length(StringGrid2.Cells[1, j])>0)  and (Length(StringGrid2.Cells[9, j])>0) then
+                begin
+                   Memo1.Lines.Add('     '+StringGrid2.Cells[2, j]+'=setVariables('+StringGrid2.Cells[2, j]+',getData,'''+StringGrid2.Cells[1, j]+''','''+StringGrid2.Cells[2, j]+''','''+StringGrid2.Cells[3, j]+''','''+StringGrid2.Cells[4, j]+''','''+StringGrid2.Cells[5, j]+''','''+StringGrid2.Cells[6, j]+''','''+StringGrid2.Cells[7,j]+''')');
+                AllData:=AllData+StringGrid2.Cells[2, j]+','
+                end;
+          end;
+        //Memo1.Lines.Add('#-----------------------------------------------------------------------------------');
+
+        Memo1.Lines.Add('     AllData=['+AllData+']');
+        Memo1.Lines.Add('def startJob(t=1):');
+        Memo1.Lines.Add('     schedule.every(1).minutes.do(job1min)');
+        Memo1.Lines.Add('     schedule.every(5).minutes.do(job5min)');
+        Memo1.Lines.Add('     schedule.every(15).minutes.do(job15min)');
+        Memo1.Lines.Add('     schedule.every(30).minutes.do(job30min)');
+        Memo1.Lines.Add('     schedule.every().hour.do(jobH)');
+        Memo1.Lines.Add('     while 1: ');
+        Memo1.Lines.Add('         schedule.run_pending()');
+        Memo1.Lines.Add('         time.sleep(1)');
+
+
+        Memo1.Lines.Add('def getVariables(getData,source,varName,address,count,sequence,dataType,multiply):');
+        Memo1.Lines.Add('     varData=None');
+        Memo1.Lines.Add('     if(getData.decode("utf-8").split('':'')[0] == source):');
+        Memo1.Lines.Add('         temp = getData.decode("utf-8").split('':'')[1]');
+        Memo1.Lines.Add('         if(temp!=''Error''):');
+        Memo1.Lines.Add('             temp = temp.replace("(", "").replace(")", "").replace(" ", "").split('','')');
+        Memo1.Lines.Add('             if(dataType==''float''):');
+        Memo1.Lines.Add('                 if(count==''2''): ');
+        Memo1.Lines.Add('                     if(sequence==''12''):');
+        Memo1.Lines.Add('                         temp2=(struct.unpack(''f'',struct.pack(''i'',int(hex(int(int(temp[int(address)])<<16)+int(temp[int(address)+1])),16))))');
+        Memo1.Lines.Add('                         varData=temp2[0]');
+        Memo1.Lines.Add('                     if(sequence==''21''):');
+        Memo1.Lines.Add('                         temp2=(struct.unpack(''f'',struct.pack(''i'',int(hex(int(int(temp[int(address)+1])<<16)+int(temp[int(address)])),16))))');
+        Memo1.Lines.Add('                         varData=temp2[0]');
+        Memo1.Lines.Add('             if(dataType==''integer''):');
+        Memo1.Lines.Add('                 if(count==''1''):');
+        Memo1.Lines.Add('                     temp2=int(temp[int(address)])');
+        Memo1.Lines.Add('                     varData=temp2');
+        Memo1.Lines.Add('                 if(count==''2'' and sequence==''12''):');
+        Memo1.Lines.Add('                     temp2= (int(temp[int(address)])<<16) + int(temp[int(address)+1])');
+        Memo1.Lines.Add('                     varData=temp2');
+        Memo1.Lines.Add('                 if(count==''2'' and sequence==''21''):');
+        Memo1.Lines.Add('                     temp2=(int(temp[int(address)+1])<<16) + int(temp[int(address)]) ');
+        Memo1.Lines.Add('                     varData=temp2');
+        Memo1.Lines.Add('             if(dataType==''bool''):');
+        Memo1.Lines.Add('                     if(int(temp[int(address)]) > 0):');
+        Memo1.Lines.Add('                         temp2=True');
+        Memo1.Lines.Add('                     if(int(temp[int(address)]) == 0):');
+        Memo1.Lines.Add('                         temp2=False');
+        Memo1.Lines.Add('                     varData=temp2');
+        Memo1.Lines.Add('             if(dataType==''string''):');
+        Memo1.Lines.Add('                     temp2=temp[ int(address)]');
+        Memo1.Lines.Add('                     varData=temp2');
+        Memo1.Lines.Add('             try:');
+        Memo1.Lines.Add('                 mult=int(multiply)');
+        Memo1.Lines.Add('             except Exception as e:');
+        Memo1.Lines.Add('                 mult=float(multiply)');
+        Memo1.Lines.Add('             if(dataType==''integer'' or dataType==''float''):');
+        Memo1.Lines.Add('                 varData=varData*mult');
+        Memo1.Lines.Add('             returnData=[varName,varData,dataType]');
+        Memo1.Lines.Add('             return returnData');
+        Memo1.Lines.Add('         else:');
+        Memo1.Lines.Add('             varData=[varName,''ErrorVar'',dataType]');
+        Memo1.Lines.Add('             return varData');
+        Memo1.Lines.Add('     else:');
+        Memo1.Lines.Add('             return [varName,''Error'',dataType]');
+        Memo1.Lines.Add('def udpserv(i=1):');
+        Memo1.Lines.Add('     global udpdata ');
+        Memo1.Lines.Add('     try:');
+        Memo1.Lines.Add('         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)');
+        Memo1.Lines.Add('         server_address = (''localhost'', 64001)');
+        Memo1.Lines.Add('         print(''starting up on {} port {}''.format(*server_address))');
+        Memo1.Lines.Add('         sock.bind(server_address)');
+        Memo1.Lines.Add('         while True:');
+        Memo1.Lines.Add('             data, address = sock.recvfrom(4096)');
+        Memo1.Lines.Add('             udpdata=data');
+        Memo1.Lines.Add('             SelectData(udpdata)');
+        Memo1.Lines.Add('     except Exception as e:');
+        Memo1.Lines.Add('         print(e)');
+        Memo1.Lines.Add('def insData(putData):');
+        Memo1.Lines.Add('     try:');
+        Memo1.Lines.Add('         if(putData!=None and len(putData)>0):');
+        Memo1.Lines.Add('             varName,varValue,varDataType=putData');
+        Memo1.Lines.Add('             if(varValue!=''Error'' and varValue!=None  and varValue!=''ErrorVar''):');
+        Memo1.Lines.Add('                 if(varDataType == ''string''):');
+        Memo1.Lines.Add('                     db.execute("INSERT INTO archiveData (date,time,varname,varDataStr) VALUES (now(),now(),''"+varName+"'',"+str(varValue)+")")');
+        Memo1.Lines.Add('                 if(varDataType == ''integer'' or varDataType == ''float''):');
+        Memo1.Lines.Add('                     db.execute("INSERT INTO archiveData (date,time,varname,varDataFI) VALUES (now(),now(),''"+varName+"'',"+str(varValue)+")")');
+        Memo1.Lines.Add('                 if(varDataType == ''bool''): ');
+        Memo1.Lines.Add('                     db.execute("INSERT INTO archiveData (date,time,varname,varDataBool) VALUES (now(),now(),''"+varName+"'',"+str(varValue)+")")');
+        Memo1.Lines.Add('             if(varValue==''Error''  or varValue==''ErrorVar''):');
+        Memo1.Lines.Add('                 db.execute("INSERT INTO archiveData (date,time,varname,varDataStr) VALUES (now(),now(),''"+varName+"'',''Error'')")');
+
+
+
+        Memo1.Lines.Add('     except Exception as e: ');
+        Memo1.Lines.Add('         print(e)');
+        Memo1.Lines.Add('         pass ');
+        Memo1.Lines.Add('def job1min():');
+        for j:=1 to rowCount-1 do
+          begin
+              if(Length(StringGrid2.Cells[2, j])>0) and (Length(StringGrid2.Cells[1, j])>0) then
+                begin
+                   if( StringGrid2.Cells[9, j] = '1')  then
+                         Memo1.Lines.Add('     insData('+StringGrid2.Cells[2, j]+')');
+                end;
+          end;
+        Memo1.Lines.Add('     pass');
+
+        Memo1.Lines.Add('def job5min():');
+        for j:=1 to rowCount-1 do
+          begin
+              if(Length(StringGrid2.Cells[2, j])>0) and (Length(StringGrid2.Cells[1, j])>0) then
+                begin
+                   if( StringGrid2.Cells[9, j] = '5')  then
+                         Memo1.Lines.Add('     insData('+StringGrid2.Cells[2, j]+')');
+                end;
+          end;
+        Memo1.Lines.Add('     pass');
+
+        Memo1.Lines.Add('def job15min():');
+        for j:=1 to rowCount-1 do
+          begin
+              if(Length(StringGrid2.Cells[2, j])>0) and (Length(StringGrid2.Cells[1, j])>0) then
+                begin
+                   if( StringGrid2.Cells[9, j] = '15')  then
+                         Memo1.Lines.Add('     insData('+StringGrid2.Cells[2, j]+')');
+                end;
+          end;
+        Memo1.Lines.Add('     pass');
+
+        Memo1.Lines.Add('def job30min():');
+        for j:=1 to rowCount-1 do
+          begin
+              if(Length(StringGrid2.Cells[2, j])>0) and (Length(StringGrid2.Cells[1, j])>0) then
+                begin
+                   if( StringGrid2.Cells[9, j] = '30')  then
+                         Memo1.Lines.Add('     insData('+StringGrid2.Cells[2, j]+')');
+                end;
+          end;
+        Memo1.Lines.Add('     pass');
+
+         Memo1.Lines.Add('def jobH():');
+        for j:=1 to rowCount-1 do
+          begin
+              if(Length(StringGrid2.Cells[2, j])>0) and (Length(StringGrid2.Cells[1, j])>0) then
+                begin
+                   if( StringGrid2.Cells[9, j] = '60')  then
+                         Memo1.Lines.Add('     insData('+StringGrid2.Cells[2, j]+')');
+                end;
+          end;
+        Memo1.Lines.Add('     pass');
+        Memo1.Lines.Add('if __name__ == "__main__": ');
+        Memo1.Lines.Add('     pathFolder =os.path.abspath(sys.argv[0]).replace(os.path.basename(__file__),'''')');
+        rowCount:=StringGrid2.RowCount;
+        for j:=1 to rowCount-1 do
+           begin
+             if(Length(StringGrid2.Cells[2, j])>0)  and (Length(StringGrid2.Cells[9, j])>0) then
+                   Memo1.Lines.Add('     '+StringGrid2.Cells[2, j]+'=['''+StringGrid2.Cells[2, j]+''',''Error'',''string'']');
+           end;
+
+        Memo1.Lines.Add('     AllData=''''');
+        Memo1.Lines.Add('     try: ');
+        Memo1.Lines.Add('         print( ''Starting DB Postgresql server...'')');
+        Memo1.Lines.Add('         db=createDB("'+Edit13.Text+'","'+Edit14.Text+'","'+Edit11.Text+'","scadapy")');
+        Memo1.Lines.Add('         modb = threading.Thread(target=udpserv,args=(1,))');
+        Memo1.Lines.Add('         modb.daemon = True');
+        Memo1.Lines.Add('         modb.start()');
+        Memo1.Lines.Add('         arch = threading.Thread(target=startJob,args=(1,))');
+        Memo1.Lines.Add('         arch.daemon = True');
+        Memo1.Lines.Add('         arch.start()');
+        Memo1.Lines.Add('         arch.join()');
+        Memo1.Lines.Add('         modb.join()');
+
+        Memo1.Lines.Add('     except Exception as e:');
+
+        Memo1.Lines.Add('         print(e)');
+
+
+
+        try
+            Memo1.Lines.SaveToFile(ProjectPath+'dbserver.py');
+          except
+             ShowMessage('Error to save');
+          end;
+
+
+end;
+
+
+
+
+
+
+
+
+
+
 
 end.
 
