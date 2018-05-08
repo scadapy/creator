@@ -1,7 +1,7 @@
 # creator
 ScadaPy Creator for modbus client
 ```
-В настоящий момент актуальная версия 3.3.6
+В настоящий момент актуальная версия 3.3.9
 ```
 Программа генерирует файлы:
 
@@ -12,3 +12,4 @@ ScadaPy Creator for modbus client
 - dbserver.py -- драйвер подсистемы архивиривания, СУБД Postgresql
 - jclient.html -- web клиент scada
 - image.svg -- svg файл визуального отображения структуры.
+- vkclient.py -- драйвер сообщений ВКонтакте
