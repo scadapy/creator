@@ -1,10 +1,18 @@
 <?xml version="1.0"?>
 <Config xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <VkVariables>
+    <VkPoint Id="1" VkVar="Температура" VkMessage="Значение: " VkId="394083837" VkTime="5" >0</VkPoint>
+    <VkPoint Id="2" VkVar="№81 Ua" VkMessage="Напряжение - " VkId="394083837" VkTime="5" >2</VkPoint>
+    <VkPoint Id="3" VkVar="Температура" VkMessage="Значение: " VkId="449545752" VkTime="30" >4</VkPoint>
+ </VkVariables>
+ <VkConfig>
+     <Cnf VkLogin="eee" VkPassword="ttt"></Cnf>
+ </VkConfig>
  <DbConfig>
      <Cnf DbHost="localhost" DbPort="555" DbLogin="postgres" DbPassword="999"></Cnf>
  </DbConfig>
  <ProjectConfig>
-     <Config ProjectName="Генераторная станция" ProjectPath="F:\scadapy\05052018\Station\windows\newFormat\" PathToPythonWindows="c:\Python35\python.exe" PathToBrowserWindows="c:\Program Files\Internet Explorer\iexplore" PathToTerminalLinux="xfce4-terminal --geometry=100x20 -e" PathToBrowserLinux="firefox" PathToPythonLinux="python35"></Config>
+     <Config ProjectName="Генераторная станция" ProjectPath="F:\scadapy\339\windows\" PathToPythonWindows="c:\Python35\python.exe" PathToBrowserWindows="c:\Program Files\Internet Explorer\iexplore" PathToTerminalLinux="xfce4-terminal --geometry=100x20 -e" PathToBrowserLinux="firefox" PathToPythonLinux="python35"></Config>
  </ProjectConfig>
  <ModbusConfig>
      <PortModbus ParentIndex="0" ItemIndex="0" Level="2" Protocol="1"  Mtype="1" tcp_com="com37" port_speed="9600" name="Термометр Р-18">0
@@ -21,7 +29,7 @@
      </PortMercury>
  </MercuryConfig>
  <Variables>
-    <VarPoint Id="1" VarName="TempSensor" Alias="T_7002" Address="0" ByteCount="2" ByteRoute="12" VarType="float" Manage="1"  VarAlias="Температура трансформатора"  DbArch="1" >TempSensor</VarPoint>
+    <VarPoint Id="1" VarName="TempSensor" Alias="T_7002" Address="0" ByteCount="2" ByteRoute="12" VarType="float" Manage="1"  VarAlias="Температура"  DbArch="1" >TempSensor</VarPoint>
     <VarPoint Id="2" VarName="TempSensor" Alias="RH_7004" Address="2" ByteCount="2" ByteRoute="12" VarType="float" Manage="1"  VarAlias="Относительная влажность"  DbArch="5" >TempSensor</VarPoint>
     <VarPoint Id="3" VarName="TempSensor" Alias="Td_7006" Address="4" ByteCount="2" ByteRoute="12" VarType="float" Manage="1"  VarAlias="Точка Росы"  DbArch="15" >TempSensor</VarPoint>
     <VarPoint Id="4" VarName="TempSensor" Alias="A_7008" Address="6" ByteCount="2" ByteRoute="12" VarType="float" Manage="1"  VarAlias="Абсолютная влажность"  DbArch="30" >TempSensor</VarPoint>
@@ -39,7 +47,7 @@
     <VarPoint Id="16" VarName="merc_230_81" Alias="Aminus_81" Address="3" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная A- 81"  DbArch="" >merc_230_81</VarPoint>
     <VarPoint Id="17" VarName="merc_230_81" Alias="Rplus_81" Address="4" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная R+ 81"  DbArch="" >merc_230_81</VarPoint>
     <VarPoint Id="18" VarName="merc_230_81" Alias="Rminus_81" Address="5" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная R- 81"  DbArch="" >merc_230_81</VarPoint>
-    <VarPoint Id="19" VarName="merc_230_81" Alias="U1_81" Address="22" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.01"  VarAlias="Напряжение фаза А 81"  DbArch="1" >merc_230_81</VarPoint>
+    <VarPoint Id="19" VarName="merc_230_81" Alias="U1_81" Address="22" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.01"  VarAlias="№81 Ua"  DbArch="1" >merc_230_81</VarPoint>
     <VarPoint Id="20" VarName="merc_230_43" Alias="SerialNumber_43" Address="0" ByteCount="1" ByteRoute="1" VarType="string" Manage="1"  VarAlias="Серийный номер 43"  DbArch="" >merc_230_43</VarPoint>
     <VarPoint Id="21" VarName="merc_230_43" Alias="Aplus_43" Address="2" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная A+ 43"  DbArch="" >merc_230_43</VarPoint>
     <VarPoint Id="22" VarName="merc_230_43" Alias="Aminus_43" Address="3" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная A- 43"  DbArch="" >merc_230_43</VarPoint>
