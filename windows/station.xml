@@ -12,7 +12,7 @@
      <Cnf DbHost="localhost" DbPort="555" DbLogin="postgres" DbPassword="999"></Cnf>
  </DbConfig>
  <ProjectConfig>
-     <Config ProjectName="Генераторная станция" ProjectPath="F:\scadapy\339\windows\" PathToPythonWindows="c:\Python35\python.exe" PathToBrowserWindows="c:\Program Files\Internet Explorer\iexplore" PathToTerminalLinux="xfce4-terminal --geometry=100x20 -e" PathToBrowserLinux="firefox" PathToPythonLinux="python35"></Config>
+     <Config ProjectName="Генераторная станция" ProjectPath="F:\scadapy\341\windows\" PathToPythonWindows="c:\Python35\python.exe" PathToBrowserWindows="c:\Program Files\Internet Explorer\iexplore" PathToTerminalLinux="xfce4-terminal --geometry=100x20 -e" PathToBrowserLinux="firefox" PathToPythonLinux="python35"></Config>
  </ProjectConfig>
  <ModbusConfig>
      <PortModbus ParentIndex="0" ItemIndex="0" Level="2" Protocol="1"  Mtype="1" tcp_com="com37" port_speed="9600" name="Термометр Р-18">0

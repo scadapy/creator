@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###########################################################################
-## Python code generated with ScadaPy Creator v.3.3.9  08.05.2018 
-## Modbus Client by Jack Maclov
+## Python code generated with ScadaPy Creator v.3.4.1  10.05.2018 
+## Modbus Client by Jack Mas
 ## http://scadapy.ln-group.ru/
 ##
 ## PLEASE DO ALL YOU NEED THIS FILE!

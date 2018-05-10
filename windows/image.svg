@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><text x="0"  y="15">SVG image</text>
 <text x="40"  y="35">float</text>
-<text x="130"  y="35">Температура трансформатора</text>
+<text x="130"  y="35">Температура</text>
 <text id="SVG_T_7002" x="400"  y="35">value</text>
 <rect id="REC_T_7002" x="10" y="20" width="20" height="20" fill="red"/>
 <text x="40"  y="70">float</text>
@@ -72,7 +72,7 @@
 <text id="SVG_Rminus_81" x="400"  y="630">value</text>
 <rect id="REC_Rminus_81" x="10" y="615" width="20" height="20" fill="red"/>
 <text x="40"  y="665">integer</text>
-<text x="130"  y="665">Напряжение фаза А 81</text>
+<text x="130"  y="665">№81 Ua</text>
 <text id="SVG_U1_81" x="400"  y="665">value</text>
 <rect id="REC_U1_81" x="10" y="650" width="20" height="20" fill="red"/>
 <text x="40"  y="700">string</text>
