@@ -1,7 +1,7 @@
 object MainFrame: TMainFrame
-  Left = 286
+  Left = 143
   Height = 689
-  Top = 158
+  Top = 100
   Width = 1252
   Align = alLeft
   Caption = 'ScadaPy'
@@ -144,7 +144,7 @@ object MainFrame: TMainFrame
     0000000000000000000000000000000000000000000000000000000000000000
     0000
   }
-  Menu = MainMenu1
+  Menu = MainFormMenu
   OnCreate = FormCreate
   LCLVersion = '1.8.2.0'
   object MainTree: TTreeView
@@ -157,31 +157,31 @@ object MainFrame: TMainFrame
     Font.Height = -12
     Font.Name = 'Sans'
     ParentFont = False
-    PopupMenu = PopupMenu1
+    PopupMenu = PopupMenuMainTree
     TabOrder = 0
     OnClick = MainTreeClick
     Options = [tvoAutoExpand, tvoAutoItemHeight, tvoHideSelection, tvoKeepCollapsedNodes, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
   end
-  object Splitter1: TSplitter
+  object MainFormSplitter: TSplitter
     Left = 272
     Height = 614
     Top = 32
     Width = 5
   end
-  object PageControl1: TPageControl
+  object MainPage: TPageControl
     Left = 277
     Height = 614
     Top = 32
     Width = 975
-    ActivePage = TabSheet1
+    ActivePage = TabDevice
     Align = alClient
     TabIndex = 0
     TabOrder = 2
-    object TabSheet1: TTabSheet
+    object TabDevice: TTabSheet
       Caption = 'Устройства'
       ClientHeight = 586
       ClientWidth = 967
-      object Panel1: TPanel
+      object TabDevicePanelMiddle: TPanel
         Left = 0
         Height = 384
         Top = 24
@@ -190,7 +190,7 @@ object MainFrame: TMainFrame
         ClientHeight = 384
         ClientWidth = 967
         TabOrder = 0
-        object Panel6: TPanel
+        object TabDevicePanelVar: TPanel
           Left = 1
           Height = 215
           Top = 1
@@ -199,7 +199,7 @@ object MainFrame: TMainFrame
           ClientHeight = 215
           ClientWidth = 965
           TabOrder = 1
-          object ComboBox1: TComboBox
+          object CProtocol: TComboBox
             Left = 168
             Height = 23
             Top = 40
@@ -209,11 +209,11 @@ object MainFrame: TMainFrame
               'TCP'
               'RTU'
             )
-            OnSelect = ComboBox1Select
+            OnSelect = CProtocolSelect
             Style = csDropDownList
             TabOrder = 0
           end
-          object ComboBox2: TComboBox
+          object CChanal: TComboBox
             Left = 168
             Height = 23
             Top = 72
@@ -223,11 +223,11 @@ object MainFrame: TMainFrame
               'TCP'
               'RTU'
             )
-            OnSelect = ComboBox2Select
+            OnSelect = CChanalSelect
             Style = csDropDownList
             TabOrder = 1
           end
-          object Label9: TLabel
+          object LProtocol: TLabel
             Left = 32
             Height = 15
             Top = 48
@@ -235,7 +235,7 @@ object MainFrame: TMainFrame
             Caption = 'Протокол'
             ParentColor = False
           end
-          object Label10: TLabel
+          object LChanal: TLabel
             Left = 32
             Height = 15
             Top = 80
@@ -243,7 +243,7 @@ object MainFrame: TMainFrame
             Caption = 'Канал связи'
             ParentColor = False
           end
-          object Label11: TLabel
+          object LIPtty: TLabel
             Left = 32
             Height = 15
             Top = 112
@@ -251,7 +251,7 @@ object MainFrame: TMainFrame
             Caption = 'Адрес IP/com порт'
             ParentColor = False
           end
-          object Label12: TLabel
+          object LTCPBaudRate: TLabel
             Left = 32
             Height = 15
             Top = 140
@@ -259,21 +259,21 @@ object MainFrame: TMainFrame
             Caption = 'TCP порт/скорость'
             ParentColor = False
           end
-          object Edit1: TEdit
+          object EIPtty: TEdit
             Left = 168
             Height = 23
             Top = 112
             Width = 176
             TabOrder = 2
           end
-          object Edit2: TEdit
+          object EPortBoadRate: TEdit
             Left = 168
             Height = 23
             Top = 140
             Width = 176
             TabOrder = 3
           end
-          object BitBtn5: TBitBtn
+          object BGMainGridAdd: TBitBtn
             Left = 0
             Height = 25
             Hint = 'Создать проект'
@@ -316,12 +316,12 @@ object MainFrame: TMainFrame
               0CFF059A0CBC0000000000000000000000000000000000000000
             }
             Layout = blGlyphTop
-            OnClick = BitBtn5Click
+            OnClick = BGMainGridAddClick
             ParentShowHint = False
             ShowHint = True
             TabOrder = 4
           end
-          object SpeedButton1: TSpeedButton
+          object BGMainGridSave: TSpeedButton
             Left = 24
             Height = 25
             Top = 184
@@ -362,10 +362,10 @@ object MainFrame: TMainFrame
               8000808080008080800080808000808080008080800080808000808080008080
               8000808080008080800080808000808080008080800080808000
             }
-            OnClick = SpeedButton1Click
+            OnClick = BGMainGridSaveClick
           end
         end
-        object StringGrid1: TStringGrid
+        object GMainTree: TStringGrid
           Cursor = crDrag
           Left = 1
           Height = 167
@@ -380,10 +380,10 @@ object MainFrame: TMainFrame
           Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goEditing, goAutoAddRows, goAlwaysShowEditor, goSmoothScroll]
           ParentFont = False
           TabOrder = 0
-          OnSelectEditor = StringGrid1SelectEditor
+          OnSelectEditor = GMainTreeSelectEditor
         end
       end
-      object Panel8: TPanel
+      object TabDevicePanelUp: TPanel
         Left = 0
         Height = 24
         Top = 0
@@ -392,7 +392,7 @@ object MainFrame: TMainFrame
         ClientHeight = 24
         ClientWidth = 967
         TabOrder = 1
-        object Edit3: TEdit
+        object EInfo: TEdit
           Left = 152
           Height = 21
           Top = 0
@@ -402,7 +402,7 @@ object MainFrame: TMainFrame
           ParentFont = False
           TabOrder = 0
         end
-        object Label1: TLabel
+        object LInfo: TLabel
           Left = 8
           Height = 21
           Top = 0
@@ -414,12 +414,12 @@ object MainFrame: TMainFrame
         end
       end
     end
-    object TabSheet2: TTabSheet
+    object TabVariables: TTabSheet
       Caption = 'Переменные'
       ClientHeight = 586
       ClientWidth = 967
-      OnShow = TabSheet2Show
-      object Panel5: TPanel
+      OnShow = TabVariablesShow
+      object TabVariablesPanelInfo: TPanel
         Left = 0
         Height = 32
         Top = 0
@@ -428,7 +428,7 @@ object MainFrame: TMainFrame
         ClientHeight = 32
         ClientWidth = 967
         TabOrder = 0
-        object BitBtn8: TBitBtn
+        object BGVarTreeAddString: TBitBtn
           Left = 216
           Height = 25
           Top = 2
@@ -469,10 +469,10 @@ object MainFrame: TMainFrame
             0000000000000000000000000000059A0CBC059A0CFF059A0CFF059A0CFF059A
             0CFF059A0CBC0000000000000000000000000000000000000000
           }
-          OnClick = BitBtn8Click
+          OnClick = BGVarTreeAddStringClick
           TabOrder = 0
         end
-        object BitBtn9: TBitBtn
+        object BGVarTreeDelString: TBitBtn
           Left = 242
           Height = 25
           Top = 2
@@ -513,7 +513,7 @@ object MainFrame: TMainFrame
             CD8F4141D4D72D2D947E0D0D2D10000000000000000000000000000000000000
             00003939D80F4040E47B4646ECDB2D2DA78916166B1409093401
           }
-          OnClick = BitBtn9Click
+          OnClick = BGVarTreeDelStringClick
           TabOrder = 1
         end
       end
@@ -530,7 +530,7 @@ object MainFrame: TMainFrame
         OnMouseDown = VarTreeMouseDown
         Options = [tvoAutoExpand, tvoAutoItemHeight, tvoHideSelection, tvoKeepCollapsedNodes, tvoReadOnly, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
       end
-      object StringGrid2: TStringGrid
+      object GVarTree: TStringGrid
         Left = 213
         Height = 554
         Top = 32
@@ -539,24 +539,24 @@ object MainFrame: TMainFrame
         Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goEditing, goAutoAddRows, goAlwaysShowEditor, goSmoothScroll]
         TabOrder = 2
         TitleFont.Style = [fsBold]
-        OnDragDrop = StringGrid2DragDrop
-        OnDragOver = StringGrid2DragOver
-        OnSelectEditor = StringGrid2SelectEditor
-        OnSelectCell = StringGrid2SelectCell
+        OnDragDrop = GVarTreeDragDrop
+        OnDragOver = GVarTreeDragOver
+        OnSelectEditor = GVarTreeSelectEditor
+        OnSelectCell = GVarTreeSelectCell
       end
-      object Splitter2: TSplitter
+      object TabVariablesSplitter: TSplitter
         Left = 208
         Height = 554
         Top = 32
         Width = 5
       end
     end
-    object TabSheet3: TTabSheet
+    object TabVK: TTabSheet
       Caption = 'ВКонтакте'
       ClientHeight = 586
       ClientWidth = 967
-      OnShow = TabSheet3Show
-      object Memo1: TMemo
+      OnShow = TabVKShow
+      object MemoSave: TMemo
         Left = 600
         Height = 106
         Top = 480
@@ -578,13 +578,13 @@ object MainFrame: TMainFrame
         OnMouseDown = VarTreeMouseDown
         Options = [tvoAutoExpand, tvoAutoItemHeight, tvoHideSelection, tvoKeepCollapsedNodes, tvoReadOnly, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
       end
-      object Splitter3: TSplitter
+      object TabVKSplitter: TSplitter
         Left = 208
         Height = 554
         Top = 32
         Width = 5
       end
-      object StringGrid3: TStringGrid
+      object GVKTree: TStringGrid
         Left = 213
         Height = 554
         Top = 32
@@ -592,12 +592,12 @@ object MainFrame: TMainFrame
         Align = alClient
         Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goEditing, goAutoAddRows, goAlwaysShowEditor, goSmoothScroll]
         TabOrder = 3
-        OnDragDrop = StringGrid3DragDrop
-        OnDragOver = StringGrid3DragOver
-        OnSelectEditor = StringGrid3SelectEditor
-        OnSelectCell = StringGrid3SelectCell
+        OnDragDrop = GVKTreeDragDrop
+        OnDragOver = GVKTreeDragOver
+        OnSelectEditor = GVKTreeSelectEditor
+        OnSelectCell = GVKTreeSelectCell
       end
-      object Panel10: TPanel
+      object TabVKPanelInfo: TPanel
         Left = 0
         Height = 32
         Top = 0
@@ -606,7 +606,7 @@ object MainFrame: TMainFrame
         ClientHeight = 32
         ClientWidth = 967
         TabOrder = 4
-        object BitBtn14: TBitBtn
+        object BGVKTreeAddString: TBitBtn
           Left = 216
           Height = 25
           Top = 2
@@ -647,10 +647,10 @@ object MainFrame: TMainFrame
             0000000000000000000000000000059A0CBC059A0CFF059A0CFF059A0CFF059A
             0CFF059A0CBC0000000000000000000000000000000000000000
           }
-          OnClick = BitBtn8Click
+          OnClick = BGVarTreeAddStringClick
           TabOrder = 0
         end
-        object BitBtn15: TBitBtn
+        object BGVKTreeDelString: TBitBtn
           Left = 242
           Height = 25
           Top = 2
@@ -691,17 +691,17 @@ object MainFrame: TMainFrame
             CD8F4141D4D72D2D947E0D0D2D10000000000000000000000000000000000000
             00003939D80F4040E47B4646ECDB2D2DA78916166B1409093401
           }
-          OnClick = BitBtn9Click
+          OnClick = BGVarTreeDelStringClick
           TabOrder = 1
         end
-        object Edit15: TEdit
+        object EVKLogin: TEdit
           Left = 320
           Height = 23
           Top = 2
           Width = 176
           TabOrder = 2
         end
-        object Edit16: TEdit
+        object EVKPassword: TEdit
           Left = 568
           Height = 23
           Top = 2
@@ -712,7 +712,7 @@ object MainFrame: TMainFrame
           PasswordChar = '*'
           TabOrder = 3
         end
-        object Label17: TLabel
+        object LVKLogin: TLabel
           Left = 280
           Height = 15
           Top = 6
@@ -720,7 +720,7 @@ object MainFrame: TMainFrame
           Caption = 'Login:'
           ParentColor = False
         end
-        object Label18: TLabel
+        object LVKPassword: TLabel
           Left = 512
           Height = 15
           Top = 6
@@ -730,25 +730,25 @@ object MainFrame: TMainFrame
         end
       end
     end
-    object TabSheet4: TTabSheet
+    object TabDB: TTabSheet
       Caption = 'База данных'
       ClientHeight = 586
       ClientWidth = 967
-      object Edit11: TEdit
+      object EDBhost: TEdit
         Left = 136
         Height = 23
         Top = 48
         Width = 168
         TabOrder = 0
       end
-      object Edit13: TEdit
+      object EDBLogin: TEdit
         Left = 136
         Height = 23
         Top = 96
         Width = 168
         TabOrder = 1
       end
-      object Label13: TLabel
+      object LDBHost: TLabel
         Left = 24
         Height = 15
         Top = 56
@@ -756,7 +756,7 @@ object MainFrame: TMainFrame
         Caption = 'db host'
         ParentColor = False
       end
-      object Label15: TLabel
+      object LDBLogin: TLabel
         Left = 24
         Height = 15
         Top = 96
@@ -764,7 +764,7 @@ object MainFrame: TMainFrame
         Caption = 'db Login'
         ParentColor = False
       end
-      object Label14: TLabel
+      object LDBPort: TLabel
         Left = 336
         Height = 15
         Top = 56
@@ -772,7 +772,7 @@ object MainFrame: TMainFrame
         Caption = 'db port'
         ParentColor = False
       end
-      object Label16: TLabel
+      object LDBPassword: TLabel
         Left = 336
         Height = 15
         Top = 104
@@ -780,14 +780,14 @@ object MainFrame: TMainFrame
         Caption = 'db Password'
         ParentColor = False
       end
-      object Edit12: TEdit
+      object EDBPort: TEdit
         Left = 424
         Height = 23
         Top = 48
         Width = 144
         TabOrder = 2
       end
-      object Edit14: TEdit
+      object EDBPassword: TEdit
         Left = 424
         Height = 23
         Top = 96
@@ -795,27 +795,27 @@ object MainFrame: TMainFrame
         TabOrder = 3
       end
     end
-    object TabSheet5: TTabSheet
+    object TabConfig: TTabSheet
       Caption = 'Конфигурация'
       ClientHeight = 586
-      ClientWidth = 798
-      object Panel7: TPanel
+      ClientWidth = 967
+      object TabConfigPanelMain: TPanel
         Left = 0
-        Height = 576
+        Height = 560
         Top = 26
-        Width = 794
+        Width = 967
         Align = alClient
-        ClientHeight = 576
-        ClientWidth = 794
+        ClientHeight = 560
+        ClientWidth = 967
         TabOrder = 0
-        object Edit4: TEdit
+        object EProjectName: TEdit
           Left = 136
           Height = 23
           Top = 4
           Width = 400
           TabOrder = 0
         end
-        object Label2: TLabel
+        object LProjectName: TLabel
           Left = 8
           Height = 15
           Top = 8
@@ -823,7 +823,7 @@ object MainFrame: TMainFrame
           Caption = 'Название проекта'
           ParentColor = False
         end
-        object Label3: TLabel
+        object LWinPythonPath: TLabel
           Left = 8
           Height = 15
           Top = 36
@@ -831,28 +831,28 @@ object MainFrame: TMainFrame
           Caption = 'Windows Python'
           ParentColor = False
         end
-        object Edit5: TEdit
+        object EWindowsPythonPath: TEdit
           Left = 136
           Height = 23
           Top = 32
           Width = 400
           TabOrder = 1
         end
-        object Edit6: TEdit
+        object EProjectPath: TEdit
           Left = 136
           Height = 23
           Top = 60
           Width = 400
           TabOrder = 2
         end
-        object Edit9: TEdit
+        object ELinuxBrowser: TEdit
           Left = 136
           Height = 23
           Top = 144
           Width = 400
           TabOrder = 3
         end
-        object Label4: TLabel
+        object LProjectPath: TLabel
           Left = 8
           Height = 15
           Top = 64
@@ -860,7 +860,7 @@ object MainFrame: TMainFrame
           Caption = 'Путь к проекту'
           ParentColor = False
         end
-        object Label5: TLabel
+        object LWinBrowser: TLabel
           Left = 8
           Height = 15
           Top = 92
@@ -868,7 +868,7 @@ object MainFrame: TMainFrame
           Caption = 'Windows Браузер'
           ParentColor = False
         end
-        object Label6: TLabel
+        object LLinuxTerminal: TLabel
           Left = 8
           Height = 15
           Top = 120
@@ -876,7 +876,7 @@ object MainFrame: TMainFrame
           Caption = 'Linux терминал'
           ParentColor = False
         end
-        object Label7: TLabel
+        object LLinuxBrowser: TLabel
           Left = 8
           Height = 15
           Top = 147
@@ -884,14 +884,14 @@ object MainFrame: TMainFrame
           Caption = 'Linux Браузер'
           ParentColor = False
         end
-        object Edit10: TEdit
+        object ELinuxPythonPath: TEdit
           Left = 136
           Height = 23
           Top = 172
           Width = 400
           TabOrder = 4
         end
-        object Label8: TLabel
+        object LLinuxPython: TLabel
           Left = 8
           Height = 15
           Top = 176
@@ -899,14 +899,14 @@ object MainFrame: TMainFrame
           Caption = 'Linux Python'
           ParentColor = False
         end
-        object Edit7: TEdit
+        object EWindowsBrowser: TEdit
           Left = 136
           Height = 23
           Top = 88
           Width = 400
           TabOrder = 5
         end
-        object Edit8: TEdit
+        object ELinuxTerminal: TEdit
           Left = 136
           Height = 23
           Top = 116
@@ -914,25 +914,25 @@ object MainFrame: TMainFrame
           TabOrder = 6
         end
       end
-      object Panel13: TPanel
+      object TabConfigPanelInfo: TPanel
         Left = 0
         Height = 26
         Top = 0
-        Width = 794
+        Width = 967
         Align = alTop
         Caption = 'Конфигурация проекта'
         TabOrder = 1
       end
     end
   end
-  object StatusBar1: TStatusBar
+  object MainFormStatusBar: TStatusBar
     Left = 0
     Height = 23
     Top = 646
     Width = 1252
     Panels = <>
   end
-  object Panel9: TPanel
+  object PanelMainMenu: TPanel
     Left = 0
     Height = 32
     Top = 0
@@ -941,7 +941,7 @@ object MainFrame: TMainFrame
     ClientHeight = 32
     ClientWidth = 1252
     TabOrder = 4
-    object BitBtn1: TBitBtn
+    object BOpenProject: TBitBtn
       Left = 39
       Height = 30
       Hint = 'Открыть проект'
@@ -1023,12 +1023,12 @@ object MainFrame: TMainFrame
         F34D000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000
       }
-      OnClick = BitBtn1Click
+      OnClick = BOpenProjectClick
       ParentShowHint = False
       ShowHint = True
       TabOrder = 0
     end
-    object BitBtn2: TBitBtn
+    object BStartMonitor: TBitBtn
       Left = 123
       Height = 30
       Hint = 'Запустить UDP Монитор'
@@ -1110,12 +1110,12 @@ object MainFrame: TMainFrame
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000
       }
-      OnClick = BitBtn2Click
+      OnClick = BStartMonitorClick
       ParentShowHint = False
       ShowHint = True
       TabOrder = 1
     end
-    object BitBtn3: TBitBtn
+    object BSaveProject: TBitBtn
       Left = 70
       Height = 30
       Hint = 'Сохранить проект'
@@ -1197,12 +1197,12 @@ object MainFrame: TMainFrame
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000
       }
-      OnClick = BitBtn3Click
+      OnClick = BSaveProjectClick
       ParentShowHint = False
       ShowHint = True
       TabOrder = 2
     end
-    object BitBtn4: TBitBtn
+    object BNewProject: TBitBtn
       Left = 8
       Height = 30
       Hint = 'Создать проект'
@@ -1245,12 +1245,12 @@ object MainFrame: TMainFrame
         7FD97F7F7FD9E2E2E2CD298FD5FFFFFFFF9FFFFFFF7A00000000
       }
       Layout = blGlyphTop
-      OnClick = BitBtn4Click
+      OnClick = BNewProjectClick
       ParentShowHint = False
       ShowHint = True
       TabOrder = 3
     end
-    object BitBtn6: TBitBtn
+    object BCompilePy: TBitBtn
       Left = 158
       Height = 30
       Hint = 'Компиллировать'
@@ -1332,12 +1332,12 @@ object MainFrame: TMainFrame
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000
       }
-      OnClick = BitBtn6Click
+      OnClick = BCompilePyClick
       ParentShowHint = False
       ShowHint = True
       TabOrder = 4
     end
-    object BitBtn7: TBitBtn
+    object BStartModbusClient: TBitBtn
       Left = 193
       Height = 30
       Hint = 'Запустить Modbus PY скрипт'
@@ -1419,12 +1419,12 @@ object MainFrame: TMainFrame
         CFFFCFCFCFFFCFCFCFFFCFCFCFFF7E7E7E800000001300000003000000000000
         0000000000000000000000000000000000000000000000000000
       }
-      OnClick = BitBtn7Click
+      OnClick = BStartModbusClientClick
       ParentShowHint = False
       ShowHint = True
       TabOrder = 5
     end
-    object BitBtn10: TBitBtn
+    object BStartJsonServer: TBitBtn
       Left = 263
       Height = 30
       Hint = 'Запустить JSON PY скрипт'
@@ -1506,12 +1506,12 @@ object MainFrame: TMainFrame
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000
       }
-      OnClick = BitBtn10Click
+      OnClick = BStartJsonServerClick
       ParentShowHint = False
       ShowHint = True
       TabOrder = 6
     end
-    object BitBtn11: TBitBtn
+    object BStartHtmlClient: TBitBtn
       Left = 297
       Height = 30
       Hint = 'Запустить html клиент'
@@ -1593,12 +1593,12 @@ object MainFrame: TMainFrame
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000
       }
-      OnClick = BitBtn11Click
+      OnClick = BStartHtmlClientClick
       ParentShowHint = False
       ShowHint = True
       TabOrder = 7
     end
-    object BitBtn12: TBitBtn
+    object BStartMercuryClient: TBitBtn
       Left = 228
       Height = 30
       Hint = 'Запустить Меркурий клиент'
@@ -1680,12 +1680,12 @@ object MainFrame: TMainFrame
         AEFFB7B0A6FFBFB9B1FFC5C1BAFFC6C1BBFFC6C0B9FFCCC7C1FFBAC1B7F888A3
         8DDF8E9B8EAB648F8D3300000000000000000000000000000000
       }
-      OnClick = BitBtn12Click
+      OnClick = BStartMercuryClientClick
       ParentShowHint = False
       ShowHint = True
       TabOrder = 8
     end
-    object BitBtn13: TBitBtn
+    object BStartDBArch: TBitBtn
       Left = 333
       Height = 30
       Hint = 'Запустить db архиватор'
@@ -1767,12 +1767,12 @@ object MainFrame: TMainFrame
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000
       }
-      OnClick = BitBtn13Click
+      OnClick = BStartDBArchClick
       ParentShowHint = False
       ShowHint = True
       TabOrder = 9
     end
-    object BitBtn16: TBitBtn
+    object BStartVKClient: TBitBtn
       Left = 369
       Height = 30
       Hint = 'Запустить VK client'
@@ -1854,87 +1854,87 @@ object MainFrame: TMainFrame
         00003738390936373752303132A82E2F2FC02B2C2DB22F30317B303232250000
         0000000000000000000000000000000000000000000000000000
       }
-      OnClick = BitBtn16Click
+      OnClick = BStartVKClientClick
       ParentShowHint = False
       ShowHint = True
       TabOrder = 10
     end
   end
-  object MainMenu1: TMainMenu
+  object MainFormMenu: TMainMenu
     left = 144
     top = 472
     object FileItem: TMenuItem
       Caption = 'Файл'
-      object MenuItem2: TMenuItem
+      object ItemOpenProject: TMenuItem
         Caption = 'Открыть проект'
-        OnClick = MenuItem2Click
+        OnClick = ItemOpenProjectClick
       end
-      object MenuItem4: TMenuItem
+      object ItemSaveProject: TMenuItem
         Caption = 'Сохранить'
-        OnClick = MenuItem4Click
+        OnClick = ItemSaveProjectClick
       end
-      object MenuItem3: TMenuItem
+      object ItemSaveAsProject: TMenuItem
         Caption = 'Сохранить как'
-        OnClick = MenuItem3Click
+        OnClick = ItemSaveAsProjectClick
       end
-      object MenuItem5: TMenuItem
+      object ItemCreateProject: TMenuItem
         Caption = 'Создать проект'
-        OnClick = MenuItem5Click
+        OnClick = ItemCreateProjectClick
       end
-      object MenuItem1: TMenuItem
+      object ItemExit: TMenuItem
         Caption = 'Выход'
       end
     end
-    object MenuItem9: TMenuItem
+    object CreateItem: TMenuItem
       Caption = 'Создать'
-      OnClick = MenuItem9Click
-      object MenuItem14: TMenuItem
+      OnClick = CreateItemClick
+      object ItemModbus: TMenuItem
         Caption = 'Modbus.py'
-        OnClick = MenuItem14Click
+        OnClick = ItemModbusClick
       end
-      object MenuItem15: TMenuItem
+      object ItemMercury: TMenuItem
         Caption = 'Mercury230.py'
-        OnClick = MenuItem15Click
+        OnClick = ItemMercuryClick
       end
-      object MenuItem16: TMenuItem
+      object ItemJserver: TMenuItem
         Caption = 'Jserver.py'
-        OnClick = MenuItem16Click
+        OnClick = ItemJserverClick
       end
       object MenuItem19: TMenuItem
         Caption = 'Dbserver.py'
         OnClick = MenuItem19Click
       end
-      object MenuItem22: TMenuItem
+      object ItemVKClient: TMenuItem
         Caption = 'VkClient.py'
-        OnClick = MenuItem22Click
+        OnClick = ItemVKClientClick
       end
     end
-    object MenuItem10: TMenuItem
+    object RunItem: TMenuItem
       Caption = 'Запустить'
-      OnClick = MenuItem10Click
-      object MenuItem11: TMenuItem
+      OnClick = RunItemClick
+      object ItemRunMonitor: TMenuItem
         Caption = 'Монитор'
-        OnClick = MenuItem11Click
+        OnClick = ItemRunMonitorClick
       end
-      object MenuItem12: TMenuItem
+      object ItemRunModbus: TMenuItem
         Caption = 'Modbus клиент'
-        OnClick = MenuItem12Click
+        OnClick = ItemRunModbusClick
       end
-      object MenuItem13: TMenuItem
+      object ItemRunMercury: TMenuItem
         Caption = 'Меркурий-230 клиент'
-        OnClick = MenuItem13Click
+        OnClick = ItemRunMercuryClick
       end
-      object MenuItem6: TMenuItem
+      object ItemRunJsonServer: TMenuItem
         Caption = 'Json Web сервер'
-        OnClick = MenuItem6Click
+        OnClick = ItemRunJsonServerClick
       end
-      object MenuItem17: TMenuItem
+      object ItemRunWebClient: TMenuItem
         Caption = 'Web клиент'
-        OnClick = MenuItem17Click
+        OnClick = ItemRunWebClientClick
       end
-      object MenuItem18: TMenuItem
+      object ItemRunDBArch: TMenuItem
         Caption = 'DB Архиватор'
-        OnClick = MenuItem18Click
+        OnClick = ItemRunDBArchClick
       end
       object MenuItem20: TMenuItem
         Caption = 'start.sh (Linux)'
@@ -1944,30 +1944,30 @@ object MainFrame: TMainFrame
         Caption = 'stop.sh (Linux)'
         OnClick = MenuItem21Click
       end
-      object MenuItem23: TMenuItem
+      object ItemRunVKClient: TMenuItem
         Caption = 'VK Client'
-        OnClick = MenuItem23Click
+        OnClick = ItemRunVKClientClick
       end
     end
   end
-  object OpenDialog1: TOpenDialog
+  object OpenDialogProject: TOpenDialog
     left = 144
     top = 368
   end
-  object SaveDialog1: TSaveDialog
+  object SaveDialogProject: TSaveDialog
     left = 144
     top = 424
   end
-  object PopupMenu1: TPopupMenu
-    left = 59
-    top = 403
-    object MenuItem7: TMenuItem
+  object PopupMenuMainTree: TPopupMenu
+    left = 144
+    top = 312
+    object ItemMainTreeAdd: TMenuItem
       Caption = 'Добавить'
-      OnClick = MenuItem7Click
+      OnClick = ItemMainTreeAddClick
     end
-    object MenuItem8: TMenuItem
+    object ItemMainTreeDel: TMenuItem
       Caption = 'Удалить'
-      OnClick = MenuItem8Click
+      OnClick = ItemMainTreeDelClick
     end
   end
 end
