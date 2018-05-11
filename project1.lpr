@@ -7,7 +7,8 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, scadapy
+  Forms, scadapy, VkProcedure, MercProcedure, ModbusProcedure, DbProcedure,
+  jsonprocedure, xmlprocedure, cmdprocedure
   { you can add units after this };
 
 {$R *.res}

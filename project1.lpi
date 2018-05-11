@@ -29,7 +29,7 @@
         <PackageName Value="LCL"/>
       </Item2>
     </RequiredPackages>
-    <Units Count="2">
+    <Units Count="9">
       <Unit0>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -41,6 +41,39 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit1>
+      <Unit2>
+        <Filename Value="vkprocedure.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="VkProcedure"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="mercprocedure.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="MercProcedure"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="modbusprocedure.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ModbusProcedure"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="dbprocedure.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="DbProcedure"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="jsonprocedure.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="JsonProcedure"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="xmlprocedure.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="cmdprocedure.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit8>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

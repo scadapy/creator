@@ -1,7 +1,7 @@
 object MainFrame: TMainFrame
-  Left = 143
+  Left = 359
   Height = 689
-  Top = 100
+  Top = 117
   Width = 1252
   Align = alLeft
   Caption = 'ScadaPy'
@@ -363,6 +363,15 @@ object MainFrame: TMainFrame
               8000808080008080800080808000808080008080800080808000
             }
             OnClick = BGMainGridSaveClick
+          end
+          object Button1: TButton
+            Left = 505
+            Height = 25
+            Top = 58
+            Width = 75
+            Caption = 'Button1'
+            OnClick = Button1Click
+            TabOrder = 5
           end
         end
         object GMainTree: TStringGrid
@@ -1900,9 +1909,9 @@ object MainFrame: TMainFrame
         Caption = 'Jserver.py'
         OnClick = ItemJserverClick
       end
-      object MenuItem19: TMenuItem
+      object ItemDBArchSave: TMenuItem
         Caption = 'Dbserver.py'
-        OnClick = MenuItem19Click
+        OnClick = ItemDBArchSaveClick
       end
       object ItemVKClient: TMenuItem
         Caption = 'VkClient.py'
@@ -1936,13 +1945,13 @@ object MainFrame: TMainFrame
         Caption = 'DB Архиватор'
         OnClick = ItemRunDBArchClick
       end
-      object MenuItem20: TMenuItem
+      object ItemStartSH: TMenuItem
         Caption = 'start.sh (Linux)'
-        OnClick = MenuItem20Click
+        OnClick = ItemStartSHClick
       end
-      object MenuItem21: TMenuItem
+      object ItemStopSH: TMenuItem
         Caption = 'stop.sh (Linux)'
-        OnClick = MenuItem21Click
+        OnClick = ItemStopSHClick
       end
       object ItemRunVKClient: TMenuItem
         Caption = 'VK Client'
