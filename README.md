@@ -7,9 +7,9 @@ ScadaPy Creator for modbus client
 
 - modbus.py -- драйвер опроса modbus устройств;
 - mclient.py -- драйвер опроса счетчиков Меркурий-230
-- mercury.py -- библиотека для драйвера счетчиков Меркурий-230
+- mercury.py -- библиотека драйвера счетчиков Меркурий-230
 - jserver.py -- json http сервер, порт 8080 
-- dbserver.py -- драйвер подсистемы архивиривания, СУБД Postgresql
+- dbserver.py -- драйвер подсистемы архивирования, СУБД Postgresql
 - jclient.html -- web клиент scada
 - image.svg -- svg файл визуального отображения структуры.
 - vkclient.py -- драйвер сообщений ВКонтакте
