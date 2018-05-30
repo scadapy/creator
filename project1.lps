@@ -4,7 +4,7 @@
     <PathDelim Value="\"/>
     <Version Value="10"/>
     <BuildModes Active="Default"/>
-    <Units Count="34">
+    <Units Count="35">
       <Unit0>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -27,60 +27,70 @@
         <Filename Value="vkprocedure.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="VkProcedure"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="6"/>
         <TopLine Value="286"/>
         <CursorPos X="65" Y="309"/>
-        <UsageCount Value="34"/>
+        <UsageCount Value="39"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="mercprocedure.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="MercProcedure"/>
-        <EditorIndex Value="6"/>
-        <TopLine Value="117"/>
-        <CursorPos X="57" Y="144"/>
-        <UsageCount Value="30"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="519"/>
+        <CursorPos X="3" Y="454"/>
+        <UsageCount Value="35"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="modbusprocedure.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ModbusProcedure"/>
-        <EditorIndex Value="7"/>
+        <EditorIndex Value="8"/>
         <TopLine Value="124"/>
         <CursorPos X="58" Y="151"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="29"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="dbprocedure.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="DbProcedure"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="5"/>
         <CursorPos X="23" Y="11"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="28"/>
         <Loaded Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="jsonprocedure.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="JsonProcedure"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="4"/>
         <CursorPos X="9" Y="25"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="28"/>
         <Loaded Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="xmlprocedure.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="35"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="19"/>
         <CursorPos X="36" Y="40"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="28"/>
         <Loaded Value="True"/>
       </Unit7>
       <Unit8>
+        <Filename Value="cmdprocedure.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="88"/>
+        <CursorPos X="137" Y="51"/>
+        <UsageCount Value="26"/>
+        <Loaded Value="True"/>
+      </Unit8>
+      <Unit9>
         <Filename Value="31032018\scadapy.pas"/>
         <ComponentName Value="MainFrame"/>
         <HasResources Value="True"/>
@@ -89,42 +99,43 @@
         <TopLine Value="340"/>
         <CursorPos X="49" Y="310"/>
         <UsageCount Value="37"/>
-      </Unit8>
-      <Unit9>
-        <Filename Value="f:\lazarusIDE\lcl\include\treeview.inc"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos Y="458"/>
-        <UsageCount Value="36"/>
       </Unit9>
       <Unit10>
+        <Filename Value="f:\lazarusIDE\lcl\include\treeview.inc"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="445"/>
+        <CursorPos Y="458"/>
+        <UsageCount Value="38"/>
+        <Loaded Value="True"/>
+      </Unit10>
+      <Unit11>
         <Filename Value="f:\lazarusIDE\lcl\grids.pas"/>
         <UnitName Value="Grids"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="9601"/>
         <CursorPos X="18" Y="9604"/>
         <UsageCount Value="43"/>
-      </Unit10>
-      <Unit11>
+      </Unit11>
+      <Unit12>
         <Filename Value="f:\lazarusIDE\components\lazutils\lazutf8classes.pas"/>
         <UnitName Value="LazUTF8Classes"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="129"/>
         <CursorPos Y="151"/>
         <UsageCount Value="28"/>
-      </Unit11>
-      <Unit12>
+      </Unit12>
+      <Unit13>
         <Filename Value="scadapy.pas"/>
         <ComponentName Value="MainFrame"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="969"/>
-        <CursorPos X="28" Y="598"/>
+        <TopLine Value="244"/>
+        <CursorPos X="41" Y="253"/>
         <UsageCount Value="100"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
-      </Unit12>
-      <Unit13>
+      </Unit13>
+      <Unit14>
         <Filename Value="..\1\scadapy.pas"/>
         <ComponentName Value="MainFrame"/>
         <HasResources Value="True"/>
@@ -133,277 +144,276 @@
         <TopLine Value="272"/>
         <CursorPos X="107" Y="305"/>
         <UsageCount Value="4"/>
-      </Unit13>
-      <Unit14>
+      </Unit14>
+      <Unit15>
         <Filename Value="f:\Lazarus\pascalscada_0.7.3_20170307\pascalscada_0.7.3_20170307\bgrabitmap\bgratext.pas"/>
         <UnitName Value="BGRAText"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="388"/>
         <CursorPos X="64" Y="405"/>
         <UsageCount Value="4"/>
-      </Unit14>
-      <Unit15>
+      </Unit15>
+      <Unit16>
         <Filename Value="f:\lazarusIDE\components\PascalScript\Source\uPSRuntime.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="40"/>
         <CursorPos X="17" Y="1381"/>
         <UsageCount Value="4"/>
-      </Unit15>
-      <Unit16>
+      </Unit16>
+      <Unit17>
         <Filename Value="C:\Users\jack\Downloads\LazWebkit-0.5\sources\WSLazWebkitSettings.pp"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="53"/>
         <CursorPos X="7" Y="49"/>
         <UsageCount Value="4"/>
-      </Unit16>
-      <Unit17>
+      </Unit17>
+      <Unit18>
         <Filename Value="..\lcl\include\treeview.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1234"/>
         <CursorPos X="68" Y="1250"/>
         <UsageCount Value="1"/>
-      </Unit17>
-      <Unit18>
+      </Unit18>
+      <Unit19>
         <Filename Value="..\lcl\grids.pas"/>
         <UnitName Value="Grids"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="9596"/>
         <CursorPos X="38" Y="9614"/>
         <UsageCount Value="9"/>
-      </Unit18>
-      <Unit19>
+      </Unit19>
+      <Unit20>
         <Filename Value="d:\erc\unit1.pas"/>
         <UnitName Value="Unit1"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="21" Y="5"/>
         <UsageCount Value="7"/>
-      </Unit19>
-      <Unit20>
+      </Unit20>
+      <Unit21>
         <Filename Value="f:\lazarusIDE\components\lazutils\dynamicarray.pas"/>
         <UnitName Value="DynamicArray"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="133"/>
         <CursorPos Y="148"/>
         <UsageCount Value="14"/>
-      </Unit20>
-      <Unit21>
+      </Unit21>
+      <Unit22>
         <Filename Value="d:\lazarus\components\lazutils\lazutf8classes.pas"/>
         <UnitName Value="LazUTF8Classes"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="116"/>
         <CursorPos Y="151"/>
         <UsageCount Value="6"/>
-      </Unit21>
-      <Unit22>
+      </Unit22>
+      <Unit23>
         <Filename Value="d:\lazarus\lcl\include\treeview.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="437"/>
         <CursorPos Y="458"/>
         <UsageCount Value="2"/>
-      </Unit22>
-      <Unit23>
+      </Unit23>
+      <Unit24>
         <Filename Value="f:\lazarusIDE\lcl\controls.pp"/>
         <UnitName Value="Controls"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1684"/>
         <CursorPos X="14" Y="1698"/>
         <UsageCount Value="12"/>
-      </Unit23>
-      <Unit24>
+      </Unit24>
+      <Unit25>
         <Filename Value="f:\usr\share\lazarus\1.8.2\lcl\include\control.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2243"/>
         <CursorPos Y="2253"/>
         <UsageCount Value="6"/>
-      </Unit24>
-      <Unit25>
+      </Unit25>
+      <Unit26>
         <Filename Value="f:\usr\share\lazarus\1.8.2\lcl\include\buttoncontrol.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="11"/>
         <CursorPos Y="22"/>
         <UsageCount Value="6"/>
-      </Unit25>
-      <Unit26>
+      </Unit26>
+      <Unit27>
         <Filename Value="f:\usr\share\lazarus\1.8.2\lcl\include\buttons.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="159"/>
         <CursorPos Y="170"/>
         <UsageCount Value="6"/>
-      </Unit26>
-      <Unit27>
+      </Unit27>
+      <Unit28>
         <Filename Value="f:\usr\share\lazarus\1.8.2\lcl\include\bitbtn.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="55"/>
         <CursorPos Y="65"/>
         <UsageCount Value="6"/>
-      </Unit27>
-      <Unit28>
+      </Unit28>
+      <Unit29>
         <Filename Value="f:\usr\share\lazarus\1.8.2\lcl\include\wincontrol.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="5388"/>
         <CursorPos Y="5398"/>
         <UsageCount Value="6"/>
-      </Unit28>
-      <Unit29>
+      </Unit29>
+      <Unit30>
         <Filename Value="f:\usr\share\lazarus\1.8.2\lcl\lclmessageglue.pas"/>
         <UnitName Value="LCLMessageGlue"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="109"/>
         <CursorPos Y="120"/>
         <UsageCount Value="6"/>
-      </Unit29>
-      <Unit30>
+      </Unit30>
+      <Unit31>
         <Filename Value="f:\usr\share\lazarus\1.8.2\lcl\include\treeview.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="427"/>
         <CursorPos X="8" Y="438"/>
         <UsageCount Value="7"/>
-      </Unit30>
-      <Unit31>
+      </Unit31>
+      <Unit32>
         <Filename Value="d:\lazarus\lcl\grids.pas"/>
         <UnitName Value="Grids"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="9596"/>
         <CursorPos Y="9617"/>
         <UsageCount Value="10"/>
-      </Unit31>
-      <Unit32>
+      </Unit32>
+      <Unit33>
         <Filename Value="f:\lazarusIDE\lcl\include\control.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1849"/>
         <CursorPos Y="1864"/>
         <UsageCount Value="10"/>
-      </Unit32>
-      <Unit33>
-        <Filename Value="cmdprocedure.pas"/>
-        <IsPartOfProject Value="True"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="10"/>
-        <CursorPos Y="17"/>
-        <UsageCount Value="21"/>
-        <Loaded Value="True"/>
       </Unit33>
+      <Unit34>
+        <Filename Value="f:\lazarusIDE\lcl\lclmessageglue.pas"/>
+        <UnitName Value="LCLMessageGlue"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="100"/>
+        <CursorPos Y="114"/>
+        <UsageCount Value="10"/>
+      </Unit34>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="scadapy.pas"/>
-        <Caret Line="663" Column="67" TopLine="641"/>
+        <Caret Line="818" Column="59" TopLine="803"/>
       </Position1>
       <Position2>
         <Filename Value="scadapy.pas"/>
-        <Caret Line="683" Column="63" TopLine="659"/>
+        <Caret Line="814" Column="15" TopLine="801"/>
       </Position2>
       <Position3>
         <Filename Value="scadapy.pas"/>
-        <Caret Line="715" Column="67" TopLine="691"/>
+        <Caret Line="816" Column="46" TopLine="802"/>
       </Position3>
       <Position4>
         <Filename Value="scadapy.pas"/>
-        <Caret Line="757" Column="66" TopLine="735"/>
+        <Caret Line="816" Column="46" TopLine="802"/>
       </Position4>
       <Position5>
         <Filename Value="scadapy.pas"/>
-        <Caret Line="794" Column="72" TopLine="771"/>
+        <Caret Line="828" Column="19" TopLine="826"/>
       </Position5>
       <Position6>
         <Filename Value="scadapy.pas"/>
-        <Caret Line="235" Column="100" TopLine="229"/>
+        <Caret Line="857" Column="110" TopLine="829"/>
       </Position6>
       <Position7>
-        <Filename Value="cmdprocedure.pas"/>
-        <Caret Line="15" Column="18"/>
+        <Filename Value="scadapy.pas"/>
+        <Caret Line="826" Column="35" TopLine="814"/>
       </Position7>
       <Position8>
         <Filename Value="scadapy.pas"/>
-        <Caret Line="191" Column="5" TopLine="177"/>
+        <Caret Line="183" Column="31" TopLine="161"/>
       </Position8>
       <Position9>
-        <Filename Value="cmdprocedure.pas"/>
-        <Caret Line="23" Column="89" TopLine="7"/>
+        <Filename Value="scadapy.pas"/>
+        <Caret Line="184" Column="106" TopLine="167"/>
       </Position9>
       <Position10>
         <Filename Value="scadapy.pas"/>
-        <Caret Line="376" Column="20" TopLine="362"/>
+        <Caret Line="184" Column="106" TopLine="167"/>
       </Position10>
       <Position11>
         <Filename Value="scadapy.pas"/>
-        <Caret Line="407" Column="37" TopLine="389"/>
+        <Caret Line="178" Column="3" TopLine="167"/>
       </Position11>
       <Position12>
-        <Filename Value="cmdprocedure.pas"/>
-        <Caret Line="11" Column="42"/>
+        <Filename Value="scadapy.pas"/>
+        <Caret Line="756" TopLine="741"/>
       </Position12>
       <Position13>
         <Filename Value="scadapy.pas"/>
-        <Caret Line="376" TopLine="361"/>
+        <Caret Line="842" TopLine="826"/>
       </Position13>
       <Position14>
         <Filename Value="scadapy.pas"/>
-        <Caret Line="404" TopLine="389"/>
+        <Caret Line="884" Column="116" TopLine="869"/>
       </Position14>
       <Position15>
         <Filename Value="scadapy.pas"/>
-        <Caret Line="403" TopLine="392"/>
+        <Caret Line="188" Column="57" TopLine="176"/>
       </Position15>
       <Position16>
         <Filename Value="scadapy.pas"/>
-        <Caret Line="441" TopLine="438"/>
+        <Caret Line="837" Column="12" TopLine="825"/>
       </Position16>
       <Position17>
         <Filename Value="scadapy.pas"/>
-        <Caret Line="435" TopLine="427"/>
+        <Caret Line="454" Column="3" TopLine="450"/>
       </Position17>
       <Position18>
-        <Filename Value="scadapy.pas"/>
-        <Caret Line="567" TopLine="580"/>
+        <Filename Value="f:\lazarusIDE\lcl\include\treeview.inc"/>
+        <Caret Line="459" Column="48" TopLine="443"/>
       </Position18>
       <Position19>
-        <Filename Value="scadapy.pas"/>
-        <Caret Line="617" TopLine="602"/>
+        <Filename Value="f:\lazarusIDE\lcl\include\treeview.inc"/>
+        <Caret Line="453" Column="46" TopLine="444"/>
       </Position19>
       <Position20>
-        <Filename Value="scadapy.pas"/>
-        <Caret Line="658" Column="8" TopLine="644"/>
+        <Filename Value="f:\lazarusIDE\lcl\include\treeview.inc"/>
+        <Caret Line="458" Column="2" TopLine="443"/>
       </Position20>
       <Position21>
         <Filename Value="scadapy.pas"/>
-        <Caret Line="698" TopLine="683"/>
+        <Caret Line="170" Column="6" TopLine="158"/>
       </Position21>
       <Position22>
         <Filename Value="scadapy.pas"/>
-        <Caret Line="701" TopLine="689"/>
+        <Caret Line="725" TopLine="708"/>
       </Position22>
       <Position23>
         <Filename Value="scadapy.pas"/>
-        <Caret Line="195" Column="5" TopLine="181"/>
+        <Caret Line="180" Column="95" TopLine="161"/>
       </Position23>
       <Position24>
         <Filename Value="scadapy.pas"/>
-        <Caret Line="308" Column="30" TopLine="294"/>
+        <Caret Line="763" Column="102" TopLine="750"/>
       </Position24>
       <Position25>
         <Filename Value="scadapy.pas"/>
-        <Caret Line="408" Column="47" TopLine="398"/>
+        <Caret Line="802" TopLine="788"/>
       </Position25>
       <Position26>
         <Filename Value="scadapy.pas"/>
-        <Caret Line="1145" TopLine="1119"/>
+        <Caret Line="174" Column="3" TopLine="175"/>
       </Position26>
       <Position27>
         <Filename Value="scadapy.pas"/>
-        <Caret Line="196" Column="6" TopLine="182"/>
+        <Caret Line="877" Column="41" TopLine="854"/>
       </Position27>
       <Position28>
         <Filename Value="scadapy.pas"/>
-        <Caret Line="370" Column="21" TopLine="570"/>
+        <Caret Line="856" TopLine="837"/>
       </Position28>
       <Position29>
         <Filename Value="scadapy.pas"/>
-        <Caret Line="594" TopLine="589"/>
+        <Caret Line="879" Column="24" TopLine="869"/>
       </Position29>
       <Position30>
         <Filename Value="scadapy.pas"/>
-        <Caret Line="598" Column="19" TopLine="587"/>
+        <Caret Line="873" Column="5" TopLine="871"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>

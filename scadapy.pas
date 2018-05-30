@@ -31,7 +31,6 @@ type
     BStartModbusClient: TBitBtn;
     BGVarTreeAddString: TBitBtn;
     BGVarTreeDelString: TBitBtn;
-    Button1: TButton;
     CProtocol: TComboBox;
     CChanal: TComboBox;
     EIPtty: TEdit;
@@ -168,21 +167,33 @@ type
     procedure ItemMainTreeDelClick(Sender: TObject);
     procedure CreateItemClick(Sender: TObject);
     procedure BGMainGridSaveClick(Sender: TObject);
-    procedure StringGrid1SelectCell(Sender: TObject; aRow: Integer);
+
+
     procedure GMainTreeSelectEditor(Sender: TObject; aCol, aRow: Integer;var Editor: TWinControl);
+
     procedure GVarTreeDragDrop(Sender, Source: TObject; X, Y: Integer);
-    procedure GVarTreeDragOver(Sender: TDragState; var Accept: Boolean);
-    procedure GVarTreeSelectCell(Sender: TObject;  aRow: Integer);
+    procedure GVarTreeDragOver(Sender, Source: TObject; X, Y: Integer;State: TDragState; var Accept: Boolean);
+
+    procedure GVarTreeSelectCell(Sender: TObject; aCol, aRow: Integer;var CanSelect: Boolean);
     procedure GVarTreeSelectEditor(Sender: TObject; aCol, aRow: Integer;var Editor: TWinControl);
+
     procedure GVKTreeDragDrop(Sender, Source: TObject; X, Y: Integer);
-    procedure GVKTreeDragOver(Sender: TObject; var Accept: Boolean);
+    procedure GVKTreeDragOver(Sender, Source: TObject; X, Y: Integer;State: TDragState; var Accept: Boolean);
+
+
     procedure GVKTreeSelectCell(Sender: TObject;  aRow: Integer);
     procedure GVKTreeSelectEditor(Sender: TObject; aCol, aRow: Integer;var Editor: TWinControl);
     procedure TabVariablesShow(Sender: TObject);
     procedure TabVKShow(Sender: TObject);
-    procedure VarTreeDragOver(Sender: TObject; var Accept: Boolean);
-    procedure VarTreeMouseDown(Sender: TObject; Button: TMouseButton);
-    procedure VkTreeDragOver(Sender: TObject; var Accept: Boolean);
+    procedure VarTreeClick(Sender: TObject);
+
+    procedure VarTreeDragOver(Sender, Source: TObject; X, Y: Integer;State: TDragState; var Accept: Boolean);
+    procedure VarTreeMouseDown(Sender: TObject; Button: TMouseButton;Shift: TShiftState; X, Y: Integer);
+    procedure VkTreeDragOver(Sender, Source: TObject; X, Y: Integer;State: TDragState; var Accept: Boolean);
+    procedure VkTreeMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+
+
 
   private
    procedure OpenProject();
@@ -239,7 +250,7 @@ uses VkProcedure, MercProcedure,ModbusProcedure,DbProcedure,JsonProcedure,xmlpro
 
 procedure TMainFrame.FormCreate(Sender: TObject);
 begin
-       Version:='ScadaPy Creator v.3.4.2 ';
+       Version:='ScadaPy Creator v.3.4.3 ';
        MainFrame.Caption:=Version;
        PathToProject:=ExtractFilePath(Application.ExeName);
        TabDevicePanelMiddle.Align:=alClient;
@@ -388,7 +399,7 @@ end;
 
 procedure TMainFrame.Button1Click(Sender: TObject);
 begin
-   VkProcedure.VkClientSave();
+
 end;
 
 procedure TMainFrame.BOpenProjectClick(Sender: TObject);
@@ -703,10 +714,10 @@ begin
     SaveTreeData();
 end;
 
-procedure TMainFrame.StringGrid1SelectCell(Sender: TObject; aRow: Integer);
-begin
-  ArRow:=ARow;
-end;
+//procedure TMainFrame.StringGrid1SelectCell(Sender: TObject; aRow: Integer);
+//begin
+//  ArRow:=ARow;
+//end;
 
 procedure TMainFrame.GMainTreeSelectEditor(Sender: TObject; aCol, aRow: Integer; var Editor: TWinControl);
 
@@ -738,12 +749,13 @@ begin
      end;
 end;
 
-procedure TMainFrame.GVarTreeDragOver(Sender: TDragState; var Accept: Boolean);
+procedure TMainFrame.GVarTreeDragOver(Sender, Source: TObject; X, Y: Integer;State: TDragState; var Accept: Boolean);
+
 begin
  Accept := true;
 end;
 
-procedure TMainFrame.GVarTreeSelectCell(Sender: TObject; aRow: Integer);
+procedure TMainFrame.GVarTreeSelectCell(Sender: TObject; aCol, aRow: Integer;var CanSelect: Boolean);
 begin
     ArRow:=ARow;
 end;
@@ -781,7 +793,8 @@ begin
      end;
 end;
 
-procedure TMainFrame.GVKTreeDragOver(Sender: TObject; var Accept: Boolean);
+procedure TMainFrame.GVKTreeDragOver(Sender, Source: TObject; X, Y: Integer;State: TDragState; var Accept: Boolean);
+
 begin
   Accept := true;
 end;
@@ -810,21 +823,82 @@ begin
       LoadVkTree();
 end;
 
-procedure TMainFrame.VarTreeDragOver(Sender: TObject; var Accept: Boolean);
+procedure TMainFrame.VarTreeClick(Sender: TObject);
+begin
+   // try
+   //  VarTree.Items.ClearMultiSelection(True);
+   //   if VarTree.Selected.Selected = True  then
+   //      ShowMessage('ok');
+   //
+   //except
+   //      ShowMessage('Error');
+   //  end;
+
+end;
+
+procedure TMainFrame.VarTreeDragOver(Sender, Source: TObject; X, Y: Integer;State: TDragState; var Accept: Boolean);
+
 begin
   Accept := true;
 end;
 
-procedure TMainFrame.VarTreeMouseDown(Sender: TObject; Button: TMouseButton);
+
+
+
+
+
+//procedure TMainFrame.VarTreeDragOver(Sender, Source: TObject; X, Y: Integer;
+//  State: TDragState; var Accept: Boolean);
+//begin
+//  Accept := true;
+//end;
+//
+//procedure TMainFrame.VarTreeMouseDown(Sender: TObject; Button: TMouseButton;
+//  Shift: TShiftState; X, Y: Integer);
+//begin
+//    if Button = mbLeft then
+//      VarTree.BeginDrag(true);
+//
+//end;
+
+
+
+
+
+
+
+
+procedure TMainFrame.VarTreeMouseDown(Sender: TObject; Button: TMouseButton;Shift: TShiftState; X, Y: Integer);
 begin
-    if Button = mbLeft then
-      VarTree.BeginDrag(true);
+    try
+     begin
+      if Button = mbLeft then
+        VarTree.BeginDrag(true);
+     end;
+    except
+         ShowMessage('Error drag drop');
+    end;
+
 
 end;
 
-procedure TMainFrame.VkTreeDragOver(Sender: TObject;var Accept: Boolean);
+procedure TMainFrame.VkTreeDragOver(Sender, Source: TObject; X, Y: Integer;State: TDragState; var Accept: Boolean);
 begin
   Accept := true;
+end;
+
+procedure TMainFrame.VkTreeMouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+    try
+     begin
+      if Button = mbLeft then
+        VkTree.BeginDrag(true);
+     end;
+    except
+         ShowMessage('Error drag drop');
+    end;
+
 end;
 
 

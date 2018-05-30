@@ -358,6 +358,9 @@ begin
   scadapy.MainFrame.MemoSave.Lines.Add('     except Exception as e:');
   scadapy.MainFrame.MemoSave.Lines.Add('         print (''getI- '',e)   ');
   scadapy.MainFrame.MemoSave.Lines.Add('     return I1,I2,I3');
+
+
+
   scadapy.MainFrame.MemoSave.Lines.Add('def getP(netAdr,ser):');
   scadapy.MainFrame.MemoSave.Lines.Add('     try:');
   scadapy.MainFrame.MemoSave.Lines.Add('         ser.flushInput()');
@@ -369,21 +372,20 @@ begin
   scadapy.MainFrame.MemoSave.Lines.Add('         bt4=str(bin(reqString[4]))[2:].zfill(8) ');
   scadapy.MainFrame.MemoSave.Lines.Add('         bt7=str(bin(reqString[7]))[2:].zfill(8) ');
   scadapy.MainFrame.MemoSave.Lines.Add('         bt10=str(bin(reqString[10]))[2:].zfill(8) ');
-  scadapy.MainFrame.MemoSave.Lines.Add('         P  = int(reqString[3]<<8) + int(reqString[2])');
-  scadapy.MainFrame.MemoSave.Lines.Add('         if( bt1[1] == ''1''): P = P        #   0x40');
+  scadapy.MainFrame.MemoSave.Lines.Add('         P  =int((reqString[1] & (~(1 << 7))) & (~(1 << 6))<<16) +  int(reqString[3]<<8) + int(reqString[2])');
   scadapy.MainFrame.MemoSave.Lines.Add('         if( bt1[0] == ''1''): P = P * -1   #   0x80 ');
-  scadapy.MainFrame.MemoSave.Lines.Add('         P1  = int(reqString[6]<<8) + int(reqString[5])');
-  scadapy.MainFrame.MemoSave.Lines.Add('         if( bt4[1] == ''1''): P1 = P1        #   0x40');
+  scadapy.MainFrame.MemoSave.Lines.Add('         P1  =int((reqString[4] & (~(1 << 7))) & (~(1 << 6))<<16) +  int(reqString[6]<<8) + int(reqString[5])');
   scadapy.MainFrame.MemoSave.Lines.Add('         if( bt4[0] == ''1''): P1 = P1 * -1   #   0x80 ');
-  scadapy.MainFrame.MemoSave.Lines.Add('         P2  = int(reqString[9]<<8) + int(reqString[8])');
-  scadapy.MainFrame.MemoSave.Lines.Add('         if( bt7[1] == ''1''): P2 = P2        #   0x40');
+  scadapy.MainFrame.MemoSave.Lines.Add('         P2  = int((reqString[7] & (~(1 << 7))) & (~(1 << 6))<<16) +  int(reqString[9]<<8) + int(reqString[8])');
   scadapy.MainFrame.MemoSave.Lines.Add('         if( bt7[0] == ''1''): P2 = P2 * -1   #   0x80 ');
-  scadapy.MainFrame.MemoSave.Lines.Add('         P3  = int(reqString[12]<<8) + int(reqString[11])');
-  scadapy.MainFrame.MemoSave.Lines.Add('         if( bt10[1] == ''1''): P3 = P3        #   0x40');
+  scadapy.MainFrame.MemoSave.Lines.Add('         P3  =int((reqString[10] & (~(1 << 7))) & (~(1 << 6))<<16) +  int(reqString[12]<<8) + int(reqString[11])');
   scadapy.MainFrame.MemoSave.Lines.Add('         if( bt10[0] == ''1''): P3 = P3 * -1   #   0x80 ');
   scadapy.MainFrame.MemoSave.Lines.Add('     except Exception as e:');
   scadapy.MainFrame.MemoSave.Lines.Add('         print (''getP- '',e)   ');
   scadapy.MainFrame.MemoSave.Lines.Add('     return P,P1,P2,P3');
+
+
+
   scadapy.MainFrame.MemoSave.Lines.Add('def getPS(netAdr,ser):');
   scadapy.MainFrame.MemoSave.Lines.Add('     try:');
   scadapy.MainFrame.MemoSave.Lines.Add('         ser.flushInput()');
@@ -395,18 +397,32 @@ begin
   scadapy.MainFrame.MemoSave.Lines.Add('         bt4=str(bin(reqString[4]))[2:].zfill(8) ');
   scadapy.MainFrame.MemoSave.Lines.Add('         bt7=str(bin(reqString[7]))[2:].zfill(8) ');
   scadapy.MainFrame.MemoSave.Lines.Add('         bt10=str(bin(reqString[10]))[2:].zfill(8) ');
-  scadapy.MainFrame.MemoSave.Lines.Add('         P  = int(reqString[3]<<8) + int(reqString[2])');
-  scadapy.MainFrame.MemoSave.Lines.Add('         if( bt1[1] == ''1''): P = P        #   0x40');
+
+  //scadapy.MainFrame.MemoSave.Lines.Add('         P  = int(reqString[3]<<8) + int(reqString[2])');
+  //scadapy.MainFrame.MemoSave.Lines.Add('         if( bt1[1] == ''1''): P = P        #   0x40');
+  //scadapy.MainFrame.MemoSave.Lines.Add('         if( bt1[0] == ''1''): P = P * -1   #   0x80 ');
+  //scadapy.MainFrame.MemoSave.Lines.Add('         P1  = int(reqString[6]<<8) + int(reqString[5])');
+  //scadapy.MainFrame.MemoSave.Lines.Add('         if( bt4[1] == ''1''): P1 = P1        #   0x40');
+  //scadapy.MainFrame.MemoSave.Lines.Add('         if( bt4[0] == ''1''): P1 = P1 * -1   #   0x80 ');
+  //scadapy.MainFrame.MemoSave.Lines.Add('         P2  = int(reqString[9]<<8) + int(reqString[8]) ');
+  //scadapy.MainFrame.MemoSave.Lines.Add('         if( bt7[1] == ''1''): P2 = P2        #   0x40');
+  //scadapy.MainFrame.MemoSave.Lines.Add('         if( bt7[0] == ''1''): P2 = P2 * -1   #   0x80 ');
+  //scadapy.MainFrame.MemoSave.Lines.Add('         P3  = int(reqString[12]<<8) + int(reqString[11])');
+  //scadapy.MainFrame.MemoSave.Lines.Add('         if( bt10[1] == ''1''): P3 = P3        #   0x40');
+  //scadapy.MainFrame.MemoSave.Lines.Add('         if( bt10[0] == ''1''): P3 = P3 * -1   #   0x80 ');
+  //
+  scadapy.MainFrame.MemoSave.Lines.Add('         P  =int((reqString[1] & (~(1 << 7))) & (~(1 << 6))<<16) +  int(reqString[3]<<8) + int(reqString[2])');
   scadapy.MainFrame.MemoSave.Lines.Add('         if( bt1[0] == ''1''): P = P * -1   #   0x80 ');
-  scadapy.MainFrame.MemoSave.Lines.Add('         P1  = int(reqString[6]<<8) + int(reqString[5])');
-  scadapy.MainFrame.MemoSave.Lines.Add('         if( bt4[1] == ''1''): P1 = P1        #   0x40');
+  scadapy.MainFrame.MemoSave.Lines.Add('         P1  =int((reqString[4] & (~(1 << 7))) & (~(1 << 6))<<16) +  int(reqString[6]<<8) + int(reqString[5])');
   scadapy.MainFrame.MemoSave.Lines.Add('         if( bt4[0] == ''1''): P1 = P1 * -1   #   0x80 ');
-  scadapy.MainFrame.MemoSave.Lines.Add('         P2  = int(reqString[9]<<8) + int(reqString[8]) ');
-  scadapy.MainFrame.MemoSave.Lines.Add('         if( bt7[1] == ''1''): P2 = P2        #   0x40');
+  scadapy.MainFrame.MemoSave.Lines.Add('         P2  = int((reqString[7] & (~(1 << 7))) & (~(1 << 6))<<16) +  int(reqString[9]<<8) + int(reqString[8])');
   scadapy.MainFrame.MemoSave.Lines.Add('         if( bt7[0] == ''1''): P2 = P2 * -1   #   0x80 ');
-  scadapy.MainFrame.MemoSave.Lines.Add('         P3  = int(reqString[12]<<8) + int(reqString[11])');
-  scadapy.MainFrame.MemoSave.Lines.Add('         if( bt10[1] == ''1''): P3 = P3        #   0x40');
+  scadapy.MainFrame.MemoSave.Lines.Add('         P3  =int((reqString[10] & (~(1 << 7))) & (~(1 << 6))<<16) +  int(reqString[12]<<8) + int(reqString[11])');
   scadapy.MainFrame.MemoSave.Lines.Add('         if( bt10[0] == ''1''): P3 = P3 * -1   #   0x80 ');
+
+
+
+
   scadapy.MainFrame.MemoSave.Lines.Add('     except Exception as e:');
   scadapy.MainFrame.MemoSave.Lines.Add('         print (''getPS- '',e)  ');
   scadapy.MainFrame.MemoSave.Lines.Add('     return P,P1,P2,P3');
@@ -421,18 +437,31 @@ begin
   scadapy.MainFrame.MemoSave.Lines.Add('         bt4=str(bin(reqString[4]))[2:].zfill(8) ');
   scadapy.MainFrame.MemoSave.Lines.Add('         bt7=str(bin(reqString[7]))[2:].zfill(8) ');
   scadapy.MainFrame.MemoSave.Lines.Add('         bt10=str(bin(reqString[10]))[2:].zfill(8) ');
-  scadapy.MainFrame.MemoSave.Lines.Add('         P  = int(reqString[3]<<8) + int(reqString[2])');
-  scadapy.MainFrame.MemoSave.Lines.Add('         if( bt1[1] == ''1''): P = P        #   0x40');
+//
+//  scadapy.MainFrame.MemoSave.Lines.Add('         P  = int(reqString[3]<<8) + int(reqString[2])');
+//  scadapy.MainFrame.MemoSave.Lines.Add('         if( bt1[1] == ''1''): P = P        #   0x40');
+//  scadapy.MainFrame.MemoSave.Lines.Add('         if( bt1[0] == ''1''): P = P * -1   #   0x80 ');
+//  scadapy.MainFrame.MemoSave.Lines.Add('         P1  = int(reqString[6]<<8) + int(reqString[5])');
+//  scadapy.MainFrame.MemoSave.Lines.Add('         if( bt4[1] == ''1''): P1 = P1        #   0x40');
+//  scadapy.MainFrame.MemoSave.Lines.Add('         if( bt4[0] == ''1''): P1 = P1 * -1   #   0x80 ');
+//  scadapy.MainFrame.MemoSave.Lines.Add('         P2  = int(reqString[9]<<8) + int(reqString[8]) ');
+//  scadapy.MainFrame.MemoSave.Lines.Add('         if( bt7[1] == ''1''): P2 = P2        #   0x40');
+//  scadapy.MainFrame.MemoSave.Lines.Add('         if( bt7[0] == ''1''): P2 = P2 * -1   #   0x80 ');
+//  scadapy.MainFrame.MemoSave.Lines.Add('         P3  = int(reqString[12]<<8) + int(reqString[11])');
+//  scadapy.MainFrame.MemoSave.Lines.Add('         if( bt10[1] == ''1''): P3 = P3        #   0x40');
+//  scadapy.MainFrame.MemoSave.Lines.Add('         if( bt10[0] == ''1''): P3 = P3 * -1   #   0x80 ');
+//
+  scadapy.MainFrame.MemoSave.Lines.Add('         P  =int((reqString[1] & (~(1 << 7))) & (~(1 << 6))<<16) +  int(reqString[3]<<8) + int(reqString[2])');
   scadapy.MainFrame.MemoSave.Lines.Add('         if( bt1[0] == ''1''): P = P * -1   #   0x80 ');
-  scadapy.MainFrame.MemoSave.Lines.Add('         P1  = int(reqString[6]<<8) + int(reqString[5])');
-  scadapy.MainFrame.MemoSave.Lines.Add('         if( bt4[1] == ''1''): P1 = P1        #   0x40');
+  scadapy.MainFrame.MemoSave.Lines.Add('         P1  =int((reqString[4] & (~(1 << 7))) & (~(1 << 6))<<16) +  int(reqString[6]<<8) + int(reqString[5])');
   scadapy.MainFrame.MemoSave.Lines.Add('         if( bt4[0] == ''1''): P1 = P1 * -1   #   0x80 ');
-  scadapy.MainFrame.MemoSave.Lines.Add('         P2  = int(reqString[9]<<8) + int(reqString[8]) ');
-  scadapy.MainFrame.MemoSave.Lines.Add('         if( bt7[1] == ''1''): P2 = P2        #   0x40');
+  scadapy.MainFrame.MemoSave.Lines.Add('         P2  = int((reqString[7] & (~(1 << 7))) & (~(1 << 6))<<16) +  int(reqString[9]<<8) + int(reqString[8])');
   scadapy.MainFrame.MemoSave.Lines.Add('         if( bt7[0] == ''1''): P2 = P2 * -1   #   0x80 ');
-  scadapy.MainFrame.MemoSave.Lines.Add('         P3  = int(reqString[12]<<8) + int(reqString[11])');
-  scadapy.MainFrame.MemoSave.Lines.Add('         if( bt10[1] == ''1''): P3 = P3        #   0x40');
+  scadapy.MainFrame.MemoSave.Lines.Add('         P3  =int((reqString[10] & (~(1 << 7))) & (~(1 << 6))<<16) +  int(reqString[12]<<8) + int(reqString[11])');
   scadapy.MainFrame.MemoSave.Lines.Add('         if( bt10[0] == ''1''): P3 = P3 * -1   #   0x80 ');
+
+
+
   scadapy.MainFrame.MemoSave.Lines.Add('     except Exception as e:');
   scadapy.MainFrame.MemoSave.Lines.Add('         print (''getPQ- '',e)  ');
   scadapy.MainFrame.MemoSave.Lines.Add('     return P,P1,P2,P3');

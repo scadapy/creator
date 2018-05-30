@@ -1,7 +1,7 @@
 object MainFrame: TMainFrame
-  Left = 359
+  Left = 81
   Height = 689
-  Top = 117
+  Top = 178
   Width = 1252
   Align = alLeft
   Caption = 'ScadaPy'
@@ -146,7 +146,7 @@ object MainFrame: TMainFrame
   }
   Menu = MainFormMenu
   OnCreate = FormCreate
-  LCLVersion = '1.8.2.0'
+  LCLVersion = '1.8.4.0'
   object MainTree: TTreeView
     Left = 0
     Height = 614
@@ -364,15 +364,6 @@ object MainFrame: TMainFrame
             }
             OnClick = BGMainGridSaveClick
           end
-          object Button1: TButton
-            Left = 505
-            Height = 25
-            Top = 58
-            Width = 75
-            Caption = 'Button1'
-            OnClick = Button1Click
-            TabOrder = 5
-          end
         end
         object GMainTree: TStringGrid
           Cursor = crDrag
@@ -535,6 +526,7 @@ object MainFrame: TMainFrame
         AutoExpand = True
         ReadOnly = True
         TabOrder = 1
+        OnClick = VarTreeClick
         OnDragOver = VarTreeDragOver
         OnMouseDown = VarTreeMouseDown
         Options = [tvoAutoExpand, tvoAutoItemHeight, tvoHideSelection, tvoKeepCollapsedNodes, tvoReadOnly, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
@@ -584,7 +576,7 @@ object MainFrame: TMainFrame
         ReadOnly = True
         TabOrder = 1
         OnDragOver = VkTreeDragOver
-        OnMouseDown = VarTreeMouseDown
+        OnMouseDown = VkTreeMouseDown
         Options = [tvoAutoExpand, tvoAutoItemHeight, tvoHideSelection, tvoKeepCollapsedNodes, tvoReadOnly, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
       end
       object TabVKSplitter: TSplitter
