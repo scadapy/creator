@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<Config xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <VkVariables>
+ </VkVariables>
+ <VkConfig>
+     <Cnf VkLogin="" VkPassword=""></Cnf>
+ </VkConfig>
+ <DbConfig>
+     <Cnf DbHost="" DbPort="" DbLogin="" DbPassword=""></Cnf>
+ </DbConfig>
+ <ProjectConfig>
+     <Config ProjectName="NewProject" ProjectPath="F:\scadapy\343\mercury230\" PathToPythonWindows="c:\Python35\python.exe" PathToBrowserWindows="c:\Program Files\Internet Explorer\iexplore" PathToTerminalLinux="xfce4-terminal --geometry=100x20 -e" PathToBrowserLinux="firefox" PathToPythonLinux="python3"></Config>
+ </ProjectConfig>
+ <ModbusConfig>
+ </ModbusConfig>
+ <MercuryConfig>
+     <PortMercury ParentIndex="1" ItemIndex="0" Level="2" Protocol="1" Mtype="1" tcp_com="com10" port_speed="9600" name="Название порта Меркурий-230">1
+          <VariableMercury id="1" VarName="merc_230_81" Serial_Number="81" Empty1="" Empty2="" Net_Address="26022581" TimeOut="1"></VariableMercury>
+     </PortMercury>
+ </MercuryConfig>
+ <Variables>
+    <VarPoint Id="1" VarName="merc_230_81" Alias="SerialNumber" Address="0" ByteCount="1" ByteRoute="1" VarType="string" Manage="1"  VarAlias="Серийный номер "  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="2" VarName="merc_230_81" Alias="Freq" Address="1" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.01"  VarAlias="Частота"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="3" VarName="merc_230_81" Alias="Aplus" Address="2" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная A+"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="4" VarName="merc_230_81" Alias="Aminus" Address="3" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная A-"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="5" VarName="merc_230_81" Alias="Rplus" Address="4" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная R+"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="6" VarName="merc_230_81" Alias="Rminus" Address="5" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная R-"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="7" VarName="merc_230_81" Alias="Aplus1" Address="6" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная A+1"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="8" VarName="merc_230_81" Alias="Aminus1" Address="7" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная A-1"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="9" VarName="merc_230_81" Alias="Rplus1" Address="8" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная R+1"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="10" VarName="merc_230_81" Alias="Rminus1" Address="9" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная R-1"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="11" VarName="merc_230_81" Alias="Aplus2" Address="10" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная A+2"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="12" VarName="merc_230_81" Alias="Aminus2" Address="11" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная A-2"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="13" VarName="merc_230_81" Alias="Rplus2" Address="12" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная R+2"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="14" VarName="merc_230_81" Alias="Rminus2" Address="13" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная R-2"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="15" VarName="merc_230_81" Alias="Aplus3" Address="14" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная A+3"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="16" VarName="merc_230_81" Alias="Aminus3" Address="15" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная A-3"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="17" VarName="merc_230_81" Alias="Rplus3" Address="16" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная R+3"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="18" VarName="merc_230_81" Alias="Rminus3" Address="17" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная R-3"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="19" VarName="merc_230_81" Alias="Aplus4" Address="18" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная A+4"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="20" VarName="merc_230_81" Alias="Aminus4" Address="19" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная A-4"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="21" VarName="merc_230_81" Alias="Rplus4" Address="20" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная R+4"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="22" VarName="merc_230_81" Alias="Rminus4" Address="21" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Энергия суммарная R-4"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="23" VarName="merc_230_81" Alias="Ua" Address="22" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.01"  VarAlias="Напряжение А"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="24" VarName="merc_230_81" Alias="Ub" Address="23" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.01"  VarAlias="Напряжение В"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="25" VarName="merc_230_81" Alias="Uc" Address="24" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.01"  VarAlias="Напряжение С"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="26" VarName="merc_230_81" Alias="Ia" Address="25" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Ток А"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="27" VarName="merc_230_81" Alias="Ib" Address="26" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Ток В"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="28" VarName="merc_230_81" Alias="Ic" Address="27" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Ток С"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="29" VarName="merc_230_81" Alias="Psum" Address="28" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.01"  VarAlias="Активная мощность Сумма"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="30" VarName="merc_230_81" Alias="Pa" Address="29" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.01"  VarAlias="Активная мощность А"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="31" VarName="merc_230_81" Alias="Pb" Address="30" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.01"  VarAlias="Активная мощность В"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="32" VarName="merc_230_81" Alias="Pc" Address="31" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.01"  VarAlias="Активная мощность С"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="33" VarName="merc_230_81" Alias="Ssum" Address="32" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.01"  VarAlias="Полная мощность Сумма"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="34" VarName="merc_230_81" Alias="Sa" Address="33" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.01"  VarAlias="Полная мощность А"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="35" VarName="merc_230_81" Alias="Sb" Address="34" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.01"  VarAlias="Полная мощность В"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="36" VarName="merc_230_81" Alias="Sc" Address="35" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.01"  VarAlias="Полная мощность С"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="37" VarName="merc_230_81" Alias="Qsum" Address="36" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.01"  VarAlias="Реактивная мощность сумма"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="38" VarName="merc_230_81" Alias="Qa" Address="37" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.01"  VarAlias="Реактивная мощность А"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="39" VarName="merc_230_81" Alias="Qb" Address="38" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.01"  VarAlias="Реактивная мощность В"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="40" VarName="merc_230_81" Alias="Qc" Address="39" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.01"  VarAlias="Реактивная мощность С"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="41" VarName="merc_230_81" Alias="cosFsum" Address="40" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Коэф.мощности"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="42" VarName="merc_230_81" Alias="cosFa" Address="41" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Коэф.мощности А"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="43" VarName="merc_230_81" Alias="cosFb" Address="42" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Коэф.мощности В"  DbArch="" >merc_230_81</VarPoint>
+    <VarPoint Id="44" VarName="merc_230_81" Alias="cosFc" Address="43" ByteCount="1" ByteRoute="1" VarType="integer" Manage="0.001"  VarAlias="Коэф.мощности С"  DbArch="" >merc_230_81</VarPoint>
+ </Variables>
+</Config>
