@@ -1,0 +1,29 @@
+[
+{ "Client":
+    { "UdpPort"   :"64000",
+      "UdpIp"     :"127.0.0.1",
+      "Iec104Port":"2404",
+      "Iec104Ip"  :"192.168.0.105",
+      "Debug"     :"1",
+      "TimeSync"  :"1" 
+     }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "WaterTemp", 
+    "IecAddress": "8001", 
+    "Alias"     : "Температура воды", 
+    "VarType"   : "int32" 
+  }
+}
+,
+{ "SinglePoint": 
+  {
+    "VarName"   : "EngineOnOff", 
+    "IecAddress": "4001", 
+    "Alias"     : "Дизель генератор", 
+    "VarType"   : "bool" 
+  }
+}
+]

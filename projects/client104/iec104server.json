@@ -1,0 +1,33 @@
+[
+{ "Server":
+    { "UdpPort"   :"64002",
+      "UdpIp"     :"127.0.0.1",
+      "Iec104Port":"2404",
+      "Iec104Ip"  :"192.168.0.103",
+      "Debug"     :"1"
+     }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"     : "WaterTemp", 
+    "IecAddress"  : "8001", 
+    "OffSet"      : "0", 
+    "ByteCount"   : "2", 
+    "ByteSequence": "12", 
+    "Koef"        : "1", 
+    "VarType"     : "int" 
+  }
+}
+,
+{ "SinglePoint": 
+  {
+    "VarName"     : "EngineOnOff", 
+    "IecAddress"  : "4001", 
+    "OffSet"      : "0", 
+    "ByteCount"   : "1", 
+    "ByteSequence": "1", 
+    "VarType"     : "bool" 
+  }
+}
+]
