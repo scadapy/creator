@@ -15,6 +15,10 @@ type
   { TMainFrame }
 
     TMainFrame = class(TForm)
+    BGiec104serverPlus: TBitBtn;
+    BGiec104serverMinus: TBitBtn;
+    Biec104client: TBitBtn;
+    Biec104server: TBitBtn;
     BOpenProject: TBitBtn;
     BStartJsonServer: TBitBtn;
     BStartHtmlClient: TBitBtn;
@@ -31,8 +35,17 @@ type
     BStartModbusClient: TBitBtn;
     BGVarTreeAddString: TBitBtn;
     BGVarTreeDelString: TBitBtn;
+    CheckDebug: TCheckBox;
     CProtocol: TComboBox;
     CChanal: TComboBox;
+    Eiec104serverPort: TEdit;
+    Eiec104serverIP: TEdit;
+    Eiec104serverDebug: TEdit;
+    Eudpport: TEdit;
+    Eudpip: TEdit;
+    Eiec104port: TEdit;
+    Eiec104ip: TEdit;
+    Edebug: TEdit;
     EIPtty: TEdit;
     ELinuxPythonPath: TEdit;
     EDBhost: TEdit;
@@ -40,15 +53,25 @@ type
     EDBLogin: TEdit;
     EDBPassword: TEdit;
     EVKLogin: TEdit;
+    Eiec104serverUDPport: TEdit;
     EVKPassword: TEdit;
     EPortBoadRate: TEdit;
     EInfo: TEdit;
     EProjectName: TEdit;
+    Eiec104serverUDPIP: TEdit;
     EWindowsPythonPath: TEdit;
     EProjectPath: TEdit;
     EWindowsBrowser: TEdit;
     ELinuxTerminal: TEdit;
     ELinuxBrowser: TEdit;
+    Liec104serverIP: TLabel;
+    Liec104serverDebug: TLabel;
+    Lserveriec104port: TLabel;
+    Ludpport: TLabel;
+    Ludpip: TLabel;
+    Liecport: TLabel;
+    Liecip: TLabel;
+    Ldebug: TLabel;
     LInfo: TLabel;
     LChanal: TLabel;
     LIPtty: TLabel;
@@ -58,8 +81,10 @@ type
     LDBLogin: TLabel;
     LDBPassword: TLabel;
     LVKLogin: TLabel;
+    LserverUDPport: TLabel;
     LVKPassword: TLabel;
     LProjectName: TLabel;
+    Liec104serverUDPIP: TLabel;
     LWinPythonPath: TLabel;
     LProjectPath: TLabel;
     LWinBrowser: TLabel;
@@ -72,6 +97,11 @@ type
     FileItem: TMenuItem;
     MemoSave: TMemo;
     ItemExit: TMenuItem;
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
+    Piec: TPanel;
     RunItem: TMenuItem;
     ItemRunMonitor: TMenuItem;
     ItemRunModbus: TMenuItem;
@@ -96,7 +126,10 @@ type
     CreateItem: TMenuItem;
     OpenDialogProject: TOpenDialog;
     MainPage: TPageControl;
+    Splitter1: TSplitter;
+    Giec104server: TStringGrid;
     TabDevicePanelMiddle: TPanel;
+    TabIec104: TTabSheet;
     TabVKPanelInfo: TPanel;
     TabConfigPanelInfo: TPanel;
     TabVariablesPanelInfo: TPanel;
@@ -110,6 +143,7 @@ type
     BGMainGridSave: TSpeedButton;
     MainFormSplitter: TSplitter;
     TabVariablesSplitter: TSplitter;
+    TabVKPanelInfo1: TPanel;
     TabVKSplitter: TSplitter;
     MainFormStatusBar: TStatusBar;
     GMainTree: TStringGrid;
@@ -122,9 +156,14 @@ type
     TabConfig: TTabSheet;
     VarTree: TTreeView;
     VkTree: TTreeView;
+    Iec104serverTree: TTreeView;
 
 
 
+    procedure BGiec104serverMinusClick(Sender: TObject);
+    procedure BGiec104serverPlusClick(Sender: TObject);
+    procedure Biec104clientClick(Sender: TObject);
+    procedure Biec104serverClick(Sender: TObject);
     procedure BStartJsonServerClick(Sender: TObject);
     procedure BStartHtmlClientClick(Sender: TObject);
     procedure BStartMercuryClientClick(Sender: TObject);
@@ -143,7 +182,22 @@ type
     procedure CProtocolSelect(Sender: TObject);
     procedure CChanalSelect(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure Giec104serverDragDrop(Sender, Source: TObject; X, Y: Integer);
+    procedure Giec104serverDragOver(Sender, Source: TObject; X, Y: Integer;
+      State: TDragState; var Accept: Boolean);
+    procedure Giec104serverSelectCell(Sender: TObject; aCol, aRow: Integer;
+      var CanSelect: Boolean);
+    procedure Giec104serverSelectEditor(Sender: TObject; aCol, aRow: Integer;
+      var Editor: TWinControl);
+    procedure Iec104serverTreeDragOver(Sender, Source: TObject; X, Y: Integer;
+      State: TDragState; var Accept: Boolean);
+    procedure Iec104serverTreeMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure MainTreeClick(Sender: TObject);
+    procedure MenuItem1Click(Sender: TObject);
+    procedure MenuItem2Click(Sender: TObject);
+    procedure MenuItem3Click(Sender: TObject);
+    procedure MenuItem4Click(Sender: TObject);
     procedure RunItemClick(Sender: TObject);
     procedure ItemRunMonitorClick(Sender: TObject);
     procedure ItemRunModbusClick(Sender: TObject);
@@ -183,6 +237,7 @@ type
 
     procedure GVKTreeSelectCell(Sender: TObject;  aRow: Integer);
     procedure GVKTreeSelectEditor(Sender: TObject; aCol, aRow: Integer;var Editor: TWinControl);
+    procedure TabIec104Show(Sender: TObject);
     procedure TabVariablesShow(Sender: TObject);
     procedure TabVKShow(Sender: TObject);
     procedure VarTreeClick(Sender: TObject);
@@ -190,9 +245,9 @@ type
     procedure VarTreeDragOver(Sender, Source: TObject; X, Y: Integer;State: TDragState; var Accept: Boolean);
     procedure VarTreeMouseDown(Sender: TObject; Button: TMouseButton;Shift: TShiftState; X, Y: Integer);
     procedure VkTreeDragOver(Sender, Source: TObject; X, Y: Integer;State: TDragState; var Accept: Boolean);
-    procedure VkTreeMouseDown(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
+    procedure VkTreeMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 
+    procedure LoadIec104ServerTree();
 
 
   private
@@ -216,6 +271,12 @@ type
     TCP_COM: string;
     PORT_SPEED: string;
     StringData: array of array of string;
+    IecIp: string;
+    IecPort: string;
+    UdpIp: string;
+    UdpPort: string;
+    TimeSync: string;
+    Debug: string;
   end;
 
     MStructure = ^TModbusStructure;
@@ -242,15 +303,16 @@ var
   ArRow: integer;
   SourceCol, SourceRow: integer;
   FullProjectFilePath: String;
+  SelectionString: integer;
 implementation
-uses VkProcedure, MercProcedure,ModbusProcedure,DbProcedure,JsonProcedure,xmlprocedure,cmdprocedure ;
+uses VkProcedure, MercProcedure,ModbusProcedure,DbProcedure,JsonProcedure,xmlprocedure,cmdprocedure,iec104 ;
 {$R *.lfm}
 
 { TMainFrame }
 
 procedure TMainFrame.FormCreate(Sender: TObject);
 begin
-       Version:='ScadaPy Creator v.3.4.3 ';
+       Version:='ScadaPy Creator v.3.5.3 ';
        MainFrame.Caption:=Version;
        PathToProject:=ExtractFilePath(Application.ExeName);
        TabDevicePanelMiddle.Align:=alClient;
@@ -263,14 +325,14 @@ begin
        GMainTree.Cells[2,0] := 'RTU address';
        GMainTree.Cells[3,0] := 'REG name';
        GMainTree.Cells[4,0] := 'REG address';
-       GMainTree.Cells[5,0] := 'REG offset';
+       GMainTree.Cells[5,0] := 'REGs range ';
        GMainTree.Cells[6,0] := 'TimeOut';
        GMainTree.ColWidths[0]:=30;
        GMainTree.ColWidths[1]:=200;
        GMainTree.ColWidths[2]:=80;
        GMainTree.ColWidths[3]:=200;
-       GMainTree.ColWidths[4]:=200;
-       GMainTree.ColWidths[5]:=70;
+       GMainTree.ColWidths[4]:=100;
+       GMainTree.ColWidths[5]:=100;
        GMainTree.ColWidths[6]:=70;
 
 //////////////////////////////////////////////////////
@@ -278,40 +340,124 @@ begin
        GVarTree.ColCount:=10;
        GVarTree.RowCount:=2;
        GVarTree.Cells[0,0] := '№';
-       GVarTree.Cells[1,0] := 'Источник';
-       GVarTree.Cells[2,0] := 'Название переменной';
-       GVarTree.Cells[3,0] := 'Адрес';
-       GVarTree.Cells[4,0] := 'Количество байт';
-       GVarTree.Cells[5,0] := 'Порядок байт';
-       GVarTree.Cells[6,0] := 'Тип данных';
-       GVarTree.Cells[7,0] := 'Множитель';
-       GVarTree.Cells[8,0] := 'Псевдоним';
-       GVarTree.Cells[9,0] := 'Период архивации';
+       GVarTree.Cells[1,0] := 'Source';
+       GVarTree.Cells[2,0] := 'Var name';
+       GVarTree.Cells[3,0] := 'Array address';
+       GVarTree.Cells[4,0] := 'Range';
+       GVarTree.Cells[5,0] := 'Sequence';
+       GVarTree.Cells[6,0] := 'Data type';
+       GVarTree.Cells[7,0] := 'Koef';
+       GVarTree.Cells[8,0] := 'Alias';
+       GVarTree.Cells[9,0] := 'DB interval';
 
        GVarTree.ColWidths[0]:=30;
        GVarTree.ColWidths[1]:=200;
        GVarTree.ColWidths[2]:=200;
-       GVarTree.ColWidths[3]:=80;
-       GVarTree.ColWidths[4]:=120;
-       GVarTree.ColWidths[5]:=100;
-       GVarTree.ColWidths[6]:=100;
-       GVarTree.ColWidths[7]:=70;
+       GVarTree.ColWidths[3]:=90;
+       GVarTree.ColWidths[4]:=45;
+       GVarTree.ColWidths[5]:=65;
+       GVarTree.ColWidths[6]:=65;
+       GVarTree.ColWidths[7]:=50;
        GVarTree.ColWidths[8]:=200;
-       GVarTree.ColWidths[9]:=120;
+       GVarTree.ColWidths[9]:=80;
 //////////////////////////////////////////////////////
        GVKTree.Clear;
        GVKTree.ColCount:=5;
        GVKTree.RowCount:=2;
        GVKTree.Cells[0,0] := '№';
-       GVKTree.Cells[1,0] := 'Название переменной';
-       GVKTree.Cells[2,0] := 'Сообщение';
+       GVKTree.Cells[1,0] := 'Var name';
+       GVKTree.Cells[2,0] := 'Message';
        GVKTree.Cells[3,0] := 'vk id';
-       GVKTree.Cells[4,0] := 'Период отправки';
+       GVKTree.Cells[4,0] := 'Send period';
        GVKTree.ColWidths[0]:=30;
        GVKTree.ColWidths[1]:=200;
        GVKTree.ColWidths[2]:=280;
        GVKTree.ColWidths[3]:=100;
        GVKTree.ColWidths[4]:=150;
+///////////////////////////////////////////////////////////
+       Giec104server.Clear;
+       Giec104server.ColCount:=9;
+       Giec104server.RowCount:=2;
+       Giec104server.Cells[0,0] := '№';
+       Giec104server.Cells[1,0] := 'Source';
+       Giec104server.Cells[2,0] := 'Var name';
+       Giec104server.Cells[3,0] := 'Address iec 104';
+       Giec104server.Cells[4,0] := 'Range';
+       Giec104server.Cells[5,0] := 'Sequence';
+       Giec104server.Cells[6,0] := 'Data type';
+       Giec104server.Cells[7,0] := 'Array address';
+       Giec104server.Cells[8,0] := 'Koef';
+
+       Giec104server.ColWidths[0]:=30;
+       Giec104server.ColWidths[1]:=200;
+       Giec104server.ColWidths[2]:=200;
+       Giec104server.ColWidths[3]:=100;
+       Giec104server.ColWidths[4]:=45;
+       Giec104server.ColWidths[5]:=65;
+       Giec104server.ColWidths[6]:=65;
+       Giec104server.ColWidths[7]:=90;
+       Giec104server.ColWidths[8]:=50;
+
+end;
+
+procedure TMainFrame.Giec104serverDragDrop(Sender, Source: TObject; X,  Y: Integer);
+var
+  DestCol, DestRow: Integer;
+begin
+   DestCol:=0;
+   DestRow:=0;
+   if Source is TTreeView then
+     begin
+
+          Giec104server.RowCount:=Giec104server.RowCount+1;
+          Giec104server.MouseToCell(X, Y, DestCol, DestRow);
+          Giec104server.Cells[DestCol,DestRow]:=Iec104ServerTree.Selected.Text;
+          Giec104server.Cells[4,DestRow]:='1';
+          Giec104server.Cells[5,DestRow]:='1';
+          Giec104server.Cells[7,DestRow]:='0';
+
+     end;
+end;
+
+procedure TMainFrame.Giec104serverDragOver(Sender, Source: TObject; X,
+  Y: Integer; State: TDragState; var Accept: Boolean);
+begin
+   Accept := true;
+end;
+
+procedure TMainFrame.Giec104serverSelectCell(Sender: TObject; aCol,
+  aRow: Integer; var CanSelect: Boolean);
+begin
+      ArRow:=ARow;
+end;
+
+procedure TMainFrame.Giec104serverSelectEditor(Sender: TObject; aCol,
+  aRow: Integer; var Editor: TWinControl);
+begin
+        if aCol=6 then
+       begin
+        Editor := Giec104server.EditorByStyle(cbsPickList);
+        TCustomComboBox(Editor).Items.CommaText := 'bool,int,int32,float';
+       end;
+end;
+
+procedure TMainFrame.Iec104serverTreeDragOver(Sender, Source: TObject; X,
+  Y: Integer; State: TDragState; var Accept: Boolean);
+begin
+  Accept := true;
+end;
+
+procedure TMainFrame.Iec104serverTreeMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+begin
+   try
+     begin
+      if Button = mbLeft then
+        Iec104serverTree.BeginDrag(true);
+     end;
+    except
+         ShowMessage('Error drag drop');
+    end;
 end;
 
 procedure TMainFrame.BStartMonitorClick(Sender: TObject);
@@ -352,6 +498,7 @@ begin
          MercProcedure.MercuryClientSave();
          DbProcedure.DbArchSave();
          VkProcedure.VkClientSave();
+         iec104.clientSave();
        end;
       except
 
@@ -379,7 +526,8 @@ begin
  DbProcedure.DbArchSave();
  VkProcedure.VkClientSave();
  SaveStartStopSh();
-
+ iec104.clientSave();
+ iec104.serverSave();
 end;
 
 procedure TMainFrame.BStartModbusClientClick(Sender: TObject);
@@ -389,12 +537,13 @@ end;
 
 procedure TMainFrame.BGVarTreeAddStringClick(Sender: TObject);
 begin
-      GVKTree.RowCount:=GVKTree.RowCount + 1 ;
+
+      GVKTree.RowCount:=GVKTree.RowCount + 1 ;  //Giec104server
 end;
 
 procedure TMainFrame.BGVarTreeDelStringClick(Sender: TObject);
 begin
-      GVKTree.DeleteRow(ArRow);
+      GVKTree.DeleteRow(ArRow);                //Giec104server
 end;
 
 procedure TMainFrame.Button1Click(Sender: TObject);
@@ -407,11 +556,32 @@ begin
     OpenProject();
     LoadVarTree();
     LoadVkTree();
+    LoadIec104ServerTree();
 end;
 
 procedure TMainFrame.BStartJsonServerClick(Sender: TObject);
 begin
     cmdprocedure.StartCommand('jserver.py');
+end;
+
+procedure TMainFrame.Biec104clientClick(Sender: TObject);
+begin
+    cmdprocedure.Start104Client();
+end;
+
+procedure TMainFrame.Biec104serverClick(Sender: TObject);
+begin
+      cmdprocedure.Start104server();
+end;
+
+procedure TMainFrame.BGiec104serverPlusClick(Sender: TObject);
+begin
+       Giec104server.RowCount:=Giec104server.RowCount + 1 ;  //Giec104server
+end;
+
+procedure TMainFrame.BGiec104serverMinusClick(Sender: TObject);
+begin
+        Giec104server.DeleteRow(ArRow);                //Giec104server
 end;
 
 procedure TMainFrame.BStartHtmlClientClick(Sender: TObject);
@@ -458,8 +628,10 @@ begin
 
      parId:=StrToInt(MainTree.Selected.Parent.Index.ToString());
      //childId:=StrToInt(MainTree.Selected.Index.ToString());
+/// modbus
      if(MainTree.Selected.Level=2) and (parId=0)   then
           begin
+              SelectionString:=1;
               GMainTree.Clear;
               GMainTree.ColCount:=7;
               GMainTree.RowCount:=2;
@@ -467,18 +639,20 @@ begin
               GMainTree.ColWidths[1]:=200;
               GMainTree.ColWidths[2]:=80;
               GMainTree.ColWidths[3]:=200;
-              GMainTree.ColWidths[4]:=200;
-              GMainTree.ColWidths[5]:=70;
+              GMainTree.ColWidths[4]:=100;
+              GMainTree.ColWidths[5]:=100;
               GMainTree.ColWidths[6]:=70;
               GMainTree.Cells[0,0] := '№';
               GMainTree.Cells[1,0] := 'Name';
               GMainTree.Cells[2,0] := 'RTU address';
               GMainTree.Cells[3,0] := 'REG name';
               GMainTree.Cells[4,0] := 'REG address';
-              GMainTree.Cells[5,0] := 'REG offset';
+              GMainTree.Cells[5,0] := 'REGs range';
               GMainTree.Cells[6,0] := 'TimeOut';
+              Piec.Visible:=False;
                 if (MStructure(MainTree.Selected.Data)<>nil) then
                 begin
+                   Piec.Visible:=False;
                    CProtocol.ItemIndex:=MStructure(MainTree.Selected.Data)^.ProtocolType.ToInteger;
                    CChanal.ItemIndex:=MStructure(MainTree.Selected.Data)^.ChanalType.ToInteger;
                    EIPtty.Text:=MStructure(MainTree.Selected.Data)^.TCP_COM;
@@ -498,9 +672,10 @@ begin
               end;
           end;
 
-
+/////////////////   merc
       if   (MainTree.Selected.Level=2) and (parId=1)  then
       begin
+           SelectionString:=2;
            GMainTree.Clear;
            GMainTree.RowCount:=2;
            GMainTree.ColWidths[0]:=30;
@@ -517,32 +692,99 @@ begin
            GMainTree.Cells[4,0] := 'Empty';
            GMainTree.Cells[5,0] := 'Serial Number';
            GMainTree.Cells[6,0] := 'TimeOut';
+           Piec.Visible:=False;
              if (MStructure(MainTree.Selected.Data)<>nil) then
+             Piec.Visible:=False;
              begin
-                CProtocol.ItemIndex:=MStructure(MainTree.Selected.Data)^.ProtocolType.ToInteger;
-                CChanal.ItemIndex:=MStructure(MainTree.Selected.Data)^.ChanalType.ToInteger;
-                EIPtty.Text:=MStructure(MainTree.Selected.Data)^.TCP_COM;
-                EPortBoadRate.Text:=MStructure(MainTree.Selected.Data)^.PORT_SPEED;
-                i:=Length(MStructure(MainTree.Selected.Data)^.StringData);
-                GMainTree.RowCount:=i+1;
-                for j:=1 to i-1 do
-                begin
-                   GMainTree.Cells[0, j]:=j.ToString ;
-                   GMainTree.Cells[1, j]:=MStructure(MainTree.Selected.Data)^.StringData[j][1]  ;
-                   GMainTree.Cells[2, j]:=MStructure(MainTree.Selected.Data)^.StringData[j][2]  ;
-                   GMainTree.Cells[3, j]:=MStructure(MainTree.Selected.Data)^.StringData[j][3]  ;
-                   GMainTree.Cells[4, j]:=MStructure(MainTree.Selected.Data)^.StringData[j][4]  ;
-                   GMainTree.Cells[5, j]:=MStructure(MainTree.Selected.Data)^.StringData[j][5]  ;
-                   GMainTree.Cells[6, j]:=MStructure(MainTree.Selected.Data)^.StringData[j][6]  ;
-               end;
+                try
+                   if(MStructure(MainTree.Selected.Data) <> nil) then
+                   begin
+                      CProtocol.ItemIndex:=MStructure(MainTree.Selected.Data)^.ProtocolType.ToInteger;
+                      CChanal.ItemIndex:=MStructure(MainTree.Selected.Data)^.ChanalType.ToInteger;
+                      EIPtty.Text:=MStructure(MainTree.Selected.Data)^.TCP_COM;
+                      EPortBoadRate.Text:=MStructure(MainTree.Selected.Data)^.PORT_SPEED;
+
+                      i:=Length(MStructure(MainTree.Selected.Data)^.StringData);
+                      GMainTree.RowCount:=i+1;
+                      for j:=1 to i-1 do
+                      begin
+                        GMainTree.Cells[0, j]:=j.ToString ;
+                        GMainTree.Cells[1, j]:=MStructure(MainTree.Selected.Data)^.StringData[j][1]  ;
+                        GMainTree.Cells[2, j]:=MStructure(MainTree.Selected.Data)^.StringData[j][2]  ;
+                        GMainTree.Cells[3, j]:=MStructure(MainTree.Selected.Data)^.StringData[j][3]  ;
+                        GMainTree.Cells[4, j]:=MStructure(MainTree.Selected.Data)^.StringData[j][4]  ;
+                        GMainTree.Cells[5, j]:=MStructure(MainTree.Selected.Data)^.StringData[j][5]  ;
+                        GMainTree.Cells[6, j]:=MStructure(MainTree.Selected.Data)^.StringData[j][6]  ;
+                      end;
+                   end;
+                except
+                end;
            end;
        end;
+////////////////// iec
+            if   (MainTree.Selected.Level=2) and (parId=2)  then
+            begin
+                         SelectionString:=3;
+                         GMainTree.Clear;
+                         GMainTree.RowCount:=2;
+                         GMainTree.ColWidths[0]:=30;
+                         GMainTree.ColWidths[1]:=200;
+                         GMainTree.ColWidths[2]:=120;
+                         GMainTree.ColWidths[5]:=200;
+                         GMainTree.ColWidths[6]:=100;
+                         GMainTree.Cells[0,0] := '№';
+                         GMainTree.Cells[1,0] := 'VarName';
+                         GMainTree.Cells[2,0] := 'Address';
+                         GMainTree.Cells[3,0] := 'Empty';
+                         GMainTree.Cells[4,0] := 'Empty';
+                         GMainTree.Cells[5,0] := 'Alias';
+                         GMainTree.Cells[6,0] := 'Type';
+                         Piec.Visible:=True;
+                   if (MStructure(MainTree.Selected.Data)<>nil) then
+                   begin
+                     i:=Length(MStructure(MainTree.Selected.Data)^.StringData);
+                     GMainTree.RowCount:=i+1;
+                     for j:=1 to i-1 do
+                     begin
+                         GMainTree.Cells[0, j]:=j.ToString ;
+                         GMainTree.Cells[1, j]:=MStructure(MainTree.Selected.Data)^.StringData[j][1]  ;
+                         GMainTree.Cells[2, j]:=MStructure(MainTree.Selected.Data)^.StringData[j][2]  ;
+                         GMainTree.Cells[5, j]:=MStructure(MainTree.Selected.Data)^.StringData[j][5]  ;
+                         GMainTree.Cells[6, j]:=MStructure(MainTree.Selected.Data)^.StringData[j][6]  ;
+                     end;
+                 end;
+             end;
+
+
+
+
+
 
       end;
   except
      ShowMessage('Error');
   end;
 
+end;
+
+procedure TMainFrame.MenuItem1Click(Sender: TObject);
+begin
+  cmdprocedure.Start104Client();
+end;
+
+procedure TMainFrame.MenuItem2Click(Sender: TObject);
+begin
+   iec104.clientSave();
+end;
+
+procedure TMainFrame.MenuItem3Click(Sender: TObject);
+begin
+        cmdprocedure.Start104server();
+end;
+
+procedure TMainFrame.MenuItem4Click(Sender: TObject);
+begin
+  iec104.serverSave();
 end;
 
 procedure TMainFrame.RunItemClick(Sender: TObject);
@@ -624,6 +866,7 @@ begin
    OpenProject();
    LoadVarTree();
    LoadVkTree();
+   LoadIec104ServerTree();
 end;
 
 
@@ -669,7 +912,7 @@ begin
         if( (StrToInt(MainTree.Selected.Index.ToString())=0 ) and
             (StrToInt(MainTree.Selected.Parent.Index.ToString())=1) ) then
              begin
-              MainTree.items.AddChild(MainTree.Selected,'Название порта modbus');
+              MainTree.items.AddChild(MainTree.Selected,'Unit modbus');
               GMainTree.Clear;
               GMainTree.RowCount:=2;
               GMainTree.ColWidths[0]:=30;
@@ -686,15 +929,28 @@ begin
               GMainTree.Cells[4,0] := 'REG address';
               GMainTree.Cells[5,0] := 'REG offset';
               GMainTree.Cells[6,0] := 'TimeOut';
-     end;
+              end;
        if( (StrToInt(MainTree.Selected.Index.ToString())=1 ) and
            (StrToInt(MainTree.Selected.Parent.Index.ToString())=1) ) then
             begin
-               MainTree.items.AddChild(MainTree.Selected,'Название порта Меркурий-230');
+               MainTree.items.AddChild(MainTree.Selected,'Unit Меркурий-230');
             end;
+       if( (StrToInt(MainTree.Selected.Index.ToString())=2 )         and
+           (StrToInt(MainTree.Selected.Parent.Index.ToString())=1) ) and
+           (MainTree.Selected.HasChildren = False )  then
+            begin
+               MainTree.items.AddChild(MainTree.Selected,'Unit IEC60870-5-104');
+            end;
+
+
+
       New(DataRec);
       DataRec^.TCP_COM := '';
       DataRec^.PORT_SPEED := '';
+      DataRec^.ChanalType := '';
+      DataRec^.ProtocolType := '';
+   //   DataRec^. := '';
+
       MainTree.Selected.Data := DataRec;
 end;
 
@@ -722,11 +978,25 @@ end;
 procedure TMainFrame.GMainTreeSelectEditor(Sender: TObject; aCol, aRow: Integer; var Editor: TWinControl);
 
 begin
-   if aCol=3 then
+   if(SelectionString=1) then
    begin
+      if aCol=3 then
+       begin
         Editor := GMainTree.EditorByStyle(cbsPickList);
         TCustomComboBox(Editor).Items.CommaText := 'READ_INPUT_REGISTERS,READ_DISCRETE_INPUTS,READ_COILS,READ_HOLDING_REGISTERS';
+       end;
    end;
+
+   if(SelectionString=3) then
+   begin
+      if aCol=6 then
+       begin
+        Editor := GMainTree.EditorByStyle(cbsPickList);
+        TCustomComboBox(Editor).Items.CommaText := 'bool,int,int32,float';
+       end;
+   end;
+
+
 
 end;
 
@@ -770,7 +1040,7 @@ begin
    if aCol=6 then
       begin
            Editor := GVarTree.EditorByStyle(cbsPickList);
-           TCustomComboBox(Editor).Items.CommaText := 'integer,float,string,bool';
+           TCustomComboBox(Editor).Items.CommaText := 'integer,intSigned,float,string,bool';
       end;
    if aCol=9 then
       begin
@@ -811,6 +1081,11 @@ begin
            Editor := GVKTree.EditorByStyle(cbsPickList);
            TCustomComboBox(Editor).Items.CommaText := '0,1,5,15,30,60';
       end;
+end;
+
+procedure TMainFrame.TabIec104Show(Sender: TObject);
+begin
+  LoadIec104ServerTree();
 end;
 
 procedure TMainFrame.TabVariablesShow(Sender: TObject);
@@ -919,8 +1194,8 @@ begin
              ProjectPath:=OpenDialogProject.InitialDir;
        end;
        MainTree.Items.Clear;
-       MainTree.Items.AddFirst(nil,'Конфигурация проекта');
-       MainTree.Items.Add(nil,'Протоколы');
+       MainTree.Items.AddFirst(nil,'Project configuration');
+       MainTree.Items.Add(nil,'Protocols');
        OpenProjectXML(filename);
        xmlprocedure.OpenDBXMLfile(fileName);
        xmlprocedure.OpenVkXMLfile(fileName);
@@ -1011,10 +1286,12 @@ begin
 
           end;
            MainTree.Items.Clear;
-           MainTree.Items.AddFirst(nil,'Конфигурация проекта');
-           Node:=MainTree.Items.Add(nil,'Протоколы');
-           MainTree.Items.AddChild(Node,'Modbus');
-           MainTree.Items.AddChild(Node,'Меркурий-230');
+           MainTree.Items.AddFirst(nil,'Project configuration');
+           Node:=MainTree.Items.Add(nil,'Protocols');
+           MainTree.Items.AddChild(Node,'Client Modbus');
+           MainTree.Items.AddChild(Node,'Client Меркурий-230');
+           MainTree.Items.AddChild(Node,'Client IEC60870-5-104');
+
            xmlprocedure.SaveXMLConfig();
       end;
    except
@@ -1096,8 +1373,8 @@ var
   i,rowCount: integer;
 begin
        VkTree.Items.Clear;
-       ParentNode:=VkTree.items.add(nil,'Список Переменных');
-       Node:=VkTree.items.add(ParentNode, 'Переменные');
+       ParentNode:=VkTree.items.add(nil,'Variables list');
+       Node:=VkTree.items.add(ParentNode, 'Variables');
        rowCount:=GVarTree.RowCount;
        for i:=1 to RowCount-1 do
        begin
@@ -1114,8 +1391,9 @@ var
   i,j,z,rowCount: integer;
 begin
        VarTree.Items.Clear;
-       ParentNode:=VarTree.items.add(nil,'Список Переменных');
-       Node:=VarTree.items.add(ParentNode, 'Modbus');
+       ParentNode:=VarTree.items.add(nil,'Variables list');
+       ///////////////////
+       Node:=VarTree.items.add(ParentNode, 'Client Modbus');
        rowCount:=MainTree.Items.Count;
        for i:=1 to RowCount do
        begin
@@ -1132,9 +1410,10 @@ begin
                                         end;
             end;
        end;
-       Node:=VarTree.items.add(ParentNode, 'Mercury-230');
+       /////////////////////
+       Node:=VarTree.items.add(ParentNode, 'Client Mercury-230');
        for i:=1 to RowCount do
-             begin
+       begin
                 if (MainTree.Items.Item[i-1].Parent.Index = 1) and (MainTree.Items.Item[i-1].Level=2) then
                   begin
                        z:=0;
@@ -1147,9 +1426,99 @@ begin
                                                    end;
                                               end;
                    end;
-               end;
+       end;
+       /////////////////////
+       Node:=VarTree.items.add(ParentNode, 'Client 60870-5-104');
+       for i:=1 to RowCount do
+       begin
+                if (MainTree.Items.Item[i-1].Parent.Index = 2) and (MainTree.Items.Item[i-1].Level=2) then
+                  begin
+                       z:=0;
+                       for j:=1 to Length(  MStructure(MainTree.Items.Item[i-1].Data)^.StringData  )-1 do
+                                              begin
+                                                 if( Length( MStructure(MainTree.Items.Item[i-1].Data)^.StringData[j][1]) > 0    ) then
+                                                   begin
+                                                    z:=z+1;
+                                                    VarTree.items.AddChild(Node,MStructure(MainTree.Items.Item[i-1].Data)^.StringData[j][1]);
+                                                   end;
+                                              end;
+                   end;
+       end;
 
 end;
+
+
+
+
+
+procedure TMainFrame.LoadIec104ServerTree();
+var
+  Node,ParentNode: TTreeNode;
+  i,j,z,rowCount: integer;
+begin
+       Iec104serverTree.Items.Clear;
+       ParentNode:=Iec104serverTree.items.add(nil,'Variables list');
+       ///////////////////
+       Node:=Iec104serverTree.items.add(ParentNode, 'Client Modbus');
+       rowCount:=MainTree.Items.Count;
+       for i:=1 to RowCount do
+       begin
+          if (MainTree.Items.Item[i-1].Parent.Index = 0) and (MainTree.Items.Item[i-1].Level=2) then
+            begin
+                 z:=0;
+                 for j:=1 to Length(  MStructure(MainTree.Items.Item[i-1].Data)^.StringData  )-1 do
+                                        begin
+                                           if( Length( MStructure(MainTree.Items.Item[i-1].Data)^.StringData[j][1]) > 0    ) then
+                                             begin
+                                              z:=z+1;
+                                              Iec104serverTree.items.AddChild(Node,MStructure(MainTree.Items.Item[i-1].Data)^.StringData[j][1]);
+                                             end;
+                                        end;
+            end;
+       end;
+       /////////////////////
+       Node:=Iec104serverTree.items.add(ParentNode, 'Client Mercury-230');
+       for i:=1 to RowCount do
+       begin
+                if (MainTree.Items.Item[i-1].Parent.Index = 1) and (MainTree.Items.Item[i-1].Level=2) then
+                  begin
+                       z:=0;
+                       for j:=1 to Length(  MStructure(MainTree.Items.Item[i-1].Data)^.StringData  )-1 do
+                                              begin
+                                                 if( Length( MStructure(MainTree.Items.Item[i-1].Data)^.StringData[j][1]) > 0    ) then
+                                                   begin
+                                                    z:=z+1;
+                                                    Iec104serverTree.items.AddChild(Node,MStructure(MainTree.Items.Item[i-1].Data)^.StringData[j][1]);
+                                                   end;
+                                              end;
+                   end;
+       end;
+       /////////////////////
+       Node:=Iec104serverTree.items.add(ParentNode, 'Client 60870-5-104');
+       for i:=1 to RowCount do
+       begin
+                if (MainTree.Items.Item[i-1].Parent.Index = 2) and (MainTree.Items.Item[i-1].Level=2) then
+                  begin
+                       z:=0;
+                       for j:=1 to Length(  MStructure(MainTree.Items.Item[i-1].Data)^.StringData  )-1 do
+                                              begin
+                                                 if( Length( MStructure(MainTree.Items.Item[i-1].Data)^.StringData[j][1]) > 0    ) then
+                                                   begin
+                                                    z:=z+1;
+                                                    Iec104serverTree.items.AddChild(Node,MStructure(MainTree.Items.Item[i-1].Data)^.StringData[j][1]);
+                                                   end;
+                                              end;
+                   end;
+       end;
+
+end;
+
+
+
+
+
+
+
 
 procedure TMainFrame.SaveTreeData();
 var

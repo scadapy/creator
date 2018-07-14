@@ -57,6 +57,9 @@ begin
                  scadapy.MainFrame.MemoSave.Lines.Add('     timeOut=[]');
                  scadapy.MainFrame.MemoSave.Lines.Add('     reg=[]');
                  z:=0;
+
+                 if(MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data) <> nil) then
+                 begin
                  for j:=1 to Length(  MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.StringData  )-1 do
                                         begin
                                            if( Length( MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.StringData[j][1]) > 0    ) then
@@ -64,7 +67,7 @@ begin
                                               z:=z+1;
                                              end;
                                         end;
-
+                 end;
                  scadapy.MainFrame.MemoSave.Lines.Add('     unitCount='+z.ToString);
 
            end;
@@ -76,10 +79,13 @@ begin
   scadapy.MainFrame.MemoSave.Lines.Add('         rangeAdr.append(i)');
   scadapy.MainFrame.MemoSave.Lines.Add('         varname.append(i)');
   scadapy.MainFrame.MemoSave.Lines.Add('         timeOut.append(i)');
-  if (MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.ChanalType ='0') then
-                   begin
-                   scadapy.MainFrame.MemoSave.Lines.Add('# tcp settings');
-                   end;
+               if(MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data) <> nil) then
+                 begin
+                 if (MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.ChanalType ='0') then
+                     begin
+                       scadapy.MainFrame.MemoSave.Lines.Add('# tcp settings');
+                     end;
+
                  if (MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.ChanalType ='1') then
                    begin
                    scadapy.MainFrame.MemoSave.Lines.Add('     try:');
@@ -89,7 +95,7 @@ begin
                    scadapy.MainFrame.MemoSave.Lines.Add('     except Exception as e:');
                    scadapy.MainFrame.MemoSave.Lines.Add('          pass');
                    end;
-    for j:=1 to Length(  MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.StringData  )-1 do
+                  for j:=1 to Length(  MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.StringData  )-1 do
                         begin
                            if( Length( MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.StringData[j][1]) > 0    ) then
                              begin
@@ -105,6 +111,7 @@ begin
 
                              end;
                         end;
+                  end;
   scadapy.MainFrame.MemoSave.Lines.Add('     while True:');
   scadapy.MainFrame.MemoSave.Lines.Add('         for i in range(0,unitCount):   ');
   scadapy.MainFrame.MemoSave.Lines.Add('             try:');

@@ -175,6 +175,19 @@ begin
         scadapy.MainFrame.MemoSave.Lines.Add('                 if(count==''2'' and sequence==''21''):');
         scadapy.MainFrame.MemoSave.Lines.Add('                     temp2=(int(temp[int(address)+1])<<16) + int(temp[int(address)]) ');
         scadapy.MainFrame.MemoSave.Lines.Add('                     varData=temp2');
+
+        scadapy.MainFrame.MemoSave.Lines.Add('             if(dataType==''intSigned''):');
+        scadapy.MainFrame.MemoSave.Lines.Add('                 if(count==''1''):');
+        scadapy.MainFrame.MemoSave.Lines.Add('                     temp2=(int(temp[int(address)]) + 2**15) % 2**16 - 2**15');
+        scadapy.MainFrame.MemoSave.Lines.Add('                     varData=temp2');
+        scadapy.MainFrame.MemoSave.Lines.Add('                 if(count==''2'' and sequence==''12''):');
+        scadapy.MainFrame.MemoSave.Lines.Add('                     temp2= ((int(temp[int(address)])<<16) + int(temp[int(address)+1]) + 2**31) % 2**32 - 2**31');
+        scadapy.MainFrame.MemoSave.Lines.Add('                     varData=temp2');
+        scadapy.MainFrame.MemoSave.Lines.Add('                 if(count==''2'' and sequence==''21''):');
+        scadapy.MainFrame.MemoSave.Lines.Add('                     temp2= ((int(temp[int(address)+1])<<16) + int(temp[int(address)]) + 2**31) % 2**32 - 2**31 ');
+        scadapy.MainFrame.MemoSave.Lines.Add('                     varData=temp2');
+
+
         scadapy.MainFrame.MemoSave.Lines.Add('             if(dataType==''bool''):');
         scadapy.MainFrame.MemoSave.Lines.Add('                     if(int(temp[int(address)]) > 0):');
         scadapy.MainFrame.MemoSave.Lines.Add('                         temp2=True');

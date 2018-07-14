@@ -14,6 +14,8 @@ procedure StartHtmlClient();
 procedure SaveStartStopSh();
 procedure StartSh();
 procedure StopSh();
+procedure Start104Client();
+procedure Start104server();
 
 implementation
 uses  scadapy;
@@ -71,8 +73,8 @@ uses  scadapy;
           scadapy.MainFrame.MemoSave.Lines.Add('kill -9 `cat '+scadapy.ProjectPath+'dbserver.pid`');
           scadapy.MainFrame.MemoSave.Lines.SaveToFile(scadapy.ProjectPath+'stop.sh' );
           try
-              RunCmdCommand('chmod 777 '+scadapy.ProjectPath+'start.sh');
-              RunCmdCommand('chmod 777 '+scadapy.ProjectPath+'stop.sh');
+              RunCmd('chmod 777 '+scadapy.ProjectPath+'start.sh');
+              RunCmd('chmod 777 '+scadapy.ProjectPath+'stop.sh');
           except
               ShowMessage('Scripts chmod error');
           end;
@@ -101,6 +103,50 @@ uses  scadapy;
 
  end;
 
+
+  procedure Start104Client();
+ var
+   AProcess     : TProcess;
+begin
+      try
+        AProcess := TProcess.Create(nil);
+       {$IFDEF Windows}
+           AProcess.Executable := 'cmd.exe' ;
+           AProcess.Parameters.DelimitedText :='/c "'+ExtractFileDir(Application.ExeName)+'\iec104\client\iec104client.exe '+scadapy.ProjectPath+'iec104client.json"';
+           //ShowMessage(ExtractFileDir(Application.ExeName));
+       {$ENDIF Windows}
+       {$IFDEF Unix}
+       AProcess.CommandLine :=scadapy.PathToTerminalLinux + ' "'+ExtractFileDir(Application.ExeName)+'/iec104/client/iec104client '+scadapy.ProjectPath+'iec104client.json'+'"';
+                 AProcess.Options := AProcess.Options;// + [poWaitOnExit];
+       {$ENDIF Unix}
+           AProcess.Execute;
+           AProcess.Free;
+     except
+           ShowMessage('Не возможно выполнить команду');
+     end;
+ end;
+
+procedure Start104server();
+   var
+     AProcess     : TProcess;
+  begin
+        try
+          AProcess := TProcess.Create(nil);
+         {$IFDEF Windows}
+             AProcess.Executable := 'cmd.exe' ;
+             AProcess.Parameters.DelimitedText :='/c "'+ExtractFileDir(Application.ExeName)+'\iec104\server\iec104server.exe '+scadapy.ProjectPath+'iec104server.json"';
+
+         {$ENDIF Windows}
+         {$IFDEF Unix}
+             AProcess.CommandLine :=scadapy.PathToTerminalLinux + ' "'+ExtractFileDir(Application.ExeName)+'/iec104/server/iec104server '+scadapy.ProjectPath+'iec104server.json'+'"';
+             AProcess.Options := AProcess.Options;// + [poWaitOnExit];
+         {$ENDIF Unix}
+             AProcess.Execute;
+             AProcess.Free;
+       except
+             ShowMessage('Не возможно выполнить команду');
+       end;
+   end;
 
  procedure StartMonitor();
  begin
@@ -136,6 +182,16 @@ begin
         RunCmd(scadapy.PathToTerminalLinux + ' "'+scadapy.PathToPythonLinux+' '+scadapy.ProjectPath+''+pyfile+'"');
        {$ENDIF Unix}
  end;
+
+
+
+
+
+
+
+
+
+
 
  procedure RunCmd(comEx: string);
 var

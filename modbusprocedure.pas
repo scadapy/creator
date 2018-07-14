@@ -55,13 +55,16 @@ begin
                  scadapy.MainFrame.MemoSave.Lines.Add('     timeOut=[]');
                  scadapy.MainFrame.MemoSave.Lines.Add('     reg=[]');
                  z:=0;
-                 for j:=1 to Length(  MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.StringData  )-1 do
+                 if(MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data) <> nil) then
+                 begin
+                   for j:=1 to Length(  MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.StringData  )-1 do
                                         begin
                                            if( Length( MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.StringData[j][1]) > 0    ) then
                                              begin
                                               z:=z+1;
                                              end;
                                         end;
+                 end;
 
                  scadapy.MainFrame.MemoSave.Lines.Add('     unitCount='+z.ToString);
                  scadapy.MainFrame.MemoSave.Lines.Add('     for i in range(0,unitCount+1):');
@@ -72,22 +75,29 @@ begin
                  scadapy.MainFrame.MemoSave.Lines.Add('         varname.append(i)');
                  scadapy.MainFrame.MemoSave.Lines.Add('         timeOut.append(i)');
                  scadapy.MainFrame.MemoSave.Lines.Add('     try:');
-                 if (MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.ChanalType ='0') then
+                 if(MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data) <> nil) then
+                 begin
+                   if (MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.ChanalType ='0') then
                    begin
                    scadapy.MainFrame.MemoSave.Lines.Add('         master = modbus_tcp.TcpMaster(host='''+MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.TCP_COM+
                    ''', port=int('''+MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.PORT_SPEED+'''))');
                    insText:='                 master = modbus_tcp.TcpMaster(host='''+MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.TCP_COM+
                    ''', port=int('''+MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.PORT_SPEED+'''))';
                    end;
-                 if (MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.ChanalType ='1') then
+
+                   if (MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.ChanalType ='1') then
                    begin
                    scadapy.MainFrame.MemoSave.Lines.Add('         com=serial.Serial('''+MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.TCP_COM+''','+
                    MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.PORT_SPEED+', bytesize=8, parity=''N'', stopbits=1, xonxoff=0)');
                    scadapy.MainFrame.MemoSave.Lines.Add('         master=modbus_rtu.RtuMaster(com)');
                    end;
+                 end;
+
                  scadapy.MainFrame.MemoSave.Lines.Add('         master.set_timeout(2)');
                  scadapy.MainFrame.MemoSave.Lines.Add('     except Exception as e:');
                  scadapy.MainFrame.MemoSave.Lines.Add('          pass');
+                 if(MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data) <> nil) then
+                 begin
                  for j:=1 to Length(  MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.StringData  )-1 do
                         begin
                            if( Length( MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.StringData[j][1]) > 0    ) then
@@ -103,6 +113,8 @@ begin
 
                              end;
                         end;
+
+                 end;
                  scadapy.MainFrame.MemoSave.Lines.Add('     while True:');
                  scadapy.MainFrame.MemoSave.Lines.Add('         for i in range(0,unitCount):');
                  scadapy.MainFrame.MemoSave.Lines.Add('             try:');

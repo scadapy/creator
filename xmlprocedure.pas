@@ -59,12 +59,79 @@ end;
 
 procedure SaveXMLConfig();
 var
-  rowCount,i,j,rowCountVk: integer;
+  rowCount,i,j,rowCountVk,rowCountIecServer: integer;
+  Dcheck: string;
 begin
 rowCount:=scadapy.MainFrame.MainTree.Items.Count;
 scadapy.MainFrame.MemoSave.Clear;
 scadapy.MainFrame.MemoSave.Lines.Add('<?xml version="1.0"?>');
 scadapy.MainFrame.MemoSave.Lines.Add('<Config xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">');
+//////////////////
+      scadapy.MainFrame.MemoSave.Lines.Add(' <iec104server>');
+                 if(scadapy.MainFrame.CheckDebug.Checked = True) then Dcheck:='1';
+                 if(scadapy.MainFrame.CheckDebug.Checked = False) then Dcheck:='0';
+                 scadapy.MainFrame.MemoSave.Lines.Add('    <PortIec104server   UdpPort="'+scadapy.MainFrame.Eiec104serverUDPport.Text+
+                 '"  UdpIp="'+scadapy.MainFrame.Eiec104serverUDPIP.Text+
+                 '" Iec104Port="'+scadapy.MainFrame.Eiec104serverPort.Text+
+                 '" Iec104Ip="'+scadapy.MainFrame.Eiec104serverIP.Text+
+                 '" Debug="'+scadapy.MainFrame.Eiec104serverDebug.Text+'"  >');
+
+
+
+                 rowCountIecServer:= scadapy.MainFrame.Giec104server.RowCount-1;
+                 for i:=1 to rowCountIecServer do
+                 begin
+                  if   (Length(scadapy.MainFrame.Giec104server.Cells[1, i]) > 0) and
+                       (Length(scadapy.MainFrame.Giec104server.Cells[4, i]) > 0) and
+                       (Length(scadapy.MainFrame.Giec104server.Cells[3, i]) > 0)  then
+                   begin
+                        scadapy.MainFrame.MemoSave.Lines.Add('          <VariableIec104 id="'+i.ToString+
+                        '" VarName="'+scadapy.MainFrame.Giec104server.Cells[1, i]+
+                        '" Alias="'+ scadapy.MainFrame.Giec104server.Cells[2, i]+
+                        '" IecAddress="'+scadapy.MainFrame.Giec104server.Cells[3, i]+
+                        '" ByteCount="'+scadapy.MainFrame.Giec104server.Cells[4, i]+
+                        '" ByteSequence="'+scadapy.MainFrame.Giec104server.Cells[5, i]+
+                        '" VarType="'+scadapy.MainFrame.Giec104server.Cells[6, i]+
+                        '" OffSet="'+scadapy.MainFrame.Giec104server.Cells[7, i]+
+                        '" Koef="'+scadapy.MainFrame.Giec104server.Cells[8, i]+
+                        '">-</VariableIec104>');
+                   end;
+                end;
+                    scadapy.MainFrame.MemoSave.Lines.Add('    </PortIec104server>');
+         scadapy.MainFrame.MemoSave.Lines.Add(' </iec104server>');
+
+//////////////////
+      scadapy.MainFrame.MemoSave.Lines.Add(' <iec104client>');
+
+      for i:=1 to RowCount do
+      begin
+          if (scadapy.MainFrame.MainTree.Items.Item[i-1].Parent.Index = 2) and (scadapy.MainFrame.MainTree.Items.Item[i-1].Level=2) and
+              (MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data) <> nil)   then
+                begin
+                 if(scadapy.MainFrame.CheckDebug.Checked = True) then Dcheck:='1';
+                 if(scadapy.MainFrame.CheckDebug.Checked = False) then Dcheck:='0';
+                 scadapy.MainFrame.MemoSave.Lines.Add('    <PortIec104client  name="'+scadapy.MainFrame.MainTree.Items.Item[i-1].Text+
+                 '" UdpPort="'+scadapy.MainFrame.Eudpport.Text+'"  UdpIp="'+scadapy.MainFrame.Eudpip.Text+
+                 '" Iec104Port="'+scadapy.MainFrame.Eiec104port.Text+'" Iec104Ip="'+scadapy.MainFrame.Eiec104ip.Text+
+                 '" Debug="'+scadapy.MainFrame.Edebug.Text+'" TimeSync="'+Dcheck+'"  >');
+
+                 for j:=0 to Length(MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.StringData)-1 do
+                 begin
+                     if( Length(MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.StringData[j][1]) > 0 ) then
+                       begin
+                        scadapy.MainFrame.MemoSave.Lines.Add('          <VariableIec104 id="'+j.ToString+'" VarName="'+
+                         MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.StringData[j][1]+
+                        '" IecAddress="'+MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.StringData[j][2]+'" Alias="'+
+                         MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.StringData[j][5]+
+                        '" VarType="'+MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.StringData[j][6]+'">-</VariableIec104>');
+
+                       end;
+                 end;
+                scadapy.MainFrame.MemoSave.Lines.Add('    </PortIec104client>');
+                end;
+     end;
+       scadapy.MainFrame.MemoSave.Lines.Add(' </iec104client>');
+
 /////////////////
 scadapy.MainFrame.MemoSave.Lines.Add(' <VkVariables>');
 rowCountVk:= scadapy.MainFrame.GVKTree.RowCount-1;
@@ -96,7 +163,8 @@ rowCountVk:= scadapy.MainFrame.GVKTree.RowCount-1;
        try
        for i:=1 to RowCount do
        begin
-          if (scadapy.MainFrame.MainTree.Items.Item[i-1].Parent.Index = 0) and (scadapy.MainFrame.MainTree.Items.Item[i-1].Level=2) then
+          if (scadapy.MainFrame.MainTree.Items.Item[i-1].Parent.Index = 0) and (scadapy.MainFrame.MainTree.Items.Item[i-1].Level=2) and
+              (MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data) <> nil)   then
             begin
                  scadapy.MainFrame.MemoSave.Lines.Add('     <PortModbus ParentIndex="'+scadapy.MainFrame.MainTree.Items.Item[i-1].Parent.Index.ToString+'" ItemIndex="'+
                  scadapy.MainFrame.MainTree.Items.Item[i-1].Index.ToString+
@@ -125,10 +193,15 @@ rowCountVk:= scadapy.MainFrame.GVKTree.RowCount-1;
        except
        end;
        scadapy.MainFrame.MemoSave.Lines.Add(' </ModbusConfig>');
+
+
        scadapy.MainFrame.MemoSave.Lines.Add(' <MercuryConfig>');
+       try
        for i:=1 to RowCount do
        begin
-          if (scadapy.MainFrame.MainTree.Items.Item[i-1].Parent.Index = 1) and  (scadapy.MainFrame.MainTree.Items.Item[i-1].Level=2) then
+          if (scadapy.MainFrame.MainTree.Items.Item[i-1].Parent.Index = 1) and  (scadapy.MainFrame.MainTree.Items.Item[i-1].Level=2)  and
+               (MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data) <> nil)
+               then
             begin
                 scadapy.MainFrame.MemoSave.Lines.Add('     <PortMercury ParentIndex="'+scadapy.MainFrame.MainTree.Items.Item[i-1].Parent.Index.ToString+
                 '" ItemIndex="'+scadapy.MainFrame.MainTree.Items.Item[i-1].Index.ToString+
@@ -149,10 +222,15 @@ rowCountVk:= scadapy.MainFrame.GVKTree.RowCount-1;
                        '" TimeOut="'+MStructure(scadapy.MainFrame.MainTree.Items.Item[i-1].Data)^.StringData[j][6]+'"></VariableMercury>');
                      end;
                 end;
-         scadapy.MainFrame.MemoSave.Lines.Add('     </PortMercury>');
+               scadapy.MainFrame.MemoSave.Lines.Add('     </PortMercury>');
             end;
        end;
+       except
+       end;
+
        scadapy.MainFrame.MemoSave.Lines.Add(' </MercuryConfig>');
+
+
        scadapy.MainFrame.MemoSave.Lines.Add(' <Variables>');
        rowCount:= scadapy.MainFrame.GVarTree.RowCount-1;
        for i:=1 to RowCount do
@@ -173,6 +251,9 @@ rowCountVk:= scadapy.MainFrame.GVKTree.RowCount-1;
                 end;
        end;
        scadapy.MainFrame.MemoSave.Lines.Add(' </Variables>');
+
+
+
        scadapy.MainFrame.MemoSave.Lines.Add('</Config>');
        scadapy.MainFrame.MemoSave.Lines.SaveToFile( scadapy.FullProjectFilePath );
 end;
@@ -269,13 +350,6 @@ begin
   end;
 end;
 
-
-
-
-
-
-
-
 procedure LoadFromXMLfile(filename: String);
 var
        Child: TDOMNode;
@@ -292,7 +366,7 @@ begin
        with Child.ChildNodes do
            try
             Node := scadapy.MainFrame.MainTree.Items.Item[1];
-            Modbus:= scadapy.MainFrame.MainTree.items.AddChild(Node,'Modbus');
+            Modbus:= scadapy.MainFrame.MainTree.items.AddChild(Node,'Client Modbus');
                for j := 0 to (Count - 1) do
                  begin
                   New(DataRec);
@@ -300,7 +374,6 @@ begin
                   DataRec^.ChanalType  :='';
                   DataRec^.PORT_SPEED := '';
                   DataRec^.TCP_COM := '';
-
                     for i := 0 to 7 do
                         begin
                            if (Item[j].Attributes.Item[i].NodeName = 'Protocol') then    DataRec^.ProtocolType:=String(Item[j].Attributes.Item[i].NodeValue);
@@ -335,7 +408,7 @@ begin
            with Child.ChildNodes do
                try
                 Node := scadapy.MainFrame.MainTree.Items.Item[1];
-                Modbus:= scadapy.MainFrame.MainTree.items.AddChild(Node,'Меркурий-230');
+                Modbus:= scadapy.MainFrame.MainTree.items.AddChild(Node,'Client Меркурий-230');
                    for j := 0 to (Count - 1) do
                      begin
                       New(DataRec);
@@ -357,12 +430,12 @@ begin
                              begin
                                 for i := 0 to 6 do
                                 begin
-                                if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'VarName')    then  DataRec^.StringData[z][1]:= Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue ;
+                                if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'VarName')       then  DataRec^.StringData[z][1]:= Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue ;
                                 if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'Serial_Number') then  DataRec^.StringData[z][2]:= Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue ;
-                                if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'Empty1')    then  DataRec^.StringData[z][3]:= Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue ;
-                                if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'Empty2') then  DataRec^.StringData[z][4]:= Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue ;
-                                if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'Net_Address')  then  DataRec^.StringData[z][5]:= Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue ;
-                                if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'TimeOut')    then  DataRec^.StringData[z][6]:= Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue ;
+                                if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'Empty1')        then  DataRec^.StringData[z][3]:= Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue ;
+                                if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'Empty2')        then  DataRec^.StringData[z][4]:= Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue ;
+                                if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'Net_Address')   then  DataRec^.StringData[z][5]:= Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue ;
+                                if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'TimeOut')       then  DataRec^.StringData[z][6]:= Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue ;
                                 end;
                              end;
                         Rec.Data:= DataRec;
@@ -372,6 +445,7 @@ begin
                 end;
                  Child := Child.NextSibling;
         end;
+//////////////////////
    Child := Doc.DocumentElement.FindNode('Variables');
     begin
        with Child.ChildNodes do
@@ -400,6 +474,143 @@ begin
            end;
        Child := Child.NextSibling;
     end;
+
+///////////////iec104client
+            Child := Doc.DocumentElement.FindNode('iec104client');
+            begin
+               with Child.ChildNodes do
+                   try
+                    Node := scadapy.MainFrame.MainTree.Items.Item[1];
+                    Modbus:= scadapy.MainFrame.MainTree.items.AddChild(Node,'Client IEC60870-5-104');
+                       for j := 0 to (Count - 1) do
+                         begin
+                          New(DataRec);
+                             for i := 0 to 6 do
+                                begin
+                                   if (Item[j].Attributes.Item[i].NodeName = 'UdpPort')    then    scadapy.MainFrame.Eudpport.Text       :=String(Item[j].Attributes.Item[i].NodeValue);
+                                   if (Item[j].Attributes.Item[i].NodeName = 'UdpIp')      then    scadapy.MainFrame.Eudpip.Text         :=String(Item[j].Attributes.Item[i].NodeValue);
+                                   if (Item[j].Attributes.Item[i].NodeName = 'Iec104Port') then    scadapy.MainFrame.Eiec104port.Text    :=String(Item[j].Attributes.Item[i].NodeValue);
+                                   if (Item[j].Attributes.Item[i].NodeName = 'Iec104Ip')   then    scadapy.MainFrame.Eiec104ip.Text      :=String(Item[j].Attributes.Item[i].NodeValue);
+                                   if (Item[j].Attributes.Item[i].NodeName = 'Debug')      then    scadapy.MainFrame.Edebug.Text         :=String(Item[j].Attributes.Item[i].NodeValue);
+                                   if (Item[j].Attributes.Item[i].NodeName = 'TimeSync')   then
+                                     begin
+                                     if( String(Item[j].Attributes.Item[i].NodeValue) = '0' ) then       scadapy.MainFrame.CheckDebug.Checked := False;
+                                     if( String(Item[j].Attributes.Item[i].NodeValue) = '1' ) then       scadapy.MainFrame.CheckDebug.Checked := True;
+                                     end;
+
+                                   if (Item[j].Attributes.Item[i].NodeName = 'name')       then    Rec:=scadapy.MainFrame.MainTree.items.AddChild(Modbus, String(Item[j].Attributes.Item[i].NodeValue));
+
+                                end;
+
+                             SetLength(DataRec^.StringData,Item[j].ChildNodes.Count+1,7);
+                              for z := 0 to (Item[j].ChildNodes.Count - 1) do
+                                 begin
+                                    for i := 0 to 4 do
+                                    begin
+                                   // scadapy.MainFrame.Memo1.Lines.Add(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue);
+                                    if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'VarName')       then  DataRec^.StringData[z+1][1]:= Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue ;
+                                    if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'IecAddress')    then  DataRec^.StringData[z+1][2]:= Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue ;
+                                    if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'Alias')         then  DataRec^.StringData[z+1][5]:= Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue ;
+                                    if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'VarType')       then  DataRec^.StringData[z+1][6]:= Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue ;
+                                    end;
+                                 end;
+                            Rec.Data:= DataRec;
+                       end;
+                   finally
+                         Free;
+                    end;
+                     Child := Child.NextSibling;
+            end;
+
+
+///////////////iec104server
+                        Child := Doc.DocumentElement.FindNode('iec104server');
+                        begin
+                           with Child.ChildNodes do
+                               try
+                                  for j := 0 to (Count - 1) do
+                                     begin
+
+                                         for i := 0 to 4 do
+                                            begin
+                                               if (Item[j].Attributes.Item[i].NodeName = 'UdpPort')    then    scadapy.MainFrame.Eiec104serverUDPport.Text  :=String(Item[j].Attributes.Item[i].NodeValue);
+                                               if (Item[j].Attributes.Item[i].NodeName = 'UdpIp')      then    scadapy.MainFrame.Eiec104serverUDPIP.Text    :=String(Item[j].Attributes.Item[i].NodeValue);
+                                               if (Item[j].Attributes.Item[i].NodeName = 'Iec104Port') then    scadapy.MainFrame.Eiec104serverPort.Text     :=String(Item[j].Attributes.Item[i].NodeValue);
+                                               if (Item[j].Attributes.Item[i].NodeName = 'Iec104Ip')   then    scadapy.MainFrame.Eiec104serverIP.Text       :=String(Item[j].Attributes.Item[i].NodeValue);
+                                               if (Item[j].Attributes.Item[i].NodeName = 'Debug')      then    scadapy.MainFrame.Eiec104serverDebug.Text    :=String(Item[j].Attributes.Item[i].NodeValue);
+                                            end;
+
+                                                scadapy.MainFrame.Giec104server.RowCount:=Item[j].ChildNodes.Count+1;
+
+                                          for z := 0 to (Item[j].ChildNodes.Count - 1) do
+                                             begin
+                                                for i := 0 to 8 do
+                                                  begin
+                                                     scadapy.MainFrame.Giec104server.Cells[0, z+1]:= (z+1).ToString;
+                                                     if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'VarName')       then
+                                                      scadapy.MainFrame.Giec104server.Cells[1, z+1]:= String(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue);
+
+                                                     if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'Alias')       then
+                                                      scadapy.MainFrame.Giec104server.Cells[2, z+1]:= String(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue);
+
+                                                     if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'IecAddress')       then
+                                                      scadapy.MainFrame.Giec104server.Cells[3, z+1]:= String(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue);
+
+                                                     if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'ByteCount')       then
+                                                      scadapy.MainFrame.Giec104server.Cells[4, z+1]:= String(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue);
+
+                                                     if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'ByteSequence')       then
+                                                      scadapy.MainFrame.Giec104server.Cells[5, z+1]:= String(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue);
+
+                                                     if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'VarType')       then
+                                                      scadapy.MainFrame.Giec104server.Cells[6, z+1]:= String(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue);
+
+                                                     if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'OffSet')       then
+                                                      scadapy.MainFrame.Giec104server.Cells[7, z+1]:= String(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue);
+
+                                                     if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'Koef')       then
+                                                      scadapy.MainFrame.Giec104server.Cells[8, z+1]:= String(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue);
+
+                                                  end;
+                                             end;
+
+                                   end;
+                               finally
+                                     Free;
+                                end;
+                                 Child := Child.NextSibling;
+                        end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   finally
     Doc.Free;
   end;
