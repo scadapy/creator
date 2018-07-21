@@ -85,16 +85,21 @@ static bool asduReceivedHandler (void* parameter, int address, CS101_ASDU asdu)
      broadcastAddr.sin_family = AF_INET;
      inet_pton(AF_INET, UdpIp[0], &broadcastAddr.sin_addr); 
      broadcastAddr.sin_port = htons(UdpPort);
+     /* printf("REC type: %s(%i) elements: %i\n",
+            TypeID_toString(CS101_ASDU_getTypeID(asdu)),
+            CS101_ASDU_getTypeID(asdu),
+            CS101_ASDU_getNumberOfElements(asdu));
+     */
      
-     
-/*  M_ME_NC_1: type 13  Short*/
-     if (CS101_ASDU_getTypeID(asdu) ==  M_ME_NC_1)
+/*  M_ME_NC_1 (13)  M_ME_TF_1 (36)*/
+     if (CS101_ASDU_getTypeID(asdu) ==  M_ME_TF_1 || CS101_ASDU_getTypeID(asdu) == M_ME_NC_1)
     {
          i=0;
          for (i = 0; i < CS101_ASDU_getNumberOfElements(asdu); i++)
         {
             z=0;
-             MeasuredValueShortWithCP56Time2a io = (MeasuredValueShortWithCP56Time2a) CS101_ASDU_getElement(asdu, i);             
+             MeasuredValueShortWithCP56Time2a io = (MeasuredValueShortWithCP56Time2a) CS101_ASDU_getElement(asdu, i);   
+            //  printf("Adr:%i val: %i\n", InformationObject_getObjectAddress((InformationObject) io), MeasuredValueScaled_getValue((MeasuredValueScaled) io));          
              for(z = 0; z < countOfMeasureValue;z++)
             {
                  if(MeasureAddress[z] == InformationObject_getObjectAddress((InformationObject) io))
@@ -108,10 +113,10 @@ static bool asduReceivedHandler (void* parameter, int address, CS101_ASDU asdu)
                          s_time = time (NULL);
                          m_time  = localtime (&s_time);
                          strftime (str_t, 128, "%d-%m-%Y %X", m_time);
-                         printf("%s Var:%15s Type:%5s Alias:%15s Adr:%i val: %f\n",str_t, MeasureVarname[z],MeasureVarType[z],MeasureAlias[z],
+                         printf("%s Var:%15s Type:%5s Alias:%15s Adr:%i val: %f %s(%i)\n",str_t, MeasureVarname[z],MeasureVarType[z],MeasureAlias[z],
                                              InformationObject_getObjectAddress((InformationObject) io),
-                                             MeasuredValueShort_getValue((MeasuredValueShort) io));
-                                            
+                                             MeasuredValueShort_getValue((MeasuredValueShort) io),
+                                             TypeID_toString(CS101_ASDU_getTypeID(asdu)),CS101_ASDU_getTypeID(asdu));
                     }
                  }
             }
@@ -128,7 +133,6 @@ static bool asduReceivedHandler (void* parameter, int address, CS101_ASDU asdu)
              for(z = 0; z < countOfMeasureValue;z++)
             {
                  if(MeasureAddress[z] == InformationObject_getObjectAddress((InformationObject) io) )
-
                 {
                      sprintf(request,"{\"name\":\"%s\",\"data\":[%i]}",
                              MeasureVarname[z],
@@ -139,17 +143,18 @@ static bool asduReceivedHandler (void* parameter, int address, CS101_ASDU asdu)
                          s_time = time (NULL);
                          m_time  = localtime (&s_time);
                          strftime (str_t, 128, "%d-%m-%Y %X", m_time);
-                         printf("%s Var:%15s Type:%5s Alias:%15s Adr:%i val: %i\n",str_t, MeasureVarname[z],MeasureVarType[z],MeasureAlias[z],
+                         printf("%s Var:%15s Type:%5s Alias:%15s Adr:%i val: %i %s(%i)\n",str_t, MeasureVarname[z],MeasureVarType[z],MeasureAlias[z],
                                       InformationObject_getObjectAddress((InformationObject) io),
-                                      MeasuredValueScaled_getValue((MeasuredValueScaled) io));
+                                      MeasuredValueScaled_getValue((MeasuredValueScaled) io),
+                                      TypeID_toString(CS101_ASDU_getTypeID(asdu)),CS101_ASDU_getTypeID(asdu));
                     }
                 }                     
             }
             MeasuredValueScaledWithCP56Time2a_destroy(io);
         }
     }
-/*M_SP_NA_1: type 1 */
-    else if (CS101_ASDU_getTypeID(asdu) == M_SP_NA_1)
+/*M_SP_NA_1 <1>  M_SP_TB_1 <30> */
+    else if (CS101_ASDU_getTypeID(asdu) == M_SP_TB_1 || CS101_ASDU_getTypeID(asdu)==M_SP_NA_1)
     {
          i=0;
          for (i = 0; i < CS101_ASDU_getNumberOfElements(asdu); i++)
@@ -169,9 +174,10 @@ static bool asduReceivedHandler (void* parameter, int address, CS101_ASDU asdu)
                          s_time = time (NULL);
                          m_time  = localtime (&s_time);
                          strftime (str_t, 128, "%d-%m-%Y %X", m_time);
-                         printf("%s Var:%15s Type:%5s Alias:%15s Adr:%i val: %i\n",str_t, SinglePointVarname[z],SinglePointVarType[z],SinglePointAlias[z],
+                         printf("%s Var:%15s Type:%5s Alias:%15s Adr:%i val: %i %s(%i)\n",str_t, SinglePointVarname[z],SinglePointVarType[z],SinglePointAlias[z],
                                      InformationObject_getObjectAddress((InformationObject) io),
-                                     SinglePointInformation_getValue((SinglePointInformation) io));
+                                     SinglePointInformation_getValue((SinglePointInformation) io),
+                                     TypeID_toString(CS101_ASDU_getTypeID(asdu)),CS101_ASDU_getTypeID(asdu));
                     
                     }
                 }
@@ -283,8 +289,11 @@ int main(int argc, char** argv)
 {
      const char* ip;
      uint16_t port;
+
      if(argc <= 1)
          {
+           printf("\nStart client iec104:          v.2.9\n");     
+
            puts("\nUse syntax : client104.exe file.json\n"
          "==Json file structure like this:==\n"
          "[\n"
@@ -327,7 +336,7 @@ int main(int argc, char** argv)
              port=iecPort;
         }
 
-     if(DebugMode==1) printf("\nStart client iec104:          v.2.8\n");     
+     if(DebugMode==1) printf("\nStart client iec104:          v.2.9\n");     
 
 TRY_CONNECT:
      if(DebugMode==1) printf("\nConnecting to: %s:%i\n", ip, port);
@@ -339,8 +348,10 @@ TRY_CONNECT:
     {
          if(DebugMode==1) printf("Connected!\n");
          CS104_Connection_sendStartDT(con);
+         Thread_sleep(5000);
          if(DebugMode==1) printf("Send Interrogation Command\n");
          CS104_Connection_sendInterrogationCommand(con, CS101_COT_ACTIVATION, 1, IEC60870_QOI_STATION);
+         Thread_sleep(5000);
          while(1)
         {
              if(conState==0)
