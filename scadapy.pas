@@ -19,6 +19,7 @@ type
     BGiec104serverMinus: TBitBtn;
     Biec104client: TBitBtn;
     Biec104server: TBitBtn;
+    BTkInterRun: TBitBtn;
     BOpenProject: TBitBtn;
     BStartJsonServer: TBitBtn;
     BStartHtmlClient: TBitBtn;
@@ -35,6 +36,8 @@ type
     BStartModbusClient: TBitBtn;
     BGVarTreeAddString: TBitBtn;
     BGVarTreeDelString: TBitBtn;
+    CBoxGmainTree: TCheckBox;
+    CBoxGVarTree: TCheckBox;
     CheckDebug: TCheckBox;
     CProtocol: TComboBox;
     CChanal: TComboBox;
@@ -101,6 +104,7 @@ type
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
+    MenuItem5: TMenuItem;
     Piec: TPanel;
     RunItem: TMenuItem;
     ItemRunMonitor: TMenuItem;
@@ -162,7 +166,10 @@ type
 
     procedure BGiec104serverMinusClick(Sender: TObject);
     procedure BGiec104serverPlusClick(Sender: TObject);
+    procedure BGVKTreeAddStringClick(Sender: TObject);
+    procedure BGVKTreeDelStringClick(Sender: TObject);
     procedure Biec104clientClick(Sender: TObject);
+    procedure BTkInterRunClick(Sender: TObject);
     procedure Biec104serverClick(Sender: TObject);
     procedure BStartJsonServerClick(Sender: TObject);
     procedure BStartHtmlClientClick(Sender: TObject);
@@ -179,8 +186,11 @@ type
     procedure BGVarTreeAddStringClick(Sender: TObject);
     procedure BGVarTreeDelStringClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure CBoxGmainTreeChange(Sender: TObject);
+    procedure CBoxGVarTreeChange(Sender: TObject);
     procedure CProtocolSelect(Sender: TObject);
     procedure CChanalSelect(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure Giec104serverDragDrop(Sender, Source: TObject; X, Y: Integer);
     procedure Giec104serverDragOver(Sender, Source: TObject; X, Y: Integer;
@@ -188,7 +198,7 @@ type
     procedure Giec104serverSelectCell(Sender: TObject; aCol, aRow: Integer;
       var CanSelect: Boolean);
     procedure Giec104serverSelectEditor(Sender: TObject; aCol, aRow: Integer;
-      var Editor: TWinControl);
+      var TabEditor: TWinControl);
     procedure Iec104serverTreeDragOver(Sender, Source: TObject; X, Y: Integer;
       State: TDragState; var Accept: Boolean);
     procedure Iec104serverTreeMouseDown(Sender: TObject; Button: TMouseButton;
@@ -198,6 +208,7 @@ type
     procedure MenuItem2Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem4Click(Sender: TObject);
+    procedure MenuItem5Click(Sender: TObject);
     procedure RunItemClick(Sender: TObject);
     procedure ItemRunMonitorClick(Sender: TObject);
     procedure ItemRunModbusClick(Sender: TObject);
@@ -223,24 +234,24 @@ type
     procedure BGMainGridSaveClick(Sender: TObject);
 
 
-    procedure GMainTreeSelectEditor(Sender: TObject; aCol, aRow: Integer;var Editor: TWinControl);
+    procedure GMainTreeSelectEditor(Sender: TObject; aCol, aRow: Integer;var TabEditor: TWinControl);
 
     procedure GVarTreeDragDrop(Sender, Source: TObject; X, Y: Integer);
     procedure GVarTreeDragOver(Sender, Source: TObject; X, Y: Integer;State: TDragState; var Accept: Boolean);
 
     procedure GVarTreeSelectCell(Sender: TObject; aCol, aRow: Integer;var CanSelect: Boolean);
-    procedure GVarTreeSelectEditor(Sender: TObject; aCol, aRow: Integer;var Editor: TWinControl);
+    procedure GVarTreeSelectEditor(Sender: TObject; aCol, aRow: Integer;var TabEditor: TWinControl);
 
     procedure GVKTreeDragDrop(Sender, Source: TObject; X, Y: Integer);
     procedure GVKTreeDragOver(Sender, Source: TObject; X, Y: Integer;State: TDragState; var Accept: Boolean);
 
 
     procedure GVKTreeSelectCell(Sender: TObject;  aRow: Integer);
-    procedure GVKTreeSelectEditor(Sender: TObject; aCol, aRow: Integer;var Editor: TWinControl);
+    procedure GVKTreeSelectEditor(Sender: TObject; aCol, aRow: Integer;var TabEditor: TWinControl);
     procedure TabIec104Show(Sender: TObject);
     procedure TabVariablesShow(Sender: TObject);
     procedure TabVKShow(Sender: TObject);
-    procedure VarTreeClick(Sender: TObject);
+   // procedure VarTreeClick(Sender: TObject);
 
     procedure VarTreeDragOver(Sender, Source: TObject; X, Y: Integer;State: TDragState; var Accept: Boolean);
     procedure VarTreeMouseDown(Sender: TObject; Button: TMouseButton;Shift: TShiftState; X, Y: Integer);
@@ -305,14 +316,14 @@ var
   FullProjectFilePath: String;
   SelectionString: integer;
 implementation
-uses VkProcedure, MercProcedure,ModbusProcedure,DbProcedure,JsonProcedure,xmlprocedure,cmdprocedure,iec104 ;
+uses VkProcedure, MercProcedure,ModbusProcedure,DbProcedure,JsonProcedure,xmlprocedure,cmdprocedure,iec104,Editor,Tkinter ;
 {$R *.lfm}
 
 { TMainFrame }
 
 procedure TMainFrame.FormCreate(Sender: TObject);
 begin
-       Version:='ScadaPy Creator v.3.5.3 ';
+       Version:='ScadaPy Creator v.3.8.1 ';
        MainFrame.Caption:=Version;
        PathToProject:=ExtractFilePath(Application.ExeName);
        TabDevicePanelMiddle.Align:=alClient;
@@ -432,12 +443,12 @@ begin
 end;
 
 procedure TMainFrame.Giec104serverSelectEditor(Sender: TObject; aCol,
-  aRow: Integer; var Editor: TWinControl);
+  aRow: Integer; var TabEditor: TWinControl);
 begin
         if aCol=6 then
        begin
-        Editor := Giec104server.EditorByStyle(cbsPickList);
-        TCustomComboBox(Editor).Items.CommaText := 'bool,int,int32,float';
+        TabEditor := Giec104server.EditorByStyle(cbsPickList);
+        TCustomComboBox(TabEditor).Items.CommaText := 'bool,int,int32,float';
        end;
 end;
 
@@ -481,11 +492,6 @@ begin
       VkLogin:= EVKLogin.Text;
       VkPassword:= EVKPassword.Text;
       MainFrame.Caption:=Version + ProjectName +' file '+  ProjectFile;
-      //try
-     //   SaveTreeData();
-   //   except
-
-     // end;
       xmlprocedure.SaveXMLConfig();
       try
         begin
@@ -501,7 +507,7 @@ begin
          iec104.clientSave();
        end;
       except
-
+          ShowMessage('Error while saving project.');
       end;
 
 end;
@@ -538,17 +544,58 @@ end;
 procedure TMainFrame.BGVarTreeAddStringClick(Sender: TObject);
 begin
 
-      GVKTree.RowCount:=GVKTree.RowCount + 1 ;  //Giec104server
+      GVarTree.RowCount:=GVarTree.RowCount + 1 ;
 end;
 
 procedure TMainFrame.BGVarTreeDelStringClick(Sender: TObject);
 begin
-      GVKTree.DeleteRow(ArRow);                //Giec104server
+      GVarTree.DeleteRow(ArRow);
 end;
 
 procedure TMainFrame.Button1Click(Sender: TObject);
 begin
 
+end;
+
+procedure TMainFrame.CBoxGmainTreeChange(Sender: TObject);
+begin
+  if(CBoxGmainTree.Checked=True) then
+        GMainTree.Options:=[goFixedVertLine,goFixedHorzLine,goVertLine,goHorzLine,goRangeSelect,
+                            goDrawFocusSelected,goRowSizing,goColSizing,goRowMoving,goColMoving,
+                            goEditing,goAutoAddRows,goTabs,goAlwaysShowEditor,goColSpanning,goRelaxedRowSelect,
+                            goSmoothScroll,goFixedRowNumbering,goScrollKeepVisible,goHeaderHotTracking,
+                            goHeaderPushedLook,goSelectionActive,goFixedColSizing,goDontScrollPartCell,
+                            goCellHints,goTruncCellHints,goCellEllipsis,goAutoAddRowsSkipContentCheck,goRowHighlight];
+
+  if(CBoxGmainTree.Checked=False) then
+        GMainTree.Options:=[goFixedVertLine,goFixedHorzLine,goVertLine,goHorzLine,goRangeSelect,
+                            goDrawFocusSelected,goRowSizing,goColSizing,goRowMoving,goColMoving,
+                            goEditing,goAutoAddRows,goTabs,goColSpanning,goRelaxedRowSelect,
+                            goSmoothScroll,goFixedRowNumbering,goScrollKeepVisible,goHeaderHotTracking,
+                            goHeaderPushedLook,goSelectionActive,goFixedColSizing,goDontScrollPartCell,
+                            goCellHints,goTruncCellHints,goCellEllipsis,goAutoAddRowsSkipContentCheck,goRowHighlight,goRowSelect];
+
+
+
+end;
+
+procedure TMainFrame.CBoxGVarTreeChange(Sender: TObject);
+begin
+  if(CBoxGVarTree.Checked=True) then
+        GVarTree.Options:=[goFixedVertLine,goFixedHorzLine,goVertLine,goHorzLine,goRangeSelect,
+                            goDrawFocusSelected,goRowSizing,goColSizing,goRowMoving,goColMoving,
+                            goEditing,goAutoAddRows,goTabs,goAlwaysShowEditor,goColSpanning,goRelaxedRowSelect,
+                            goSmoothScroll,goFixedRowNumbering,goScrollKeepVisible,goHeaderHotTracking,
+                            goHeaderPushedLook,goSelectionActive,goFixedColSizing,goDontScrollPartCell,
+                            goCellHints,goTruncCellHints,goCellEllipsis,goAutoAddRowsSkipContentCheck,goRowHighlight];
+
+  if(CBoxGVarTree.Checked=False) then
+        GVarTree.Options:=[goFixedVertLine,goFixedHorzLine,goVertLine,goHorzLine,goRangeSelect,
+                            goDrawFocusSelected,goRowSizing,goColSizing,goRowMoving,goColMoving,
+                            goEditing,goAutoAddRows,goTabs,goColSpanning,goRelaxedRowSelect,
+                            goSmoothScroll,goFixedRowNumbering,goScrollKeepVisible,goHeaderHotTracking,
+                            goHeaderPushedLook,goSelectionActive,goFixedColSizing,goDontScrollPartCell,
+                            goCellHints,goTruncCellHints,goCellEllipsis,goAutoAddRowsSkipContentCheck,goRowHighlight,goRowSelect];
 end;
 
 procedure TMainFrame.BOpenProjectClick(Sender: TObject);
@@ -569,6 +616,11 @@ begin
     cmdprocedure.Start104Client();
 end;
 
+procedure TMainFrame.BTkInterRunClick(Sender: TObject);
+begin
+      Tkinter.createTkinterPython();
+end;
+
 procedure TMainFrame.Biec104serverClick(Sender: TObject);
 begin
       cmdprocedure.Start104server();
@@ -577,6 +629,16 @@ end;
 procedure TMainFrame.BGiec104serverPlusClick(Sender: TObject);
 begin
        Giec104server.RowCount:=Giec104server.RowCount + 1 ;  //Giec104server
+end;
+
+procedure TMainFrame.BGVKTreeAddStringClick(Sender: TObject);
+begin
+   GVKTree.RowCount:=GVKTree.RowCount + 1 ;
+end;
+
+procedure TMainFrame.BGVKTreeDelStringClick(Sender: TObject);
+begin
+   GVKTree.DeleteRow(ArRow);
 end;
 
 procedure TMainFrame.BGiec104serverMinusClick(Sender: TObject);
@@ -614,6 +676,55 @@ begin
 
 end;
 
+procedure TMainFrame.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+var
+  selEvent:Integer;
+begin
+
+
+  selEvent := MessageDlg('Save project before closing ?',mtCustom,mbOKCancel, 0);
+
+
+  if selEvent = mrOK     then
+  begin
+      ProjectName:=EProjectName.Text;
+      ProjectPath:=EProjectPath.Text;
+      PathToPythonWindows:=EWindowsPythonPath.Text;
+      PathToBrowserWindows:=EWindowsBrowser.Text;
+      PathToTerminalLinux:=ELinuxTerminal.Text;
+      PathToBrowserLinux:=ELinuxBrowser.Text;
+      PathToPythonLinux:=ELinuxPythonPath.Text;
+      DbHost:=EDBhost.Text;
+      DbPort:=EDBPort.Text;
+      DbLogin:=EDBLogin.Text;
+      DbPassword:=EDBPassword.Text;
+      VkLogin:= EVKLogin.Text;
+      VkPassword:= EVKPassword.Text;
+      MainFrame.Caption:=Version + ProjectName +' file '+  ProjectFile;
+      xmlprocedure.SaveXMLConfig();
+      try
+        begin
+         ModbusProcedure.ModbusPySave();
+         JsonProcedure.JserverPySave();
+         JsonProcedure.FileHtmlSave();
+         JsonProcedure.JserverPySave();
+         JsonProcedure.FileHtmlSave();
+         MercProcedure.MercuryLibSave();
+         MercProcedure.MercuryClientSave();
+         DbProcedure.DbArchSave();
+         VkProcedure.VkClientSave();
+         iec104.clientSave();
+       end;
+      except
+          ShowMessage('Error while saving project.');
+      end;
+
+
+  end;
+
+
+end;
+
 procedure TMainFrame.MainTreeClick(Sender: TObject);
 var  parId,i,j: integer;
 
@@ -627,7 +738,7 @@ begin
          EInfo.Text:=MainTree.Selected.Text;
 
      parId:=StrToInt(MainTree.Selected.Parent.Index.ToString());
-     //childId:=StrToInt(MainTree.Selected.Index.ToString());
+
 /// modbus
      if(MainTree.Selected.Level=2) and (parId=0)   then
           begin
@@ -785,6 +896,11 @@ end;
 procedure TMainFrame.MenuItem4Click(Sender: TObject);
 begin
   iec104.serverSave();
+end;
+
+procedure TMainFrame.MenuItem5Click(Sender: TObject);
+begin
+   Editor.EditorForm.Show();
 end;
 
 procedure TMainFrame.RunItemClick(Sender: TObject);
@@ -970,20 +1086,15 @@ begin
     SaveTreeData();
 end;
 
-//procedure TMainFrame.StringGrid1SelectCell(Sender: TObject; aRow: Integer);
-//begin
-//  ArRow:=ARow;
-//end;
-
-procedure TMainFrame.GMainTreeSelectEditor(Sender: TObject; aCol, aRow: Integer; var Editor: TWinControl);
+procedure TMainFrame.GMainTreeSelectEditor(Sender: TObject; aCol, aRow: Integer; var TabEditor: TWinControl);
 
 begin
    if(SelectionString=1) then
    begin
       if aCol=3 then
        begin
-        Editor := GMainTree.EditorByStyle(cbsPickList);
-        TCustomComboBox(Editor).Items.CommaText := 'READ_INPUT_REGISTERS,READ_DISCRETE_INPUTS,READ_COILS,READ_HOLDING_REGISTERS';
+        TabEditor := GMainTree.EditorByStyle(cbsPickList);
+        TCustomComboBox(TabEditor).Items.CommaText := 'READ_INPUT_REGISTERS,READ_DISCRETE_INPUTS,READ_COILS,READ_HOLDING_REGISTERS';
        end;
    end;
 
@@ -991,8 +1102,8 @@ begin
    begin
       if aCol=6 then
        begin
-        Editor := GMainTree.EditorByStyle(cbsPickList);
-        TCustomComboBox(Editor).Items.CommaText := 'bool,int,int32,float';
+        TabEditor := GMainTree.EditorByStyle(cbsPickList);
+        TCustomComboBox(TabEditor).Items.CommaText := 'bool,int,int32,float';
        end;
    end;
 
@@ -1030,22 +1141,22 @@ begin
     ArRow:=ARow;
 end;
 
-procedure TMainFrame.GVarTreeSelectEditor(Sender: TObject; aCol, aRow: Integer; var Editor: TWinControl);
+procedure TMainFrame.GVarTreeSelectEditor(Sender: TObject; aCol, aRow: Integer; var TabEditor: TWinControl);
 begin
    if aCol=5 then
    begin
-        Editor := GVarTree.EditorByStyle(cbsPickList);
-        TCustomComboBox(Editor).Items.CommaText := '1,12,21';
+        TabEditor := GVarTree.EditorByStyle(cbsPickList);
+        TCustomComboBox(TabEditor).Items.CommaText := '1,12,21';
    end;
    if aCol=6 then
       begin
-           Editor := GVarTree.EditorByStyle(cbsPickList);
-           TCustomComboBox(Editor).Items.CommaText := 'integer,intSigned,float,string,bool';
+           TabEditor := GVarTree.EditorByStyle(cbsPickList);
+           TCustomComboBox(TabEditor).Items.CommaText := 'integer,intSigned,float,string,bool';
       end;
    if aCol=9 then
       begin
-           Editor := GVarTree.EditorByStyle(cbsPickList);
-           TCustomComboBox(Editor).Items.CommaText := '0,1,5,15,30,60';
+           TabEditor := GVarTree.EditorByStyle(cbsPickList);
+           TCustomComboBox(TabEditor).Items.CommaText := '0,1,5,15,30,60';
       end;
 end;
 
@@ -1074,12 +1185,12 @@ begin
       ArRow:=ARow;
 end;
 
-procedure TMainFrame.GVKTreeSelectEditor(Sender: TObject; aCol, aRow: Integer; var Editor: TWinControl);
+procedure TMainFrame.GVKTreeSelectEditor(Sender: TObject; aCol, aRow: Integer; var TabEditor: TWinControl);
 begin
    if aCol=4 then
       begin
-           Editor := GVKTree.EditorByStyle(cbsPickList);
-           TCustomComboBox(Editor).Items.CommaText := '0,1,5,15,30,60';
+           TabEditor := GVKTree.EditorByStyle(cbsPickList);
+           TCustomComboBox(TabEditor).Items.CommaText := '0,1,5,15,30,60';
       end;
 end;
 
@@ -1098,49 +1209,12 @@ begin
       LoadVkTree();
 end;
 
-procedure TMainFrame.VarTreeClick(Sender: TObject);
-begin
-   // try
-   //  VarTree.Items.ClearMultiSelection(True);
-   //   if VarTree.Selected.Selected = True  then
-   //      ShowMessage('ok');
-   //
-   //except
-   //      ShowMessage('Error');
-   //  end;
-
-end;
 
 procedure TMainFrame.VarTreeDragOver(Sender, Source: TObject; X, Y: Integer;State: TDragState; var Accept: Boolean);
 
 begin
   Accept := true;
 end;
-
-
-
-
-
-
-//procedure TMainFrame.VarTreeDragOver(Sender, Source: TObject; X, Y: Integer;
-//  State: TDragState; var Accept: Boolean);
-//begin
-//  Accept := true;
-//end;
-//
-//procedure TMainFrame.VarTreeMouseDown(Sender: TObject; Button: TMouseButton;
-//  Shift: TShiftState; X, Y: Integer);
-//begin
-//    if Button = mbLeft then
-//      VarTree.BeginDrag(true);
-//
-//end;
-
-
-
-
-
-
 
 
 procedure TMainFrame.VarTreeMouseDown(Sender: TObject; Button: TMouseButton;Shift: TShiftState; X, Y: Integer);
@@ -1197,15 +1271,18 @@ begin
        MainTree.Items.AddFirst(nil,'Project configuration');
        MainTree.Items.Add(nil,'Protocols');
        OpenProjectXML(filename);
+
        xmlprocedure.OpenDBXMLfile(fileName);
        xmlprocedure.OpenVkXMLfile(fileName);
-
        xmlprocedure.LoadFromXMLfile(filename);
        xmlprocedure.LoadFromXMLVK(filename);
+
        MainFrame.Caption:=Version + ProjectName +' file '+  ProjectFile;
      end;
-    except
-        ShowMessage('Project not opened');
+    except on E: Exception do
+      ShowMessage('Error while opening project: ' + E.Message);
+
+
     end;
 end;
 

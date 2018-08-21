@@ -332,6 +332,16 @@ SinglePointWithCP24Time2a_destroy(SinglePointWithCP24Time2a self);
 CP24Time2a
 SinglePointWithCP24Time2a_getTimestamp(SinglePointWithCP24Time2a self);
 
+
+///////////////////////////////////////////////////////////////////////////////////
+bool
+SinglePointWithCP24Time2a_getValue(SinglePointWithCP24Time2a self);
+
+QualityDescriptor
+SinglePointWithCP24Time2a_getQuality(SinglePointWithCP24Time2a self);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
 /********************************************************
  *  SinglePointWithCP56Time2a (:SinglePointInformation)
  ********************************************************/
@@ -347,7 +357,11 @@ SinglePointWithCP56Time2a_destroy(SinglePointWithCP56Time2a self);
 
 CP56Time2a
 SinglePointWithCP56Time2a_getTimestamp(SinglePointWithCP56Time2a self);
+bool
+SinglePointWithCP56Time2a_getValue(SinglePointWithCP56Time2a self);
 
+QualityDescriptor
+SinglePointWithCP56Time2a_getQuality(SinglePointWithCP56Time2a self);
 
 /************************************************
  * DoublePointInformation (:InformationObject)
@@ -393,6 +407,7 @@ typedef struct sDoublePointWithCP56Time2a* DoublePointWithCP56Time2a;
 DoublePointWithCP56Time2a
 DoublePointWithCP56Time2a_create(DoublePointWithCP56Time2a self, int ioa, DoublePointValue value,
         QualityDescriptor quality, CP56Time2a timestamp);
+
 
 void
 DoublePointWithCP56Time2a_destroy(DoublePointWithCP56Time2a self);

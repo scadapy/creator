@@ -1,0 +1,668 @@
+[
+{ "Client":
+    { "UdpPort"   :"64000",
+      "UdpIp"     :"127.0.0.1",
+      "Iec104Port":"2404",
+      "Iec104Ip"  :"172.19.22.33",
+      "Debug"     :"1",
+      "TimeSync"  :"0" 
+     }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_VL_Kls_Uab", 
+    "IecAddress": "1332", 
+    "Alias"     : "ПС Снп ВЛ Клс Первичное значение напряжение Uab", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_VL_Kls_Ubc", 
+    "IecAddress": "1333", 
+    "Alias"     : "ПС Снп ВЛ Клс Первичное значение напряжение Ubc", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_VL_Kls_Uca", 
+    "IecAddress": "1334", 
+    "Alias"     : "ПС Снп ВЛ Клс Первичное значение напряжение Uca", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_VL_Kls_Ia", 
+    "IecAddress": "1335", 
+    "Alias"     : "ПС Снп ВЛ Клс Первичное значение тока Ia", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_VL_Kls_Ib", 
+    "IecAddress": "1336", 
+    "Alias"     : "ПС Снп ВЛ Клс Первичное значение тока Ib", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_VL_Kls_Ic", 
+    "IecAddress": "1337", 
+    "Alias"     : "ПС Снп ВЛ Клс Первичное значение тока Ic", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_VL_Kls_Psum", 
+    "IecAddress": "1338", 
+    "Alias"     : "ПС Снп ВЛ Клс Первичное значение акт мощности", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_VL_Mch_Uab", 
+    "IecAddress": "1374", 
+    "Alias"     : "ПС Снп ВЛ Мчл Первичное значение напражения Uab", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_VL_Mch_Ubc", 
+    "IecAddress": "1375", 
+    "Alias"     : "ПС Снп ВЛ Мчл Первичное значение напражения Ubc", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_VL_Mch_Uca", 
+    "IecAddress": "1376", 
+    "Alias"     : "ПС Снп ВЛ Мчл Первичное значение напражения Uca", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_VL_Mch_Ia", 
+    "IecAddress": "1377", 
+    "Alias"     : "ПС Снп ВЛ Мчл Первичное значение тока Ia", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_VL_Mch_Ib", 
+    "IecAddress": "1378", 
+    "Alias"     : "ПС Снп ВЛ Мчл Первичное значение тока Ib", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_VL_Mch_Ic", 
+    "IecAddress": "1379", 
+    "Alias"     : "ПС Снп ВЛ Мчл Первичное значение тока Ic", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_VL_Mch_Psum", 
+    "IecAddress": "1380", 
+    "Alias"     : "ПС Снп ВЛ Мчл Первичное значение акт мощности", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c3_Ia", 
+    "IecAddress": "1382", 
+    "Alias"     : "ПС Снп яч.3 Ток  Ia", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c3_Ib", 
+    "IecAddress": "1383", 
+    "Alias"     : "ПС Снп яч.3 Ток  Ib", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c3_Ic", 
+    "IecAddress": "1384", 
+    "Alias"     : "ПС Снп яч.3 Ток  Ic", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c3_Uab", 
+    "IecAddress": "1385", 
+    "Alias"     : "ПС Снп яч.3 Напражение Uab", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c3_Ubc", 
+    "IecAddress": "1386", 
+    "Alias"     : "ПС Снп яч.3  Напражение Ubc", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c3_Uca", 
+    "IecAddress": "1387", 
+    "Alias"     : "ПС Снп яч.3  Напражение Uca", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c3_Psum", 
+    "IecAddress": "1388", 
+    "Alias"     : "ПС Снп яч.3 Акт мощность", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c5_Ia", 
+    "IecAddress": "1390", 
+    "Alias"     : "ПС Снп яч.5 Ток  Ia", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c7_Ia", 
+    "IecAddress": "1393", 
+    "Alias"     : "ПС Снп яч.7 Ток  Ia", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c9_Ia", 
+    "IecAddress": "1396", 
+    "Alias"     : "ПС Снп яч.9 Ток  Ia", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c11_Ia", 
+    "IecAddress": "1399", 
+    "Alias"     : "ПС Снп яч.11 Ток  Ia", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c13_Ia", 
+    "IecAddress": "1402", 
+    "Alias"     : "ПС Снп яч.13 Ток  Ia", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c15_Ia", 
+    "IecAddress": "1405", 
+    "Alias"     : "ПС Снп яч.15 Ток  Ia", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c17_Ia", 
+    "IecAddress": "1408", 
+    "Alias"     : "ПС Снп яч.17 Ток  Ia", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c21_Ia", 
+    "IecAddress": "1411", 
+    "Alias"     : "ПС Снп яч.21 Ток  Ia", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c6_Ia", 
+    "IecAddress": "1414", 
+    "Alias"     : "ПС Снп яч.6 Ток  Ia", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c8_Ia", 
+    "IecAddress": "1417", 
+    "Alias"     : "ПС Снп яч.8 Ток  Ia", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c14_Ia", 
+    "IecAddress": "1420", 
+    "Alias"     : "ПС Снп яч.14 Ток  Ia", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c16_Ia", 
+    "IecAddress": "1423", 
+    "Alias"     : "ПС Снп яч.16 Ток  Ia", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c18_Ia", 
+    "IecAddress": "1426", 
+    "Alias"     : "ПС Снп яч.18 Ток  Ia", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c20_Ia", 
+    "IecAddress": "1429", 
+    "Alias"     : "ПС Снп яч.20 Ток  Ia", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c20_Ib", 
+    "IecAddress": "1430", 
+    "Alias"     : "ПС Снп яч.20 Ток  Ib", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c20_Ic", 
+    "IecAddress": "1431", 
+    "Alias"     : "ПС Снп яч.20 Ток  Ic", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c20_Uab", 
+    "IecAddress": "1432", 
+    "Alias"     : "ПС Снп яч.20 Напражение Uab", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c20_Ubc", 
+    "IecAddress": "1433", 
+    "Alias"     : "ПС Снп яч.20 Напражение Ubc", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c20_Uca", 
+    "IecAddress": "1434", 
+    "Alias"     : "ПС Снп яч.20 Напражение Uca", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_c20_Psum", 
+    "IecAddress": "1435", 
+    "Alias"     : "ПС Снп яч.20 Акт мощность", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "SinglePoint": 
+  {
+    "VarName"   : "Snp_c3_RPV", 
+    "IecAddress": "791", 
+    "Alias"     : "ПС Снп яч.3 Выключатель", 
+    "VarType"   : "bool" 
+  }
+}
+,
+{ "SinglePoint": 
+  {
+    "VarName"   : "Snp_c7_RPV", 
+    "IecAddress": "854", 
+    "Alias"     : "ПС Снп яч.7 Выключатель", 
+    "VarType"   : "bool" 
+  }
+}
+,
+{ "SinglePoint": 
+  {
+    "VarName"   : "Snp_c5_RPV", 
+    "IecAddress": "825", 
+    "Alias"     : "ПС Снп яч.5 Выключатель", 
+    "VarType"   : "bool" 
+  }
+}
+,
+{ "SinglePoint": 
+  {
+    "VarName"   : "Snp_c9_RPV", 
+    "IecAddress": "883", 
+    "Alias"     : "ПС Снп яч.9 Выключатель", 
+    "VarType"   : "bool" 
+  }
+}
+,
+{ "SinglePoint": 
+  {
+    "VarName"   : "Snp_c11_RPV", 
+    "IecAddress": "912", 
+    "Alias"     : "ПС Снп яч.11 Выключатель", 
+    "VarType"   : "bool" 
+  }
+}
+,
+{ "SinglePoint": 
+  {
+    "VarName"   : "Snp_c13_RPV", 
+    "IecAddress": "941", 
+    "Alias"     : "ПС Снп яч.13 Выключатель", 
+    "VarType"   : "bool" 
+  }
+}
+,
+{ "SinglePoint": 
+  {
+    "VarName"   : "Snp_c15_RPV", 
+    "IecAddress": "970", 
+    "Alias"     : "ПС Снп яч.15 Выключатель", 
+    "VarType"   : "bool" 
+  }
+}
+,
+{ "SinglePoint": 
+  {
+    "VarName"   : "Snp_c17_RPV", 
+    "IecAddress": "999", 
+    "Alias"     : "ПС Снп яч.17 Выключатель", 
+    "VarType"   : "bool" 
+  }
+}
+,
+{ "SinglePoint": 
+  {
+    "VarName"   : "Snp_c21_RPV", 
+    "IecAddress": "1028", 
+    "Alias"     : "ПС Снп яч.21 Выключатель", 
+    "VarType"   : "bool" 
+  }
+}
+,
+{ "SinglePoint": 
+  {
+    "VarName"   : "Snp_EV_110_T1_RPV", 
+    "IecAddress": "723", 
+    "Alias"     : "ПС Снп ЭВ-110 Т1", 
+    "VarType"   : "bool" 
+  }
+}
+,
+{ "SinglePoint": 
+  {
+    "VarName"   : "Snp_EV_110_T2_RPV", 
+    "IecAddress": "739", 
+    "Alias"     : "ПС Снп ЭВ-110 Т2", 
+    "VarType"   : "bool" 
+  }
+}
+,
+{ "SinglePoint": 
+  {
+    "VarName"   : "Snp_SEV_110_RPV", 
+    "IecAddress": "749", 
+    "Alias"     : "ПС Снп СЭВ-110", 
+    "VarType"   : "bool" 
+  }
+}
+,
+{ "SinglePoint": 
+  {
+    "VarName"   : "Snp_c20_RPV", 
+    "IecAddress": "1206", 
+    "Alias"     : "ПС Снп яч.20 Выключатель", 
+    "VarType"   : "bool" 
+  }
+}
+,
+{ "SinglePoint": 
+  {
+    "VarName"   : "Snp_c6_RPV", 
+    "IecAddress": "1063", 
+    "Alias"     : "ПС Снп яч.6 Выключатель", 
+    "VarType"   : "bool" 
+  }
+}
+,
+{ "SinglePoint": 
+  {
+    "VarName"   : "Snp_c8_RPV", 
+    "IecAddress": "1092", 
+    "Alias"     : "ПС Снп яч.8 Выключатель", 
+    "VarType"   : "bool" 
+  }
+}
+,
+{ "SinglePoint": 
+  {
+    "VarName"   : "Snp_c14_RPV", 
+    "IecAddress": "1121", 
+    "Alias"     : "ПС Снп яч.14 Выключатель", 
+    "VarType"   : "bool" 
+  }
+}
+,
+{ "SinglePoint": 
+  {
+    "VarName"   : "Snp_c16_RPV", 
+    "IecAddress": "1150", 
+    "Alias"     : "ПС Снп яч.16 Выключатель", 
+    "VarType"   : "bool" 
+  }
+}
+,
+{ "SinglePoint": 
+  {
+    "VarName"   : "Snp_c18_RPV", 
+    "IecAddress": "1179", 
+    "Alias"     : "ПС Снп яч.18 Выключатель", 
+    "VarType"   : "bool" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_T1_Ia", 
+    "IecAddress": "1366", 
+    "Alias"     : "ПС Снп Т1 Ia", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_T1_Ib", 
+    "IecAddress": "1367", 
+    "Alias"     : "ПС Снп Т1 Ib", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_T1_Ic", 
+    "IecAddress": "1368", 
+    "Alias"     : "ПС Снп Т1 Ic", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_T1_Uab", 
+    "IecAddress": "1369", 
+    "Alias"     : "ПС Снп Т1 Uab", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_T1_Ubc", 
+    "IecAddress": "1370", 
+    "Alias"     : "ПС Снп Т1 Ubc", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_T1_Uca", 
+    "IecAddress": "1371", 
+    "Alias"     : "ПС Снп Т1 Uca", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_T1_P", 
+    "IecAddress": "1372", 
+    "Alias"     : "ПС Снп Т1 P", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_T2_Ia", 
+    "IecAddress": "1346", 
+    "Alias"     : "ПС Снп Т2 Ia", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_T2_Ib", 
+    "IecAddress": "1347", 
+    "Alias"     : "ПС Снп Т2 Ib", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_T2_Ic", 
+    "IecAddress": "1348", 
+    "Alias"     : "ПС Снп Т2 Ic", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_T2_Uab", 
+    "IecAddress": "1349", 
+    "Alias"     : "ПС Снп Т2 Uab", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_T2_Ubc", 
+    "IecAddress": "1350", 
+    "Alias"     : "ПС Снп Т2 Ubc", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_T2_Uca", 
+    "IecAddress": "1351", 
+    "Alias"     : "ПС Снп Т2 Uca", 
+    "VarType"   : "float" 
+  }
+}
+,
+{ "MeasureValue": 
+  {
+    "VarName"   : "Snp_T2_P", 
+    "IecAddress": "1352", 
+    "Alias"     : "ПС Снп Т2 P", 
+    "VarType"   : "float" 
+  }
+}
+]

@@ -1,0 +1,825 @@
+<!--###########################################################################
+## Html code generated with ScadaPy Creator v.3.8.1  21.08.2018 
+## Html Client by Jack Mas
+## http://scadapy.ln-group.ru/
+##
+## PLEASE DO ALL YOU NEED THIS FILE!
+########################################################################### -->
+<!DOCTYPE html>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+<title>ScadaPy Html client</title>
+<script type="text/javascript">
+var Host="http://127.0.0.1:8080/data";
+var Login='root';
+var Password='root';
+var resp="0";
+var Snp_VL_Kls_Uab;
+var Alias_Snp_VL_Kls_Uab='ПС Снп ВЛ Клс Первичное значение напряжение Uab';
+var Snp_VL_Kls_Ubc;
+var Alias_Snp_VL_Kls_Ubc='ПС Снп ВЛ Клс Первичное значение напряжение Ubc';
+var Snp_VL_Kls_Uca;
+var Alias_Snp_VL_Kls_Uca='ПС Снп ВЛ Клс Первичное значение напряжение Uca';
+var Snp_VL_Kls_Ia;
+var Alias_Snp_VL_Kls_Ia='ПС Снп ВЛ Клс Первичное значение тока Ia';
+var Snp_VL_Kls_Ib;
+var Alias_Snp_VL_Kls_Ib='ПС Снп ВЛ Клс Первичное значение тока Ib';
+var Snp_VL_Kls_Ic;
+var Alias_Snp_VL_Kls_Ic='ПС Снп ВЛ Клс Первичное значение тока Ic';
+var Snp_VL_Kls_Psum;
+var Alias_Snp_VL_Kls_Psum='ПС Снп ВЛ Клс Первичное значение акт мощности';
+var Snp_VL_Mch_Uab;
+var Alias_Snp_VL_Mch_Uab='ПС Снп ВЛ Мчл Первичное значение напражения Uab';
+var Snp_VL_Mch_Ubc;
+var Alias_Snp_VL_Mch_Ubc='ПС Снп ВЛ Мчл Первичное значение напражения Ubc';
+var Snp_VL_Mch_Uca;
+var Alias_Snp_VL_Mch_Uca='ПС Снп ВЛ Мчл Первичное значение напражения Uca';
+var Snp_VL_Mch_Ia;
+var Alias_Snp_VL_Mch_Ia='ПС Снп ВЛ Мчл Первичное значение тока Ia';
+var Snp_VL_Mch_Ib;
+var Alias_Snp_VL_Mch_Ib='ПС Снп ВЛ Мчл Первичное значение тока Ib';
+var Snp_VL_Mch_Ic;
+var Alias_Snp_VL_Mch_Ic='ПС Снп ВЛ Мчл Первичное значение тока Ic';
+var Snp_VL_Mch_Psum;
+var Alias_Snp_VL_Mch_Psum='ПС Снп ВЛ Мчл Первичное значение акт мощности';
+var Snp_c3_Ia;
+var Alias_Snp_c3_Ia='ПС Снп яч.3 Ток  Ia';
+var Snp_c3_Ib;
+var Alias_Snp_c3_Ib='ПС Снп яч.3 Ток  Ib';
+var Snp_c3_Ic;
+var Alias_Snp_c3_Ic='ПС Снп яч.3 Ток  Ic';
+var Snp_c3_Uab;
+var Alias_Snp_c3_Uab='ПС Снп яч.3 Напражение Uab';
+var Snp_c3_Ubc;
+var Alias_Snp_c3_Ubc='ПС Снп яч.3  Напражение Ubc';
+var Snp_c3_Uca;
+var Alias_Snp_c3_Uca='ПС Снп яч.3  Напражение Uca';
+var Snp_c3_Psum;
+var Alias_Snp_c3_Psum='ПС Снп яч.3 Акт мощность';
+var Snp_c3_Ia_Level;
+var Alias_Snp_c3_Ia_Level='ПС Снп яч.3 Ток  Ia Level';
+var Snp_c5_Ia;
+var Alias_Snp_c5_Ia='ПС Снп яч.5 Ток  Ia Level';
+var Snp_c7_Ia;
+var Alias_Snp_c7_Ia='ПС Снп яч.7 Ток  Ia Level';
+var Snp_c9_Ia;
+var Alias_Snp_c9_Ia='ПС Снп яч.9 Ток  Ia Level';
+var Snp_c11_Ia;
+var Alias_Snp_c11_Ia='ПС Снп яч.11 Ток  Ia Level';
+var Snp_c13_Ia;
+var Alias_Snp_c13_Ia='ПС Снп яч.13 Ток  Ia Level';
+var Snp_c15_Ia;
+var Alias_Snp_c15_Ia='ПС Снп яч.15 Ток  Ia Level';
+var Snp_c17_Ia;
+var Alias_Snp_c17_Ia='ПС Снп яч.17 Ток  Ia Level';
+var Snp_c21_Ia;
+var Alias_Snp_c21_Ia='ПС Снп яч.21 Ток  Ia Level';
+var Snp_c6_Ia;
+var Alias_Snp_c6_Ia='ПС Снп яч.6 Ток  Ia';
+var Snp_c8_Ia;
+var Alias_Snp_c8_Ia='ПС Снп яч.8 Ток  Ia';
+var Snp_c14_Ia;
+var Alias_Snp_c14_Ia='ПС Снп яч.14 Ток  Ia';
+var Snp_c16_Ia;
+var Alias_Snp_c16_Ia='ПС Снп яч.16 Ток  Ia';
+var Snp_c18_Ia;
+var Alias_Snp_c18_Ia='ПС Снп яч.18 Ток  Ia';
+var Snp_c20_Ia;
+var Alias_Snp_c20_Ia='ПС Снп яч.20 Ток  Ia';
+var Snp_c20_Ib;
+var Alias_Snp_c20_Ib='ПС Снп яч.20 Ток  Ib';
+var Snp_c20_Ic;
+var Alias_Snp_c20_Ic='ПС Снп яч.20 Ток  Ic';
+var Snp_c20_Uab;
+var Alias_Snp_c20_Uab='ПС Снп яч.20 Напражение Uab';
+var Snp_c20_Ubc;
+var Alias_Snp_c20_Ubc='ПС Снп яч.20 Напражение Ubc';
+var Snp_c20_Uca;
+var Alias_Snp_c20_Uca='ПС Снп яч.20 Напражение Uca';
+var Snp_c20_Psum;
+var Alias_Snp_c20_Psum='ПС Снп яч.20 Акт мощность';
+var Snp_c20_Ia_Level;
+var Alias_Snp_c20_Ia_Level='ПС Снп яч.20 Ток  Ia Level';
+var Snp_c3_RPV;
+var Alias_Snp_c3_RPV='ПС Снп яч.3 Выключатель';
+var Snp_c7_RPV;
+var Alias_Snp_c7_RPV='ПС Снп яч.7 Выключатель';
+var Snp_c5_RPV;
+var Alias_Snp_c5_RPV='ПС Снп яч.5 Выключатель';
+var Snp_c9_RPV;
+var Alias_Snp_c9_RPV='ПС Снп яч.9 Выключатель';
+var Snp_c11_RPV;
+var Alias_Snp_c11_RPV='ПС Снп яч.11 Выключатель';
+var Snp_c13_RPV;
+var Alias_Snp_c13_RPV='ПС Снп яч.13 Выключатель';
+var Snp_c15_RPV;
+var Alias_Snp_c15_RPV='ПС Снп яч.15 Выключатель';
+var Snp_c17_RPV;
+var Alias_Snp_c17_RPV='ПС Снп яч.17 Выключатель';
+var Snp_c21_RPV;
+var Alias_Snp_c21_RPV='ПС Снп яч.21 Выключатель';
+var Snp_c6_RPV;
+var Alias_Snp_c6_RPV='ПС Снп яч.6 Выключатель';
+var Snp_c8_RPV;
+var Alias_Snp_c8_RPV='ПС Снп яч.8 Выключатель';
+var Snp_c14_RPV;
+var Alias_Snp_c14_RPV='ПС Снп яч.14 Выключатель';
+var Snp_c16_RPV;
+var Alias_Snp_c16_RPV='ПС Снп яч.16 Выключатель';
+var Snp_c18_RPV;
+var Alias_Snp_c18_RPV='ПС Снп яч.18 Выключатель';
+var Snp_c20_RPV;
+var Alias_Snp_c20_RPV='ПС Снп яч.20 Выключатель';
+var Snp_EV_110_T1_RPV;
+var Alias_Snp_EV_110_T1_RPV='ПС Снп ЭВ-110 Т1';
+var Snp_EV_110_T2_RPV;
+var Alias_Snp_EV_110_T2_RPV='ПС Снп ЭВ-110 Т2';
+var Snp_SEV_110_RPV;
+var Alias_Snp_SEV_110_RPV='ПС Снп СЭВ-110';
+var Snp_T1_Ia;
+var Alias_Snp_T1_Ia='ПС Снп Т1 Ia';
+var Snp_T1_Ib;
+var Alias_Snp_T1_Ib='ПС Снп Т1 Ib';
+var Snp_T1_Ic;
+var Alias_Snp_T1_Ic='ПС Снп Т1 Ic';
+var Snp_T1_Uab;
+var Alias_Snp_T1_Uab='ПС Снп Т1 Uab';
+var Snp_T1_Ubc;
+var Alias_Snp_T1_Ubc='ПС Снп Т1 Ubc';
+var Snp_T1_Uca;
+var Alias_Snp_T1_Uca='ПС Снп Т1 Uca';
+var Snp_T1_P;
+var Alias_Snp_T1_P='ПС Снп Т1 P';
+var Snp_T2_Ia;
+var Alias_Snp_T2_Ia='ПС Снп Т2 Ia';
+var Snp_T2_Ib;
+var Alias_Snp_T2_Ib='ПС Снп Т2 Ib';
+var Snp_T2_Ic;
+var Alias_Snp_T2_Ic='ПС Снп Т2 Ic';
+var Snp_T2_Uab;
+var Alias_Snp_T2_Uab='ПС Снп Т2 Uab';
+var Snp_T2_Ubc;
+var Alias_Snp_T2_Ubc='ПС Снп Т2 Ubc';
+var Snp_T2_Uca;
+var Alias_Snp_T2_Uca='ПС Снп Т2 Uca';
+var Snp_T2_P;
+var Alias_Snp_T2_P='ПС Снп Т2 P';
+var AI_TEST;
+var Alias_AI_TEST='AI_TEST';
+var DI_TEST;
+var Alias_DI_TEST='DI_TEST';
+function init()  {   setInterval(function(){ getData();}, 1000); }
+function getData() {
+if (window.XMLHttpRequest) {  xmlhttp=new XMLHttpRequest();                        }
+else                       {  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");      }
+xmlhttp.open("GET",Host,true);
+xmlhttp.setRequestHeader("Authorization", "Basic " + btoa(Login+":"+Password));
+xmlhttp.withCredentials = true;
+xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xmlhttp.send(null);
+xmlhttp.onreadystatechange=function()   {
+if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+resp= xmlhttp.responseText;
+parseResp=JSON.parse(resp);
+document.getElementById("recv").innerHTML=resp;
+try      { document.getElementById("Snp_VL_Kls_Uab").innerHTML=Alias_Snp_VL_Kls_Uab+': '+ parseResp[0].Snp_VL_Kls_Uab; }
+catch(e) { document.getElementById("Snp_VL_Kls_Uab").innerHTML=Alias_Snp_VL_Kls_Uab+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Kls_Uab").textContent=parseResp[0].Snp_VL_Kls_Uab.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Kls_Uab").textContent=parseResp[0].Snp_VL_Kls_Uab; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Kls_Uab").textContent=0; }
+         }
+try      { document.getElementById("Snp_VL_Kls_Ubc").innerHTML=Alias_Snp_VL_Kls_Ubc+': '+ parseResp[1].Snp_VL_Kls_Ubc; }
+catch(e) { document.getElementById("Snp_VL_Kls_Ubc").innerHTML=Alias_Snp_VL_Kls_Ubc+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Kls_Ubc").textContent=parseResp[1].Snp_VL_Kls_Ubc.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Kls_Ubc").textContent=parseResp[1].Snp_VL_Kls_Ubc; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Kls_Ubc").textContent=0; }
+         }
+try      { document.getElementById("Snp_VL_Kls_Uca").innerHTML=Alias_Snp_VL_Kls_Uca+': '+ parseResp[2].Snp_VL_Kls_Uca; }
+catch(e) { document.getElementById("Snp_VL_Kls_Uca").innerHTML=Alias_Snp_VL_Kls_Uca+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Kls_Uca").textContent=parseResp[2].Snp_VL_Kls_Uca.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Kls_Uca").textContent=parseResp[2].Snp_VL_Kls_Uca; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Kls_Uca").textContent=0; }
+         }
+try      { document.getElementById("Snp_VL_Kls_Ia").innerHTML=Alias_Snp_VL_Kls_Ia+': '+ parseResp[3].Snp_VL_Kls_Ia; }
+catch(e) { document.getElementById("Snp_VL_Kls_Ia").innerHTML=Alias_Snp_VL_Kls_Ia+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Kls_Ia").textContent=parseResp[3].Snp_VL_Kls_Ia.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Kls_Ia").textContent=parseResp[3].Snp_VL_Kls_Ia; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Kls_Ia").textContent=0; }
+         }
+try      { document.getElementById("Snp_VL_Kls_Ib").innerHTML=Alias_Snp_VL_Kls_Ib+': '+ parseResp[4].Snp_VL_Kls_Ib; }
+catch(e) { document.getElementById("Snp_VL_Kls_Ib").innerHTML=Alias_Snp_VL_Kls_Ib+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Kls_Ib").textContent=parseResp[4].Snp_VL_Kls_Ib.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Kls_Ib").textContent=parseResp[4].Snp_VL_Kls_Ib; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Kls_Ib").textContent=0; }
+         }
+try      { document.getElementById("Snp_VL_Kls_Ic").innerHTML=Alias_Snp_VL_Kls_Ic+': '+ parseResp[5].Snp_VL_Kls_Ic; }
+catch(e) { document.getElementById("Snp_VL_Kls_Ic").innerHTML=Alias_Snp_VL_Kls_Ic+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Kls_Ic").textContent=parseResp[5].Snp_VL_Kls_Ic.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Kls_Ic").textContent=parseResp[5].Snp_VL_Kls_Ic; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Kls_Ic").textContent=0; }
+         }
+try      { document.getElementById("Snp_VL_Kls_Psum").innerHTML=Alias_Snp_VL_Kls_Psum+': '+ parseResp[6].Snp_VL_Kls_Psum; }
+catch(e) { document.getElementById("Snp_VL_Kls_Psum").innerHTML=Alias_Snp_VL_Kls_Psum+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Kls_Psum").textContent=parseResp[6].Snp_VL_Kls_Psum.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Kls_Psum").textContent=parseResp[6].Snp_VL_Kls_Psum; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Kls_Psum").textContent=0; }
+         }
+try      { document.getElementById("Snp_VL_Mch_Uab").innerHTML=Alias_Snp_VL_Mch_Uab+': '+ parseResp[7].Snp_VL_Mch_Uab; }
+catch(e) { document.getElementById("Snp_VL_Mch_Uab").innerHTML=Alias_Snp_VL_Mch_Uab+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Mch_Uab").textContent=parseResp[7].Snp_VL_Mch_Uab.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Mch_Uab").textContent=parseResp[7].Snp_VL_Mch_Uab; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Mch_Uab").textContent=0; }
+         }
+try      { document.getElementById("Snp_VL_Mch_Ubc").innerHTML=Alias_Snp_VL_Mch_Ubc+': '+ parseResp[8].Snp_VL_Mch_Ubc; }
+catch(e) { document.getElementById("Snp_VL_Mch_Ubc").innerHTML=Alias_Snp_VL_Mch_Ubc+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Mch_Ubc").textContent=parseResp[8].Snp_VL_Mch_Ubc.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Mch_Ubc").textContent=parseResp[8].Snp_VL_Mch_Ubc; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Mch_Ubc").textContent=0; }
+         }
+try      { document.getElementById("Snp_VL_Mch_Uca").innerHTML=Alias_Snp_VL_Mch_Uca+': '+ parseResp[9].Snp_VL_Mch_Uca; }
+catch(e) { document.getElementById("Snp_VL_Mch_Uca").innerHTML=Alias_Snp_VL_Mch_Uca+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Mch_Uca").textContent=parseResp[9].Snp_VL_Mch_Uca.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Mch_Uca").textContent=parseResp[9].Snp_VL_Mch_Uca; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Mch_Uca").textContent=0; }
+         }
+try      { document.getElementById("Snp_VL_Mch_Ia").innerHTML=Alias_Snp_VL_Mch_Ia+': '+ parseResp[10].Snp_VL_Mch_Ia; }
+catch(e) { document.getElementById("Snp_VL_Mch_Ia").innerHTML=Alias_Snp_VL_Mch_Ia+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Mch_Ia").textContent=parseResp[10].Snp_VL_Mch_Ia.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Mch_Ia").textContent=parseResp[10].Snp_VL_Mch_Ia; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Mch_Ia").textContent=0; }
+         }
+try      { document.getElementById("Snp_VL_Mch_Ib").innerHTML=Alias_Snp_VL_Mch_Ib+': '+ parseResp[11].Snp_VL_Mch_Ib; }
+catch(e) { document.getElementById("Snp_VL_Mch_Ib").innerHTML=Alias_Snp_VL_Mch_Ib+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Mch_Ib").textContent=parseResp[11].Snp_VL_Mch_Ib.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Mch_Ib").textContent=parseResp[11].Snp_VL_Mch_Ib; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Mch_Ib").textContent=0; }
+         }
+try      { document.getElementById("Snp_VL_Mch_Ic").innerHTML=Alias_Snp_VL_Mch_Ic+': '+ parseResp[12].Snp_VL_Mch_Ic; }
+catch(e) { document.getElementById("Snp_VL_Mch_Ic").innerHTML=Alias_Snp_VL_Mch_Ic+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Mch_Ic").textContent=parseResp[12].Snp_VL_Mch_Ic.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Mch_Ic").textContent=parseResp[12].Snp_VL_Mch_Ic; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Mch_Ic").textContent=0; }
+         }
+try      { document.getElementById("Snp_VL_Mch_Psum").innerHTML=Alias_Snp_VL_Mch_Psum+': '+ parseResp[13].Snp_VL_Mch_Psum; }
+catch(e) { document.getElementById("Snp_VL_Mch_Psum").innerHTML=Alias_Snp_VL_Mch_Psum+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Mch_Psum").textContent=parseResp[13].Snp_VL_Mch_Psum.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Mch_Psum").textContent=parseResp[13].Snp_VL_Mch_Psum; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_VL_Mch_Psum").textContent=0; }
+         }
+try      { document.getElementById("Snp_c3_Ia").innerHTML=Alias_Snp_c3_Ia+': '+ parseResp[14].Snp_c3_Ia; }
+catch(e) { document.getElementById("Snp_c3_Ia").innerHTML=Alias_Snp_c3_Ia+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_Ia").textContent=parseResp[14].Snp_c3_Ia.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_Ia").textContent=parseResp[14].Snp_c3_Ia; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_Ia").textContent=0; }
+         }
+try      { document.getElementById("Snp_c3_Ib").innerHTML=Alias_Snp_c3_Ib+': '+ parseResp[15].Snp_c3_Ib; }
+catch(e) { document.getElementById("Snp_c3_Ib").innerHTML=Alias_Snp_c3_Ib+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_Ib").textContent=parseResp[15].Snp_c3_Ib.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_Ib").textContent=parseResp[15].Snp_c3_Ib; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_Ib").textContent=0; }
+         }
+try      { document.getElementById("Snp_c3_Ic").innerHTML=Alias_Snp_c3_Ic+': '+ parseResp[16].Snp_c3_Ic; }
+catch(e) { document.getElementById("Snp_c3_Ic").innerHTML=Alias_Snp_c3_Ic+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_Ic").textContent=parseResp[16].Snp_c3_Ic.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_Ic").textContent=parseResp[16].Snp_c3_Ic; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_Ic").textContent=0; }
+         }
+try      { document.getElementById("Snp_c3_Uab").innerHTML=Alias_Snp_c3_Uab+': '+ parseResp[17].Snp_c3_Uab; }
+catch(e) { document.getElementById("Snp_c3_Uab").innerHTML=Alias_Snp_c3_Uab+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_Uab").textContent=parseResp[17].Snp_c3_Uab.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_Uab").textContent=parseResp[17].Snp_c3_Uab; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_Uab").textContent=0; }
+         }
+try      { document.getElementById("Snp_c3_Ubc").innerHTML=Alias_Snp_c3_Ubc+': '+ parseResp[18].Snp_c3_Ubc; }
+catch(e) { document.getElementById("Snp_c3_Ubc").innerHTML=Alias_Snp_c3_Ubc+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_Ubc").textContent=parseResp[18].Snp_c3_Ubc.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_Ubc").textContent=parseResp[18].Snp_c3_Ubc; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_Ubc").textContent=0; }
+         }
+try      { document.getElementById("Snp_c3_Uca").innerHTML=Alias_Snp_c3_Uca+': '+ parseResp[19].Snp_c3_Uca; }
+catch(e) { document.getElementById("Snp_c3_Uca").innerHTML=Alias_Snp_c3_Uca+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_Uca").textContent=parseResp[19].Snp_c3_Uca.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_Uca").textContent=parseResp[19].Snp_c3_Uca; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_Uca").textContent=0; }
+         }
+try      { document.getElementById("Snp_c3_Psum").innerHTML=Alias_Snp_c3_Psum+': '+ parseResp[20].Snp_c3_Psum; }
+catch(e) { document.getElementById("Snp_c3_Psum").innerHTML=Alias_Snp_c3_Psum+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_Psum").textContent=parseResp[20].Snp_c3_Psum.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_Psum").textContent=parseResp[20].Snp_c3_Psum; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_Psum").textContent=0; }
+         }
+try      { document.getElementById("Snp_c3_Ia_Level").innerHTML=Alias_Snp_c3_Ia_Level+': '+ parseResp[21].Snp_c3_Ia_Level; }
+catch(e) { document.getElementById("Snp_c3_Ia_Level").innerHTML=Alias_Snp_c3_Ia_Level+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_Ia_Level").textContent=parseResp[21].Snp_c3_Ia_Level.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_Ia_Level").textContent=parseResp[21].Snp_c3_Ia_Level; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_Ia_Level").textContent=0; }
+         }
+try      { document.getElementById("Snp_c5_Ia").innerHTML=Alias_Snp_c5_Ia+': '+ parseResp[22].Snp_c5_Ia; }
+catch(e) { document.getElementById("Snp_c5_Ia").innerHTML=Alias_Snp_c5_Ia+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c5_Ia").textContent=parseResp[22].Snp_c5_Ia.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c5_Ia").textContent=parseResp[22].Snp_c5_Ia; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c5_Ia").textContent=0; }
+         }
+try      { document.getElementById("Snp_c7_Ia").innerHTML=Alias_Snp_c7_Ia+': '+ parseResp[23].Snp_c7_Ia; }
+catch(e) { document.getElementById("Snp_c7_Ia").innerHTML=Alias_Snp_c7_Ia+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c7_Ia").textContent=parseResp[23].Snp_c7_Ia.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c7_Ia").textContent=parseResp[23].Snp_c7_Ia; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c7_Ia").textContent=0; }
+         }
+try      { document.getElementById("Snp_c9_Ia").innerHTML=Alias_Snp_c9_Ia+': '+ parseResp[24].Snp_c9_Ia; }
+catch(e) { document.getElementById("Snp_c9_Ia").innerHTML=Alias_Snp_c9_Ia+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c9_Ia").textContent=parseResp[24].Snp_c9_Ia.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c9_Ia").textContent=parseResp[24].Snp_c9_Ia; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c9_Ia").textContent=0; }
+         }
+try      { document.getElementById("Snp_c11_Ia").innerHTML=Alias_Snp_c11_Ia+': '+ parseResp[25].Snp_c11_Ia; }
+catch(e) { document.getElementById("Snp_c11_Ia").innerHTML=Alias_Snp_c11_Ia+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c11_Ia").textContent=parseResp[25].Snp_c11_Ia.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c11_Ia").textContent=parseResp[25].Snp_c11_Ia; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c11_Ia").textContent=0; }
+         }
+try      { document.getElementById("Snp_c13_Ia").innerHTML=Alias_Snp_c13_Ia+': '+ parseResp[26].Snp_c13_Ia; }
+catch(e) { document.getElementById("Snp_c13_Ia").innerHTML=Alias_Snp_c13_Ia+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c13_Ia").textContent=parseResp[26].Snp_c13_Ia.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c13_Ia").textContent=parseResp[26].Snp_c13_Ia; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c13_Ia").textContent=0; }
+         }
+try      { document.getElementById("Snp_c15_Ia").innerHTML=Alias_Snp_c15_Ia+': '+ parseResp[27].Snp_c15_Ia; }
+catch(e) { document.getElementById("Snp_c15_Ia").innerHTML=Alias_Snp_c15_Ia+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c15_Ia").textContent=parseResp[27].Snp_c15_Ia.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c15_Ia").textContent=parseResp[27].Snp_c15_Ia; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c15_Ia").textContent=0; }
+         }
+try      { document.getElementById("Snp_c17_Ia").innerHTML=Alias_Snp_c17_Ia+': '+ parseResp[28].Snp_c17_Ia; }
+catch(e) { document.getElementById("Snp_c17_Ia").innerHTML=Alias_Snp_c17_Ia+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c17_Ia").textContent=parseResp[28].Snp_c17_Ia.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c17_Ia").textContent=parseResp[28].Snp_c17_Ia; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c17_Ia").textContent=0; }
+         }
+try      { document.getElementById("Snp_c21_Ia").innerHTML=Alias_Snp_c21_Ia+': '+ parseResp[29].Snp_c21_Ia; }
+catch(e) { document.getElementById("Snp_c21_Ia").innerHTML=Alias_Snp_c21_Ia+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c21_Ia").textContent=parseResp[29].Snp_c21_Ia.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c21_Ia").textContent=parseResp[29].Snp_c21_Ia; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c21_Ia").textContent=0; }
+         }
+try      { document.getElementById("Snp_c6_Ia").innerHTML=Alias_Snp_c6_Ia+': '+ parseResp[30].Snp_c6_Ia; }
+catch(e) { document.getElementById("Snp_c6_Ia").innerHTML=Alias_Snp_c6_Ia+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c6_Ia").textContent=parseResp[30].Snp_c6_Ia.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c6_Ia").textContent=parseResp[30].Snp_c6_Ia; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c6_Ia").textContent=0; }
+         }
+try      { document.getElementById("Snp_c8_Ia").innerHTML=Alias_Snp_c8_Ia+': '+ parseResp[31].Snp_c8_Ia; }
+catch(e) { document.getElementById("Snp_c8_Ia").innerHTML=Alias_Snp_c8_Ia+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c8_Ia").textContent=parseResp[31].Snp_c8_Ia.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c8_Ia").textContent=parseResp[31].Snp_c8_Ia; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c8_Ia").textContent=0; }
+         }
+try      { document.getElementById("Snp_c14_Ia").innerHTML=Alias_Snp_c14_Ia+': '+ parseResp[32].Snp_c14_Ia; }
+catch(e) { document.getElementById("Snp_c14_Ia").innerHTML=Alias_Snp_c14_Ia+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c14_Ia").textContent=parseResp[32].Snp_c14_Ia.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c14_Ia").textContent=parseResp[32].Snp_c14_Ia; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c14_Ia").textContent=0; }
+         }
+try      { document.getElementById("Snp_c16_Ia").innerHTML=Alias_Snp_c16_Ia+': '+ parseResp[33].Snp_c16_Ia; }
+catch(e) { document.getElementById("Snp_c16_Ia").innerHTML=Alias_Snp_c16_Ia+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c16_Ia").textContent=parseResp[33].Snp_c16_Ia.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c16_Ia").textContent=parseResp[33].Snp_c16_Ia; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c16_Ia").textContent=0; }
+         }
+try      { document.getElementById("Snp_c18_Ia").innerHTML=Alias_Snp_c18_Ia+': '+ parseResp[34].Snp_c18_Ia; }
+catch(e) { document.getElementById("Snp_c18_Ia").innerHTML=Alias_Snp_c18_Ia+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c18_Ia").textContent=parseResp[34].Snp_c18_Ia.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c18_Ia").textContent=parseResp[34].Snp_c18_Ia; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c18_Ia").textContent=0; }
+         }
+try      { document.getElementById("Snp_c20_Ia").innerHTML=Alias_Snp_c20_Ia+': '+ parseResp[35].Snp_c20_Ia; }
+catch(e) { document.getElementById("Snp_c20_Ia").innerHTML=Alias_Snp_c20_Ia+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_Ia").textContent=parseResp[35].Snp_c20_Ia.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_Ia").textContent=parseResp[35].Snp_c20_Ia; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_Ia").textContent=0; }
+         }
+try      { document.getElementById("Snp_c20_Ib").innerHTML=Alias_Snp_c20_Ib+': '+ parseResp[36].Snp_c20_Ib; }
+catch(e) { document.getElementById("Snp_c20_Ib").innerHTML=Alias_Snp_c20_Ib+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_Ib").textContent=parseResp[36].Snp_c20_Ib.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_Ib").textContent=parseResp[36].Snp_c20_Ib; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_Ib").textContent=0; }
+         }
+try      { document.getElementById("Snp_c20_Ic").innerHTML=Alias_Snp_c20_Ic+': '+ parseResp[37].Snp_c20_Ic; }
+catch(e) { document.getElementById("Snp_c20_Ic").innerHTML=Alias_Snp_c20_Ic+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_Ic").textContent=parseResp[37].Snp_c20_Ic.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_Ic").textContent=parseResp[37].Snp_c20_Ic; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_Ic").textContent=0; }
+         }
+try      { document.getElementById("Snp_c20_Uab").innerHTML=Alias_Snp_c20_Uab+': '+ parseResp[38].Snp_c20_Uab; }
+catch(e) { document.getElementById("Snp_c20_Uab").innerHTML=Alias_Snp_c20_Uab+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_Uab").textContent=parseResp[38].Snp_c20_Uab.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_Uab").textContent=parseResp[38].Snp_c20_Uab; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_Uab").textContent=0; }
+         }
+try      { document.getElementById("Snp_c20_Ubc").innerHTML=Alias_Snp_c20_Ubc+': '+ parseResp[39].Snp_c20_Ubc; }
+catch(e) { document.getElementById("Snp_c20_Ubc").innerHTML=Alias_Snp_c20_Ubc+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_Ubc").textContent=parseResp[39].Snp_c20_Ubc.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_Ubc").textContent=parseResp[39].Snp_c20_Ubc; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_Ubc").textContent=0; }
+         }
+try      { document.getElementById("Snp_c20_Uca").innerHTML=Alias_Snp_c20_Uca+': '+ parseResp[40].Snp_c20_Uca; }
+catch(e) { document.getElementById("Snp_c20_Uca").innerHTML=Alias_Snp_c20_Uca+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_Uca").textContent=parseResp[40].Snp_c20_Uca.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_Uca").textContent=parseResp[40].Snp_c20_Uca; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_Uca").textContent=0; }
+         }
+try      { document.getElementById("Snp_c20_Psum").innerHTML=Alias_Snp_c20_Psum+': '+ parseResp[41].Snp_c20_Psum; }
+catch(e) { document.getElementById("Snp_c20_Psum").innerHTML=Alias_Snp_c20_Psum+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_Psum").textContent=parseResp[41].Snp_c20_Psum.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_Psum").textContent=parseResp[41].Snp_c20_Psum; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_Psum").textContent=0; }
+         }
+try      { document.getElementById("Snp_c20_Ia_Level").innerHTML=Alias_Snp_c20_Ia_Level+': '+ parseResp[42].Snp_c20_Ia_Level; }
+catch(e) { document.getElementById("Snp_c20_Ia_Level").innerHTML=Alias_Snp_c20_Ia_Level+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_Ia_Level").textContent=parseResp[42].Snp_c20_Ia_Level.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_Ia_Level").textContent=parseResp[42].Snp_c20_Ia_Level; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_Ia_Level").textContent=0; }
+         }
+try      { document.getElementById("Snp_c3_RPV").innerHTML=Alias_Snp_c3_RPV+': '+ parseResp[43].Snp_c3_RPV; }
+catch(e) { document.getElementById("Snp_c3_RPV").innerHTML=Alias_Snp_c3_RPV+': 0'; }
+try {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_RPV").textContent=parseResp[43].Snp_c3_RPV;
+if(parseResp[43].Snp_c3_RPV == true) { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c3_RPV").setAttribute("fill", "red"); }
+else { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c3_RPV").setAttribute("fill", "green"); }
+} catch(e) {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c3_RPV").textContent=0; }
+try      { document.getElementById("Snp_c7_RPV").innerHTML=Alias_Snp_c7_RPV+': '+ parseResp[44].Snp_c7_RPV; }
+catch(e) { document.getElementById("Snp_c7_RPV").innerHTML=Alias_Snp_c7_RPV+': 0'; }
+try {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c7_RPV").textContent=parseResp[44].Snp_c7_RPV;
+if(parseResp[44].Snp_c7_RPV == true) { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c7_RPV").setAttribute("fill", "red"); }
+else { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c7_RPV").setAttribute("fill", "green"); }
+} catch(e) {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c7_RPV").textContent=0; }
+try      { document.getElementById("Snp_c5_RPV").innerHTML=Alias_Snp_c5_RPV+': '+ parseResp[45].Snp_c5_RPV; }
+catch(e) { document.getElementById("Snp_c5_RPV").innerHTML=Alias_Snp_c5_RPV+': 0'; }
+try {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c5_RPV").textContent=parseResp[45].Snp_c5_RPV;
+if(parseResp[45].Snp_c5_RPV == true) { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c5_RPV").setAttribute("fill", "red"); }
+else { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c5_RPV").setAttribute("fill", "green"); }
+} catch(e) {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c5_RPV").textContent=0; }
+try      { document.getElementById("Snp_c9_RPV").innerHTML=Alias_Snp_c9_RPV+': '+ parseResp[46].Snp_c9_RPV; }
+catch(e) { document.getElementById("Snp_c9_RPV").innerHTML=Alias_Snp_c9_RPV+': 0'; }
+try {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c9_RPV").textContent=parseResp[46].Snp_c9_RPV;
+if(parseResp[46].Snp_c9_RPV == true) { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c9_RPV").setAttribute("fill", "red"); }
+else { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c9_RPV").setAttribute("fill", "green"); }
+} catch(e) {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c9_RPV").textContent=0; }
+try      { document.getElementById("Snp_c11_RPV").innerHTML=Alias_Snp_c11_RPV+': '+ parseResp[47].Snp_c11_RPV; }
+catch(e) { document.getElementById("Snp_c11_RPV").innerHTML=Alias_Snp_c11_RPV+': 0'; }
+try {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c11_RPV").textContent=parseResp[47].Snp_c11_RPV;
+if(parseResp[47].Snp_c11_RPV == true) { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c11_RPV").setAttribute("fill", "red"); }
+else { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c11_RPV").setAttribute("fill", "green"); }
+} catch(e) {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c11_RPV").textContent=0; }
+try      { document.getElementById("Snp_c13_RPV").innerHTML=Alias_Snp_c13_RPV+': '+ parseResp[48].Snp_c13_RPV; }
+catch(e) { document.getElementById("Snp_c13_RPV").innerHTML=Alias_Snp_c13_RPV+': 0'; }
+try {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c13_RPV").textContent=parseResp[48].Snp_c13_RPV;
+if(parseResp[48].Snp_c13_RPV == true) { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c13_RPV").setAttribute("fill", "red"); }
+else { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c13_RPV").setAttribute("fill", "green"); }
+} catch(e) {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c13_RPV").textContent=0; }
+try      { document.getElementById("Snp_c15_RPV").innerHTML=Alias_Snp_c15_RPV+': '+ parseResp[49].Snp_c15_RPV; }
+catch(e) { document.getElementById("Snp_c15_RPV").innerHTML=Alias_Snp_c15_RPV+': 0'; }
+try {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c15_RPV").textContent=parseResp[49].Snp_c15_RPV;
+if(parseResp[49].Snp_c15_RPV == true) { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c15_RPV").setAttribute("fill", "red"); }
+else { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c15_RPV").setAttribute("fill", "green"); }
+} catch(e) {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c15_RPV").textContent=0; }
+try      { document.getElementById("Snp_c17_RPV").innerHTML=Alias_Snp_c17_RPV+': '+ parseResp[50].Snp_c17_RPV; }
+catch(e) { document.getElementById("Snp_c17_RPV").innerHTML=Alias_Snp_c17_RPV+': 0'; }
+try {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c17_RPV").textContent=parseResp[50].Snp_c17_RPV;
+if(parseResp[50].Snp_c17_RPV == true) { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c17_RPV").setAttribute("fill", "red"); }
+else { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c17_RPV").setAttribute("fill", "green"); }
+} catch(e) {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c17_RPV").textContent=0; }
+try      { document.getElementById("Snp_c21_RPV").innerHTML=Alias_Snp_c21_RPV+': '+ parseResp[51].Snp_c21_RPV; }
+catch(e) { document.getElementById("Snp_c21_RPV").innerHTML=Alias_Snp_c21_RPV+': 0'; }
+try {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c21_RPV").textContent=parseResp[51].Snp_c21_RPV;
+if(parseResp[51].Snp_c21_RPV == true) { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c21_RPV").setAttribute("fill", "red"); }
+else { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c21_RPV").setAttribute("fill", "green"); }
+} catch(e) {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c21_RPV").textContent=0; }
+try      { document.getElementById("Snp_c6_RPV").innerHTML=Alias_Snp_c6_RPV+': '+ parseResp[52].Snp_c6_RPV; }
+catch(e) { document.getElementById("Snp_c6_RPV").innerHTML=Alias_Snp_c6_RPV+': 0'; }
+try {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c6_RPV").textContent=parseResp[52].Snp_c6_RPV;
+if(parseResp[52].Snp_c6_RPV == true) { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c6_RPV").setAttribute("fill", "red"); }
+else { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c6_RPV").setAttribute("fill", "green"); }
+} catch(e) {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c6_RPV").textContent=0; }
+try      { document.getElementById("Snp_c8_RPV").innerHTML=Alias_Snp_c8_RPV+': '+ parseResp[53].Snp_c8_RPV; }
+catch(e) { document.getElementById("Snp_c8_RPV").innerHTML=Alias_Snp_c8_RPV+': 0'; }
+try {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c8_RPV").textContent=parseResp[53].Snp_c8_RPV;
+if(parseResp[53].Snp_c8_RPV == true) { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c8_RPV").setAttribute("fill", "red"); }
+else { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c8_RPV").setAttribute("fill", "green"); }
+} catch(e) {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c8_RPV").textContent=0; }
+try      { document.getElementById("Snp_c14_RPV").innerHTML=Alias_Snp_c14_RPV+': '+ parseResp[54].Snp_c14_RPV; }
+catch(e) { document.getElementById("Snp_c14_RPV").innerHTML=Alias_Snp_c14_RPV+': 0'; }
+try {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c14_RPV").textContent=parseResp[54].Snp_c14_RPV;
+if(parseResp[54].Snp_c14_RPV == true) { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c14_RPV").setAttribute("fill", "red"); }
+else { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c14_RPV").setAttribute("fill", "green"); }
+} catch(e) {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c14_RPV").textContent=0; }
+try      { document.getElementById("Snp_c16_RPV").innerHTML=Alias_Snp_c16_RPV+': '+ parseResp[55].Snp_c16_RPV; }
+catch(e) { document.getElementById("Snp_c16_RPV").innerHTML=Alias_Snp_c16_RPV+': 0'; }
+try {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c16_RPV").textContent=parseResp[55].Snp_c16_RPV;
+if(parseResp[55].Snp_c16_RPV == true) { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c16_RPV").setAttribute("fill", "red"); }
+else { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c16_RPV").setAttribute("fill", "green"); }
+} catch(e) {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c16_RPV").textContent=0; }
+try      { document.getElementById("Snp_c18_RPV").innerHTML=Alias_Snp_c18_RPV+': '+ parseResp[56].Snp_c18_RPV; }
+catch(e) { document.getElementById("Snp_c18_RPV").innerHTML=Alias_Snp_c18_RPV+': 0'; }
+try {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c18_RPV").textContent=parseResp[56].Snp_c18_RPV;
+if(parseResp[56].Snp_c18_RPV == true) { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c18_RPV").setAttribute("fill", "red"); }
+else { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c18_RPV").setAttribute("fill", "green"); }
+} catch(e) {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c18_RPV").textContent=0; }
+try      { document.getElementById("Snp_c20_RPV").innerHTML=Alias_Snp_c20_RPV+': '+ parseResp[57].Snp_c20_RPV; }
+catch(e) { document.getElementById("Snp_c20_RPV").innerHTML=Alias_Snp_c20_RPV+': 0'; }
+try {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_RPV").textContent=parseResp[57].Snp_c20_RPV;
+if(parseResp[57].Snp_c20_RPV == true) { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c20_RPV").setAttribute("fill", "red"); }
+else { document.getElementById("i1").contentDocument.getElementById("REC_Snp_c20_RPV").setAttribute("fill", "green"); }
+} catch(e) {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_c20_RPV").textContent=0; }
+try      { document.getElementById("Snp_EV_110_T1_RPV").innerHTML=Alias_Snp_EV_110_T1_RPV+': '+ parseResp[58].Snp_EV_110_T1_RPV; }
+catch(e) { document.getElementById("Snp_EV_110_T1_RPV").innerHTML=Alias_Snp_EV_110_T1_RPV+': 0'; }
+try {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_EV_110_T1_RPV").textContent=parseResp[58].Snp_EV_110_T1_RPV;
+if(parseResp[58].Snp_EV_110_T1_RPV == true) { document.getElementById("i1").contentDocument.getElementById("REC_Snp_EV_110_T1_RPV").setAttribute("fill", "red"); }
+else { document.getElementById("i1").contentDocument.getElementById("REC_Snp_EV_110_T1_RPV").setAttribute("fill", "green"); }
+} catch(e) {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_EV_110_T1_RPV").textContent=0; }
+try      { document.getElementById("Snp_EV_110_T2_RPV").innerHTML=Alias_Snp_EV_110_T2_RPV+': '+ parseResp[59].Snp_EV_110_T2_RPV; }
+catch(e) { document.getElementById("Snp_EV_110_T2_RPV").innerHTML=Alias_Snp_EV_110_T2_RPV+': 0'; }
+try {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_EV_110_T2_RPV").textContent=parseResp[59].Snp_EV_110_T2_RPV;
+if(parseResp[59].Snp_EV_110_T2_RPV == true) { document.getElementById("i1").contentDocument.getElementById("REC_Snp_EV_110_T2_RPV").setAttribute("fill", "red"); }
+else { document.getElementById("i1").contentDocument.getElementById("REC_Snp_EV_110_T2_RPV").setAttribute("fill", "green"); }
+} catch(e) {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_EV_110_T2_RPV").textContent=0; }
+try      { document.getElementById("Snp_SEV_110_RPV").innerHTML=Alias_Snp_SEV_110_RPV+': '+ parseResp[60].Snp_SEV_110_RPV; }
+catch(e) { document.getElementById("Snp_SEV_110_RPV").innerHTML=Alias_Snp_SEV_110_RPV+': 0'; }
+try {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_SEV_110_RPV").textContent=parseResp[60].Snp_SEV_110_RPV;
+if(parseResp[60].Snp_SEV_110_RPV == true) { document.getElementById("i1").contentDocument.getElementById("REC_Snp_SEV_110_RPV").setAttribute("fill", "red"); }
+else { document.getElementById("i1").contentDocument.getElementById("REC_Snp_SEV_110_RPV").setAttribute("fill", "green"); }
+} catch(e) {
+document.getElementById("i1").contentDocument.getElementById("SVG_Snp_SEV_110_RPV").textContent=0; }
+try      { document.getElementById("Snp_T1_Ia").innerHTML=Alias_Snp_T1_Ia+': '+ parseResp[61].Snp_T1_Ia; }
+catch(e) { document.getElementById("Snp_T1_Ia").innerHTML=Alias_Snp_T1_Ia+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T1_Ia").textContent=parseResp[61].Snp_T1_Ia.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T1_Ia").textContent=parseResp[61].Snp_T1_Ia; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T1_Ia").textContent=0; }
+         }
+try      { document.getElementById("Snp_T1_Ib").innerHTML=Alias_Snp_T1_Ib+': '+ parseResp[62].Snp_T1_Ib; }
+catch(e) { document.getElementById("Snp_T1_Ib").innerHTML=Alias_Snp_T1_Ib+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T1_Ib").textContent=parseResp[62].Snp_T1_Ib.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T1_Ib").textContent=parseResp[62].Snp_T1_Ib; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T1_Ib").textContent=0; }
+         }
+try      { document.getElementById("Snp_T1_Ic").innerHTML=Alias_Snp_T1_Ic+': '+ parseResp[63].Snp_T1_Ic; }
+catch(e) { document.getElementById("Snp_T1_Ic").innerHTML=Alias_Snp_T1_Ic+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T1_Ic").textContent=parseResp[63].Snp_T1_Ic.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T1_Ic").textContent=parseResp[63].Snp_T1_Ic; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T1_Ic").textContent=0; }
+         }
+try      { document.getElementById("Snp_T1_Uab").innerHTML=Alias_Snp_T1_Uab+': '+ parseResp[64].Snp_T1_Uab; }
+catch(e) { document.getElementById("Snp_T1_Uab").innerHTML=Alias_Snp_T1_Uab+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T1_Uab").textContent=parseResp[64].Snp_T1_Uab.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T1_Uab").textContent=parseResp[64].Snp_T1_Uab; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T1_Uab").textContent=0; }
+         }
+try      { document.getElementById("Snp_T1_Ubc").innerHTML=Alias_Snp_T1_Ubc+': '+ parseResp[65].Snp_T1_Ubc; }
+catch(e) { document.getElementById("Snp_T1_Ubc").innerHTML=Alias_Snp_T1_Ubc+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T1_Ubc").textContent=parseResp[65].Snp_T1_Ubc.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T1_Ubc").textContent=parseResp[65].Snp_T1_Ubc; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T1_Ubc").textContent=0; }
+         }
+try      { document.getElementById("Snp_T1_Uca").innerHTML=Alias_Snp_T1_Uca+': '+ parseResp[66].Snp_T1_Uca; }
+catch(e) { document.getElementById("Snp_T1_Uca").innerHTML=Alias_Snp_T1_Uca+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T1_Uca").textContent=parseResp[66].Snp_T1_Uca.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T1_Uca").textContent=parseResp[66].Snp_T1_Uca; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T1_Uca").textContent=0; }
+         }
+try      { document.getElementById("Snp_T1_P").innerHTML=Alias_Snp_T1_P+': '+ parseResp[67].Snp_T1_P; }
+catch(e) { document.getElementById("Snp_T1_P").innerHTML=Alias_Snp_T1_P+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T1_P").textContent=parseResp[67].Snp_T1_P.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T1_P").textContent=parseResp[67].Snp_T1_P; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T1_P").textContent=0; }
+         }
+try      { document.getElementById("Snp_T2_Ia").innerHTML=Alias_Snp_T2_Ia+': '+ parseResp[68].Snp_T2_Ia; }
+catch(e) { document.getElementById("Snp_T2_Ia").innerHTML=Alias_Snp_T2_Ia+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T2_Ia").textContent=parseResp[68].Snp_T2_Ia.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T2_Ia").textContent=parseResp[68].Snp_T2_Ia; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T2_Ia").textContent=0; }
+         }
+try      { document.getElementById("Snp_T2_Ib").innerHTML=Alias_Snp_T2_Ib+': '+ parseResp[69].Snp_T2_Ib; }
+catch(e) { document.getElementById("Snp_T2_Ib").innerHTML=Alias_Snp_T2_Ib+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T2_Ib").textContent=parseResp[69].Snp_T2_Ib.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T2_Ib").textContent=parseResp[69].Snp_T2_Ib; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T2_Ib").textContent=0; }
+         }
+try      { document.getElementById("Snp_T2_Ic").innerHTML=Alias_Snp_T2_Ic+': '+ parseResp[70].Snp_T2_Ic; }
+catch(e) { document.getElementById("Snp_T2_Ic").innerHTML=Alias_Snp_T2_Ic+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T2_Ic").textContent=parseResp[70].Snp_T2_Ic.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T2_Ic").textContent=parseResp[70].Snp_T2_Ic; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T2_Ic").textContent=0; }
+         }
+try      { document.getElementById("Snp_T2_Uab").innerHTML=Alias_Snp_T2_Uab+': '+ parseResp[71].Snp_T2_Uab; }
+catch(e) { document.getElementById("Snp_T2_Uab").innerHTML=Alias_Snp_T2_Uab+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T2_Uab").textContent=parseResp[71].Snp_T2_Uab.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T2_Uab").textContent=parseResp[71].Snp_T2_Uab; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T2_Uab").textContent=0; }
+         }
+try      { document.getElementById("Snp_T2_Ubc").innerHTML=Alias_Snp_T2_Ubc+': '+ parseResp[72].Snp_T2_Ubc; }
+catch(e) { document.getElementById("Snp_T2_Ubc").innerHTML=Alias_Snp_T2_Ubc+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T2_Ubc").textContent=parseResp[72].Snp_T2_Ubc.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T2_Ubc").textContent=parseResp[72].Snp_T2_Ubc; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T2_Ubc").textContent=0; }
+         }
+try      { document.getElementById("Snp_T2_Uca").innerHTML=Alias_Snp_T2_Uca+': '+ parseResp[73].Snp_T2_Uca; }
+catch(e) { document.getElementById("Snp_T2_Uca").innerHTML=Alias_Snp_T2_Uca+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T2_Uca").textContent=parseResp[73].Snp_T2_Uca.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T2_Uca").textContent=parseResp[73].Snp_T2_Uca; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T2_Uca").textContent=0; }
+         }
+try      { document.getElementById("Snp_T2_P").innerHTML=Alias_Snp_T2_P+': '+ parseResp[74].Snp_T2_P; }
+catch(e) { document.getElementById("Snp_T2_P").innerHTML=Alias_Snp_T2_P+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T2_P").textContent=parseResp[74].Snp_T2_P.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T2_P").textContent=parseResp[74].Snp_T2_P; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_Snp_T2_P").textContent=0; }
+         }
+try      { document.getElementById("AI_TEST").innerHTML=Alias_AI_TEST+': '+ parseResp[75].AI_TEST; }
+catch(e) { document.getElementById("AI_TEST").innerHTML=Alias_AI_TEST+': 0'; }
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_AI_TEST").textContent=parseResp[75].AI_TEST.toFixed(3); }
+catch(e) {
+try      { document.getElementById("i1").contentDocument.getElementById("SVG_AI_TEST").textContent=parseResp[75].AI_TEST; }
+catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_AI_TEST").textContent=0; }
+         }
+try      { document.getElementById("DI_TEST").innerHTML=Alias_DI_TEST+': '+ parseResp[76].DI_TEST; }
+catch(e) { document.getElementById("DI_TEST").innerHTML=Alias_DI_TEST+': 0'; }
+try {
+document.getElementById("i1").contentDocument.getElementById("SVG_DI_TEST").textContent=parseResp[76].DI_TEST;
+if(parseResp[76].DI_TEST == true) { document.getElementById("i1").contentDocument.getElementById("REC_DI_TEST").setAttribute("fill", "red"); }
+else { document.getElementById("i1").contentDocument.getElementById("REC_DI_TEST").setAttribute("fill", "green"); }
+} catch(e) {
+document.getElementById("i1").contentDocument.getElementById("SVG_DI_TEST").textContent=0; }
+}  }  }
+</script>
+<body onload="init()" style="background-color:white" >
+<span id="recv"></span><br>
+<span id="Snp_VL_Kls_Uab"></span><br>
+<span id="Snp_VL_Kls_Ubc"></span><br>
+<span id="Snp_VL_Kls_Uca"></span><br>
+<span id="Snp_VL_Kls_Ia"></span><br>
+<span id="Snp_VL_Kls_Ib"></span><br>
+<span id="Snp_VL_Kls_Ic"></span><br>
+<span id="Snp_VL_Kls_Psum"></span><br>
+<span id="Snp_VL_Mch_Uab"></span><br>
+<span id="Snp_VL_Mch_Ubc"></span><br>
+<span id="Snp_VL_Mch_Uca"></span><br>
+<span id="Snp_VL_Mch_Ia"></span><br>
+<span id="Snp_VL_Mch_Ib"></span><br>
+<span id="Snp_VL_Mch_Ic"></span><br>
+<span id="Snp_VL_Mch_Psum"></span><br>
+<span id="Snp_c3_Ia"></span><br>
+<span id="Snp_c3_Ib"></span><br>
+<span id="Snp_c3_Ic"></span><br>
+<span id="Snp_c3_Uab"></span><br>
+<span id="Snp_c3_Ubc"></span><br>
+<span id="Snp_c3_Uca"></span><br>
+<span id="Snp_c3_Psum"></span><br>
+<span id="Snp_c3_Ia_Level"></span><br>
+<span id="Snp_c5_Ia"></span><br>
+<span id="Snp_c7_Ia"></span><br>
+<span id="Snp_c9_Ia"></span><br>
+<span id="Snp_c11_Ia"></span><br>
+<span id="Snp_c13_Ia"></span><br>
+<span id="Snp_c15_Ia"></span><br>
+<span id="Snp_c17_Ia"></span><br>
+<span id="Snp_c21_Ia"></span><br>
+<span id="Snp_c6_Ia"></span><br>
+<span id="Snp_c8_Ia"></span><br>
+<span id="Snp_c14_Ia"></span><br>
+<span id="Snp_c16_Ia"></span><br>
+<span id="Snp_c18_Ia"></span><br>
+<span id="Snp_c20_Ia"></span><br>
+<span id="Snp_c20_Ib"></span><br>
+<span id="Snp_c20_Ic"></span><br>
+<span id="Snp_c20_Uab"></span><br>
+<span id="Snp_c20_Ubc"></span><br>
+<span id="Snp_c20_Uca"></span><br>
+<span id="Snp_c20_Psum"></span><br>
+<span id="Snp_c20_Ia_Level"></span><br>
+<span id="Snp_c3_RPV"></span><br>
+<span id="Snp_c7_RPV"></span><br>
+<span id="Snp_c5_RPV"></span><br>
+<span id="Snp_c9_RPV"></span><br>
+<span id="Snp_c11_RPV"></span><br>
+<span id="Snp_c13_RPV"></span><br>
+<span id="Snp_c15_RPV"></span><br>
+<span id="Snp_c17_RPV"></span><br>
+<span id="Snp_c21_RPV"></span><br>
+<span id="Snp_c6_RPV"></span><br>
+<span id="Snp_c8_RPV"></span><br>
+<span id="Snp_c14_RPV"></span><br>
+<span id="Snp_c16_RPV"></span><br>
+<span id="Snp_c18_RPV"></span><br>
+<span id="Snp_c20_RPV"></span><br>
+<span id="Snp_EV_110_T1_RPV"></span><br>
+<span id="Snp_EV_110_T2_RPV"></span><br>
+<span id="Snp_SEV_110_RPV"></span><br>
+<span id="Snp_T1_Ia"></span><br>
+<span id="Snp_T1_Ib"></span><br>
+<span id="Snp_T1_Ic"></span><br>
+<span id="Snp_T1_Uab"></span><br>
+<span id="Snp_T1_Ubc"></span><br>
+<span id="Snp_T1_Uca"></span><br>
+<span id="Snp_T1_P"></span><br>
+<span id="Snp_T2_Ia"></span><br>
+<span id="Snp_T2_Ib"></span><br>
+<span id="Snp_T2_Ic"></span><br>
+<span id="Snp_T2_Uab"></span><br>
+<span id="Snp_T2_Ubc"></span><br>
+<span id="Snp_T2_Uca"></span><br>
+<span id="Snp_T2_P"></span><br>
+<span id="AI_TEST"></span><br>
+<span id="DI_TEST"></span><br>
+<br><br><iframe id="i1" width="800" height="2730"  src="./image.svg" ></iframe>
+</body></html>

@@ -1,0 +1,304 @@
+<?xml version="1.0"?>
+<Config xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <Layout>
+    <Lconf    UdpPort="64000"  UdpIp="127.0.0.1" Image="C:\scadapy\381\github\projects\ps110kv\sinop2.png" CanvasColor="$00505050" Height="805" Width="1600" >
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_0" Caption="Snp_VL_Mch_Ia" Left="389" Top="77" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_VL_Mch_Ia">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_1" Caption="Snp_VL_Mch_Ib" Left="389" Top="104" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_VL_Mch_Ib">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_2" Caption="Snp_VL_Mch_Ic" Left="389" Top="131" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_VL_Mch_Ic">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_3" Caption="Snp_VL_Mch_Uca" Left="389" Top="212" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_VL_Mch_Uca">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_4" Caption="Snp_VL_Mch_Psum" Left="389" Top="239" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_VL_Mch_Psum">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_5" Caption="Snp_VL_Mch_Ubc" Left="389" Top="185" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_VL_Mch_Ubc">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_6" Caption="Snp_VL_Mch_Uab" Left="389" Top="158" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_VL_Mch_Uab">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_7" Caption="Snp_VL_Kls_Uca" Left="1554" Top="212" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_VL_Kls_Uca">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_8" Caption="Snp_VL_Kls_Ubc" Left="1554" Top="185" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_VL_Kls_Ubc">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_9" Caption="Snp_VL_Kls_Uab" Left="1554" Top="158" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_VL_Kls_Uab">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_10" Caption="Snp_VL_Kls_Ic" Left="1554" Top="131" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_VL_Kls_Ic">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_11" Caption="Snp_VL_Kls_Ib" Left="1554" Top="104" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_VL_Kls_Ib">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_12" Caption="Snp_VL_Kls_Ia" Left="1554" Top="77" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_VL_Kls_Ia">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_13" Caption="Snp_VL_Kls_Psum" Left="1554" Top="239" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_VL_Kls_Psum">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_14" Caption="Snp_T1_Ia" Left="315" Top="428" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="clBlack" ObjectColor="clWhite" ObjectText="Snp_T1_Ia">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_15" Caption="Snp_T1_Ib" Left="315" Top="455" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_T1_Ib">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_16" Caption="Snp_T1_Ic" Left="315" Top="482" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_T1_Ic">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_17" Caption="Snp_T1_Uca" Left="315" Top="563" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_T1_Uca">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_18" Caption="Snp_T1_P" Left="315" Top="590" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_T1_P">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_19" Caption="Snp_T1_Ubc" Left="315" Top="536" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_T1_Ubc">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_20" Caption="Snp_T1_Uab" Left="315" Top="509" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_T1_Uab">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_21" Caption="Snp_T2_Ia" Left="1662" Top="421" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_T2_Ia">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_22" Caption="Snp_T2_Ib" Left="1662" Top="448" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_T2_Ib">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_23" Caption="Snp_T2_Ic" Left="1662" Top="475" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_T2_Ic">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_24" Caption="Snp_T2_Uca" Left="1662" Top="556" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_T2_Uca">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_25" Caption="Snp_T2_P" Left="1662" Top="583" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_T2_P">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_26" Caption="Snp_T2_Ubc" Left="1662" Top="529" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_T2_Ubc">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_27" Caption="Snp_T2_Uab" Left="1662" Top="502" Max="" Orient="" Width="100" Height="23" FontName="Arial" FontSize="15" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_T2_Uab">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_28" Caption="Snp_c5_Ia" Left="279" Top="812" Max="" Orient="" Width="30" Height="16" FontName="Arial" FontSize="10" FontColor="clWhite" ObjectColor="$00505050" ObjectText="Snp_c5_Ia">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_29" Caption="Snp_c7_Ia" Left="357" Top="812" Max="" Orient="" Width="30" Height="16" FontName="Arial" FontSize="10" FontColor="clWhite" ObjectColor="$00505050" ObjectText="Snp_c7_Ia">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_30" Caption="Snp_c9_Ia" Left="435" Top="812" Max="" Orient="" Width="30" Height="16" FontName="Arial" FontSize="10" FontColor="clWhite" ObjectColor="$00505050" ObjectText="Snp_c9_Ia">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_31" Caption="Snp_c11_Ia" Left="514" Top="812" Max="" Orient="" Width="30" Height="16" FontName="Arial" FontSize="10" FontColor="clWhite" ObjectColor="$00505050" ObjectText="Snp_c11_Ia">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_32" Caption="Snp_c13_Ia" Left="599" Top="812" Max="" Orient="" Width="30" Height="16" FontName="Arial" FontSize="10" FontColor="clWhite" ObjectColor="$00505050" ObjectText="Snp_c13_Ia">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_33" Caption="Snp_c15_Ia" Left="677" Top="812" Max="" Orient="" Width="30" Height="16" FontName="Arial" FontSize="10" FontColor="clWhite" ObjectColor="$00505050" ObjectText="Snp_c15_Ia">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_34" Caption="Snp_c17_Ia" Left="755" Top="812" Max="" Orient="" Width="30" Height="16" FontName="Arial" FontSize="10" FontColor="clWhite" ObjectColor="$00505050" ObjectText="Snp_c17_Ia">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_35" Caption="Snp_c21_Ia" Left="891" Top="812" Max="" Orient="" Width="30" Height="16" FontName="Arial" FontSize="10" FontColor="clWhite" ObjectColor="$00505050" ObjectText="Snp_c21_Ia">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_36" Caption="Snp_c3_Ia" Left="478" Top="622" Max="" Orient="" Width="50" Height="16" FontName="Arial" FontSize="10" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_c3_Ia">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_37" Caption="Snp_c3_Ib" Left="478" Top="641" Max="" Orient="" Width="50" Height="16" FontName="Arial" FontSize="10" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_c3_Ib">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_38" Caption="Snp_c3_Ic" Left="478" Top="660" Max="" Orient="" Width="50" Height="16" FontName="Arial" FontSize="10" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_c3_Ic">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_39" Caption="Snp_c3_Uab" Left="478" Top="679" Max="" Orient="" Width="50" Height="16" FontName="Arial" FontSize="10" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_c3_Uab">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_40" Caption="Snp_c3_Ubc" Left="478" Top="698" Max="" Orient="" Width="50" Height="16" FontName="Arial" FontSize="10" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_c3_Ubc">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_41" Caption="Snp_c3_Uca" Left="478" Top="717" Max="" Orient="" Width="50" Height="16" FontName="Arial" FontSize="10" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_c3_Uca">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_42" Caption="Snp_c3_Psum" Left="478" Top="736" Max="" Orient="" Width="50" Height="16" FontName="Arial" FontSize="10" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_c3_Psum">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_43" Caption="Snp_c20_Ia" Left="1475" Top="623" Max="" Orient="" Width="50" Height="16" FontName="Arial" FontSize="10" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_c20_Ia">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_44" Caption="Snp_c20_Ib" Left="1475" Top="642" Max="" Orient="" Width="50" Height="16" FontName="Arial" FontSize="10" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_c20_Ib">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_45" Caption="Snp_c20_Ic" Left="1475" Top="661" Max="" Orient="" Width="50" Height="16" FontName="Arial" FontSize="10" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_c20_Ic">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_46" Caption="Snp_c20_Uab" Left="1475" Top="680" Max="" Orient="" Width="50" Height="16" FontName="Arial" FontSize="10" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_c20_Uab">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_47" Caption="Snp_c20_Ubc" Left="1475" Top="699" Max="" Orient="" Width="50" Height="16" FontName="Arial" FontSize="10" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_c20_Ubc">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_48" Caption="Snp_c20_Uca" Left="1475" Top="718" Max="" Orient="" Width="50" Height="16" FontName="Arial" FontSize="10" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_c20_Uca">-</Lvar>
+     <Lvar  ObjectType="EditObject" ObjectName="Ed_49" Caption="Snp_c20_Psum" Left="1475" Top="737" Max="" Orient="" Width="50" Height="16" FontName="Arial" FontSize="10" FontColor="$00141414" ObjectColor="clWhite" ObjectText="Snp_c20_Psum">-</Lvar>
+     <Lvar  ObjectType="LabelObject" ObjectName="Lb_0" Caption="ПС  110/10 кВ " Left="806" Top="59" Width="230" Height="40" FontName="Arial" FontSize="-30" FontColor="$0009B4E4" ObjectColor="$00505050" Orient="" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_0" Caption="    P мВт" Left="286" Top="238" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_1" Caption="   Uca kB" Left="286" Top="211" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_2" Caption="   Ubc kB" Left="286" Top="184" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_3" Caption="   Uab kB" Left="286" Top="157" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_4" Caption="     Ia A" Left="286" Top="76" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_5" Caption="     Ic A" Left="286" Top="130" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_6" Caption="     Ib A" Left="286" Top="103" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_7" Caption="     Ia A" Left="1450" Top="76" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_8" Caption="     Ib A" Left="1450" Top="103" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_9" Caption="     Ic A" Left="1450" Top="130" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_10" Caption="   Uab kB" Left="1450" Top="157" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_11" Caption="   Ubc kB" Left="1450" Top="184" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_12" Caption="   Uca kB" Left="1450" Top="211" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_13" Caption="    P мВт" Left="1450" Top="238" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_14" Caption="    P мВт" Left="212" Top="589" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_15" Caption="   Uca kB" Left="212" Top="562" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_16" Caption="   Ubc kB" Left="212" Top="535" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_17" Caption="   Uab kB" Left="212" Top="508" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_18" Caption="     Ia A" Left="212" Top="427" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_19" Caption="     Ic A" Left="212" Top="481" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_20" Caption="     Ib A" Left="212" Top="454" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_21" Caption="    P мВт" Left="1559" Top="582" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_22" Caption="   Uca kB" Left="1559" Top="555" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_23" Caption="   Ubc kB" Left="1559" Top="528" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_24" Caption="   Uab kB" Left="1559" Top="501" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_25" Caption="     Ia A" Left="1559" Top="420" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_26" Caption="     Ic A" Left="1559" Top="474" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_27" Caption="     Ib A" Left="1559" Top="447" Width="100" Height="25" FontName="Arial" FontSize="14" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_28" Caption="   Ia A" Left="427" Top="621" Width="50" Height="18" FontName="Arial" FontSize="10" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_29" Caption="   Ib A" Left="427" Top="640" Width="50" Height="18" FontName="Arial" FontSize="10" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_30" Caption="   Ic A" Left="427" Top="659" Width="50" Height="18" FontName="Arial" FontSize="10" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_31" Caption="Uab kV" Left="427" Top="678" Width="50" Height="18" FontName="Arial" FontSize="10" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_32" Caption="Uca kV" Left="427" Top="716" Width="50" Height="18" FontName="Arial" FontSize="10" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_33" Caption="P mW" Left="427" Top="735" Width="50" Height="18" FontName="Arial" FontSize="10" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_34" Caption="Ubc kV" Left="427" Top="697" Width="50" Height="18" FontName="Arial" FontSize="10" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_35" Caption="   Ia A" Left="1424" Top="622" Width="50" Height="18" FontName="Arial" FontSize="10" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_36" Caption="   Ib A" Left="1424" Top="641" Width="50" Height="18" FontName="Arial" FontSize="10" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_37" Caption="   Ic A" Left="1424" Top="660" Width="50" Height="18" FontName="Arial" FontSize="10" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_38" Caption="Uab kV" Left="1424" Top="679" Width="50" Height="18" FontName="Arial" FontSize="10" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_39" Caption="Uca kV" Left="1424" Top="717" Width="50" Height="18" FontName="Arial" FontSize="10" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_40" Caption="P mW" Left="1424" Top="736" Width="50" Height="18" FontName="Arial" FontSize="10" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="StaticTextObject" ObjectName="St_41" Caption="Ubc kV" Left="1424" Top="698" Width="50" Height="18" FontName="Arial" FontSize="10" FontColor="$00141414" Orient="" ObjectColor="clWhite" ObjectText="" Max="">-</Lvar>
+     <Lvar  ObjectType="DiscretObject" ObjectName="DIi_0" Caption="Snp_EV_110_T1_RPV" Left="619" Top="531" Width="30" Height="30" ObjectColor="$000000FD" ObjectText="" FontColor="" FontName="" FontSize="" Max="" Orient="">-</Lvar>
+     <Lvar  ObjectType="DiscretObject" ObjectName="DIi_1" Caption="Snp_SEV_110_RPV" Left="966" Top="292" Width="30" Height="30" ObjectColor="$000000FD" ObjectText="" FontColor="" FontName="" FontSize="" Max="" Orient="">-</Lvar>
+     <Lvar  ObjectType="DiscretObject" ObjectName="DIi_2" Caption="Snp_EV_110_T2_RPV" Left="1314" Top="529" Width="30" Height="30" ObjectColor="$000000FD" ObjectText="" FontColor="" FontName="" FontSize="" Max="" Orient="">-</Lvar>
+     <Lvar  ObjectType="DiscretObject" ObjectName="DIi_3" Caption="Snp_c5_RPV" Left="258" Top="871" Width="30" Height="30" ObjectColor="$000000FD" ObjectText="" FontColor="" FontName="" FontSize="" Max="" Orient="">-</Lvar>
+     <Lvar  ObjectType="DiscretObject" ObjectName="DIi_4" Caption="Snp_c3_RPV" Left="180" Top="871" Width="30" Height="30" ObjectColor="$000000FD" ObjectText="" FontColor="" FontName="" FontSize="" Max="" Orient="">-</Lvar>
+     <Lvar  ObjectType="DiscretObject" ObjectName="DIi_5" Caption="Snp_c7_RPV" Left="338" Top="871" Width="30" Height="30" ObjectColor="$000000FD" ObjectText="" FontColor="" FontName="" FontSize="" Max="" Orient="">-</Lvar>
+     <Lvar  ObjectType="DiscretObject" ObjectName="DIi_6" Caption="Snp_c9_RPV" Left="417" Top="871" Width="30" Height="30" ObjectColor="$000000FD" ObjectText="" FontColor="" FontName="" FontSize="" Max="" Orient="">-</Lvar>
+     <Lvar  ObjectType="DiscretObject" ObjectName="DIi_7" Caption="Snp_c11_RPV" Left="498" Top="871" Width="30" Height="30" ObjectColor="$000000FD" ObjectText="" FontColor="" FontName="" FontSize="" Max="" Orient="">-</Lvar>
+     <Lvar  ObjectType="DiscretObject" ObjectName="DIi_8" Caption="Snp_c17_RPV" Left="737" Top="870" Width="30" Height="30" ObjectColor="$000000FD" ObjectText="" FontColor="" FontName="" FontSize="" Max="" Orient="">-</Lvar>
+     <Lvar  ObjectType="DiscretObject" ObjectName="DIi_9" Caption="Snp_c15_RPV" Left="658" Top="870" Width="30" Height="30" ObjectColor="$000000FD" ObjectText="" FontColor="" FontName="" FontSize="" Max="" Orient="">-</Lvar>
+     <Lvar  ObjectType="DiscretObject" ObjectName="DIi_10" Caption="DI_25" Left="807" Top="870" Width="30" Height="30" ObjectColor="$000000FD" ObjectText="" FontColor="" FontName="" FontSize="" Max="" Orient="">-</Lvar>
+     <Lvar  ObjectType="DiscretObject" ObjectName="DIi_11" Caption="Snp_c21_RPV" Left="871" Top="870" Width="30" Height="30" ObjectColor="$000000FD" ObjectText="" FontColor="" FontName="" FontSize="" Max="" Orient="">-</Lvar>
+     <Lvar  ObjectType="DiscretObject" ObjectName="DIi_12" Caption="Snp_c6_RPV" Left="1159" Top="867" Width="30" Height="30" ObjectColor="$000000FD" ObjectText="" FontColor="" FontName="" FontSize="" Max="" Orient="">-</Lvar>
+     <Lvar  ObjectType="DiscretObject" ObjectName="DIi_13" Caption="Snp_c13_RPV" Left="579" Top="871" Width="30" Height="30" ObjectColor="$000000FD" ObjectText="" FontColor="" FontName="" FontSize="" Max="" Orient="">-</Lvar>
+     <Lvar  ObjectType="DiscretObject" ObjectName="DIi_14" Caption="Snp_c8_RPV" Left="1233" Top="867" Width="30" Height="30" ObjectColor="$000000FD" ObjectText="" FontColor="" FontName="" FontSize="" Max="" Orient="">-</Lvar>
+     <Lvar  ObjectType="DiscretObject" ObjectName="DIi_15" Caption="Snp_c14_RPV" Left="1467" Top="867" Width="30" Height="30" ObjectColor="$000000FD" ObjectText="" FontColor="" FontName="" FontSize="" Max="" Orient="">-</Lvar>
+     <Lvar  ObjectType="DiscretObject" ObjectName="DIi_16" Caption="Snp_c16_RPV" Left="1545" Top="867" Width="30" Height="30" ObjectColor="$000000FD" ObjectText="" FontColor="" FontName="" FontSize="" Max="" Orient="">-</Lvar>
+     <Lvar  ObjectType="DiscretObject" ObjectName="DIi_17" Caption="Snp_c18_RPV" Left="1623" Top="867" Width="30" Height="30" ObjectColor="$000000FD" ObjectText="" FontColor="" FontName="" FontSize="" Max="" Orient="">-</Lvar>
+     <Lvar  ObjectType="DiscretObject" ObjectName="DIi_18" Caption="Snp_c20_RPV" Left="1701" Top="867" Width="30" Height="30" ObjectColor="$000000FD" ObjectText="" FontColor="" FontName="" FontSize="" Max="" Orient="">-</Lvar>
+    </Lconf>
+ </Layout>
+ <iec104server>
+    <PortIec104server   UdpPort=""  UdpIp="" Iec104Port="" Iec104Ip="" Debug=""  >
+    </PortIec104server>
+ </iec104server>
+ <iec104client>
+    <PortIec104client  name="Snp" UdpPort="64000"  UdpIp="127.0.0.1" Iec104Port="2404" Iec104Ip="172.19.22.33" Debug="1" TimeSync="0"  >
+          <VariableIec104 id="1" VarName="Snp_VL_Kls_Uab" IecAddress="1332" Alias="ПС Снп ВЛ Клс Первичное значение напряжение Uab" VarType="float">-</VariableIec104>
+          <VariableIec104 id="2" VarName="Snp_VL_Kls_Ubc" IecAddress="1333" Alias="ПС Снп ВЛ Клс Первичное значение напряжение Ubc" VarType="float">-</VariableIec104>
+          <VariableIec104 id="3" VarName="Snp_VL_Kls_Uca" IecAddress="1334" Alias="ПС Снп ВЛ Клс Первичное значение напряжение Uca" VarType="float">-</VariableIec104>
+          <VariableIec104 id="4" VarName="Snp_VL_Kls_Ia" IecAddress="1335" Alias="ПС Снп ВЛ Клс Первичное значение тока Ia" VarType="float">-</VariableIec104>
+          <VariableIec104 id="5" VarName="Snp_VL_Kls_Ib" IecAddress="1336" Alias="ПС Снп ВЛ Клс Первичное значение тока Ib" VarType="float">-</VariableIec104>
+          <VariableIec104 id="6" VarName="Snp_VL_Kls_Ic" IecAddress="1337" Alias="ПС Снп ВЛ Клс Первичное значение тока Ic" VarType="float">-</VariableIec104>
+          <VariableIec104 id="7" VarName="Snp_VL_Kls_Psum" IecAddress="1338" Alias="ПС Снп ВЛ Клс Первичное значение акт мощности" VarType="float">-</VariableIec104>
+          <VariableIec104 id="8" VarName="Snp_VL_Mch_Uab" IecAddress="1374" Alias="ПС Снп ВЛ Мчл Первичное значение напражения Uab" VarType="float">-</VariableIec104>
+          <VariableIec104 id="9" VarName="Snp_VL_Mch_Ubc" IecAddress="1375" Alias="ПС Снп ВЛ Мчл Первичное значение напражения Ubc" VarType="float">-</VariableIec104>
+          <VariableIec104 id="10" VarName="Snp_VL_Mch_Uca" IecAddress="1376" Alias="ПС Снп ВЛ Мчл Первичное значение напражения Uca" VarType="float">-</VariableIec104>
+          <VariableIec104 id="11" VarName="Snp_VL_Mch_Ia" IecAddress="1377" Alias="ПС Снп ВЛ Мчл Первичное значение тока Ia" VarType="float">-</VariableIec104>
+          <VariableIec104 id="12" VarName="Snp_VL_Mch_Ib" IecAddress="1378" Alias="ПС Снп ВЛ Мчл Первичное значение тока Ib" VarType="float">-</VariableIec104>
+          <VariableIec104 id="13" VarName="Snp_VL_Mch_Ic" IecAddress="1379" Alias="ПС Снп ВЛ Мчл Первичное значение тока Ic" VarType="float">-</VariableIec104>
+          <VariableIec104 id="14" VarName="Snp_VL_Mch_Psum" IecAddress="1380" Alias="ПС Снп ВЛ Мчл Первичное значение акт мощности" VarType="float">-</VariableIec104>
+          <VariableIec104 id="15" VarName="Snp_c3_Ia" IecAddress="1382" Alias="ПС Снп яч.3 Ток  Ia" VarType="float">-</VariableIec104>
+          <VariableIec104 id="16" VarName="Snp_c3_Ib" IecAddress="1383" Alias="ПС Снп яч.3 Ток  Ib" VarType="float">-</VariableIec104>
+          <VariableIec104 id="17" VarName="Snp_c3_Ic" IecAddress="1384" Alias="ПС Снп яч.3 Ток  Ic" VarType="float">-</VariableIec104>
+          <VariableIec104 id="18" VarName="Snp_c3_Uab" IecAddress="1385" Alias="ПС Снп яч.3 Напражение Uab" VarType="float">-</VariableIec104>
+          <VariableIec104 id="19" VarName="Snp_c3_Ubc" IecAddress="1386" Alias="ПС Снп яч.3  Напражение Ubc" VarType="float">-</VariableIec104>
+          <VariableIec104 id="20" VarName="Snp_c3_Uca" IecAddress="1387" Alias="ПС Снп яч.3  Напражение Uca" VarType="float">-</VariableIec104>
+          <VariableIec104 id="21" VarName="Snp_c3_Psum" IecAddress="1388" Alias="ПС Снп яч.3 Акт мощность" VarType="float">-</VariableIec104>
+          <VariableIec104 id="22" VarName="Snp_c5_Ia" IecAddress="1390" Alias="ПС Снп яч.5 Ток  Ia" VarType="float">-</VariableIec104>
+          <VariableIec104 id="23" VarName="Snp_c7_Ia" IecAddress="1393" Alias="ПС Снп яч.7 Ток  Ia" VarType="float">-</VariableIec104>
+          <VariableIec104 id="24" VarName="Snp_c9_Ia" IecAddress="1396" Alias="ПС Снп яч.9 Ток  Ia" VarType="float">-</VariableIec104>
+          <VariableIec104 id="25" VarName="Snp_c11_Ia" IecAddress="1399" Alias="ПС Снп яч.11 Ток  Ia" VarType="float">-</VariableIec104>
+          <VariableIec104 id="26" VarName="Snp_c13_Ia" IecAddress="1402" Alias="ПС Снп яч.13 Ток  Ia" VarType="float">-</VariableIec104>
+          <VariableIec104 id="27" VarName="Snp_c15_Ia" IecAddress="1405" Alias="ПС Снп яч.15 Ток  Ia" VarType="float">-</VariableIec104>
+          <VariableIec104 id="28" VarName="Snp_c17_Ia" IecAddress="1408" Alias="ПС Снп яч.17 Ток  Ia" VarType="float">-</VariableIec104>
+          <VariableIec104 id="29" VarName="Snp_c21_Ia" IecAddress="1411" Alias="ПС Снп яч.21 Ток  Ia" VarType="float">-</VariableIec104>
+          <VariableIec104 id="30" VarName="Snp_c6_Ia" IecAddress="1414" Alias="ПС Снп яч.6 Ток  Ia" VarType="float">-</VariableIec104>
+          <VariableIec104 id="31" VarName="Snp_c8_Ia" IecAddress="1417" Alias="ПС Снп яч.8 Ток  Ia" VarType="float">-</VariableIec104>
+          <VariableIec104 id="32" VarName="Snp_c14_Ia" IecAddress="1420" Alias="ПС Снп яч.14 Ток  Ia" VarType="float">-</VariableIec104>
+          <VariableIec104 id="33" VarName="Snp_c16_Ia" IecAddress="1423" Alias="ПС Снп яч.16 Ток  Ia" VarType="float">-</VariableIec104>
+          <VariableIec104 id="34" VarName="Snp_c18_Ia" IecAddress="1426" Alias="ПС Снп яч.18 Ток  Ia" VarType="float">-</VariableIec104>
+          <VariableIec104 id="35" VarName="Snp_c20_Ia" IecAddress="1429" Alias="ПС Снп яч.20 Ток  Ia" VarType="float">-</VariableIec104>
+          <VariableIec104 id="36" VarName="Snp_c20_Ib" IecAddress="1430" Alias="ПС Снп яч.20 Ток  Ib" VarType="float">-</VariableIec104>
+          <VariableIec104 id="37" VarName="Snp_c20_Ic" IecAddress="1431" Alias="ПС Снп яч.20 Ток  Ic" VarType="float">-</VariableIec104>
+          <VariableIec104 id="38" VarName="Snp_c20_Uab" IecAddress="1432" Alias="ПС Снп яч.20 Напражение Uab" VarType="float">-</VariableIec104>
+          <VariableIec104 id="39" VarName="Snp_c20_Ubc" IecAddress="1433" Alias="ПС Снп яч.20 Напражение Ubc" VarType="float">-</VariableIec104>
+          <VariableIec104 id="40" VarName="Snp_c20_Uca" IecAddress="1434" Alias="ПС Снп яч.20 Напражение Uca" VarType="float">-</VariableIec104>
+          <VariableIec104 id="41" VarName="Snp_c20_Psum" IecAddress="1435" Alias="ПС Снп яч.20 Акт мощность" VarType="float">-</VariableIec104>
+          <VariableIec104 id="42" VarName="Snp_c3_RPV" IecAddress="791" Alias="ПС Снп яч.3 Выключатель" VarType="bool">-</VariableIec104>
+          <VariableIec104 id="43" VarName="Snp_c7_RPV" IecAddress="854" Alias="ПС Снп яч.7 Выключатель" VarType="bool">-</VariableIec104>
+          <VariableIec104 id="44" VarName="Snp_c5_RPV" IecAddress="825" Alias="ПС Снп яч.5 Выключатель" VarType="bool">-</VariableIec104>
+          <VariableIec104 id="45" VarName="Snp_c9_RPV" IecAddress="883" Alias="ПС Снп яч.9 Выключатель" VarType="bool">-</VariableIec104>
+          <VariableIec104 id="46" VarName="Snp_c11_RPV" IecAddress="912" Alias="ПС Снп яч.11 Выключатель" VarType="bool">-</VariableIec104>
+          <VariableIec104 id="47" VarName="Snp_c13_RPV" IecAddress="941" Alias="ПС Снп яч.13 Выключатель" VarType="bool">-</VariableIec104>
+          <VariableIec104 id="48" VarName="Snp_c15_RPV" IecAddress="970" Alias="ПС Снп яч.15 Выключатель" VarType="bool">-</VariableIec104>
+          <VariableIec104 id="49" VarName="Snp_c17_RPV" IecAddress="999" Alias="ПС Снп яч.17 Выключатель" VarType="bool">-</VariableIec104>
+          <VariableIec104 id="50" VarName="Snp_c21_RPV" IecAddress="1028" Alias="ПС Снп яч.21 Выключатель" VarType="bool">-</VariableIec104>
+          <VariableIec104 id="51" VarName="Snp_EV_110_T1_RPV" IecAddress="723" Alias="ПС Снп ЭВ-110 Т1" VarType="bool">-</VariableIec104>
+          <VariableIec104 id="52" VarName="Snp_EV_110_T2_RPV" IecAddress="739" Alias="ПС Снп ЭВ-110 Т2" VarType="bool">-</VariableIec104>
+          <VariableIec104 id="53" VarName="Snp_SEV_110_RPV" IecAddress="749" Alias="ПС Снп СЭВ-110" VarType="bool">-</VariableIec104>
+          <VariableIec104 id="54" VarName="Snp_c20_RPV" IecAddress="1206" Alias="ПС Снп яч.20 Выключатель" VarType="bool">-</VariableIec104>
+          <VariableIec104 id="55" VarName="Snp_c6_RPV" IecAddress="1063" Alias="ПС Снп яч.6 Выключатель" VarType="bool">-</VariableIec104>
+          <VariableIec104 id="56" VarName="Snp_c8_RPV" IecAddress="1092" Alias="ПС Снп яч.8 Выключатель" VarType="bool">-</VariableIec104>
+          <VariableIec104 id="57" VarName="Snp_c14_RPV" IecAddress="1121" Alias="ПС Снп яч.14 Выключатель" VarType="bool">-</VariableIec104>
+          <VariableIec104 id="58" VarName="Snp_c16_RPV" IecAddress="1150" Alias="ПС Снп яч.16 Выключатель" VarType="bool">-</VariableIec104>
+          <VariableIec104 id="59" VarName="Snp_c18_RPV" IecAddress="1179" Alias="ПС Снп яч.18 Выключатель" VarType="bool">-</VariableIec104>
+          <VariableIec104 id="60" VarName="Snp_T1_Ia" IecAddress="1366" Alias="ПС Снп Т1 Ia" VarType="float">-</VariableIec104>
+          <VariableIec104 id="61" VarName="Snp_T1_Ib" IecAddress="1367" Alias="ПС Снп Т1 Ib" VarType="float">-</VariableIec104>
+          <VariableIec104 id="62" VarName="Snp_T1_Ic" IecAddress="1368" Alias="ПС Снп Т1 Ic" VarType="float">-</VariableIec104>
+          <VariableIec104 id="63" VarName="Snp_T1_Uab" IecAddress="1369" Alias="ПС Снп Т1 Uab" VarType="float">-</VariableIec104>
+          <VariableIec104 id="64" VarName="Snp_T1_Ubc" IecAddress="1370" Alias="ПС Снп Т1 Ubc" VarType="float">-</VariableIec104>
+          <VariableIec104 id="65" VarName="Snp_T1_Uca" IecAddress="1371" Alias="ПС Снп Т1 Uca" VarType="float">-</VariableIec104>
+          <VariableIec104 id="66" VarName="Snp_T1_P" IecAddress="1372" Alias="ПС Снп Т1 P" VarType="float">-</VariableIec104>
+          <VariableIec104 id="67" VarName="Snp_T2_Ia" IecAddress="1346" Alias="ПС Снп Т2 Ia" VarType="float">-</VariableIec104>
+          <VariableIec104 id="68" VarName="Snp_T2_Ib" IecAddress="1347" Alias="ПС Снп Т2 Ib" VarType="float">-</VariableIec104>
+          <VariableIec104 id="69" VarName="Snp_T2_Ic" IecAddress="1348" Alias="ПС Снп Т2 Ic" VarType="float">-</VariableIec104>
+          <VariableIec104 id="70" VarName="Snp_T2_Uab" IecAddress="1349" Alias="ПС Снп Т2 Uab" VarType="float">-</VariableIec104>
+          <VariableIec104 id="71" VarName="Snp_T2_Ubc" IecAddress="1350" Alias="ПС Снп Т2 Ubc" VarType="float">-</VariableIec104>
+          <VariableIec104 id="72" VarName="Snp_T2_Uca" IecAddress="1351" Alias="ПС Снп Т2 Uca" VarType="float">-</VariableIec104>
+          <VariableIec104 id="73" VarName="Snp_T2_P" IecAddress="1352" Alias="ПС Снп Т2 P" VarType="float">-</VariableIec104>
+    </PortIec104client>
+ </iec104client>
+ <VkVariables>
+ </VkVariables>
+ <VkConfig>
+     <Cnf VkLogin="" VkPassword=""></Cnf>
+ </VkConfig>
+ <DbConfig>
+     <Cnf DbHost="" DbPort="" DbLogin="" DbPassword=""></Cnf>
+ </DbConfig>
+ <ProjectConfig>
+     <Config ProjectName="Snp-110" ProjectPath="C:\scadapy\381\github\projects\ps110kv\" PathToPythonWindows="c:\Python37\python.exe" PathToBrowserWindows="c:\Program Files\Internet Explorer\iexplore" PathToTerminalLinux="xfce4-terminal --geometry=100x20 -e" PathToBrowserLinux="firefox" PathToPythonLinux="python3"></Config>
+ </ProjectConfig>
+ <ModbusConfig>
+     <PortModbus ParentIndex="0" ItemIndex="0" Level="2" Protocol="0"  Mtype="0" tcp_com="192.168.10.22" port_speed="502" name="Snp">0
+          <VariableModbus id="1" VarName="DI_COIL_S1" RtuAddress="1" RegName="READ_DISCRETE_INPUTS" RegAddress="0" RegOffset="11" TimeOut="0.5"></VariableModbus>
+          <VariableModbus id="2" VarName="I_S1" RtuAddress="1" RegName="READ_INPUT_REGISTERS" RegAddress="0" RegOffset="11" TimeOut="0.5"></VariableModbus>
+          <VariableModbus id="3" VarName="DI_COIL_S2" RtuAddress="1" RegName="READ_DISCRETE_INPUTS" RegAddress="11" RegOffset="11" TimeOut="0.5"></VariableModbus>
+          <VariableModbus id="4" VarName="I_S2" RtuAddress="1" RegName="READ_INPUT_REGISTERS" RegAddress="11" RegOffset="11" TimeOut="0.5"></VariableModbus>
+          <VariableModbus id="5" VarName="SW_110_T1" RtuAddress="1" RegName="READ_DISCRETE_INPUTS" RegAddress="40" RegOffset="1" TimeOut="0.5"></VariableModbus>
+          <VariableModbus id="6" VarName="SW_110_T2" RtuAddress="1" RegName="READ_DISCRETE_INPUTS" RegAddress="41" RegOffset="1" TimeOut="0.5"></VariableModbus>
+          <VariableModbus id="7" VarName="SMW_110" RtuAddress="1" RegName="READ_DISCRETE_INPUTS" RegAddress="42" RegOffset="1" TimeOut="0.5"></VariableModbus>
+          <VariableModbus id="8" VarName="SW_110_T1_I" RtuAddress="1" RegName="READ_INPUT_REGISTERS" RegAddress="40" RegOffset="3" TimeOut="0.5"></VariableModbus>
+          <VariableModbus id="9" VarName="SW_110_T1_U" RtuAddress="1" RegName="READ_INPUT_REGISTERS" RegAddress="50" RegOffset="3" TimeOut="0.5"></VariableModbus>
+          <VariableModbus id="10" VarName="SW_110_T1_P" RtuAddress="1" RegName="READ_INPUT_REGISTERS" RegAddress="60" RegOffset="3" TimeOut="0.5"></VariableModbus>
+     </PortModbus>
+ </ModbusConfig>
+ <MercuryConfig>
+ </MercuryConfig>
+ <Variables>
+    <VarPoint Id="1" VarName="Snp_VL_Kls_Uab" Alias="Snp_VL_Kls_Uab" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп ВЛ Клс Первичное значение напряжение Uab"  DbArch="" >Snp_VL_Kls_Uab</VarPoint>
+    <VarPoint Id="2" VarName="Snp_VL_Kls_Ubc" Alias="Snp_VL_Kls_Ubc" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп ВЛ Клс Первичное значение напряжение Ubc"  DbArch="" >Snp_VL_Kls_Ubc</VarPoint>
+    <VarPoint Id="3" VarName="Snp_VL_Kls_Uca" Alias="Snp_VL_Kls_Uca" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп ВЛ Клс Первичное значение напряжение Uca"  DbArch="" >Snp_VL_Kls_Uca</VarPoint>
+    <VarPoint Id="4" VarName="Snp_VL_Kls_Ia" Alias="Snp_VL_Kls_Ia" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп ВЛ Клс Первичное значение тока Ia"  DbArch="" >Snp_VL_Kls_Ia</VarPoint>
+    <VarPoint Id="5" VarName="Snp_VL_Kls_Ib" Alias="Snp_VL_Kls_Ib" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп ВЛ Клс Первичное значение тока Ib"  DbArch="" >Snp_VL_Kls_Ib</VarPoint>
+    <VarPoint Id="6" VarName="Snp_VL_Kls_Ic" Alias="Snp_VL_Kls_Ic" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп ВЛ Клс Первичное значение тока Ic"  DbArch="" >Snp_VL_Kls_Ic</VarPoint>
+    <VarPoint Id="7" VarName="Snp_VL_Kls_Psum" Alias="Snp_VL_Kls_Psum" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="0.001"  VarAlias="ПС Снп ВЛ Клс Первичное значение акт мощности"  DbArch="" >Snp_VL_Kls_Psum</VarPoint>
+    <VarPoint Id="8" VarName="Snp_VL_Mch_Uab" Alias="Snp_VL_Mch_Uab" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп ВЛ Мчл Первичное значение напражения Uab"  DbArch="" >Snp_VL_Mch_Uab</VarPoint>
+    <VarPoint Id="9" VarName="Snp_VL_Mch_Ubc" Alias="Snp_VL_Mch_Ubc" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп ВЛ Мчл Первичное значение напражения Ubc"  DbArch="" >Snp_VL_Mch_Ubc</VarPoint>
+    <VarPoint Id="10" VarName="Snp_VL_Mch_Uca" Alias="Snp_VL_Mch_Uca" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп ВЛ Мчл Первичное значение напражения Uca"  DbArch="" >Snp_VL_Mch_Uca</VarPoint>
+    <VarPoint Id="11" VarName="Snp_VL_Mch_Ia" Alias="Snp_VL_Mch_Ia" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп ВЛ Мчл Первичное значение тока Ia"  DbArch="" >Snp_VL_Mch_Ia</VarPoint>
+    <VarPoint Id="12" VarName="Snp_VL_Mch_Ib" Alias="Snp_VL_Mch_Ib" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп ВЛ Мчл Первичное значение тока Ib"  DbArch="" >Snp_VL_Mch_Ib</VarPoint>
+    <VarPoint Id="13" VarName="Snp_VL_Mch_Ic" Alias="Snp_VL_Mch_Ic" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп ВЛ Мчл Первичное значение тока Ic"  DbArch="" >Snp_VL_Mch_Ic</VarPoint>
+    <VarPoint Id="14" VarName="Snp_VL_Mch_Psum" Alias="Snp_VL_Mch_Psum" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="0.001"  VarAlias="ПС Снп ВЛ Мчл Первичное значение акт мощности"  DbArch="" >Snp_VL_Mch_Psum</VarPoint>
+    <VarPoint Id="15" VarName="Snp_c3_Ia" Alias="Snp_c3_Ia" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.3 Ток  Ia"  DbArch="" >Snp_c3_Ia</VarPoint>
+    <VarPoint Id="16" VarName="Snp_c3_Ib" Alias="Snp_c3_Ib" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.3 Ток  Ib"  DbArch="" >Snp_c3_Ib</VarPoint>
+    <VarPoint Id="17" VarName="Snp_c3_Ic" Alias="Snp_c3_Ic" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.3 Ток  Ic"  DbArch="" >Snp_c3_Ic</VarPoint>
+    <VarPoint Id="18" VarName="Snp_c3_Uab" Alias="Snp_c3_Uab" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.3 Напражение Uab"  DbArch="" >Snp_c3_Uab</VarPoint>
+    <VarPoint Id="19" VarName="Snp_c3_Ubc" Alias="Snp_c3_Ubc" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.3  Напражение Ubc"  DbArch="" >Snp_c3_Ubc</VarPoint>
+    <VarPoint Id="20" VarName="Snp_c3_Uca" Alias="Snp_c3_Uca" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.3  Напражение Uca"  DbArch="" >Snp_c3_Uca</VarPoint>
+    <VarPoint Id="21" VarName="Snp_c3_Psum" Alias="Snp_c3_Psum" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.3 Акт мощность"  DbArch="" >Snp_c3_Psum</VarPoint>
+    <VarPoint Id="22" VarName="Snp_c3_Ia" Alias="Snp_c3_Ia_Level" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.3 Ток  Ia Level"  DbArch="" >Snp_c3_Ia</VarPoint>
+    <VarPoint Id="23" VarName="Snp_c5_Ia" Alias="Snp_c5_Ia" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.5 Ток  Ia Level"  DbArch="" >Snp_c5_Ia</VarPoint>
+    <VarPoint Id="24" VarName="Snp_c7_Ia" Alias="Snp_c7_Ia" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.7 Ток  Ia Level"  DbArch="" >Snp_c7_Ia</VarPoint>
+    <VarPoint Id="25" VarName="Snp_c9_Ia" Alias="Snp_c9_Ia" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.9 Ток  Ia Level"  DbArch="" >Snp_c9_Ia</VarPoint>
+    <VarPoint Id="26" VarName="Snp_c11_Ia" Alias="Snp_c11_Ia" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.11 Ток  Ia Level"  DbArch="" >Snp_c11_Ia</VarPoint>
+    <VarPoint Id="27" VarName="Snp_c13_Ia" Alias="Snp_c13_Ia" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.13 Ток  Ia Level"  DbArch="" >Snp_c13_Ia</VarPoint>
+    <VarPoint Id="28" VarName="Snp_c15_Ia" Alias="Snp_c15_Ia" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.15 Ток  Ia Level"  DbArch="" >Snp_c15_Ia</VarPoint>
+    <VarPoint Id="29" VarName="Snp_c17_Ia" Alias="Snp_c17_Ia" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.17 Ток  Ia Level"  DbArch="" >Snp_c17_Ia</VarPoint>
+    <VarPoint Id="30" VarName="Snp_c21_Ia" Alias="Snp_c21_Ia" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.21 Ток  Ia Level"  DbArch="" >Snp_c21_Ia</VarPoint>
+    <VarPoint Id="31" VarName="Snp_c6_Ia" Alias="Snp_c6_Ia" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.6 Ток  Ia"  DbArch="" >Snp_c6_Ia</VarPoint>
+    <VarPoint Id="32" VarName="Snp_c8_Ia" Alias="Snp_c8_Ia" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.8 Ток  Ia"  DbArch="" >Snp_c8_Ia</VarPoint>
+    <VarPoint Id="33" VarName="Snp_c14_Ia" Alias="Snp_c14_Ia" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.14 Ток  Ia"  DbArch="" >Snp_c14_Ia</VarPoint>
+    <VarPoint Id="34" VarName="Snp_c16_Ia" Alias="Snp_c16_Ia" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.16 Ток  Ia"  DbArch="" >Snp_c16_Ia</VarPoint>
+    <VarPoint Id="35" VarName="Snp_c18_Ia" Alias="Snp_c18_Ia" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.18 Ток  Ia"  DbArch="" >Snp_c18_Ia</VarPoint>
+    <VarPoint Id="36" VarName="Snp_c20_Ia" Alias="Snp_c20_Ia" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.20 Ток  Ia"  DbArch="" >Snp_c20_Ia</VarPoint>
+    <VarPoint Id="37" VarName="Snp_c20_Ib" Alias="Snp_c20_Ib" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.20 Ток  Ib"  DbArch="" >Snp_c20_Ib</VarPoint>
+    <VarPoint Id="38" VarName="Snp_c20_Ic" Alias="Snp_c20_Ic" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.20 Ток  Ic"  DbArch="" >Snp_c20_Ic</VarPoint>
+    <VarPoint Id="39" VarName="Snp_c20_Uab" Alias="Snp_c20_Uab" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.20 Напражение Uab"  DbArch="" >Snp_c20_Uab</VarPoint>
+    <VarPoint Id="40" VarName="Snp_c20_Ubc" Alias="Snp_c20_Ubc" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.20 Напражение Ubc"  DbArch="" >Snp_c20_Ubc</VarPoint>
+    <VarPoint Id="41" VarName="Snp_c20_Uca" Alias="Snp_c20_Uca" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.20 Напражение Uca"  DbArch="" >Snp_c20_Uca</VarPoint>
+    <VarPoint Id="42" VarName="Snp_c20_Psum" Alias="Snp_c20_Psum" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.20 Акт мощность"  DbArch="" >Snp_c20_Psum</VarPoint>
+    <VarPoint Id="43" VarName="Snp_c20_Ia" Alias="Snp_c20_Ia_Level" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп яч.20 Ток  Ia Level"  DbArch="" >Snp_c20_Ia</VarPoint>
+    <VarPoint Id="44" VarName="Snp_c3_RPV" Alias="Snp_c3_RPV" Address="0" ByteCount="1" ByteRoute="1" VarType="bool" Manage="1"  VarAlias="ПС Снп яч.3 Выключатель"  DbArch="" >Snp_c3_RPV</VarPoint>
+    <VarPoint Id="45" VarName="Snp_c7_RPV" Alias="Snp_c7_RPV" Address="0" ByteCount="1" ByteRoute="1" VarType="bool" Manage="1"  VarAlias="ПС Снп яч.7 Выключатель"  DbArch="" >Snp_c7_RPV</VarPoint>
+    <VarPoint Id="46" VarName="Snp_c5_RPV" Alias="Snp_c5_RPV" Address="0" ByteCount="1" ByteRoute="1" VarType="bool" Manage="1"  VarAlias="ПС Снп яч.5 Выключатель"  DbArch="" >Snp_c5_RPV</VarPoint>
+    <VarPoint Id="47" VarName="Snp_c9_RPV" Alias="Snp_c9_RPV" Address="0" ByteCount="1" ByteRoute="1" VarType="bool" Manage="1"  VarAlias="ПС Снп яч.9 Выключатель"  DbArch="" >Snp_c9_RPV</VarPoint>
+    <VarPoint Id="48" VarName="Snp_c11_RPV" Alias="Snp_c11_RPV" Address="0" ByteCount="1" ByteRoute="1" VarType="bool" Manage="1"  VarAlias="ПС Снп яч.11 Выключатель"  DbArch="" >Snp_c11_RPV</VarPoint>
+    <VarPoint Id="49" VarName="Snp_c13_RPV" Alias="Snp_c13_RPV" Address="0" ByteCount="1" ByteRoute="1" VarType="bool" Manage="1"  VarAlias="ПС Снп яч.13 Выключатель"  DbArch="" >Snp_c13_RPV</VarPoint>
+    <VarPoint Id="50" VarName="Snp_c15_RPV" Alias="Snp_c15_RPV" Address="0" ByteCount="1" ByteRoute="1" VarType="bool" Manage="1"  VarAlias="ПС Снп яч.15 Выключатель"  DbArch="" >Snp_c15_RPV</VarPoint>
+    <VarPoint Id="51" VarName="Snp_c17_RPV" Alias="Snp_c17_RPV" Address="0" ByteCount="1" ByteRoute="1" VarType="bool" Manage="1"  VarAlias="ПС Снп яч.17 Выключатель"  DbArch="" >Snp_c17_RPV</VarPoint>
+    <VarPoint Id="52" VarName="Snp_c21_RPV" Alias="Snp_c21_RPV" Address="0" ByteCount="1" ByteRoute="1" VarType="bool" Manage="1"  VarAlias="ПС Снп яч.21 Выключатель"  DbArch="" >Snp_c21_RPV</VarPoint>
+    <VarPoint Id="53" VarName="Snp_c6_RPV" Alias="Snp_c6_RPV" Address="0" ByteCount="1" ByteRoute="1" VarType="bool" Manage="1"  VarAlias="ПС Снп яч.6 Выключатель"  DbArch="" >Snp_c6_RPV</VarPoint>
+    <VarPoint Id="54" VarName="Snp_c8_RPV" Alias="Snp_c8_RPV" Address="0" ByteCount="1" ByteRoute="1" VarType="bool" Manage="1"  VarAlias="ПС Снп яч.8 Выключатель"  DbArch="" >Snp_c8_RPV</VarPoint>
+    <VarPoint Id="55" VarName="Snp_c14_RPV" Alias="Snp_c14_RPV" Address="0" ByteCount="1" ByteRoute="1" VarType="bool" Manage="1"  VarAlias="ПС Снп яч.14 Выключатель"  DbArch="" >Snp_c14_RPV</VarPoint>
+    <VarPoint Id="56" VarName="Snp_c16_RPV" Alias="Snp_c16_RPV" Address="0" ByteCount="1" ByteRoute="1" VarType="bool" Manage="1"  VarAlias="ПС Снп яч.16 Выключатель"  DbArch="" >Snp_c16_RPV</VarPoint>
+    <VarPoint Id="57" VarName="Snp_c18_RPV" Alias="Snp_c18_RPV" Address="0" ByteCount="1" ByteRoute="1" VarType="bool" Manage="1"  VarAlias="ПС Снп яч.18 Выключатель"  DbArch="" >Snp_c18_RPV</VarPoint>
+    <VarPoint Id="58" VarName="Snp_c20_RPV" Alias="Snp_c20_RPV" Address="0" ByteCount="1" ByteRoute="1" VarType="bool" Manage="1"  VarAlias="ПС Снп яч.20 Выключатель"  DbArch="" >Snp_c20_RPV</VarPoint>
+    <VarPoint Id="59" VarName="Snp_EV_110_T1_RPV" Alias="Snp_EV_110_T1_RPV" Address="0" ByteCount="1" ByteRoute="1" VarType="bool" Manage="1"  VarAlias="ПС Снп ЭВ-110 Т1"  DbArch="" >Snp_EV_110_T1_RPV</VarPoint>
+    <VarPoint Id="60" VarName="Snp_EV_110_T2_RPV" Alias="Snp_EV_110_T2_RPV" Address="0" ByteCount="1" ByteRoute="1" VarType="bool" Manage="1"  VarAlias="ПС Снп ЭВ-110 Т2"  DbArch="" >Snp_EV_110_T2_RPV</VarPoint>
+    <VarPoint Id="61" VarName="Snp_SEV_110_RPV" Alias="Snp_SEV_110_RPV" Address="0" ByteCount="1" ByteRoute="1" VarType="bool" Manage="1"  VarAlias="ПС Снп СЭВ-110"  DbArch="" >Snp_SEV_110_RPV</VarPoint>
+    <VarPoint Id="62" VarName="Snp_T1_Ia" Alias="Snp_T1_Ia" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп Т1 Ia"  DbArch="" >Snp_T1_Ia</VarPoint>
+    <VarPoint Id="63" VarName="Snp_T1_Ib" Alias="Snp_T1_Ib" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп Т1 Ib"  DbArch="" >Snp_T1_Ib</VarPoint>
+    <VarPoint Id="64" VarName="Snp_T1_Ic" Alias="Snp_T1_Ic" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп Т1 Ic"  DbArch="" >Snp_T1_Ic</VarPoint>
+    <VarPoint Id="65" VarName="Snp_T1_Uab" Alias="Snp_T1_Uab" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп Т1 Uab"  DbArch="" >Snp_T1_Uab</VarPoint>
+    <VarPoint Id="66" VarName="Snp_T1_Ubc" Alias="Snp_T1_Ubc" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп Т1 Ubc"  DbArch="" >Snp_T1_Ubc</VarPoint>
+    <VarPoint Id="67" VarName="Snp_T1_Uca" Alias="Snp_T1_Uca" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп Т1 Uca"  DbArch="" >Snp_T1_Uca</VarPoint>
+    <VarPoint Id="68" VarName="Snp_T1_P" Alias="Snp_T1_P" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="0.001"  VarAlias="ПС Снп Т1 P"  DbArch="" >Snp_T1_P</VarPoint>
+    <VarPoint Id="69" VarName="Snp_T2_Ia" Alias="Snp_T2_Ia" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп Т2 Ia"  DbArch="" >Snp_T2_Ia</VarPoint>
+    <VarPoint Id="70" VarName="Snp_T2_Ib" Alias="Snp_T2_Ib" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп Т2 Ib"  DbArch="" >Snp_T2_Ib</VarPoint>
+    <VarPoint Id="71" VarName="Snp_T2_Ic" Alias="Snp_T2_Ic" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп Т2 Ic"  DbArch="" >Snp_T2_Ic</VarPoint>
+    <VarPoint Id="72" VarName="Snp_T2_Uab" Alias="Snp_T2_Uab" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп Т2 Uab"  DbArch="" >Snp_T2_Uab</VarPoint>
+    <VarPoint Id="73" VarName="Snp_T2_Ubc" Alias="Snp_T2_Ubc" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп Т2 Ubc"  DbArch="" >Snp_T2_Ubc</VarPoint>
+    <VarPoint Id="74" VarName="Snp_T2_Uca" Alias="Snp_T2_Uca" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="1"  VarAlias="ПС Снп Т2 Uca"  DbArch="" >Snp_T2_Uca</VarPoint>
+    <VarPoint Id="75" VarName="Snp_T2_P" Alias="Snp_T2_P" Address="0" ByteCount="1" ByteRoute="1" VarType="float" Manage="0.001"  VarAlias="ПС Снп Т2 P"  DbArch="" >Snp_T2_P</VarPoint>
+ </Variables>
+</Config>

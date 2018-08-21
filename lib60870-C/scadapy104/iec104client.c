@@ -41,6 +41,12 @@ int UdpPort,iecPort,DebugMode,TimeSync;
 long int s_time;
 struct tm *m_time;
 char str_t[128]="";
+char str_d[128]="";
+char str_m[128]="";
+char str_y[128]="";
+char str_H[128]="";
+char str_M[128]="";
+char str_S[128]="";
 struct sCP56Time2a newTime;
 /*udp*/
 int ssock;
@@ -49,35 +55,41 @@ int ret;
 struct sockaddr_in broadcastAddr; 
 char request[100];
 
+void printCP56Time2a(CP56Time2a time)
+{
+    printf("%02i:%02i:%02i %02i.%02i.%04i\n", CP56Time2a_getHour(time),
+                             CP56Time2a_getMinute(time),
+                             CP56Time2a_getSecond(time),
+                             CP56Time2a_getDayOfMonth(time),
+                             CP56Time2a_getMonth(time),
+                             CP56Time2a_getYear(time) + 2000);
+}
 
 static void connectionHandler (void* parameter, CS104_Connection connection, CS104_ConnectionEvent event)
 {
     switch (event) {
      case CS104_CONNECTION_OPENED:
-        printf("Connection established\n");
-        conState=1;
+         printf("Connection established\n");
+         conState=1;
 
-        break;
+         break;
      case CS104_CONNECTION_CLOSED:
-        printf("Connection closed\n");
-        conState=0;
-        break;
+         printf("Connection closed\n");
+         conState=0;
+         break;
      case CS104_CONNECTION_STARTDT_CON_RECEIVED:
-      printf("Received STARTDT_CON\n");
-       conState=1;
-
-      break;
+         printf("Received STARTDT_CON\n");
+         conState=1;
+         break;
      case CS104_CONNECTION_STOPDT_CON_RECEIVED:
-      printf("Received STOPDT_CON\n");
-        conState=1;
-
-           break;
+         printf("Received STOPDT_CON\n");
+         conState=1;
+         break;
     }
 }
 static bool asduReceivedHandler (void* parameter, int address, CS101_ASDU asdu)
 {
      int i,z;
-     
      ssock=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
      broadcastEnable=1;
      ret=setsockopt(ssock, SOL_SOCKET, SO_BROADCAST, &broadcastEnable, sizeof(broadcastEnable));
@@ -85,11 +97,7 @@ static bool asduReceivedHandler (void* parameter, int address, CS101_ASDU asdu)
      broadcastAddr.sin_family = AF_INET;
      inet_pton(AF_INET, UdpIp[0], &broadcastAddr.sin_addr); 
      broadcastAddr.sin_port = htons(UdpPort);
-     /* printf("REC type: %s(%i) elements: %i\n",
-            TypeID_toString(CS101_ASDU_getTypeID(asdu)),
-            CS101_ASDU_getTypeID(asdu),
-            CS101_ASDU_getNumberOfElements(asdu));
-     */
+   
      
 /*  M_ME_NC_1 (13)  M_ME_TF_1 (36)*/
      if (CS101_ASDU_getTypeID(asdu) ==  M_ME_TF_1 || CS101_ASDU_getTypeID(asdu) == M_ME_NC_1)
@@ -97,26 +105,57 @@ static bool asduReceivedHandler (void* parameter, int address, CS101_ASDU asdu)
          i=0;
          for (i = 0; i < CS101_ASDU_getNumberOfElements(asdu); i++)
         {
-            z=0;
+             z=0;
              MeasuredValueShortWithCP56Time2a io = (MeasuredValueShortWithCP56Time2a) CS101_ASDU_getElement(asdu, i);   
-            //  printf("Adr:%i val: %i\n", InformationObject_getObjectAddress((InformationObject) io), MeasuredValueScaled_getValue((MeasuredValueScaled) io));          
              for(z = 0; z < countOfMeasureValue;z++)
             {
                  if(MeasureAddress[z] == InformationObject_getObjectAddress((InformationObject) io))
                  {
-                     sprintf(request,"{\"name\":\"%s\",\"data\":[%f]}",
+                     if(CS101_ASDU_getTypeID(asdu) == M_ME_NC_1)
+                    { 
+//                     sprintf(request,"{\"name\":\"%s\",\"data\":[%f],\"q\":[%i],\"con\":[1],\"time\":[00,00,00],\"date\":[00,00,0000]}",
+                     sprintf(request,"{\"con\":[1],\"name\":\"%s\",\"data\":[%f],\"q\":[%i],\"h\":[0],\"m\":[0],\"s\":[0],\"d\":[0],\"mth\":[0],\"y\":[0]}",
+                             
+                             
                              MeasureVarname[z],
-                             MeasuredValueShort_getValue((MeasuredValueShort) io));
+                             MeasuredValueShort_getValue((MeasuredValueShort) io),
+                             (uint8_t) MeasuredValueShort_getQuality((MeasuredValueShort) io)
+                             );
+
+                    } 
+                     else
+                    {
+//                     sprintf(request,"{\"name\":\"%s\",\"data\":[%f],\"q\":[%i],\"con\":[1],\"tm\":[%02i_%02i_%02i],\"dt\":[%02i_%02i_%04i]}",
+                     sprintf(request,"{\"con\":[1],\"name\":\"%s\",\"data\":[%f],\"q\":[%i],\"h\":[%i],\"m\":[%i],\"s\":[%i],\"d\":[%i],\"mth\":[%i],\"y\":[%i]}",
+                             MeasureVarname[z],
+                             MeasuredValueShort_getValue((MeasuredValueShort) io),
+                             (uint8_t) MeasuredValueShort_getQuality((MeasuredValueShort) io),
+                             CP56Time2a_getHour(MeasuredValueShortWithCP56Time2a_getTimestamp( io)),
+                             CP56Time2a_getMinute(MeasuredValueShortWithCP56Time2a_getTimestamp( io)),
+                             CP56Time2a_getSecond(MeasuredValueShortWithCP56Time2a_getTimestamp( io)),
+                             CP56Time2a_getDayOfMonth(MeasuredValueShortWithCP56Time2a_getTimestamp( io)),
+                             CP56Time2a_getMonth(MeasuredValueShortWithCP56Time2a_getTimestamp( io)),
+                             CP56Time2a_getYear(MeasuredValueShortWithCP56Time2a_getTimestamp( io)) + 2000                             
+                             );
+                    }         
                      sendto(ssock, request, strlen(request), 0, (struct sockaddr*)&broadcastAddr, sizeof broadcastAddr);                       
                      if(DebugMode==1)
                     {
                          s_time = time (NULL);
                          m_time  = localtime (&s_time);
                          strftime (str_t, 128, "%d-%m-%Y %X", m_time);
-                         printf("%s Var:%15s Type:%5s Alias:%15s Adr:%i val: %f %s(%i)\n",str_t, MeasureVarname[z],MeasureVarType[z],MeasureAlias[z],
+                         printf("%s Var:%15s Type:%5s Alias:%15s Adr:%i val: %f %s(%i) %i %02i:%02i:%02i %02i.%02i.%04i\n",str_t, MeasureVarname[z],MeasureVarType[z],MeasureAlias[z],
                                              InformationObject_getObjectAddress((InformationObject) io),
                                              MeasuredValueShort_getValue((MeasuredValueShort) io),
-                                             TypeID_toString(CS101_ASDU_getTypeID(asdu)),CS101_ASDU_getTypeID(asdu));
+                                             TypeID_toString(CS101_ASDU_getTypeID(asdu)),CS101_ASDU_getTypeID(asdu),
+                                             (uint8_t) MeasuredValueShort_getQuality((MeasuredValueShort) io),
+                                             CP56Time2a_getHour(MeasuredValueShortWithCP56Time2a_getTimestamp( io)),
+                                             CP56Time2a_getMinute(MeasuredValueShortWithCP56Time2a_getTimestamp( io)),
+                                             CP56Time2a_getSecond(MeasuredValueShortWithCP56Time2a_getTimestamp( io)),
+                                             CP56Time2a_getDayOfMonth(MeasuredValueShortWithCP56Time2a_getTimestamp( io)),
+                                             CP56Time2a_getMonth(MeasuredValueShortWithCP56Time2a_getTimestamp( io)),
+                                             CP56Time2a_getYear(MeasuredValueShortWithCP56Time2a_getTimestamp( io)) + 2000             
+                                             );
                     }
                  }
             }
@@ -129,28 +168,47 @@ static bool asduReceivedHandler (void* parameter, int address, CS101_ASDU asdu)
          i=0;
          for (i = 0; i < CS101_ASDU_getNumberOfElements(asdu); i++)
         {
-            MeasuredValueScaledWithCP56Time2a io = (MeasuredValueScaledWithCP56Time2a) CS101_ASDU_getElement(asdu, i);
+             MeasuredValueScaledWithCP56Time2a io = (MeasuredValueScaledWithCP56Time2a) CS101_ASDU_getElement(asdu, i);
              for(z = 0; z < countOfMeasureValue;z++)
             {
                  if(MeasureAddress[z] == InformationObject_getObjectAddress((InformationObject) io) )
                 {
-                     sprintf(request,"{\"name\":\"%s\",\"data\":[%i]}",
+//                     sprintf(request,"{\"name\":\"%s\",\"data\":[%i],\"q\":[%i],\"con\":[1],\"time\":[%02i,%02i,%02i],\"date\":[%02i,%02i,%04i]}",
+                     sprintf(request,"{\"con\":[1],\"name\":\"%s\",\"data\":[%i],\"q\":[%i],\"h\":[%i],\"m\":[%i],\"s\":[%i],\"d\":[%i],\"mth\":[%i],\"y\":[%i]}",
+                     
                              MeasureVarname[z],
-                             MeasuredValueScaled_getValue((MeasuredValueScaled) io) );
+                             MeasuredValueScaled_getValue((MeasuredValueScaled) io),
+                             (uint8_t) MeasuredValueScaled_getQuality((MeasuredValueScaled) io) ,
+                             CP56Time2a_getHour(MeasuredValueScaledWithCP56Time2a_getTimestamp( io)),
+                             CP56Time2a_getMinute(MeasuredValueScaledWithCP56Time2a_getTimestamp( io)),
+                             CP56Time2a_getSecond(MeasuredValueScaledWithCP56Time2a_getTimestamp( io)),
+                             CP56Time2a_getDayOfMonth(MeasuredValueScaledWithCP56Time2a_getTimestamp( io)),
+                             CP56Time2a_getMonth(MeasuredValueScaledWithCP56Time2a_getTimestamp( io)),
+                             CP56Time2a_getYear(MeasuredValueScaledWithCP56Time2a_getTimestamp( io)) + 2000                             
+                             );                             
                      sendto(ssock, request, strlen(request), 0, (struct sockaddr*)&broadcastAddr, sizeof broadcastAddr);                        
                      if(DebugMode==1)
                     {
                          s_time = time (NULL);
                          m_time  = localtime (&s_time);
                          strftime (str_t, 128, "%d-%m-%Y %X", m_time);
-                         printf("%s Var:%15s Type:%5s Alias:%15s Adr:%i val: %i %s(%i)\n",str_t, MeasureVarname[z],MeasureVarType[z],MeasureAlias[z],
+                         printf("%s Var:%15s Type:%5s Alias:%15s Adr:%i val: %i %s(%i) %i %02i:%02i:%02i %02i.%02i.%04i\n",str_t, 
+                                      MeasureVarname[z],MeasureVarType[z],MeasureAlias[z],
                                       InformationObject_getObjectAddress((InformationObject) io),
                                       MeasuredValueScaled_getValue((MeasuredValueScaled) io),
-                                      TypeID_toString(CS101_ASDU_getTypeID(asdu)),CS101_ASDU_getTypeID(asdu));
+                                      TypeID_toString(CS101_ASDU_getTypeID(asdu)),CS101_ASDU_getTypeID(asdu),
+                                      (uint8_t) MeasuredValueScaled_getQuality((MeasuredValueScaled) io),
+                                      CP56Time2a_getHour(MeasuredValueScaledWithCP56Time2a_getTimestamp( io)),
+                                      CP56Time2a_getMinute(MeasuredValueScaledWithCP56Time2a_getTimestamp( io)),
+                                      CP56Time2a_getSecond(MeasuredValueScaledWithCP56Time2a_getTimestamp( io)),
+                                      CP56Time2a_getDayOfMonth(MeasuredValueScaledWithCP56Time2a_getTimestamp( io)),
+                                      CP56Time2a_getMonth(MeasuredValueScaledWithCP56Time2a_getTimestamp( io)),
+                                      CP56Time2a_getYear(MeasuredValueScaledWithCP56Time2a_getTimestamp( io)) + 2000                             
+                                      );
                     }
                 }                     
             }
-            MeasuredValueScaledWithCP56Time2a_destroy(io);
+             MeasuredValueScaledWithCP56Time2a_destroy(io);
         }
     }
 /*M_SP_NA_1 <1>  M_SP_TB_1 <30> */
@@ -159,30 +217,61 @@ static bool asduReceivedHandler (void* parameter, int address, CS101_ASDU asdu)
          i=0;
          for (i = 0; i < CS101_ASDU_getNumberOfElements(asdu); i++)
         {
-             SinglePointInformation io = (SinglePointInformation) CS101_ASDU_getElement(asdu, i);
+             SinglePointWithCP56Time2a io = (SinglePointWithCP56Time2a) CS101_ASDU_getElement(asdu, i);
              for(z = 0; z < countOfSinglePoint;z++)
-            {            
+              {            
                  if(SinglePointAddress[z] == InformationObject_getObjectAddress((InformationObject) io) )
                 {   
-                     sprintf(request,"{\"name\":\"%s\",\"data\":[%i]}",
-                             SinglePointVarname[z],
-                             SinglePointInformation_getValue((SinglePointInformation) io) );
-                     sendto(ssock, request, strlen(request), 0, (struct sockaddr*)&broadcastAddr, sizeof broadcastAddr);                        
+                     if( CS101_ASDU_getTypeID(asdu)==M_SP_NA_1)
+                    {
+//                     sprintf(request,"{\"name\":\"%s\",\"data\":[%i],\"q\":[%i],\"con\":[1],\"time\":[00,00,00],\"date\":[00,00,0000]}",
+                     sprintf(request,"{\"con\":[1],\"name\":\"%s\",\"data\":[%i],\"q\":[%i],\"h\":[0],\"m\":[0],\"s\":[0],\"d\":[0],\"mth\":[0],\"y\":[0]}",
 
+                            SinglePointVarname[z],
+                            SinglePointWithCP56Time2a_getValue((SinglePointWithCP56Time2a) io),
+                            (uint8_t) SinglePointWithCP56Time2a_getQuality((SinglePointWithCP56Time2a) io)
+                            );
+                  
+                    }
+                     else
+                    {
+//                     sprintf(request,"{\"name\":\"%s\",\"data\":[%i],\"q\":[%i],\"con\":[1],\"time\":[%02i,%02i,%02i],\"date\":[%02i,%02i,%04i]}",
+                     sprintf(request,"{\"con\":[1],\"name\":\"%s\",\"data\":[%i],\"q\":[%i],\"h\":[%i],\"m\":[%i],\"s\":[%i],\"d\":[%i],\"mth\":[%i],\"y\":[%i]}",
+
+                            SinglePointVarname[z],
+                            SinglePointWithCP56Time2a_getValue((SinglePointWithCP56Time2a) io),
+                            (uint8_t) SinglePointWithCP56Time2a_getQuality((SinglePointWithCP56Time2a) io),
+                            CP56Time2a_getHour(SinglePointWithCP56Time2a_getTimestamp( io)),
+                            CP56Time2a_getMinute(SinglePointWithCP56Time2a_getTimestamp( io)),
+                            CP56Time2a_getSecond(SinglePointWithCP56Time2a_getTimestamp( io)),
+                            CP56Time2a_getDayOfMonth(SinglePointWithCP56Time2a_getTimestamp( io)),
+                            CP56Time2a_getMonth(SinglePointWithCP56Time2a_getTimestamp( io)),
+                            CP56Time2a_getYear(SinglePointWithCP56Time2a_getTimestamp( io)) + 2000                             
+                            );
+                    }                   
+                      sendto(ssock, request, strlen(request), 0, (struct sockaddr*)&broadcastAddr, sizeof broadcastAddr);                        
                     if(DebugMode==1)
                     {
                          s_time = time (NULL);
                          m_time  = localtime (&s_time);
                          strftime (str_t, 128, "%d-%m-%Y %X", m_time);
-                         printf("%s Var:%15s Type:%5s Alias:%15s Adr:%i val: %i %s(%i)\n",str_t, SinglePointVarname[z],SinglePointVarType[z],SinglePointAlias[z],
+                         printf("%s Var:%15s Type:%5s Alias:%15s Adr:%i val: %i %s(%i) %i %02i:%02i:%02i %02i.%02i.%04i\n",str_t,  
+                                     SinglePointVarname[z],SinglePointVarType[z],SinglePointAlias[z],
                                      InformationObject_getObjectAddress((InformationObject) io),
-                                     SinglePointInformation_getValue((SinglePointInformation) io),
-                                     TypeID_toString(CS101_ASDU_getTypeID(asdu)),CS101_ASDU_getTypeID(asdu));
-                    
+                                     SinglePointWithCP56Time2a_getValue((SinglePointWithCP56Time2a) io),
+                                     TypeID_toString(CS101_ASDU_getTypeID(asdu)),CS101_ASDU_getTypeID(asdu),
+                                     (uint8_t) SinglePointWithCP56Time2a_getQuality((SinglePointWithCP56Time2a) io),
+                                     CP56Time2a_getHour(SinglePointWithCP56Time2a_getTimestamp( io)),
+                                     CP56Time2a_getMinute(SinglePointWithCP56Time2a_getTimestamp( io)),
+                                     CP56Time2a_getSecond(SinglePointWithCP56Time2a_getTimestamp( io)),
+                                     CP56Time2a_getDayOfMonth(SinglePointWithCP56Time2a_getTimestamp( io)),
+                                     CP56Time2a_getMonth(SinglePointWithCP56Time2a_getTimestamp( io)),
+                                     CP56Time2a_getYear(SinglePointWithCP56Time2a_getTimestamp( io)) + 2000                             
+                                    ); 
                     }
                 }
-            }
-            SinglePointInformation_destroy(io);
+              }
+              SinglePointWithCP56Time2a_destroy(io);
         }
     }
      close(ssock);
@@ -289,10 +378,10 @@ int main(int argc, char** argv)
 {
      const char* ip;
      uint16_t port;
-
+     int z;
      if(argc <= 1)
          {
-           printf("\nStart client iec104:          v.2.9\n");     
+           printf("\nStart client iec104:          v.3.0\n");     
 
            puts("\nUse syntax : client104.exe file.json\n"
          "==Json file structure like this:==\n"
@@ -336,7 +425,7 @@ int main(int argc, char** argv)
              port=iecPort;
         }
 
-     if(DebugMode==1) printf("\nStart client iec104:          v.2.9\n");     
+     if(DebugMode==1) printf("\nStart client iec104:          v.3.0\n");     
 
 TRY_CONNECT:
      if(DebugMode==1) printf("\nConnecting to: %s:%i\n", ip, port);
@@ -348,16 +437,48 @@ TRY_CONNECT:
     {
          if(DebugMode==1) printf("Connected!\n");
          CS104_Connection_sendStartDT(con);
-         Thread_sleep(5000);
+         Thread_sleep(2000);
          if(DebugMode==1) printf("Send Interrogation Command\n");
          CS104_Connection_sendInterrogationCommand(con, CS101_COT_ACTIVATION, 1, IEC60870_QOI_STATION);
-         Thread_sleep(5000);
+         Thread_sleep(2000);
          while(1)
         {
              if(conState==0)
             {
+                 ssock=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+                 broadcastEnable=1;
+                 ret=setsockopt(ssock, SOL_SOCKET, SO_BROADCAST, &broadcastEnable, sizeof(broadcastEnable));
+                 memset(&broadcastAddr, 0, sizeof broadcastAddr);
+                 broadcastAddr.sin_family = AF_INET;
+                 inet_pton(AF_INET, UdpIp[0], &broadcastAddr.sin_addr); 
+                 broadcastAddr.sin_port = htons(UdpPort);
+
+                 s_time = time (NULL);
+                 m_time  = localtime (&s_time);
                  if(DebugMode==1) printf("Try to connect 1\n");
-                 goto TRY_CONNECT;
+                 strftime (str_d, 128, "%d", m_time);   
+                 strftime (str_m, 128, "%m", m_time);   
+                 strftime (str_y, 128, "%Y", m_time);   
+                 strftime (str_H, 128, "%H", m_time);        
+                 strftime (str_M, 128, "%M", m_time);        
+                 strftime (str_S, 128, "%S", m_time);         
+
+                 for(z = 0; z < countOfMeasureValue;z++)
+                {
+                     sprintf(request,"{\"con\":[0],\"name\":\"%s\",\"data\":[0],\"q\":[100],\"h\":[%i],\"m\":[%i],\"s\":[%i],\"d\":[%i],\"mth\":[%i],\"y\":[%i]}",
+                     MeasureVarname[z],atoi(str_H),atoi(str_M),atoi(str_S),atoi(str_d),atoi(str_m),atoi(str_y));
+                     sendto(ssock, request, strlen(request), 0, (struct sockaddr*)&broadcastAddr, sizeof broadcastAddr);                        
+                }                     
+            
+                 for(z = 0; z < countOfSinglePoint;z++)
+                {            
+                     sprintf(request,"{\"con\":[0],\"name\":\"%s\",\"data\":[0],\"q\":[100],\"h\":[%i],\"m\":[%i],\"s\":[%i],\"d\":[%i],\"mth\":[%i],\"y\":[%i]}",
+                     SinglePointVarname[z],atoi(str_H),atoi(str_M),atoi(str_S),atoi(str_d),atoi(str_m),atoi(str_y));
+                     sendto(ssock, request, strlen(request), 0, (struct sockaddr*)&broadcastAddr, sizeof broadcastAddr); 
+                }  
+  
+             Thread_sleep(2000);     
+             goto TRY_CONNECT;
             }
          CP56Time2a_createFromMsTimestamp(&newTime, Hal_getTimeInMs());
          if(DebugMode==1 & TimeSync==1)  printf("tsync-->\n");
@@ -368,8 +489,41 @@ TRY_CONNECT:
     }
      else
     {
-         if(DebugMode==1) printf("Try to connect 2\n");
-         goto TRY_CONNECT;
+     if(DebugMode==1) printf("Try to connect 2\n");
+     s_time = time (NULL);
+     m_time  = localtime (&s_time);
+    // strftime (str_t, 128, "%X", m_time);
+     strftime (str_d, 128, "%d", m_time);   
+     strftime (str_m, 128, "%m", m_time);   
+     strftime (str_y, 128, "%Y", m_time);   
+     strftime (str_H, 128, "%H", m_time);        
+     strftime (str_M, 128, "%M", m_time);        
+     strftime (str_S, 128, "%S", m_time);         
+                 ssock=socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+                 broadcastEnable=1;
+                 ret=setsockopt(ssock, SOL_SOCKET, SO_BROADCAST, &broadcastEnable, sizeof(broadcastEnable));
+                 memset(&broadcastAddr, 0, sizeof broadcastAddr);
+                 broadcastAddr.sin_family = AF_INET;
+                 inet_pton(AF_INET, UdpIp[0], &broadcastAddr.sin_addr); 
+                 broadcastAddr.sin_port = htons(UdpPort);
+
+                 for(z = 0; z < countOfMeasureValue;z++)
+                {
+                     sprintf(request,"{\"con\":[0],\"name\":\"%s\",\"data\":[0],\"q\":[100],\"h\":[%i],\"m\":[%i],\"s\":[%i],\"d\":[%i],\"mth\":[%i],\"y\":[%i]}",
+                     MeasureVarname[z],atoi(str_H),atoi(str_M),atoi(str_S),atoi(str_d),atoi(str_m),atoi(str_y));
+                     sendto(ssock, request, strlen(request), 0, (struct sockaddr*)&broadcastAddr, sizeof broadcastAddr);                        
+                }                     
+            
+                 for(z = 0; z < countOfSinglePoint;z++)
+                {            
+                     sprintf(request,"{\"con\":[0],\"name\":\"%s\",\"data\":[0],\"q\":[100],\"h\":[%i],\"m\":[%i],\"s\":[%i],\"d\":[%i],\"mth\":[%i],\"y\":[%i]}",
+                     SinglePointVarname[z],atoi(str_H),atoi(str_M),atoi(str_S),atoi(str_d),atoi(str_m),atoi(str_y));
+                     sendto(ssock, request, strlen(request), 0, (struct sockaddr*)&broadcastAddr, sizeof broadcastAddr); 
+                }  
+ 
+       Thread_sleep(8000);
+       CS104_Connection_destroy(con);
+       goto TRY_CONNECT;
      }
     Thread_sleep(1000);
     CS104_Connection_destroy(con);

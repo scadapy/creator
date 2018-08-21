@@ -1075,6 +1075,25 @@ SinglePointWithCP24Time2a_getFromBuffer(SinglePointWithCP24Time2a self, CS101_Ap
 }
 
 
+///////////////////////////////////////////////////////////////////////////////////
+bool
+SinglePointWithCP24Time2a_getValue(SinglePointWithCP24Time2a self)
+{
+    return self->value;
+}
+
+QualityDescriptor
+SinglePointWithCP24Time2a_getQuality(SinglePointWithCP24Time2a self)
+{
+    return self->quality;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 
 /*******************************************
  * SinglePointWithCP56Time2a
@@ -1146,8 +1165,21 @@ SinglePointWithCP56Time2a_getTimestamp(SinglePointWithCP56Time2a self)
 {
     return &(self->timestamp);
 }
+///////////////////////////////////////////////////////////////////////////////////
+bool
+SinglePointWithCP56Time2a_getValue(SinglePointWithCP56Time2a self)
+{
+    return self->value;
+}
+
+QualityDescriptor
+SinglePointWithCP56Time2a_getQuality(SinglePointWithCP56Time2a self)
+{
+    return self->quality;
+}
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
 SinglePointWithCP56Time2a
 SinglePointWithCP56Time2a_getFromBuffer(SinglePointWithCP56Time2a self, CS101_AppLayerParameters parameters,
         uint8_t* msg, int msgSize, int startIndex, bool isSequence)

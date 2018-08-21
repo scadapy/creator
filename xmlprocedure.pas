@@ -15,7 +15,7 @@ procedure OpenDBXMLfile(fileName: string);
 procedure OpenVkXMLfile(fileName: string);
 
 implementation
-uses  scadapy;
+uses  scadapy,editor;
 
 procedure OpenVkXMLfile(fileName: string);
 var
@@ -60,12 +60,160 @@ end;
 procedure SaveXMLConfig();
 var
   rowCount,i,j,rowCountVk,rowCountIecServer: integer;
-  Dcheck: string;
+  Dcheck,orient: string;
 begin
 rowCount:=scadapy.MainFrame.MainTree.Items.Count;
 scadapy.MainFrame.MemoSave.Clear;
 scadapy.MainFrame.MemoSave.Lines.Add('<?xml version="1.0"?>');
 scadapy.MainFrame.MemoSave.Lines.Add('<Config xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">');
+
+
+
+//////////////////
+      scadapy.MainFrame.MemoSave.Lines.Add(' <Layout>');
+                 scadapy.MainFrame.MemoSave.Lines.Add('    <Lconf    UdpPort="'+
+                 editor.EditorForm.UDPPORT.Text+              '"  UdpIp="'+
+                 editor.EditorForm.UDPIP.Text+                '" Image="'+
+                 editor.EditorForm.ImageName+                 '" CanvasColor="'+
+                 ColorToString(editor.EditorForm.MainCanvas.Color)+'" Height="'+
+                 editor.EditorForm.MainCanvas.Height.ToString+'" Width="'+
+                 editor.EditorForm.MainCanvas.Width.ToString+ '" >');
+
+
+                 for i:=0 to 999 do
+                 if(editor.EditorForm.EditObject[i]<>nil) and
+                   (editor.EditorForm.EditObject[i].Visible=True) then
+                 begin
+                   scadapy.MainFrame.MemoSave.Lines.Add('     <Lvar  ObjectType="EditObject"'+
+                   ' ObjectName="' + editor.EditorForm.EditObject[i].Name+'"'+
+                   ' Caption="'    + editor.EditorForm.EditObject[i].Caption+'"'+
+                   ' Left="'       + editor.EditorForm.EditObject[i].Left.ToString+'"'+
+                   ' Top="'        + editor.EditorForm.EditObject[i].Top.ToString+'"'+
+                   ' Max=""'       +
+                   ' Orient=""'    +
+                   ' Width="'      + editor.EditorForm.EditObject[i].Width.ToString+'"'+
+                   ' Height="'     + editor.EditorForm.EditObject[i].Height.ToString+'"'+
+                   ' FontName="'   + editor.EditorForm.EditObject[i].Font.Name+'"'+
+                   ' FontSize="'   + editor.EditorForm.EditObject[i].Font.Size.ToString +'"'+
+                   ' FontColor="'  + ColorToString(editor.EditorForm.EditObject[i].Font.Color)+'"'+
+                   ' ObjectColor="'+ ColorToString(editor.EditorForm.EditObject[i].Color)+'"'+
+                   ' ObjectText="' + editor.EditorForm.EditObject[i].Text+'">-</Lvar>');
+                 end;
+
+
+                 for i:=0 to 999 do
+                 if(editor.EditorForm.PBarObject[i]<>nil) and
+                   (editor.EditorForm.PBarObject[i].Visible=True) then
+                 begin
+
+                    case editor.EditorForm.PBarObject[i].Orientation of
+                       pbVertical      : orient := 'pbVertical';
+                       pbHorizontal    : orient := 'pbHorizontal';
+                    else
+                       orient := 'pbHorizontal';
+                    end;
+
+
+                   scadapy.MainFrame.MemoSave.Lines.Add('     <Lvar  ObjectType="PBarObject"'+
+                   ' ObjectName="' + editor.EditorForm.PBarObject[i].Name+'"'+
+                   ' Max="'        + editor.EditorForm.PBarObject[i].Max.ToString+'"'+
+                   ' Orient="'     + orient+'"'+
+                   ' Left="'       + editor.EditorForm.PBarObject[i].Left.ToString+'"'+
+                   ' Top="'        + editor.EditorForm.PBarObject[i].Top.ToString+'"'+
+                   ' Width="'      + editor.EditorForm.PBarObject[i].Width.ToString+'"'+
+                   ' Height="'     + editor.EditorForm.PBarObject[i].Height.ToString+'"'+
+                   ' FontName="'   + editor.EditorForm.PBarObject[i].Font.Name+'"'+
+                   ' ObjectText=""'+
+                   ' Caption=""'   +
+                   ' FontSize=""'  +
+                   ' FontColor="'  + ColorToString(editor.EditorForm.PBarObject[i].Font.Color)+'"'+
+                   ' ObjectColor="'+ ColorToString(editor.EditorForm.PBarObject[i].Color)+'"'+
+                   '>-</Lvar>');
+                 end;
+
+
+                 for i:=0 to 999 do
+                 if(editor.EditorForm.LabelObject[i]<>nil) and
+                   (editor.EditorForm.LabelObject[i].Visible=True) then
+                 begin
+                   scadapy.MainFrame.MemoSave.Lines.Add('     <Lvar  ObjectType="LabelObject"'+
+                   ' ObjectName="' + editor.EditorForm.LabelObject[i].Name+'"'+
+                   ' Caption="'    + editor.EditorForm.LabelObject[i].Caption+'"'+
+                   ' Left="'       + editor.EditorForm.LabelObject[i].Left.ToString+'"'+
+                   ' Top="'        + editor.EditorForm.LabelObject[i].Top.ToString+'"'+
+                   ' Width="'      + editor.EditorForm.LabelObject[i].Width.ToString+'"'+
+                   ' Height="'     + editor.EditorForm.LabelObject[i].Height.ToString+'"'+
+                   ' FontName="'   + editor.EditorForm.LabelObject[i].Font.Name+'"'+
+                   ' FontSize="'   + editor.EditorForm.LabelObject[i].Font.Size.ToString +'"'+
+                   ' FontColor="'  + ColorToString(editor.EditorForm.LabelObject[i].Font.Color)+'"'+
+                   ' ObjectColor="'+ ColorToString(editor.EditorForm.LabelObject[i].Color)+'"'+
+                   ' Orient=""'    +
+                   ' ObjectText=""' +
+                   ' Max=""' +
+
+                   '>-</Lvar>');
+                 end;
+
+
+                  for i:=0 to 999 do
+                 if(editor.EditorForm.StaticTextObject[i]<>nil) and
+                   (editor.EditorForm.StaticTextObject[i].Visible=True) then
+                 begin
+                   scadapy.MainFrame.MemoSave.Lines.Add('     <Lvar  ObjectType="StaticTextObject"'+
+                   ' ObjectName="' + editor.EditorForm.StaticTextObject[i].Name+'"'+
+                   ' Caption="'    + editor.EditorForm.StaticTextObject[i].Caption+'"'+
+                   ' Left="'       + editor.EditorForm.StaticTextObject[i].Left.ToString+'"'+
+                   ' Top="'        + editor.EditorForm.StaticTextObject[i].Top.ToString+'"'+
+                   ' Width="'      + editor.EditorForm.StaticTextObject[i].Width.ToString+'"'+
+                   ' Height="'     + editor.EditorForm.StaticTextObject[i].Height.ToString+'"'+
+                   ' FontName="'   + editor.EditorForm.StaticTextObject[i].Font.Name+'"'+
+                   ' FontSize="'   + editor.EditorForm.StaticTextObject[i].Font.Size.ToString +'"'+
+                   ' FontColor="'  + ColorToString(editor.EditorForm.StaticTextObject[i].Font.Color)+'"'+
+                   ' Orient=""'    +
+                   ' ObjectColor="'+ ColorToString(editor.EditorForm.StaticTextObject[i].Color)+'"'+
+                   ' ObjectText=""' +
+                   ' Max=""' +
+
+                   '>-</Lvar>');
+                 end;
+
+
+
+                 for i:=0 to 999 do
+                 if(editor.EditorForm.DiscretObject[i]<>nil) and
+                   (editor.EditorForm.DiscretObject[i].Visible=True) then
+                 begin
+                   scadapy.MainFrame.MemoSave.Lines.Add('     <Lvar  ObjectType="DiscretObject"'+
+                   ' ObjectName="' + editor.EditorForm.DiscretObject[i].Name+'"'+
+                   ' Caption="'    + editor.EditorForm.DiscretObject[i].Caption+'"'+
+                   ' Left="'       + editor.EditorForm.DiscretObject[i].Left.ToString+'"'+
+                   ' Top="'        + editor.EditorForm.DiscretObject[i].Top.ToString+'"'+
+                   ' Width="'      + editor.EditorForm.DiscretObject[i].Width.ToString+'"'+
+                   ' Height="'     + editor.EditorForm.DiscretObject[i].Height.ToString+'"'+
+                   ' ObjectColor="'+ ColorToString(editor.EditorForm.DiscretObject[i].Color)+'"'+
+                   ' ObjectText=""'+
+                   ' FontColor=""'  +
+                   ' FontName=""'   +
+                   ' FontSize=""'   +
+                   ' Max=""'   +
+                   ' Orient=""'    +
+
+                   '>-</Lvar>');
+
+                 end;
+
+
+                    scadapy.MainFrame.MemoSave.Lines.Add('    </Lconf>');
+                    scadapy.MainFrame.MemoSave.Lines.Add(' </Layout>');
+
+//////////////////
+
+
+
+
+
+
+
 //////////////////
       scadapy.MainFrame.MemoSave.Lines.Add(' <iec104server>');
                  if(scadapy.MainFrame.CheckDebug.Checked = True) then Dcheck:='1';
@@ -264,6 +412,7 @@ var
        Child: TDOMNode;
        Doc : TXMLDocument;
        j,i: Integer;
+
 begin
  try
     ReadXMLFile(Doc,filename );
@@ -354,9 +503,10 @@ procedure LoadFromXMLfile(filename: String);
 var
        Child: TDOMNode;
        Doc : TXMLDocument;
-       j,i,z: Integer;
+       j,i,z,cnt: Integer;
        Node,Modbus,Rec: TTreeNode;
        DataRec:  MStructure;
+       LayoutObjects:array[0..15] of String;
 begin
  try
     ReadXMLFile(Doc,filename );
@@ -397,8 +547,11 @@ begin
                              end;
                     Rec.Data:= DataRec;
                  end;
-           finally
-                 Free;
+               except on E: Exception do
+                      begin
+                      ShowMessage('Error load modb: ' + E.Message);
+                      Free;
+                      end;
             end;
              Child := Child.NextSibling;
     end;
@@ -440,8 +593,11 @@ begin
                              end;
                         Rec.Data:= DataRec;
                    end;
-               finally
-                     Free;
+               except on E: Exception do
+                      begin
+                      ShowMessage('Error load merc: ' + E.Message);
+                      Free;
+                      end;
                 end;
                  Child := Child.NextSibling;
         end;
@@ -469,8 +625,11 @@ begin
                          //  scadapy.MainFrame.MemoSave.Lines.Add(String(Item[j].Attributes.Item[i].NodeValue));
                         end;
                   end;
-           finally
-                 Free;
+           except on E: Exception do
+                  begin
+                  ShowMessage('Error load var: ' + E.Message);
+                  Free;
+                  end;
            end;
        Child := Child.NextSibling;
     end;
@@ -516,8 +675,11 @@ begin
                                  end;
                             Rec.Data:= DataRec;
                        end;
-                   finally
+                   except on E: Exception do
+                         begin
+                         ShowMessage('Error load iec: ' + E.Message);
                          Free;
+                         end;
                     end;
                      Child := Child.NextSibling;
             end;
@@ -575,8 +737,11 @@ begin
                                              end;
 
                                    end;
-                               finally
-                                     Free;
+                               except on E: Exception do
+                                      begin
+                                      ShowMessage('Error load iecserv: ' + E.Message);
+                                      Free;
+                                      end;
                                 end;
                                  Child := Child.NextSibling;
                         end;
@@ -585,34 +750,256 @@ begin
 
 
 
+ ///////////////layout
+                       try
+                       for cnt:=0 to 999 do
+                       begin
+                        if ( editor.EditorForm.PBarObject[cnt]<>nil)       then   editor.EditorForm.PBarObject[cnt].Free;
+                        if ( editor.EditorForm.EditObject[cnt]<>nil)       then   editor.EditorForm.EditObject[cnt].Free;
+                        if ( editor.EditorForm.LabelObject[cnt]<>nil)      then   editor.EditorForm.LabelObject[cnt].Free;
+                        if ( editor.EditorForm.DiscretObject[cnt]<>nil)    then   editor.EditorForm.DiscretObject[cnt].Free;
+                        if ( editor.EditorForm.StaticTextObject[cnt]<>nil) then   editor.EditorForm.StaticTextObject[cnt].Free;
+
+                       end;
+
+                       except //on E: Exception do
+                              //begin
+                              //ShowMessage('Error load free cnt: ' + E.Message);
+                            //   Free;
+                              //end;
+                        end;
+
+                        Child := Doc.DocumentElement.FindNode('Layout');
+                        begin
+                           with Child.ChildNodes do
+                               try
+                                  for j := 0 to (Count - 1) do
+                                     begin
+
+                                         for i := 0 to 5 do
+                                            begin
+                                               if (Item[j].Attributes.Item[i].NodeName = 'UdpPort')     then
+                                                editor.EditorForm.UDPPORT.Text  :=String(Item[j].Attributes.Item[i].NodeValue);
+                                               if (Item[j].Attributes.Item[i].NodeName = 'UdpIp')       then
+                                                editor.EditorForm.UDPIP.Text    :=String(Item[j].Attributes.Item[i].NodeValue);
+                                               if (Item[j].Attributes.Item[i].NodeName = 'Image')       then
+                                                begin
+                                                  if(   String(Item[j].Attributes.Item[i].NodeValue).Length   > 3 ) then
+                                                       begin
+                                                         try
+                                                           editor.EditorForm.MainCanvas.Picture.LoadFromFile(String(Item[j].Attributes.Item[i].NodeValue));
+                                                           editor.EditorForm.ImageName:=String(Item[j].Attributes.Item[i].NodeValue);
+                                                         except
+                                                           editor.EditorForm.ImageName:='';
+                                                           showmessage('Image Path Error')
+                                                         end;
+                                                       end;
+                                                end;
+                                               if (Item[j].Attributes.Item[i].NodeName = 'CanvasColor') then
+                                                begin
+                                                     editor.EditorForm.MainCanvas.Color := StringToColor(String(Item[j].Attributes.Item[i].NodeValue) );
+                                                     editor.EditorForm.MainCanvas.Canvas.Brush.Color:=StringToColor(String(Item[j].Attributes.Item[i].NodeValue) );
+                                                     editor.EditorForm.MainCanvas.Canvas.FillRect(editor.EditorForm.MainCanvas.Canvas.ClipRect);
+                                                end;
+                                               if (Item[j].Attributes.Item[i].NodeName = 'Height')      then
+                                                editor.EditorForm.MainCanvas.Height      :=StrToInt(String(Item[j].Attributes.Item[i].NodeValue));
+                                               if (Item[j].Attributes.Item[i].NodeName = 'Width')       then
+                                                editor.EditorForm.MainCanvas.Width       :=StrToInt(String(Item[j].Attributes.Item[i].NodeValue));
+
+                                            end;
+                                          for z := 0 to (Item[j].ChildNodes.Count - 1) do
+                                             begin
+
+                                                for i := 0 to 13 do
+                                                  begin
+                                                     if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'ObjectType')       then
+                                                      LayoutObjects[0]:= String(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue);
+                                                     if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'ObjectName')       then
+                                                      LayoutObjects[1]:= String(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue);
+                                                     if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'Caption')       then
+                                                      LayoutObjects[2]:= String(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue);
+                                                     if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'Left')       then
+                                                      LayoutObjects[3]:= String(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue);
+                                                     if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'Top')       then
+                                                      LayoutObjects[4]:= String(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue);
+                                                     if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'Max')       then
+                                                      LayoutObjects[5]:= String(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue);
+                                                     if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'Orient')       then
+                                                      LayoutObjects[6]:= String(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue);
+                                                     if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'Width')       then
+                                                      LayoutObjects[7]:= String(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue);
+                                                     if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'Height')       then
+                                                      LayoutObjects[8]:= String(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue);
+                                                     if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'FontName')       then
+                                                      LayoutObjects[9]:= String(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue);
+                                                     if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'FontSize')       then
+                                                      LayoutObjects[10]:= String(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue);
+                                                     if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'FontColor')       then
+                                                      LayoutObjects[11]:= String(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue);
+                                                     if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'ObjectColor')       then
+                                                      LayoutObjects[12]:= String(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue);
+                                                     if(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeName = 'ObjectText')       then
+                                                      LayoutObjects[13]:= String(Item[j].ChildNodes.Item[z].Attributes.Item[i].NodeValue);
+                                                  end;
+                                                      //// edit
+                                                      if(LayoutObjects[0]='EditObject') then
+                                                       begin
+                                                          editor.EditorForm.EditObject[editor.EditorForm.EditArray]:=TEdit.Create(editor.EditorForm);
+                                                          editor.EditorForm.EditObject[editor.EditorForm.EditArray].Parent:=editor.EditorForm;
+                                                          editor.EditorForm.EditObject[editor.EditorForm.EditArray].Name:='Ed_'+editor.EditorForm.EditArray.ToString;
+                                                         // editor.EditorForm.EditObject[editor.EditorForm.EditArray].Caption:=LayoutObjects[2];
+                                                          editor.EditorForm.EditObject[editor.EditorForm.EditArray].Left:=StrToInt(LayoutObjects[3]);
+                                                          editor.EditorForm.EditObject[editor.EditorForm.EditArray].Top:=StrToInt(LayoutObjects[4]);
+                                                          editor.EditorForm.EditObject[editor.EditorForm.EditArray].Width:=StrToInt(LayoutObjects[7]);
+                                                          editor.EditorForm.EditObject[editor.EditorForm.EditArray].Height:=StrToInt(LayoutObjects[8]);
+                                                          editor.EditorForm.EditObject[editor.EditorForm.EditArray].Font.Name:=LayoutObjects[9];
+                                                          editor.EditorForm.EditObject[editor.EditorForm.EditArray].Font.Size:=StrToInt(LayoutObjects[10]);
+                                                          editor.EditorForm.EditObject[editor.EditorForm.EditArray].Font.Color:=StringToColor(LayoutObjects[11]);
+                                                          editor.EditorForm.EditObject[editor.EditorForm.EditArray].Color:=StringToColor(LayoutObjects[12]);
+                                                          editor.EditorForm.EditObject[editor.EditorForm.EditArray].Text:=LayoutObjects[13];
+                                                          editor.EditorForm.EditObject[editor.EditorForm.EditArray].Cursor:=crHandPoint;
+                                                          editor.EditorForm.EditObject[editor.EditorForm.EditArray].ReadOnly:=True;
+                                                          editor.EditorForm.EditObject[editor.EditorForm.EditArray].BorderStyle:=bsNone;
+                                                          editor.EditorForm.EditObject[editor.EditorForm.EditArray].PopupMenu:=editor.EditorForm.ObjectMenu;
+                                                          editor.EditorForm.EditObject[editor.EditorForm.EditArray].ShowHint:=True;
+                                                          editor.EditorForm.EditObject[editor.EditorForm.EditArray].Hint:=editor.EditorForm.EditObject[editor.EditorForm.EditArray].Text;
+                                                          editor.EditorForm.EditObject[editor.EditorForm.EditArray].OnClick := @editor.EditorForm.ObjectTEditClicked;
+                                                          editor.EditorForm.EditArray:=editor.EditorForm.EditArray+1;
+                                                       end;
+                                                      /// label
+                                                       if(LayoutObjects[0]='LabelObject') then
+                                                       begin
+                                                          editor.EditorForm.LabelObject[editor.EditorForm.LabelArray]:=TLabel.Create(editor.EditorForm);
+                                                          editor.EditorForm.LabelObject[editor.EditorForm.LabelArray].Parent:=editor.EditorForm;
+                                                          editor.EditorForm.LabelObject[editor.EditorForm.LabelArray].Name:='Lb_'+editor.EditorForm.LabelArray.ToString;
+                                                          editor.EditorForm.LabelObject[editor.EditorForm.LabelArray].Caption:=LayoutObjects[2];
+                                                          editor.EditorForm.LabelObject[editor.EditorForm.LabelArray].Left:=StrToInt(LayoutObjects[3]);
+                                                          editor.EditorForm.LabelObject[editor.EditorForm.LabelArray].Top:=StrToInt(LayoutObjects[4]);
+                                                          editor.EditorForm.LabelObject[editor.EditorForm.LabelArray].Width:=StrToInt(LayoutObjects[7]);
+                                                          editor.EditorForm.LabelObject[editor.EditorForm.LabelArray].Height:=StrToInt(LayoutObjects[8]);
+                                                          editor.EditorForm.LabelObject[editor.EditorForm.LabelArray].Font.Name:=LayoutObjects[9];
+                                                          editor.EditorForm.LabelObject[editor.EditorForm.LabelArray].Font.Size:=StrToInt(LayoutObjects[10]);
+                                                          editor.EditorForm.LabelObject[editor.EditorForm.LabelArray].Font.Color:=StringToColor(LayoutObjects[11]);
+                                                          editor.EditorForm.LabelObject[editor.EditorForm.LabelArray].Color:=StringToColor(LayoutObjects[12]);
+                                                     //     editor.EditorForm.LabelObject[editor.EditorForm.LabelArray].Text:=LayoutObjects[13];
+                                                          editor.EditorForm.LabelObject[editor.EditorForm.LabelArray].Cursor:=crHandPoint;
+                                                      //    editor.EditorForm.LabelObject[editor.EditorForm.LabelArray].ReadOnly:=True;
+                                                     //     editor.EditorForm.LabelObject[editor.EditorForm.LabelArray].BorderStyle:=bsNone;
+                                                          editor.EditorForm.LabelObject[editor.EditorForm.LabelArray].PopupMenu:=editor.EditorForm.ObjectMenu;
+                                                          editor.EditorForm.LabelObject[editor.EditorForm.LabelArray].ShowHint:=True;
+                                                          editor.EditorForm.LabelObject[editor.EditorForm.LabelArray].Hint:=editor.EditorForm.LabelObject[editor.EditorForm.LabelArray].Caption;
+                                                          editor.EditorForm.LabelObject[editor.EditorForm.LabelArray].OnClick := @editor.EditorForm.ObjectTLabelClicked;
+                                                          editor.EditorForm.LabelArray:=editor.EditorForm.LabelArray+1;
+                                                       end;
+
+                                                       //// StaticText
+                                                       if(LayoutObjects[0]='StaticTextObject') then
+                                                        begin
+                                                           editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray]:=TStaticText.Create(editor.EditorForm);
+                                                           editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].Parent:=editor.EditorForm;
+                                                           editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].Name:='St_'+editor.EditorForm.StaticTextArray.ToString;
+                                                           editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].Caption:=LayoutObjects[2];
+                                                           editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].Left:=StrToInt(LayoutObjects[3]);
+                                                           editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].Top:=StrToInt(LayoutObjects[4]);
+                                                           editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].Width:=StrToInt(LayoutObjects[7]);
+                                                           editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].Height:=StrToInt(LayoutObjects[8]);
+                                                           editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].Font.Name:=LayoutObjects[9];
+                                                           editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].Font.Size:=StrToInt(LayoutObjects[10]);
+                                                           editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].Font.Color:=StringToColor(LayoutObjects[11]);
+                                                           editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].Transparent:=False;
+
+                                                           editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].Color:=StringToColor(LayoutObjects[12]);
+                                                          // editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].Text:=LayoutObjects[13];
+                                                           editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].Cursor:=crHandPoint;
+                                                          // editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].ReadOnly:=True;
+                                                          // editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].BorderStyle:=bsNone;
+                                                           editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].PopupMenu:=editor.EditorForm.ObjectMenu;
+                                                           editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].ShowHint:=True;
+                                                           editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].Hint:=editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].Caption;
+                                                           editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].OnClick := @editor.EditorForm.ObjectTStaticTextClicked;
+                                                           editor.EditorForm.StaticTextArray:=editor.EditorForm.StaticTextArray+1;
+                                                        end;
+
+                                                       //// Discret
+                                                       if(LayoutObjects[0]='DiscretObject') then
+                                                        begin
+                                                           editor.EditorForm.DiscretObject[editor.EditorForm.DiscretArray]:=TFlowPanel.Create(editor.EditorForm);
+                                                           editor.EditorForm.DiscretObject[editor.EditorForm.DiscretArray].Parent:=editor.EditorForm;
+                                                           editor.EditorForm.DiscretObject[editor.EditorForm.DiscretArray].Name:='DIi_'+editor.EditorForm.DiscretArray.ToString;
+                                                           editor.EditorForm.DiscretObject[editor.EditorForm.DiscretArray].Caption:=LayoutObjects[2];
+                                                           editor.EditorForm.DiscretObject[editor.EditorForm.DiscretArray].Left:=StrToInt(LayoutObjects[3]);
+                                                           editor.EditorForm.DiscretObject[editor.EditorForm.DiscretArray].Top:=StrToInt(LayoutObjects[4]);
+                                                           editor.EditorForm.DiscretObject[editor.EditorForm.DiscretArray].Width:=StrToInt(LayoutObjects[7]);
+                                                           editor.EditorForm.DiscretObject[editor.EditorForm.DiscretArray].Height:=StrToInt(LayoutObjects[8]);
+                                                           editor.EditorForm.DiscretObject[editor.EditorForm.DiscretArray].Font.Name:=LayoutObjects[9];
+                                                        //   editor.EditorForm.DiscretObject[editor.EditorForm.DiscretArray].Font.Size:=StrToInt(LayoutObjects[10]);
+                                                          // editor.EditorForm.DiscretObject[editor.EditorForm.DiscretArray].Font.Color:=StringToColor(LayoutObjects[11]);
+                                                           editor.EditorForm.DiscretObject[editor.EditorForm.DiscretArray].Color:=StringToColor(LayoutObjects[12]);
+                                                          // editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].Text:=LayoutObjects[13];
+                                                           editor.EditorForm.DiscretObject[editor.EditorForm.DiscretArray].Cursor:=crHandPoint;
+                                                          // editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].ReadOnly:=True;
+                                                          // editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].BorderStyle:=bsNone;
+                                                           editor.EditorForm.DiscretObject[editor.EditorForm.DiscretArray].PopupMenu:=editor.EditorForm.ObjectMenu;
+                                                           editor.EditorForm.DiscretObject[editor.EditorForm.DiscretArray].ShowHint:=True;
+                                                           editor.EditorForm.DiscretObject[editor.EditorForm.DiscretArray].Hint:=editor.EditorForm.DiscretObject[editor.EditorForm.DiscretArray].Caption;
+                                                           editor.EditorForm.DiscretObject[editor.EditorForm.DiscretArray].OnClick := @editor.EditorForm.ObjectTDiscretClicked;
+                                                           editor.EditorForm.DiscretArray:=editor.EditorForm.DiscretArray+1;
+                                                        end;
+
+                                                       //// PBar
+                                                       if(LayoutObjects[0]='PBarObject') then
+                                                        begin
+
+                                                           editor.EditorForm.PBarObject[editor.EditorForm.PBarArray]:=TProgressBar.Create(editor.EditorForm);
+                                                           editor.EditorForm.PBarObject[editor.EditorForm.PBarArray].Parent:=editor.EditorForm;
+                                                           editor.EditorForm.PBarObject[editor.EditorForm.PBarArray].Name:=LayoutObjects[1];
+                                                         //  editor.EditorForm.PBarObject[editor.EditorForm.PBarArray].Caption:=LayoutObjects[2];
+                                                           editor.EditorForm.PBarObject[editor.EditorForm.PBarArray].Left:=StrToInt(LayoutObjects[3]);
+                                                           editor.EditorForm.PBarObject[editor.EditorForm.PBarArray].Top:=StrToInt(LayoutObjects[4]);
+                                                           editor.EditorForm.PBarObject[editor.EditorForm.PBarArray].Max:=StrToInt(LayoutObjects[5]);
+                                                           editor.EditorForm.PBarObject[editor.EditorForm.PBarArray].Position:=10;
+
+                                                           if( LayoutObjects[6]='pbVertical') then
+                                                               editor.EditorForm.PBarObject[editor.EditorForm.PBarArray].Orientation:=pbVertical
+                                                           else
+                                                                editor.EditorForm.PBarObject[editor.EditorForm.PBarArray].Orientation:=pbHorizontal;
+
+                                                           editor.EditorForm.PBarObject[editor.EditorForm.PBarArray].Width:=StrToInt(LayoutObjects[7]);
+                                                           editor.EditorForm.PBarObject[editor.EditorForm.PBarArray].Height:=StrToInt(LayoutObjects[8]);
+                                                         //  editor.EditorForm.PBarObject[editor.EditorForm.PBarArray].Font.Name:=LayoutObjects[9];
+                                                        //   editor.EditorForm.DiscretObject[editor.EditorForm.DiscretArray].Font.Size:=StrToInt(LayoutObjects[10]);
+                                                           editor.EditorForm.PBarObject[editor.EditorForm.PBarArray].Font.Color:=StringToColor(LayoutObjects[11]);
+                                                           editor.EditorForm.PBarObject[editor.EditorForm.PBarArray].Color:=StringToColor(LayoutObjects[12]);
+                                                          // editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].Text:=LayoutObjects[13];
+                                                           editor.EditorForm.PBarObject[editor.EditorForm.PBarArray].Cursor:=crHandPoint;
+                                                          // editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].ReadOnly:=True;
+                                                          // editor.EditorForm.StaticTextObject[editor.EditorForm.StaticTextArray].BorderStyle:=bsNone;
+                                                           editor.EditorForm.PBarObject[editor.EditorForm.PBarArray].PopupMenu:=editor.EditorForm.ObjectMenu;
+                                                           editor.EditorForm.PBarObject[editor.EditorForm.PBarArray].ShowHint:=True;
+                                                           editor.EditorForm.PBarObject[editor.EditorForm.PBarArray].Hint:=editor.EditorForm.PBarObject[editor.EditorForm.PBarArray].Name;
+                                                           editor.EditorForm.PBarObject[editor.EditorForm.PBarArray].OnClick := @editor.EditorForm.ObjectTPBarClicked;
+                                                           editor.EditorForm.PBarArray:=editor.EditorForm.PBarArray+1;
+                                                        end;
+
+                                             end;
+
+                                   end;
+                               except on E: Exception do
+                                      begin
+                                      ShowMessage('Error load lay: ' + E.Message);
+                                      Free;
+                                      end;
+                                end;
+                                 Child := Child.NextSibling;
+                        end;
 
 
+ except on E: Exception do
+        begin
+        ShowMessage('Error load final: ' + E.Message);
+        Doc.Free;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  finally
-    Doc.Free;
+        end;
   end;
 end;
 

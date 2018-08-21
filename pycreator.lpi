@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="10"/>
+    <PathDelim Value="\"/>
+    <General>
+      <SessionStorage Value="InProjectDir"/>
+      <MainUnit Value="0"/>
+      <Title Value="pycreator"/>
+      <ResourceType Value="res"/>
+      <UseXPManifest Value="True"/>
+    </General>
+    <BuildModes Count="1">
+      <Item1 Name="Default" Default="True"/>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+    </PublishOptions>
+    <RunParams>
+      <local>
+        <FormatVersion Value="1"/>
+      </local>
+    </RunParams>
+    <RequiredPackages Count="3">
+      <Item1>
+        <PackageName Value="RunTimeTypeInfoControls"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="FCL"/>
+      </Item2>
+      <Item3>
+        <PackageName Value="LCL"/>
+      </Item3>
+    </RequiredPackages>
+    <Units Count="13">
+      <Unit0>
+        <Filename Value="pycreator.lpr"/>
+        <IsPartOfProject Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="scadapy.lfm"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MainFrame"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="vkprocedure.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="VkProcedure"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="mercprocedure.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="MercProcedure"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="modbusprocedure.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ModbusProcedure"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="dbprocedure.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="DbProcedure"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="jsonprocedure.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="JsonProcedure"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="xmlprocedure.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="cmdprocedure.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="editor.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="EditorForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Editor"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="propertyform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PrForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="PropertyForm"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="linkform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="lForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="linkForm"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="tkinter.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Tkinter"/>
+      </Unit12>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <PathDelim Value="\"/>
+    <Target>
+      <Filename Value="pycreator"/>
+    </Target>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+      <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <Linking>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="5">
+      <Item1>
+        <Name Value="EAbort"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+      </Item3>
+      <Item4>
+        <Name Value="EProcess"/>
+      </Item4>
+      <Item5>
+        <Name Value="EAccessViolation"/>
+      </Item5>
+    </Exceptions>
+  </Debugging>
+</CONFIG>

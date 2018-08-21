@@ -1,0 +1,10 @@
+[
+{ "Server":
+    { "UdpPort"   :"",
+      "UdpIp"     :"",
+      "Iec104Port":"",
+      "Iec104Ip"  :"",
+      "Debug"     :""
+     }
+}
+]

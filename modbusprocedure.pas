@@ -37,6 +37,7 @@ begin
         scadapy.MainFrame.MemoSave.Lines.Add('import socket');
         scadapy.MainFrame.MemoSave.Lines.Add('import threading');
         scadapy.MainFrame.MemoSave.Lines.Add('import json');
+        scadapy.MainFrame.MemoSave.Lines.Add('import datetime');
         try
         for i:=1 to RowCount do
          begin
@@ -117,20 +118,28 @@ begin
                  end;
                  scadapy.MainFrame.MemoSave.Lines.Add('     while True:');
                  scadapy.MainFrame.MemoSave.Lines.Add('         for i in range(0,unitCount):');
+                 scadapy.MainFrame.MemoSave.Lines.Add('             d   = int(datetime.datetime.today().strftime("%d"))');
+                 scadapy.MainFrame.MemoSave.Lines.Add('             mth = int(datetime.datetime.today().strftime("%m"))');
+                 scadapy.MainFrame.MemoSave.Lines.Add('             y   = int(datetime.datetime.today().strftime("%Y"))');
+                 scadapy.MainFrame.MemoSave.Lines.Add('             h   = int(datetime.datetime.today().strftime("%H"))');
+                 scadapy.MainFrame.MemoSave.Lines.Add('             m   = int(datetime.datetime.today().strftime("%M"))');
+                 scadapy.MainFrame.MemoSave.Lines.Add('             s   = int(datetime.datetime.today().strftime("%S"))');
+
+
                  scadapy.MainFrame.MemoSave.Lines.Add('             try:');
                  scadapy.MainFrame.MemoSave.Lines.Add('                 if(reg[i]==''READ_INPUT_REGISTERS''):   c=cst.READ_INPUT_REGISTERS');
                  scadapy.MainFrame.MemoSave.Lines.Add('                 if(reg[i]==''READ_DISCRETE_INPUTS''):   c=cst.READ_DISCRETE_INPUTS');
                  scadapy.MainFrame.MemoSave.Lines.Add('                 if(reg[i]==''READ_COILS''):             c=cst.READ_COILS');
                  scadapy.MainFrame.MemoSave.Lines.Add('                 if(reg[i]==''READ_HOLDING_REGISTERS''): c=cst.READ_HOLDING_REGISTERS');
                  scadapy.MainFrame.MemoSave.Lines.Add('                 varNameData= master.execute(int(rtuAddress[i]), c, int(startAdr[i]), int(rangeAdr[i]) )');
-                 scadapy.MainFrame.MemoSave.Lines.Add('                 sock_udp.sendto(  json.dumps( {''name'':varname[i],''data'':varNameData} ).encode(''utf-8''), server_address_udp)');
-                 scadapy.MainFrame.MemoSave.Lines.Add('                 sock_udp_arch.sendto(  json.dumps( {''name'':varname[i],''data'':varNameData} ).encode(''utf-8''), server_address_udp_arch)');
-                 scadapy.MainFrame.MemoSave.Lines.Add('                 sock_udp_vk.sendto(  json.dumps( {''name'':varname[i],''data'':varNameData} ).encode(''utf-8''), server_address_udp_vk)');
+                 scadapy.MainFrame.MemoSave.Lines.Add('                 sock_udp.sendto(       json.dumps( {''s'':[s],''m'':[m],''h'':[h],''y'':[y],''mth'':[mth],''d'':[d],''con'':[1],''name'':varname[i],''data'':varNameData,''q'':[0]} ).encode(''utf-8''), server_address_udp)');
+                 scadapy.MainFrame.MemoSave.Lines.Add('                 sock_udp_arch.sendto(  json.dumps( {''s'':[s],''m'':[m],''h'':[h],''y'':[y],''mth'':[mth],''d'':[d],''con'':[1],''name'':varname[i],''data'':varNameData,''q'':[0]}).encode(''utf-8''), server_address_udp_arch)');
+                 scadapy.MainFrame.MemoSave.Lines.Add('                 sock_udp_vk.sendto(    json.dumps( {''s'':[s],''m'':[m],''h'':[h],''y'':[y],''mth'':[mth],''d'':[d],''con'':[1],''name'':varname[i],''data'':varNameData,''q'':[0]} ).encode(''utf-8''), server_address_udp_vk)');
                  scadapy.MainFrame.MemoSave.Lines.Add('             except Exception as e:');
                  scadapy.MainFrame.MemoSave.Lines.Add('                 varNameData=None');
-                 scadapy.MainFrame.MemoSave.Lines.Add('                 sock_udp.sendto(  json.dumps( {''name'':varname[i],''data'':''Error''} ).encode(''utf-8''), server_address_udp)');
-                 scadapy.MainFrame.MemoSave.Lines.Add('                 sock_udp_arch.sendto(  json.dumps( {''name'':varname[i],''data'':''Error''} ).encode(''utf-8''), server_address_udp_arch)');
-                 scadapy.MainFrame.MemoSave.Lines.Add('                 sock_udp_vk.sendto(  json.dumps( {''name'':varname[i],''data'':''Error''} ).encode(''utf-8''), server_address_udp_vk)');
+                 scadapy.MainFrame.MemoSave.Lines.Add('                 sock_udp.sendto(       json.dumps( {''s'':[s],''m'':[m],''h'':[h],''y'':[y],''mth'':[mth],''d'':[d],''con'':[0],''name'':varname[i],''data'':''Error'',''q'':[100]} ).encode(''utf-8''), server_address_udp)');
+                 scadapy.MainFrame.MemoSave.Lines.Add('                 sock_udp_arch.sendto(  json.dumps( {''s'':[s],''m'':[m],''h'':[h],''y'':[y],''mth'':[mth],''d'':[d],''con'':[0],''name'':varname[i],''data'':''Error'',''q'':[100]} ).encode(''utf-8''), server_address_udp_arch)');
+                 scadapy.MainFrame.MemoSave.Lines.Add('                 sock_udp_vk.sendto(    json.dumps( {''s'':[s],''m'':[m],''h'':[h],''y'':[y],''mth'':[mth],''d'':[d],''con'':[0],''name'':varname[i],''data'':''Error'',''q'':[100]} ).encode(''utf-8''), server_address_udp_vk)');
                  scadapy.MainFrame.MemoSave.Lines.Add(insText);
                  scadapy.MainFrame.MemoSave.Lines.Add('             time.sleep(float(timeOut[i]))');
                  scadapy.MainFrame.MemoSave.Lines.Add('             gc.collect()');
