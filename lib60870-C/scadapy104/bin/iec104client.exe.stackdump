@@ -1,7 +1,0 @@
-Exception: STATUS_ACCESS_VIOLATION at eip=6110A87C
-eax=00000000 ebx=00000000 ecx=800A1198 edx=611FDD50 esi=8009F4A4 edi=FF09FFE8
-ebp=00000000 esp=FF09CE10 program=C:\msys32\lib60870-C\scadapy104\bin\iec104client.exe, pid 6600, thread iec104client
-cs=0023 ds=002B es=002B fs=0053 gs=002B ss=002B
-Stack trace:
-Frame     Function  Args
-End of stack trace

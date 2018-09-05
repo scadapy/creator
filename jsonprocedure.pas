@@ -158,6 +158,11 @@ begin
         scadapy.MainFrame.MemoSave.Lines.Add('         temp=json.loads( getData.decode("utf-8") )[''data'']');
         scadapy.MainFrame.MemoSave.Lines.Add('         if(temp!=''Error''):');
         scadapy.MainFrame.MemoSave.Lines.Add('             if(dataType==''float''):');
+        scadapy.MainFrame.MemoSave.Lines.Add('                 if(count==''1''):');
+        scadapy.MainFrame.MemoSave.Lines.Add('                     temp2=temp[int(address)]');
+        scadapy.MainFrame.MemoSave.Lines.Add('                     varData=round(float(temp2),2) ');
+
+
         scadapy.MainFrame.MemoSave.Lines.Add('                 if(count==''2''): ');
         scadapy.MainFrame.MemoSave.Lines.Add('                     if(sequence==''12''):');
         scadapy.MainFrame.MemoSave.Lines.Add('                         temp2=(struct.unpack(''f'',struct.pack(''i'',int(hex(int(int(temp[int(address)])<<16)+int(temp[int(address)+1])),16))))');
@@ -291,7 +296,7 @@ begin
              if(Length(scadapy.MainFrame.GVarTree.Cells[2, j])>0) then
                    begin
                    scadapy.MainFrame.MemoSave.Lines.Add('var '+scadapy.MainFrame.GVarTree.Cells[2, j]+';');
-                   scadapy.MainFrame.MemoSave.Lines.Add('var Alias_'+scadapy.MainFrame.GVarTree.Cells[2, j]+'='''+scadapy.MainFrame.GVarTree.Cells[8, j]+''';');
+                  // scadapy.MainFrame.MemoSave.Lines.Add('var Alias_'+scadapy.MainFrame.GVarTree.Cells[2, j]+'='''+scadapy.MainFrame.GVarTree.Cells[8, j]+''';');
                    end;
 
            end;
@@ -308,29 +313,29 @@ begin
   scadapy.MainFrame.MemoSave.Lines.Add('if (xmlhttp.readyState==4 && xmlhttp.status==200) {');
   scadapy.MainFrame.MemoSave.Lines.Add('resp= xmlhttp.responseText;');
   scadapy.MainFrame.MemoSave.Lines.Add('parseResp=JSON.parse(resp);');
-  scadapy.MainFrame.MemoSave.Lines.Add('document.getElementById("recv").innerHTML=resp;');
+  //scadapy.MainFrame.MemoSave.Lines.Add('document.getElementById("recv").innerHTML=resp;');
   rowCount:=scadapy.MainFrame.GVarTree.RowCount;
        for j:=1 to rowCount-1 do
            begin
             if(Length(scadapy.MainFrame.GVarTree.Cells[2, j])>0) then
                   begin
-                     scadapy.MainFrame.MemoSave.Lines.Add('try      { document.getElementById("'+scadapy.MainFrame.GVarTree.Cells[2, j]+'").innerHTML=Alias_'+scadapy.MainFrame.GVarTree.Cells[2, j]+'+'': ''+ parseResp['+(j-1).ToString+'].'+scadapy.MainFrame.GVarTree.Cells[2, j]+'; }');
-                     scadapy.MainFrame.MemoSave.Lines.Add('catch(e) { document.getElementById("'+scadapy.MainFrame.GVarTree.Cells[2, j]+'").innerHTML=Alias_'+scadapy.MainFrame.GVarTree.Cells[2, j]+'+'': 0''; }');
+                   //  scadapy.MainFrame.MemoSave.Lines.Add('try      { document.getElementById("'+scadapy.MainFrame.GVarTree.Cells[2, j]+'").innerHTML='+scadapy.MainFrame.GVarTree.Cells[2, j]+'+'': ''+ parseResp['+(j-1).ToString+'].'+scadapy.MainFrame.GVarTree.Cells[2, j]+'; }');
+                   //  scadapy.MainFrame.MemoSave.Lines.Add('catch(e) { document.getElementById("'+scadapy.MainFrame.GVarTree.Cells[2, j]+'").innerHTML='+scadapy.MainFrame.GVarTree.Cells[2, j]+'+'': 0''; }');
                      if(scadapy.MainFrame.GVarTree.Cells[6, j] = 'bool') then
                        begin
                         scadapy.MainFrame.MemoSave.Lines.Add('try {');
-                        scadapy.MainFrame.MemoSave.Lines.Add('document.getElementById("i1").contentDocument.getElementById("SVG_'+scadapy.MainFrame.GVarTree.Cells[2, j]+'").textContent=parseResp['+(j-1).ToString+'].'+scadapy.MainFrame.GVarTree.Cells[2, j]+';');
-                        scadapy.MainFrame.MemoSave.Lines.Add('if(parseResp['+(j-1).ToString+'].'+scadapy.MainFrame.GVarTree.Cells[2, j]+' == true) { document.getElementById("i1").contentDocument.getElementById("REC_'+scadapy.MainFrame.GVarTree.Cells[2, j]+'").setAttribute("fill", "red"); }');
-                        scadapy.MainFrame.MemoSave.Lines.Add('else { document.getElementById("i1").contentDocument.getElementById("REC_'+scadapy.MainFrame.GVarTree.Cells[2, j]+'").setAttribute("fill", "green"); }');
-                        scadapy.MainFrame.MemoSave.Lines.Add('} catch(e) {');
-                        scadapy.MainFrame.MemoSave.Lines.Add('document.getElementById("i1").contentDocument.getElementById("SVG_'+scadapy.MainFrame.GVarTree.Cells[2, j]+'").textContent=0; }');
+//                        scadapy.MainFrame.MemoSave.Lines.Add('document.getElementById("i1").contentDocument.getElementById("'+scadapy.MainFrame.GVarTree.Cells[2, j]+'").textContent=parseResp['+(j-1).ToString+'].'+scadapy.MainFrame.GVarTree.Cells[2, j]+';');
+                        scadapy.MainFrame.MemoSave.Lines.Add('if(parseResp['+(j-1).ToString+'].'+scadapy.MainFrame.GVarTree.Cells[2, j]+' == true) { document.getElementById("i1").contentDocument.getElementById("'+scadapy.MainFrame.GVarTree.Cells[2, j]+'").setAttribute("fill", "red"); }');
+                        scadapy.MainFrame.MemoSave.Lines.Add('else { document.getElementById("i1").contentDocument.getElementById("'+scadapy.MainFrame.GVarTree.Cells[2, j]+'").setAttribute("fill", "green"); }');
+                        scadapy.MainFrame.MemoSave.Lines.Add('} catch(e) {document.getElementById("i1").contentDocument.getElementById("'+scadapy.MainFrame.GVarTree.Cells[2, j]+'").setAttribute("fill", "yellow");}');
+//                        scadapy.MainFrame.MemoSave.Lines.Add('document.getElementById("i1").contentDocument.getElementById("'+scadapy.MainFrame.GVarTree.Cells[2, j]+'").textContent=0; }');
                        end
                      else
                        begin
- scadapy.MainFrame.MemoSave.Lines.Add('try      { document.getElementById("i1").contentDocument.getElementById("SVG_'+scadapy.MainFrame.GVarTree.Cells[2, j]+'").textContent=parseResp['+(j-1).ToString+'].'+scadapy.MainFrame.GVarTree.Cells[2, j]+'.toFixed(3); }');
+ scadapy.MainFrame.MemoSave.Lines.Add('try      { document.getElementById("i1").contentDocument.getElementById("'+scadapy.MainFrame.GVarTree.Cells[2, j]+'").textContent=parseResp['+(j-1).ToString+'].'+scadapy.MainFrame.GVarTree.Cells[2, j]+'.toFixed(3); }');
  scadapy.MainFrame.MemoSave.Lines.Add('catch(e) {');
- scadapy.MainFrame.MemoSave.Lines.Add('try      { document.getElementById("i1").contentDocument.getElementById("SVG_'+scadapy.MainFrame.GVarTree.Cells[2, j]+'").textContent=parseResp['+(j-1).ToString+'].'+scadapy.MainFrame.GVarTree.Cells[2, j]+'; }');
- scadapy.MainFrame.MemoSave.Lines.Add('catch(e) { document.getElementById("i1").contentDocument.getElementById("SVG_'+scadapy.MainFrame.GVarTree.Cells[2, j]+'").textContent=0; }');
+ scadapy.MainFrame.MemoSave.Lines.Add('try      { document.getElementById("i1").contentDocument.getElementById("'+scadapy.MainFrame.GVarTree.Cells[2, j]+'").textContent=parseResp['+(j-1).ToString+'].'+scadapy.MainFrame.GVarTree.Cells[2, j]+'; }');
+ scadapy.MainFrame.MemoSave.Lines.Add('catch(e) { document.getElementById("i1").contentDocument.getElementById("'+scadapy.MainFrame.GVarTree.Cells[2, j]+'").textContent=0; }');
  scadapy.MainFrame.MemoSave.Lines.Add('         }');
                        end;
                   end;
@@ -338,40 +343,41 @@ begin
   scadapy.MainFrame.MemoSave.Lines.Add('}  }  }');
   scadapy.MainFrame.MemoSave.Lines.Add('</script>');
   scadapy.MainFrame.MemoSave.Lines.Add('<body onload="init()" style="background-color:white" >');
-  scadapy.MainFrame.MemoSave.Lines.Add('<span id="recv"></span><br>');
+//  scadapy.MainFrame.MemoSave.Lines.Add('<span id="recv"></span><br>');
          for j:=1 to rowCount-1 do
            begin
             if(Length(scadapy.MainFrame.GVarTree.Cells[2, j])>0) then
                   begin
-                     scadapy.MainFrame.MemoSave.Lines.Add('<span id="'+scadapy.MainFrame.GVarTree.Cells[2, j]+'"></span><br>');
+                     //scadapy.MainFrame.MemoSave.Lines.Add('<span id="'+scadapy.MainFrame.GVarTree.Cells[2, j]+'"></span><br>');
                   end;
           end;
-         scadapy.MainFrame.MemoSave.Lines.Add('<br><br><iframe id="i1" width="800" height="'+(j*35).ToString+'"  src="./image.svg" ></iframe>');
+         scadapy.MainFrame.MemoSave.Lines.Add('<iframe id="i1" width="100%" height="1000"  src="./imgpy.svg" ></iframe>');
          scadapy.MainFrame.MemoSave.Lines.Add('</body></html>');
     try
             scadapy.MainFrame.MemoSave.Lines.SaveToFile(ProjectPath+'jclient.html');
           except
              ShowMessage('Error to save');
           end;
-          scadapy.MainFrame.MemoSave.Clear;
-          scadapy.MainFrame.MemoSave.Lines.Add('<svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><text x="0"  y="15">SVG image</text>');
-          for j:=1 to rowCount-1 do
-            begin
-             if(Length(scadapy.MainFrame.GVarTree.Cells[2, j])>0) then
-                   begin
-                       scadapy.MainFrame.MemoSave.Lines.Add('<text x="40"  y="'+(j*35).ToString+'">'+scadapy.MainFrame.GVarTree.Cells[6, j]+'</text>');
-                       scadapy.MainFrame.MemoSave.Lines.Add('<text x="130"  y="'+(j*35).ToString+'">'+scadapy.MainFrame.GVarTree.Cells[8, j]+'</text>');
-                       scadapy.MainFrame.MemoSave.Lines.Add('<text id="SVG_'+scadapy.MainFrame.GVarTree.Cells[2, j]+'" x="400"  y="'+(j*35).ToString+'">value</text>');
-                       scadapy.MainFrame.MemoSave.Lines.Add('<rect id="REC_'+scadapy.MainFrame.GVarTree.Cells[2, j]+'" x="10" y="'+(j*35-15).ToString+'" width="20" height="20" fill="red"/>');
-                   end;
-           end;
-                      scadapy.MainFrame.MemoSave.Lines.Add('</svg>');
 
-                      try
-                              scadapy.MainFrame.MemoSave.Lines.SaveToFile(ProjectPath+'image.svg');
-                            except
-                               ShowMessage('Error to save');
-                            end;
+          //scadapy.MainFrame.MemoSave.Clear;
+          //scadapy.MainFrame.MemoSave.Lines.Add('<svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><text x="0"  y="15">SVG image</text>');
+          //for j:=1 to rowCount-1 do
+          //  begin
+          //   if(Length(scadapy.MainFrame.GVarTree.Cells[2, j])>0) then
+          //         begin
+          //             scadapy.MainFrame.MemoSave.Lines.Add('<text x="40"  y="'+(j*35).ToString+'">'+scadapy.MainFrame.GVarTree.Cells[6, j]+'</text>');
+          //             scadapy.MainFrame.MemoSave.Lines.Add('<text x="130"  y="'+(j*35).ToString+'">'+scadapy.MainFrame.GVarTree.Cells[8, j]+'</text>');
+          //             scadapy.MainFrame.MemoSave.Lines.Add('<text id="SVG_'+scadapy.MainFrame.GVarTree.Cells[2, j]+'" x="400"  y="'+(j*35).ToString+'">value</text>');
+          //             scadapy.MainFrame.MemoSave.Lines.Add('<rect id="REC_'+scadapy.MainFrame.GVarTree.Cells[2, j]+'" x="10" y="'+(j*35-15).ToString+'" width="20" height="20" fill="red"/>');
+          //         end;
+          // end;
+          //            scadapy.MainFrame.MemoSave.Lines.Add('</svg>');
+          //
+          //            try
+          //                    scadapy.MainFrame.MemoSave.Lines.SaveToFile(ProjectPath+'image.svg');
+          //                  except
+          //                     ShowMessage('Error to save');
+          //                  end;
 
 
 end;

@@ -256,6 +256,7 @@ var
   AllData,orient:String;
 begin
     Tkinter.createTkinterPython();
+    cmdprocedure.StartCommand('tkrun.py');
   //  EditorForm.Close;
 end;
 
@@ -671,9 +672,19 @@ begin
               end;
      end;
      // F7
-     if(Key=118) then linkObjects();
+     if(Key=118) then
+     begin
+         linkObjects();
+         unselObjects();
+         MouseButtonDown:=False;
+     end;
      // F2
-     if(Key=113) then editObjects();
+     if(Key=113) then
+     begin
+         editObjects();
+         unselObjects();
+         MouseButtonDown:=False;
+     end;
      // F5
      if(Key=116) then copyObjects();
      // del

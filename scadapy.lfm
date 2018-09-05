@@ -1,7 +1,7 @@
 object MainFrame: TMainFrame
-  Left = 203
+  Left = 248
   Height = 687
-  Top = 115
+  Top = 156
   Width = 1267
   Align = alLeft
   Caption = 'ScadaPy'
@@ -174,9 +174,9 @@ object MainFrame: TMainFrame
     Height = 612
     Top = 32
     Width = 995
-    ActivePage = TabDevice
+    ActivePage = TabVariables
     Align = alClient
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 2
     object TabDevice: TTabSheet
       Caption = 'Device'

@@ -9,6 +9,7 @@ interface
   ComCtrls;
 
 procedure createTkinterPython();
+procedure createSaveSVG();
 implementation
 
 uses PropertyForm,scadapy,linkForm,cmdprocedure,editor;
@@ -46,6 +47,57 @@ begin
   editor.EditorForm.MemoSave.Lines.Add('import socket');
   editor.EditorForm.MemoSave.Lines.Add('import struct');
   editor.EditorForm.MemoSave.Lines.Add('import threading');
+
+  editor.EditorForm.MemoSave.Lines.Add('def openLogWin():');
+  editor.EditorForm.MemoSave.Lines.Add('     global alarmLogArrLen');
+  editor.EditorForm.MemoSave.Lines.Add('     def logJob():');
+  editor.EditorForm.MemoSave.Lines.Add('         global alarmLogArrLen');
+  editor.EditorForm.MemoSave.Lines.Add('         if(alarmLogArrLen!=len(alarmLogArr)):');
+  editor.EditorForm.MemoSave.Lines.Add('             textLog.delete(''1.0'', END)');
+  editor.EditorForm.MemoSave.Lines.Add('             for c in range(0,len(alarmLogArr) ):');
+  editor.EditorForm.MemoSave.Lines.Add('                 textLog.insert(1.0,str(alarmLogArr[c])+''\n'')');
+  editor.EditorForm.MemoSave.Lines.Add('         alarmLogArrLen=len(alarmLogArr)');
+  editor.EditorForm.MemoSave.Lines.Add('         win.after(1000, logJob)');
+  editor.EditorForm.MemoSave.Lines.Add('     def clearLog():');
+  editor.EditorForm.MemoSave.Lines.Add('         textLog.delete(''1.0'', END)');
+  editor.EditorForm.MemoSave.Lines.Add('         alarmLogArr.clear()');
+
+
+
+  editor.EditorForm.MemoSave.Lines.Add('     def p(event):');
+  editor.EditorForm.MemoSave.Lines.Add('         win.destroy()');
+  editor.EditorForm.MemoSave.Lines.Add('     win = Toplevel(root)');
+  editor.EditorForm.MemoSave.Lines.Add('     win.geometry(''600x600+50+100'') ');
+  editor.EditorForm.MemoSave.Lines.Add('     win.title("Alarm log" )');
+  editor.EditorForm.MemoSave.Lines.Add('     win["bg"] = "white" ');
+  editor.EditorForm.MemoSave.Lines.Add('     win.transient(root)');
+  editor.EditorForm.MemoSave.Lines.Add('     win.resizable(''y'', ''y'')');
+  editor.EditorForm.MemoSave.Lines.Add('     bClear=Button(win,width=10,text="Clear",command=clearLog)');
+  editor.EditorForm.MemoSave.Lines.Add('     bClear.place(x=1,y=1)');
+
+  editor.EditorForm.MemoSave.Lines.Add('     textLog=Text(win,width=500,height=50,wrap=WORD, bg=''white'',bd=0,fg=''red'')');
+  editor.EditorForm.MemoSave.Lines.Add('     textLog.place(x=1,y=50)');
+  editor.EditorForm.MemoSave.Lines.Add('    # win.attributes(''-alpha'', 0.65)');
+  editor.EditorForm.MemoSave.Lines.Add('     win.bind(''<Destroy>'',p) ');
+  editor.EditorForm.MemoSave.Lines.Add('    # win.overrideredirect(1)');
+  editor.EditorForm.MemoSave.Lines.Add('     win.after(1, logJob)');
+  editor.EditorForm.MemoSave.Lines.Add('def alarmJob(getData,varName,stateDI):');
+  editor.EditorForm.MemoSave.Lines.Add('     h=json.loads(getData.decode("utf-8") )[''h''][0]');
+  editor.EditorForm.MemoSave.Lines.Add('     m=json.loads(getData.decode("utf-8") )[''m''][0]');
+  editor.EditorForm.MemoSave.Lines.Add('     s=json.loads(getData.decode("utf-8") )[''s''][0]');
+  editor.EditorForm.MemoSave.Lines.Add('     d=json.loads(getData.decode("utf-8") )[''d''][0]');
+  editor.EditorForm.MemoSave.Lines.Add('     mth=json.loads(getData.decode("utf-8") )[''mth''][0]');
+  editor.EditorForm.MemoSave.Lines.Add('     y=json.loads(getData.decode("utf-8") )[''y''][0]');
+  editor.EditorForm.MemoSave.Lines.Add('     st='' ''');
+  editor.EditorForm.MemoSave.Lines.Add('     if(stateDI==1):');
+  editor.EditorForm.MemoSave.Lines.Add('         st=''On''');
+  editor.EditorForm.MemoSave.Lines.Add('     if(stateDI==0):');
+  editor.EditorForm.MemoSave.Lines.Add('         st=''Off''');
+  editor.EditorForm.MemoSave.Lines.Add('     if(stateDI!=0 and stateDI!=1):');
+  editor.EditorForm.MemoSave.Lines.Add('         st=''No validate''');
+
+  editor.EditorForm.MemoSave.Lines.Add('     alarmLogArr.append(str(d).rjust(2, ''0'')+''.''+str(mth).rjust(2, ''0'')+''.''+str(y)+''  ''+str(h).rjust(2, ''0'')+'':''+str(m).rjust(2, ''0'')+'':''+str(s).rjust(2, ''0'')+'' ''+varName + '' state= ''+st)');
+
 
   editor.EditorForm.MemoSave.Lines.Add('def PBarC(nowValue,x,y,widgLen,widgHigh,maxValue,barColor,canvasColor,orient):');
   editor.EditorForm.MemoSave.Lines.Add('     c = Canvas(root,width=widgLen,height=widgHigh,bg=canvasColor, highlightthickness=0, relief=''ridge'')');
@@ -199,11 +251,25 @@ begin
                        begin
 
                                editor.EditorForm.MemoSave.Lines.Add('         if(json.loads(getData.decode("utf-8") )[''name''] == '''+scadapy.MainFrame.GVarTree.Cells[1, j]+'''):');
+                               editor.EditorForm.MemoSave.Lines.Add('             global new'+scadapy.MainFrame.GVarTree.Cells[2, j]);
+                               editor.EditorForm.MemoSave.Lines.Add('             varNameLocal='''+scadapy.MainFrame.GVarTree.Cells[8, j]+'''');
                                editor.EditorForm.MemoSave.Lines.Add('             try:');
                                editor.EditorForm.MemoSave.Lines.Add('                 if(json.loads(getData.decode("utf-8") )[''con''][0]==1 or json.loads(getData.decode("utf-8") )[''q''][0]==0 ):');
                                editor.EditorForm.MemoSave.Lines.Add('                     initDI('+scadapy.MainFrame.GVarTree.Cells[2, j]+',h'+scadapy.MainFrame.GVarTree.Cells[2, j]+')');
+                               editor.EditorForm.MemoSave.Lines.Add('                     if(new'+scadapy.MainFrame.GVarTree.Cells[2, j]+'!='+scadapy.MainFrame.GVarTree.Cells[2, j]+'):');
+                               editor.EditorForm.MemoSave.Lines.Add('                          alarmJob(getData,varNameLocal,'+scadapy.MainFrame.GVarTree.Cells[2, j]+')');
+
                                editor.EditorForm.MemoSave.Lines.Add('                 else: ');
                                editor.EditorForm.MemoSave.Lines.Add('                     canv.itemconfig(h'+scadapy.MainFrame.GVarTree.Cells[2, j]+',fill="yellow")');
+                               editor.EditorForm.MemoSave.Lines.Add('                 if(json.loads(getData.decode("utf-8") )[''con''][0]!=1 ):');
+                               editor.EditorForm.MemoSave.Lines.Add('                      if(new'+scadapy.MainFrame.GVarTree.Cells[2, j]+'!='+scadapy.MainFrame.GVarTree.Cells[2, j]+'):');
+
+                               editor.EditorForm.MemoSave.Lines.Add('                           alarmJob(getData,''Error connect ''+varNameLocal,'+scadapy.MainFrame.GVarTree.Cells[2, j]+')');
+                               editor.EditorForm.MemoSave.Lines.Add('                 if(json.loads(getData.decode("utf-8") )[''q''][0]!=0 ):');
+                               editor.EditorForm.MemoSave.Lines.Add('                      if(new'+scadapy.MainFrame.GVarTree.Cells[2, j]+'!='+scadapy.MainFrame.GVarTree.Cells[2, j]+'):');
+                               editor.EditorForm.MemoSave.Lines.Add('                           alarmJob(getData,''Error quality ''+varNameLocal,'+scadapy.MainFrame.GVarTree.Cells[2, j]+')');
+                               editor.EditorForm.MemoSave.Lines.Add('                 new'+scadapy.MainFrame.GVarTree.Cells[2, j]+'='+scadapy.MainFrame.GVarTree.Cells[2, j]);
+
                                editor.EditorForm.MemoSave.Lines.Add('                 pass');
                                editor.EditorForm.MemoSave.Lines.Add('             except Exception as e:');
                                editor.EditorForm.MemoSave.Lines.Add('                pass');
@@ -295,12 +361,25 @@ begin
                                                                                 screen.Height.ToString+''',bg="'+
                                                                                 editor.EditorForm.findColor(editor.EditorForm.MainCanvas.Color)+
                                                                                 '",bd=0, highlightthickness=0, relief=''ridge'')');
-
-
-
-
-
         editor.EditorForm.MemoSave.Lines.Add('     canv.place(x=0, y=0)');
+        editor.EditorForm.MemoSave.Lines.Add('     logButton = Button(root,text="Alarm Log",width=10,height=1,bg="white",fg="black",command=openLogWin)');
+        editor.EditorForm.MemoSave.Lines.Add('     logButton.place(x=5,y=5)');
+        editor.EditorForm.MemoSave.Lines.Add('     alarmLogArr=[]');
+        editor.EditorForm.MemoSave.Lines.Add('     alarmLogArrLen=0');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         editor.EditorForm.MemoSave.Lines.Add('     try: ');
 {$IFDEF Windows}
         editor.EditorForm.MemoSave.Lines.Add('         im = PhotoImage(file='''+StringReplace(editor.EditorForm.ImageName,'\','\\',[rfReplaceAll])+''')');
@@ -318,7 +397,10 @@ begin
   for j:=1 to rowCount-1 do
            begin
              if(Length(scadapy.MainFrame.GVarTree.Cells[2, j])>0) then
+                   begin
                    editor.EditorForm.MemoSave.Lines.Add('     '+scadapy.MainFrame.GVarTree.Cells[2, j]+'=''''');
+                   editor.EditorForm.MemoSave.Lines.Add('     new'+scadapy.MainFrame.GVarTree.Cells[2, j]+'=''''');
+                   end;
            end;
 
 
@@ -409,11 +491,104 @@ begin
 
    try
     editor.EditorForm.MemoSave.Lines.SaveToFile(scadapy.ProjectPath+'tkrun.py');
+    createSaveSVG();
    except
       ShowMessage('Error to save');
    end;
    // cmdprocedure.StartCommandW('tkrun.pyw');
-     cmdprocedure.StartCommand('tkrun.py');
+   //  cmdprocedure.StartCommand('tkrun.py');
+end;
+
+procedure createSaveSVG();
+var
+  i,j,rowCount,cl:Integer;
+  AllData,orient:String;
+begin
+
+  editor.EditorForm.MemoSave.Clear;
+  editor.EditorForm.MemoSave.Lines.Add('<svg width="100%'+
+                                          '" height="100%'+
+                                          '" style="background: '+editor.EditorForm.findColor(editor.EditorForm.MainCanvas.Color)+
+                                          '" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">');
+  //----------------- label
+  for i:=0 to 999 do
+    if(editor.EditorForm.LabelObject[i]<>nil) and  (editor.EditorForm.LabelObject[i].Visible=True) then
+       begin
+          editor.EditorForm.MemoSave.Lines.Add('    <rect id="TLabel_'+i.ToString+'" x="'+editor.EditorForm.LabelObject[i].Left.ToString+
+                                                                     '" y="'+(editor.EditorForm.LabelObject[i].Top - editor.EditorForm.MainCanvas.Top).ToString+
+                                                                     '" width="'+editor.EditorForm.LabelObject[i].Width.ToString+
+                                                                     '" height="'+editor.EditorForm.LabelObject[i].Height.ToString+
+                                                                     '" fill="'+editor.EditorForm.findColor(editor.EditorForm.LabelObject[i].Color)+'"/> ');
+          editor.EditorForm.MemoSave.Lines.Add('    <text x="'+(editor.EditorForm.LabelObject[i].Left+5).ToString+
+                                                     '"  y="'+(editor.EditorForm.LabelObject[i].Top - editor.EditorForm.MainCanvas.Top + editor.EditorForm.LabelObject[i].Height-5).ToString+
+                                                     '" font-size="'+editor.EditorForm.LabelObject[i].Font.Size.ToString+
+                                                     '" font-family="'+editor.EditorForm.LabelObject[i].Font.Name+
+                                                     '" fill="'+editor.EditorForm.findColor(editor.EditorForm.LabelObject[i].Font.Color)+
+                                                     '">'+editor.EditorForm.LabelObject[i].Caption+'</text>');
+
+       end;
+
+  //----------------- static text
+  for i:=0 to 999 do
+     if(editor.EditorForm.StaticTextObject[i]<>nil) and  (editor.EditorForm.StaticTextObject[i].Visible=True) then
+       begin
+          editor.EditorForm.MemoSave.Lines.Add('    <rect id="TStatic_'+i.ToString+'" x="'+editor.EditorForm.StaticTextObject[i].Left.ToString+
+                                                                     '" y="'+(editor.EditorForm.StaticTextObject[i].Top - editor.EditorForm.MainCanvas.Top).ToString+
+                                                                     '" width="'+editor.EditorForm.StaticTextObject[i].Width.ToString+
+                                                                     '" height="'+editor.EditorForm.StaticTextObject[i].Height.ToString+
+                                                                     '" fill="'+editor.EditorForm.findColor(editor.EditorForm.StaticTextObject[i].Color)+'"/> ');
+          editor.EditorForm.MemoSave.Lines.Add('    <text x="'+(editor.EditorForm.StaticTextObject[i].Left+5).ToString+
+                                                     '"  y="'+(editor.EditorForm.StaticTextObject[i].Top - editor.EditorForm.MainCanvas.Top + editor.EditorForm.StaticTextObject[i].Height-5).ToString+
+                                                     '"  font-size="'+editor.EditorForm.StaticTextObject[i].Font.Size.ToString+
+                                                     '"  font-family="'+editor.EditorForm.StaticTextObject[i].Font.Name+
+                                                     '"  fill="'+editor.EditorForm.findColor(editor.EditorForm.StaticTextObject[i].Font.Color)+
+
+                                                     '">'+editor.EditorForm.StaticTextObject[i].Caption+'</text>');
+
+       end;
+    //--------------------- discret
+    for i:=0 to 999 do
+       if(editor.EditorForm.DiscretObject[i]<>nil) and  (editor.EditorForm.DiscretObject[i].Visible=True) then
+       begin
+         editor.EditorForm.MemoSave.Lines.Add('    <rect id="'+editor.EditorForm.DiscretObject[i].Caption+
+                                                           '" x="'+(editor.EditorForm.DiscretObject[i].Left).ToString+
+                                                           '" y="'+(editor.EditorForm.DiscretObject[i].Top - editor.EditorForm.MainCanvas.Top).ToString+
+                                                           '" width="'+editor.EditorForm.DiscretObject[i].Width.ToString+
+                                                           '" height="'+editor.EditorForm.DiscretObject[i].Height.ToString+
+                                                           '" fill="yellow"/> ');
+
+       end;
+
+   ///------------ input
+   for i:=0 to 999 do
+       if(editor.EditorForm.EditObject[i]<>nil) and  (editor.EditorForm.EditObject[i].Visible=True) then
+       begin
+
+         editor.EditorForm.MemoSave.Lines.Add('    <rect  x="'+editor.EditorForm.EditObject[i].Left.ToString+
+                                                                     '" y="'+(editor.EditorForm.EditObject[i].Top - editor.EditorForm.MainCanvas.Top).ToString+
+                                                                     '" width="'+editor.EditorForm.EditObject[i].Width.ToString+
+                                                                     '" height="'+editor.EditorForm.EditObject[i].Height.ToString+
+                                                                     '" fill="'+editor.EditorForm.findColor(editor.EditorForm.EditObject[i].Color)+'"/> ');
+         editor.EditorForm.MemoSave.Lines.Add('    <text id="'+editor.EditorForm.EditObject[i].Caption+
+                                                     '"  x="'+(editor.EditorForm.EditObject[i].Left+5).ToString+
+                                                     '"  y="'+(editor.EditorForm.EditObject[i].Top - editor.EditorForm.MainCanvas.Top + editor.EditorForm.EditObject[i].Height-10).ToString+
+                                                     '"  font-size="'+editor.EditorForm.EditObject[i].Font.Size.ToString+
+                                                     '" font-family="'+editor.EditorForm.EditObject[i].Font.Name+
+                                                     '" fill="'+editor.EditorForm.findColor(editor.EditorForm.EditObject[i].Font.Color)+
+                                                     '">'+editor.EditorForm.EditObject[i].Text+'</text>');
+
+         end;
+
+
+
+
+
+
+
+    editor.EditorForm.MemoSave.Lines.Add('</svg>');
+
+  editor.EditorForm.MemoSave.Lines.SaveToFile(scadapy.ProjectPath+'imgpy.svg');
+
 end;
 
 

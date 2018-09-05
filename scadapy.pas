@@ -323,7 +323,7 @@ uses VkProcedure, MercProcedure,ModbusProcedure,DbProcedure,JsonProcedure,xmlpro
 
 procedure TMainFrame.FormCreate(Sender: TObject);
 begin
-       Version:='ScadaPy Creator v.3.8.1 ';
+       Version:='ScadaPy Creator v.3.8.4 ';
        MainFrame.Caption:=Version;
        PathToProject:=ExtractFilePath(Application.ExeName);
        TabDevicePanelMiddle.Align:=alClient;
@@ -505,6 +505,8 @@ begin
          DbProcedure.DbArchSave();
          VkProcedure.VkClientSave();
          iec104.clientSave();
+         Tkinter.createTkinterPython();
+
        end;
       except
           ShowMessage('Error while saving project.');
@@ -534,6 +536,7 @@ begin
  SaveStartStopSh();
  iec104.clientSave();
  iec104.serverSave();
+ Tkinter.createTkinterPython();
 end;
 
 procedure TMainFrame.BStartModbusClientClick(Sender: TObject);
@@ -619,6 +622,7 @@ end;
 procedure TMainFrame.BTkInterRunClick(Sender: TObject);
 begin
       Tkinter.createTkinterPython();
+      cmdprocedure.StartCommand('tkrun.py');
 end;
 
 procedure TMainFrame.Biec104serverClick(Sender: TObject);
